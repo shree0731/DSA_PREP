@@ -37,25 +37,30 @@ public class BasicOperations {
         }
     }
 
-    /**
-     * Appends an element to the end of the dynamic array.
-     * Amortized Time: O(1)
-     * Worst Case Time: O(N) during resize
-     *
-     * @param element the value to append
-     */
     public void insert(int element) {
         ensureCapacity(size + 1);
         data[size++] = element;
     }
 
     /**
-     * Retrieves element at specified index.
-     * Time Complexity: O(1)
+     * Inserts an element at a specified index, shifting trailing elements right.
+     * Time Complexity: O(N)
      *
-     * @param index index of element to retrieve
-     * @return element value at index
+     * @param index position where element should be inserted
+     * @param element value to insert
      */
+    public void insertAt(int index, int element) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        ensureCapacity(size + 1);
+        for (int i = size; i > index; i--) {
+            data[i] = data[i - 1];
+        }
+        data[index] = element;
+        size++;
+    }
+
     public int get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
