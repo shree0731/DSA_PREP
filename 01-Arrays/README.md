@@ -5,8 +5,31 @@ Welcome to the **Arrays** module of the DSA Preparation repository.
 ## Overview
 An **Array** is a linear data structure consisting of a collection of elements, each identified by at least one array index or key. In Java, arrays are objects, dynamically allocated in contiguous memory locations.
 
-## Topics Covered
-1. **BasicOperations.java**: Core array operations, dynamic array resizing, linear/binary search, reversal, and rotations.
-2. **SecondLargestElement.java**: Finding the second largest/smallest distinct elements across multiple approaches (Brute, Two-Pass, Optimal).
-3. **TwoSum.java**: Pair finding problem with brute force, sorting + two-pointer, and optimal one-pass hash map.
-4. **MaximumSubarray.java**: Finding contiguous subarray with maximum sum using cubic, quadratic, Kadane's algorithm, divide & conquer, and DP.
+### Memory Layout & Characteristics
+- **Contiguous Allocation**: Elements reside in sequential memory addresses.
+- **Random Access (O(1))**: Element address formula:
+  $$\text{Address}(A[i]) = \text{Base Address} + (i \times \text{Element Size})$$
+- **Cache Locality**: Due to spatial locality, sequential traversal benefits heavily from CPU L1/L2 cache prefetching.
+- **Homogeneous Elements**: Stores elements of identical data types.
+
+---
+
+## ⚡ Big-O Complexity Cheat Sheet
+
+| Operation | Static Array | Dynamic Array (Amortized) | Worst Case Dynamic |
+| :--- | :--- | :--- | :--- |
+| **Access by Index** | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Search by Value** | $O(N)$ | $O(N)$ | $O(N)$ |
+| **Insertion (End)** | N/A (Fixed size) | $O(1)$ | $O(N)$ (when resizing) |
+| **Insertion (Middle/Beginning)** | $O(N)$ | $O(N)$ | $O(N)$ |
+| **Deletion (End)** | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Deletion (Middle/Beginning)** | $O(N)$ | $O(N)$ | $O(N)$ |
+| **Space Complexity** | $O(N)$ | $O(N)$ | $O(N)$ |
+
+---
+
+## Topics in this Module
+1. `BasicOperations.java`: Custom dynamic array implementation and algorithms.
+2. `SecondLargestElement.java`: Optimal single-pass search and duplicate handling.
+3. `TwoSum.java`: Hash-map, two-pointer, and pair generation variants.
+4. `MaximumSubarray.java`: Kadane's algorithm, range tracking, and divide-and-conquer.
