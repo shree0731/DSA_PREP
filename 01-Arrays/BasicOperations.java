@@ -42,13 +42,6 @@ public class BasicOperations {
         data[size++] = element;
     }
 
-    /**
-     * Inserts an element at a specified index, shifting trailing elements right.
-     * Time Complexity: O(N)
-     *
-     * @param index position where element should be inserted
-     * @param element value to insert
-     */
     public void insertAt(int index, int element) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -59,6 +52,26 @@ public class BasicOperations {
         }
         data[index] = element;
         size++;
+    }
+
+    /**
+     * Deletes the element at the specified index, shifting remaining elements left.
+     * Time Complexity: O(N)
+     *
+     * @param index index of element to delete
+     * @return deleted element
+     */
+    public int deleteAt(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        int removed = data[index];
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[size - 1] = 0;
+        size--;
+        return removed;
     }
 
     public int get(int index) {
