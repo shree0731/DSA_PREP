@@ -77,13 +77,6 @@ public class BasicOperations {
         return false;
     }
 
-    /**
-     * Performs a linear search to locate the index of target.
-     * Time Complexity: O(N)
-     *
-     * @param target value to search for
-     * @return index of first occurrence, or -1 if not found
-     */
     public int linearSearch(int target) {
         for (int i = 0; i < size; i++) {
             if (data[i] == target) {
@@ -93,15 +86,36 @@ public class BasicOperations {
         return -1;
     }
 
-    /**
-     * Checks if target is contained in the array.
-     * Time Complexity: O(N)
-     *
-     * @param target value to check
-     * @return true if target exists, false otherwise
-     */
     public boolean contains(int target) {
         return linearSearch(target) != -1;
+    }
+
+    /**
+     * Performs iterative binary search on a sorted array.
+     * Time Complexity: O(log N)
+     * Space Complexity: O(1)
+     *
+     * @param arr sorted array of integers
+     * @param target value to locate
+     * @return index of target if found, else -1
+     */
+    public static int binarySearchIterative(int[] arr, int target) {
+        if (arr == null) return -1;
+        int low = 0;
+        int high = arr.length - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (arr[mid] == target) {
+                return mid;
+            } else if (arr[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1;
     }
 
     public int get(int index) {
