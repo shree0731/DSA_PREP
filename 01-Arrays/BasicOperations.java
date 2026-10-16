@@ -67,13 +67,6 @@ public class BasicOperations {
         return removed;
     }
 
-    /**
-     * Finds and deletes the first occurrence of the specified value.
-     * Time Complexity: O(N)
-     *
-     * @param element the value to delete
-     * @return true if found and deleted, false otherwise
-     */
     public boolean deleteValue(int element) {
         for (int i = 0; i < size; i++) {
             if (data[i] == element) {
@@ -82,6 +75,33 @@ public class BasicOperations {
             }
         }
         return false;
+    }
+
+    /**
+     * Performs a linear search to locate the index of target.
+     * Time Complexity: O(N)
+     *
+     * @param target value to search for
+     * @return index of first occurrence, or -1 if not found
+     */
+    public int linearSearch(int target) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == target) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Checks if target is contained in the array.
+     * Time Complexity: O(N)
+     *
+     * @param target value to check
+     * @return true if target exists, false otherwise
+     */
+    public boolean contains(int target) {
+        return linearSearch(target) != -1;
     }
 
     public int get(int index) {
