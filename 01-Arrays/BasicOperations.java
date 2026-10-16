@@ -153,18 +153,6 @@ public class BasicOperations {
         reverseRange(arr, 0, n - 1);
     }
 
-    /**
-     * Right rotates the array by d positions using the 3-step reversal algorithm.
-     * Step 1: Reverse entire array [0 .. n-1]
-     * Step 2: Reverse first d elements [0 .. d-1]
-     * Step 3: Reverse remaining elements [d .. n-1]
-     *
-     * Time Complexity: O(N)
-     * Space Complexity: O(1)
-     *
-     * @param arr array to rotate
-     * @param d number of positions to shift right
-     */
     public static void rotateRight(int[] arr, int d) {
         if (arr == null || arr.length <= 1) return;
         int n = arr.length;
@@ -182,5 +170,71 @@ public class BasicOperations {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
         return data[index];
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public void display() {
+        StringBuilder sb = new StringBuilder("[");
+        for (int i = 0; i < size; i++) {
+            sb.append(data[i]);
+            if (i < size - 1) sb.append(", ");
+        }
+        sb.append("]");
+        System.out.println("Array (size=" + size + ", cap=" + capacity + "): " + sb.toString());
+    }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Dynamic Array Operations ===");
+        BasicOperations list = new BasicOperations(3);
+        list.insert(10);
+        list.insert(20);
+        list.insert(30);
+        list.display();
+
+        System.out.println("Triggering dynamic resize...");
+        list.insert(40);
+        list.display();
+
+        System.out.println("Inserting 15 at index 1...");
+        list.insertAt(1, 15);
+        list.display();
+
+        System.out.println("Deleting element at index 2 (val=" + list.deleteAt(2) + ")...");
+        list.display();
+
+        System.out.println("Linear search for 40: index = " + list.linearSearch(40));
+        System.out.println("Contains 99: " + list.contains(99));
+
+        System.out.println("\n=== Testing Binary Search ===");
+        int[] sorted = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
+        System.out.println("Array: " + Arrays.toString(sorted));
+        System.out.println("Binary Search Iterative (target=23): " + binarySearchIterative(sorted, 23));
+        System.out.println("Binary Search Recursive (target=23): " + binarySearchRecursive(sorted, 23));
+        System.out.println("Binary Search (target=100, absent): " + binarySearchIterative(sorted, 100));
+
+        System.out.println("\n=== Testing Reversal & Rotations ===");
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        System.out.println("Original: " + Arrays.toString(nums));
+        reverse(nums);
+        System.out.println("Reversed: " + Arrays.toString(nums));
+
+        int[] rot = {1, 2, 3, 4, 5, 6, 7};
+        rotateLeft(rot, 2);
+        System.out.println("Left rotate by 2: " + Arrays.toString(rot));
+
+        rot = new int[]{1, 2, 3, 4, 5, 6, 7};
+        rotateRight(rot, 2);
+        System.out.println("Right rotate by 2: " + Arrays.toString(rot));
     }
 }
