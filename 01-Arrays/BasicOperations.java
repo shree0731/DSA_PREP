@@ -54,13 +54,6 @@ public class BasicOperations {
         size++;
     }
 
-    /**
-     * Deletes the element at the specified index, shifting remaining elements left.
-     * Time Complexity: O(N)
-     *
-     * @param index index of element to delete
-     * @return deleted element
-     */
     public int deleteAt(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -72,6 +65,23 @@ public class BasicOperations {
         data[size - 1] = 0;
         size--;
         return removed;
+    }
+
+    /**
+     * Finds and deletes the first occurrence of the specified value.
+     * Time Complexity: O(N)
+     *
+     * @param element the value to delete
+     * @return true if found and deleted, false otherwise
+     */
+    public boolean deleteValue(int element) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == element) {
+                deleteAt(i);
+                return true;
+            }
+        }
+        return false;
     }
 
     public int get(int index) {
