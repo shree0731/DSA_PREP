@@ -108,15 +108,6 @@ public class BasicOperations {
         return -1;
     }
 
-    /**
-     * Performs recursive binary search on a sorted array.
-     * Time Complexity: O(log N)
-     * Space Complexity: O(log N) call stack
-     *
-     * @param arr sorted array
-     * @param target value to locate
-     * @return index of target, or -1 if absent
-     */
     public static int binarySearchRecursive(int[] arr, int target) {
         if (arr == null) return -1;
         return binarySearchRecursiveHelper(arr, target, 0, arr.length - 1);
@@ -131,6 +122,36 @@ public class BasicOperations {
             return binarySearchRecursiveHelper(arr, target, mid + 1, high);
         } else {
             return binarySearchRecursiveHelper(arr, target, low, mid - 1);
+        }
+    }
+
+    /**
+     * Reverses an entire array in-place using two pointers.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     *
+     * @param arr the array to reverse
+     */
+    public static void reverse(int[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        reverseRange(arr, 0, arr.length - 1);
+    }
+
+    /**
+     * Reverses a subsegment of an array from start to end inclusive.
+     *
+     * @param arr array to modify
+     * @param start start index
+     * @param end end index
+     */
+    public static void reverseRange(int[] arr, int start, int end) {
+        if (arr == null) return;
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
         }
     }
 
