@@ -141,18 +141,6 @@ public class BasicOperations {
         }
     }
 
-    /**
-     * Left rotates the array by d positions using the 3-step reversal algorithm.
-     * Step 1: Reverse first d elements [0 .. d-1]
-     * Step 2: Reverse remaining elements [d .. n-1]
-     * Step 3: Reverse entire array [0 .. n-1]
-     *
-     * Time Complexity: O(N)
-     * Space Complexity: O(1)
-     *
-     * @param arr array to rotate
-     * @param d number of positions to shift left
-     */
     public static void rotateLeft(int[] arr, int d) {
         if (arr == null || arr.length <= 1) return;
         int n = arr.length;
@@ -163,6 +151,30 @@ public class BasicOperations {
         reverseRange(arr, 0, d - 1);
         reverseRange(arr, d, n - 1);
         reverseRange(arr, 0, n - 1);
+    }
+
+    /**
+     * Right rotates the array by d positions using the 3-step reversal algorithm.
+     * Step 1: Reverse entire array [0 .. n-1]
+     * Step 2: Reverse first d elements [0 .. d-1]
+     * Step 3: Reverse remaining elements [d .. n-1]
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     *
+     * @param arr array to rotate
+     * @param d number of positions to shift right
+     */
+    public static void rotateRight(int[] arr, int d) {
+        if (arr == null || arr.length <= 1) return;
+        int n = arr.length;
+        d = d % n;
+        if (d < 0) d += n;
+        if (d == 0) return;
+
+        reverseRange(arr, 0, n - 1);
+        reverseRange(arr, 0, d - 1);
+        reverseRange(arr, d, n - 1);
     }
 
     public int get(int index) {
