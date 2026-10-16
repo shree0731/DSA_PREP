@@ -90,15 +90,6 @@ public class BasicOperations {
         return linearSearch(target) != -1;
     }
 
-    /**
-     * Performs iterative binary search on a sorted array.
-     * Time Complexity: O(log N)
-     * Space Complexity: O(1)
-     *
-     * @param arr sorted array of integers
-     * @param target value to locate
-     * @return index of target if found, else -1
-     */
     public static int binarySearchIterative(int[] arr, int target) {
         if (arr == null) return -1;
         int low = 0;
@@ -106,7 +97,6 @@ public class BasicOperations {
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
-
             if (arr[mid] == target) {
                 return mid;
             } else if (arr[mid] < target) {
@@ -116,6 +106,32 @@ public class BasicOperations {
             }
         }
         return -1;
+    }
+
+    /**
+     * Performs recursive binary search on a sorted array.
+     * Time Complexity: O(log N)
+     * Space Complexity: O(log N) call stack
+     *
+     * @param arr sorted array
+     * @param target value to locate
+     * @return index of target, or -1 if absent
+     */
+    public static int binarySearchRecursive(int[] arr, int target) {
+        if (arr == null) return -1;
+        return binarySearchRecursiveHelper(arr, target, 0, arr.length - 1);
+    }
+
+    private static int binarySearchRecursiveHelper(int[] arr, int target, int low, int high) {
+        if (low > high) return -1;
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            return binarySearchRecursiveHelper(arr, target, mid + 1, high);
+        } else {
+            return binarySearchRecursiveHelper(arr, target, low, mid - 1);
+        }
     }
 
     public int get(int index) {
