@@ -74,13 +74,29 @@ public class SecondLargestElement {
         return foundSecond ? secondSmallest : -1;
     }
 
-    /**
-     * Finds both second smallest and second largest in a single traversal.
-     * 
-     * @param arr input array
-     * @return 2-element array [secondSmallest, secondLargest]
-     */
     public static int[] findSecondSmallestAndLargest(int[] arr) {
         return new int[]{findSecondSmallest(arr), findSecondLargestOptimal(arr)};
+    }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Second Largest Element ===");
+
+        int[][] testCases = {
+            {12, 35, 1, 10, 34, 1},
+            {10, 5, 10},
+            {10, 10, 10},
+            {1},
+            {-5, -2, -8, -1, -9},
+            {100, 200}
+        };
+
+        for (int[] test : testCases) {
+            System.out.println("\nInput: " + Arrays.toString(test));
+            System.out.println("  Sorting Approach : " + findSecondLargestSorting(test));
+            System.out.println("  Two-Pass Approach: " + findSecondLargestTwoPass(test));
+            System.out.println("  Optimal 1-Pass   : " + findSecondLargestOptimal(test));
+            System.out.println("  Second Smallest  : " + findSecondSmallest(test));
+            System.out.println("  Combined Pair    : " + Arrays.toString(findSecondSmallestAndLargest(test)));
+        }
     }
 }
