@@ -33,3 +33,22 @@ An **Array** is a linear data structure consisting of a collection of elements, 
 2. `SecondLargestElement.java`: Optimal single-pass search and duplicate handling.
 3. `TwoSum.java`: Hash-map, two-pointer, and pair generation variants.
 4. `MaximumSubarray.java`: Kadane's algorithm, range tracking, and divide-and-conquer.
+
+---
+
+## 🔍 Second Largest Element
+
+### Problem Statement
+Given an array of integers, find the second largest distinct element. If it does not exist (e.g., all elements are identical, or array size $< 2$), return `-1`.
+
+### Comparison of Approaches
+
+| Approach | Time Complexity | Space Complexity | Description |
+| :--- | :--- | :--- | :--- |
+| **Sorting** | $O(N \log N)$ | $O(N)$ | Sort copy of array; traverse backwards for first element $< \text{max}$. |
+| **Two-Pass Scan** | $O(2N) = O(N)$ | $O(1)$ | Pass 1 finds maximum; Pass 2 finds maximum element $< \text{overall max}$. |
+| **Single-Pass (Optimal)**| $O(N)$ | $O(1)$ | Track `largest` and `secondLargest` simultaneously in a single loop. |
+
+### Key Takeaways
+- Be vigilant of duplicates: having multiple copies of the maximum element does not make it the second largest.
+- Ensure correct initialization (avoid assuming positive values or assuming `Integer.MIN_VALUE` cannot be an input).
