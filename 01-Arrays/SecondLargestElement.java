@@ -2,6 +2,11 @@ import java.util.Arrays;
 
 /**
  * Problem: Second Largest Element in an Array
+ * 
+ * Handles edge cases:
+ * 1. null or length < 2 -> returns -1
+ * 2. All elements identical (e.g. [7, 7, 7]) -> returns -1
+ * 3. Array contains Integer.MIN_VALUE elements -> properly distinguished
  */
 public class SecondLargestElement {
 
@@ -32,35 +37,26 @@ public class SecondLargestElement {
         return (secondLargest == Integer.MIN_VALUE) ? -1 : secondLargest;
     }
 
-    /**
-     * Approach 3: Optimal Single-Pass Scan
-     * Time Complexity: O(N) in a single traversal
-     * Space Complexity: O(1)
-     * 
-     * Maintains largest and secondLargest concurrently:
-     * - If num > largest: secondLargest becomes largest, largest becomes num.
-     * - Else if num > secondLargest and num != largest: secondLargest becomes num.
-     * 
-     * @param arr input array
-     * @return second largest distinct element, or -1 if none exists
-     */
     public static int findSecondLargestOptimal(int[] arr) {
-        if (arr == null || arr.length < 2) {
-            return -1;
-        }
+        if (arr == null || arr.length < 2) return -1;
 
         int largest = Integer.MIN_VALUE;
         int secondLargest = Integer.MIN_VALUE;
+        boolean foundSecond = false;
 
         for (int num : arr) {
             if (num > largest) {
-                secondLargest = largest;
+                if (largest != Integer.MIN_VALUE) {
+                    secondLargest = largest;
+                    foundSecond = true;
+                }
                 largest = num;
-            } else if (num > secondLargest && num != largest) {
+            } else if (num < largest && (num > secondLargest || !foundSecond)) {
                 secondLargest = num;
+                foundSecond = true;
             }
         }
 
-        return (secondLargest == Integer.MIN_VALUE) ? -1 : secondLargest;
+        return foundSecond ? secondLargest : -1;
     }
 }
