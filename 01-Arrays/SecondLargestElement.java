@@ -53,17 +53,8 @@ public class SecondLargestElement {
         return foundSecond ? secondLargest : -1;
     }
 
-    /**
-     * Finds the second smallest distinct element in a single pass.
-     * Time Complexity: O(N)
-     * Space Complexity: O(1)
-     * 
-     * @param arr input array
-     * @return second smallest distinct element, or -1 if none exists
-     */
     public static int findSecondSmallest(int[] arr) {
         if (arr == null || arr.length < 2) return -1;
-
         int smallest = Integer.MAX_VALUE;
         int secondSmallest = Integer.MAX_VALUE;
         boolean foundSecond = false;
@@ -80,7 +71,16 @@ public class SecondLargestElement {
                 foundSecond = true;
             }
         }
-
         return foundSecond ? secondSmallest : -1;
+    }
+
+    /**
+     * Finds both second smallest and second largest in a single traversal.
+     * 
+     * @param arr input array
+     * @return 2-element array [secondSmallest, secondLargest]
+     */
+    public static int[] findSecondSmallestAndLargest(int[] arr) {
+        return new int[]{findSecondSmallest(arr), findSecondLargestOptimal(arr)};
     }
 }
