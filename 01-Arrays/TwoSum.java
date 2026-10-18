@@ -76,4 +76,43 @@ public class TwoSum {
         }
         return new int[0];
     }
+
+    /**
+     * Finds all unique value pairs (a, b) in an array that add up to target.
+     * Handles duplicate array elements gracefully.
+     * Time Complexity: O(N log N) due to sorting
+     * Space Complexity: O(1) auxiliary (excluding output)
+     * 
+     * @param nums array of integers
+     * @param target sum to match
+     * @return list of unique pairs
+     */
+    public static List<List<Integer>> findAllUniquePairs(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null || nums.length < 2) return result;
+
+        int[] copy = nums.clone();
+        Arrays.sort(copy);
+
+        int left = 0;
+        int right = copy.length - 1;
+
+        while (left < right) {
+            int sum = copy[left] + copy[right];
+            if (sum == target) {
+                result.add(Arrays.asList(copy[left], copy[right]));
+                left++;
+                right--;
+
+                // Skip duplicates
+                while (left < right && copy[left] == copy[left - 1]) left++;
+                while (left < right && copy[right] == copy[right + 1]) right--;
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return result;
+    }
 }
