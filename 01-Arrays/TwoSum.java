@@ -126,4 +126,33 @@ public class TwoSum {
     public static boolean hasPairWithSum(int[] nums, int target) {
         return twoSumOptimal(nums, target).length == 2;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Two Sum Implementations ===");
+
+        int[] nums1 = {2, 7, 11, 15};
+        int target1 = 9;
+        System.out.println("Test 1: nums = " + Arrays.toString(nums1) + ", target = " + target1);
+        System.out.println("  Brute Force : " + Arrays.toString(twoSumBruteForce(nums1, target1)));
+        System.out.println("  Two Pass    : " + Arrays.toString(twoSumTwoPass(nums1, target1)));
+        System.out.println("  Optimal 1-P : " + Arrays.toString(twoSumOptimal(nums1, target1)));
+
+        int[] nums2 = {3, 2, 4};
+        int target2 = 6;
+        System.out.println("\nTest 2: nums = " + Arrays.toString(nums2) + ", target = " + target2);
+        System.out.println("  Optimal 1-P : " + Arrays.toString(twoSumOptimal(nums2, target2)));
+
+        int[] nums3 = {-3, 4, 3, 90};
+        int target3 = 0;
+        System.out.println("\nTest 3 (Negative numbers): nums = " + Arrays.toString(nums3) + ", target = " + target3);
+        System.out.println("  Optimal 1-P : " + Arrays.toString(twoSumOptimal(nums3, target3)));
+
+        int[] sortedNums = {2, 7, 11, 15};
+        System.out.println("\nTest 4 (Two Sum II Sorted): nums = " + Arrays.toString(sortedNums) + ", target = 9");
+        System.out.println("  Two Pointer : " + Arrays.toString(twoSumSorted(sortedNums, 9)));
+
+        int[] dupNums = {1, 2, 2, 3, 4, 3, 5, 0};
+        System.out.println("\nTest 5 (Find All Unique Pairs for target=5): nums = " + Arrays.toString(dupNums));
+        System.out.println("  All Pairs   : " + findAllUniquePairs(dupNums, 5));
+    }
 }
