@@ -115,4 +115,15 @@ public class TwoSum {
         }
         return result;
     }
+
+    /**
+     * Checks if any pair in the array adds up to target.
+     * 
+     * @param nums array of integers
+     * @param target target sum
+     * @return true if pair exists, false otherwise
+     */
+    public static boolean hasPairWithSum(int[] nums, int target) {
+        return twoSumOptimal(nums, target).length == 2;
+    }
 }
