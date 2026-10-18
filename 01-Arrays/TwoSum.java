@@ -47,4 +47,33 @@ public class TwoSum {
         }
         return new int[0];
     }
+
+    /**
+     * Approach 4: Two-Pointer (Two Sum II - Input array is sorted)
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     * 
+     * Uses two converging pointers from the extremes of a sorted array.
+     * 
+     * @param sortedNums sorted array of integers
+     * @param target sum to match
+     * @return 1-based indices [left + 1, right + 1] as per LeetCode #167 convention
+     */
+    public static int[] twoSumSorted(int[] sortedNums, int target) {
+        if (sortedNums == null || sortedNums.length < 2) return new int[0];
+        int left = 0;
+        int right = sortedNums.length - 1;
+
+        while (left < right) {
+            int sum = sortedNums[left] + sortedNums[right];
+            if (sum == target) {
+                return new int[]{left + 1, right + 1}; // 1-based index
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return new int[0];
+    }
 }
