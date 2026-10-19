@@ -178,4 +178,32 @@ public class MaximumSubarray {
 
         return leftSum + rightSum;
     }
+
+    /**
+     * Approach 5: Explicit Dynamic Programming (Tabulation)
+     * Time Complexity: O(N)
+     * Space Complexity: O(N) dp table
+     * 
+     * State Definition:
+     * dp[i] = Maximum subarray sum ending at index i.
+     * 
+     * Transition:
+     * dp[i] = Math.max(nums[i], dp[i - 1] + nums[i])
+     * 
+     * @param nums array of integers
+     * @return maximum subarray sum
+     */
+    public static int maxSubArrayDP(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int n = nums.length;
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+        int globalMax = dp[0];
+
+        for (int i = 1; i < n; i++) {
+            dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
+            globalMax = Math.max(globalMax, dp[i]);
+        }
+        return globalMax;
+    }
 }
