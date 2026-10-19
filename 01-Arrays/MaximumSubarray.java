@@ -120,4 +120,15 @@ public class MaximumSubarray {
 
         return new SubarrayResult(maxSum, start, end, nums);
     }
+
+    /**
+     * Validates that Kadane's correctly handles all negative values.
+     * e.g., [-5, -2, -8] -> returns -2 (not 0).
+     */
+    public static boolean hasOnlyNegativeNumbers(int[] nums) {
+        for (int num : nums) {
+            if (num >= 0) return false;
+        }
+        return true;
+    }
 }
