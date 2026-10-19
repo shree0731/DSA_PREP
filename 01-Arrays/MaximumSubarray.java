@@ -2,18 +2,34 @@ import java.util.Arrays;
 
 /**
  * Problem: Maximum Subarray (LeetCode #53)
- * 
- * Given an integer array nums, find the contiguous subarray (containing at least
- * one number) which has the largest sum and return its sum.
- * 
- * Example:
- * Input: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
- * Output: 6
- * Explanation: [4, -1, 2, 1] has the largest sum = 6.
  */
 public class MaximumSubarray {
 
-    public MaximumSubarray() {
-        // Utility class
+    /**
+     * Approach 1: Cubic Brute Force
+     * Time Complexity: O(N^3)
+     * Space Complexity: O(1)
+     * 
+     * Evaluates every conceivable subarray [i .. j] by computing the sum
+     * with an inner loop.
+     * 
+     * @param nums array of integers
+     * @return maximum subarray sum
+     */
+    public static int maxSubArrayBruteForceCubic(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int n = nums.length;
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int currentSum = 0;
+                for (int k = i; k <= j; k++) {
+                    currentSum += nums[k];
+                }
+                maxSum = Math.max(maxSum, currentSum);
+            }
+        }
+        return maxSum;
     }
 }
