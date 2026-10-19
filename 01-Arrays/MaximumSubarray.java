@@ -131,4 +131,51 @@ public class MaximumSubarray {
         }
         return true;
     }
+
+    /**
+     * Approach 4: Divide and Conquer
+     * Time Complexity: O(N log N)
+     * Space Complexity: O(log N) recursive call stack
+     * 
+     * Splits array into halves and computes maximum of:
+     * 1. Max subarray entirely in left half
+     * 2. Max subarray entirely in right half
+     * 3. Max subarray crossing the midpoint
+     * 
+     * @param nums array of integers
+     * @return maximum subarray sum
+     */
+    public static int maxSubArrayDivideAndConquer(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        return dacHelper(nums, 0, nums.length - 1);
+    }
+
+    private static int dacHelper(int[] nums, int left, int right) {
+        if (left == right) return nums[left];
+        int mid = left + (right - left) / 2;
+
+        int leftMax = dacHelper(nums, left, mid);
+        int rightMax = dacHelper(nums, mid + 1, right);
+        int crossMax = maxCrossingSum(nums, left, mid, right);
+
+        return Math.max(Math.max(leftMax, rightMax), crossMax);
+    }
+
+    private static int maxCrossingSum(int[] nums, int left, int mid, int right) {
+        int leftSum = Integer.MIN_VALUE;
+        int sum = 0;
+        for (int i = mid; i >= left; i--) {
+            sum += nums[i];
+            if (sum > leftSum) leftSum = sum;
+        }
+
+        int rightSum = Integer.MIN_VALUE;
+        sum = 0;
+        for (int i = mid + 1; i <= right; i++) {
+            sum += nums[i];
+            if (sum > rightSum) rightSum = sum;
+        }
+
+        return leftSum + rightSum;
+    }
 }
