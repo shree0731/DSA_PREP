@@ -52,3 +52,23 @@ Given an array of integers, find the second largest distinct element. If it does
 ### Key Takeaways
 - Be vigilant of duplicates: having multiple copies of the maximum element does not make it the second largest.
 - Ensure correct initialization (avoid assuming positive values or assuming `Integer.MIN_VALUE` cannot be an input).
+
+---
+
+## 🎯 Two Sum Problem
+
+### Problem Summary
+Given an array `nums` and integer `target`, return indices of two numbers adding up to `target`.
+
+### Comparison of Approaches
+
+| Approach | Time Complexity | Auxiliary Space | Best Used When |
+| :--- | :--- | :--- | :--- |
+| **Brute Force** | $O(N^2)$ | $O(1)$ | Small $N < 100$, strict memory limit |
+| **Two-Pass Hash Map** | $O(N)$ | $O(N)$ | General lookups with complete dataset |
+| **One-Pass Hash Map** | $O(N)$ | $O(N)$ | Optimal standard solution (LeetCode #1) |
+| **Two Pointers (Two Sum II)** | $O(N)$ | $O(1)$ | Input array is already sorted |
+| **Sort + Two Pointers** | $O(N \log N)$ | $O(1)$ | Returning values (not original indices) |
+
+### Key Optimization
+By sizing `HashMap` with `(int) Math.ceil(nums.length / 0.75f) + 1`, we prevent expensive bucket re-allocations and rehashing overhead during insertion.
