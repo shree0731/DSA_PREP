@@ -206,4 +206,26 @@ public class MaximumSubarray {
         }
         return globalMax;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Maximum Subarray (Kadane's Algorithm) ===");
+
+        int[][] testCases = {
+            {-2, 1, -3, 4, -1, 2, 1, -5, 4},
+            {1},
+            {5, 4, -1, 7, 8},
+            {-8, -3, -6, -2, -5, -4},
+            {-1}
+        };
+
+        for (int[] test : testCases) {
+            System.out.println("\nInput: " + Arrays.toString(test));
+            System.out.println("  Cubic Brute Force : " + maxSubArrayBruteForceCubic(test));
+            System.out.println("  Prefix Sum O(N^2) : " + maxSubArrayPrefixSumQuadratic(test));
+            System.out.println("  Kadane's Algorithm: " + maxSubArrayKadane(test));
+            System.out.println("  Divide & Conquer  : " + maxSubArrayDivideAndConquer(test));
+            System.out.println("  Dynamic Prog (DP) : " + maxSubArrayDP(test));
+            System.out.println("  Range Breakdown   : " + maxSubArrayWithRange(test));
+        }
+    }
 }
