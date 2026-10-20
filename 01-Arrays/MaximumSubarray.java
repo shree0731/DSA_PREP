@@ -1,3 +1,16 @@
+/**
+ * Mathematical Principle of Kadane's Algorithm:
+ * 
+ * At each index `i`, we decide whether to:
+ * 1. Start a fresh subarray at `nums[i]`
+ * 2. Extend the existing subarray from `i-1` by adding `nums[i]`
+ * 
+ * Invariant:
+ * currentSum = max(nums[i], currentSum + nums[i])
+ * 
+ * When currentSum drops below 0 and nums[i] is positive, resetting tempStart
+ * ensures we drop unpromising negative prefixes.
+ */
 import java.util.Arrays;
 
 /**
