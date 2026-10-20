@@ -82,3 +82,5 @@ java MaximumSubarray
 ## 💻 Requirements
 - Java Development Kit (JDK) 8 or higher
 - Git
+
+> Milestone: 01-Arrays module completed with full test coverage and comprehensive documentation.
