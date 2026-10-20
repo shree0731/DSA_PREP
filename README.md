@@ -78,3 +78,7 @@ java MaximumSubarray
 
 ---
 *Maintained by [Shreepurnaa V](https://github.com/shree0731)*
+
+## 💻 Requirements
+- Java Development Kit (JDK) 8 or higher
+- Git
