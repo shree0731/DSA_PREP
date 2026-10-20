@@ -72,3 +72,27 @@ Given an array `nums` and integer `target`, return indices of two numbers adding
 
 ### Key Optimization
 By sizing `HashMap` with `(int) Math.ceil(nums.length / 0.75f) + 1`, we prevent expensive bucket re-allocations and rehashing overhead during insertion.
+
+---
+
+## 📈 Maximum Subarray (Kadane's Algorithm)
+
+### Problem Summary (LeetCode #53)
+Given an integer array `nums`, find the contiguous subarray which has the largest sum and return its sum.
+
+### Comparison of Approaches
+
+| Approach | Time Complexity | Space Complexity | Description |
+| :--- | :--- | :--- | :--- |
+| **Cubic Brute Force** | $O(N^3)$ | $O(1)$ | Try all `i`, `j` and calculate subarray sum in loop. |
+| **Quadratic Prefix Sum** | $O(N^2)$ | $O(1)$ | Accumulate sum incrementally for each starting `i`. |
+| **Divide and Conquer** | $O(N \log N)$ | $O(\log N)$ | Split into halves and compute cross-boundary max sum. |
+| **Dynamic Programming** | $O(N)$ | $O(N)$ | Tabulate `dp[i] = Math.max(nums[i], dp[i-1] + nums[i])`. |
+| **Kadane's Algorithm** | $O(N)$ | $O(1)$ | Optimal space-reduced DP keeping running current max. |
+
+### Visual Representation of Kadane's
+```text
+nums:        [-2,  1, -3,  4, -1,  2,  1, -5,  4]
+currentSum:  [-2,  1, -2,  4,  3,  5,  6,  1,  5]
+maxSum:      [-2,  1,  1,  4,  4,  5,  6,  6,  6] -> Result = 6 ([4, -1, 2, 1])
+```
