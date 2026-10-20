@@ -44,7 +44,7 @@ public class BasicOperations {
 
     public void insertAt(int index, int element) {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+            throw new IndexOutOfBoundsException("Invalid array index: " + index + ", current size is: " + size);
         }
         ensureCapacity(size + 1);
         for (int i = size; i > index; i--) {
@@ -56,7 +56,7 @@ public class BasicOperations {
 
     public int deleteAt(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+            throw new IndexOutOfBoundsException("Invalid array index: " + index + ", current size is: " + size);
         }
         int removed = data[index];
         for (int i = index; i < size - 1; i++) {
@@ -167,7 +167,7 @@ public class BasicOperations {
 
     public int get(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+            throw new IndexOutOfBoundsException("Invalid array index: " + index + ", current size is: " + size);
         }
         return data[index];
     }
