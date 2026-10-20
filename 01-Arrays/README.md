@@ -96,3 +96,25 @@ nums:        [-2,  1, -3,  4, -1,  2,  1, -5,  4]
 currentSum:  [-2,  1, -2,  4,  3,  5,  6,  1,  5]
 maxSum:      [-2,  1,  1,  4,  4,  5,  6,  6,  6] -> Result = 6 ([4, -1, 2, 1])
 ```
+
+---
+
+## 💡 Essential Array Problem Solving Patterns
+
+1. **Two Pointers**:
+   - Left and right moving towards center (Sorted arrays, Two Sum II, Palindromes).
+   - Fast and slow pointers (Cycle detection, in-place deduplication).
+
+2. **Sliding Window**:
+   - Fixed size window (max sum of subarray of size $K$).
+   - Dynamic size window (longest substring without repeating characters).
+
+3. **Prefix Sums**:
+   - Enables $O(1)$ range sum queries: $\text{sum}(i, j) = \text{prefix}[j] - \text{prefix}[i - 1]$.
+
+4. **In-place Reversal / 3-Step Rotation**:
+   - Left rotate by $k$: reverse $(0..k-1)$, reverse $(k..n-1)$, reverse $(0..n-1)$.
+   - Right rotate by $k$: reverse $(0..n-1)$, reverse $(0..k-1)$, reverse $(k..n-1)$.
+
+5. **Kadane's Algorithm**:
+   - Local vs global maximum decisions on contiguous streams.
