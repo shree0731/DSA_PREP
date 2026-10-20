@@ -118,3 +118,12 @@ maxSum:      [-2,  1,  1,  4,  4,  5,  6,  6,  6] -> Result = 6 ([4, -1, 2, 1])
 
 5. **Kadane's Algorithm**:
    - Local vs global maximum decisions on contiguous streams.
+
+---
+
+## 🎯 Interview Tips & Common Pitfalls
+
+- **Off-by-One Errors**: Double check boundary conditions (`< n` vs `<= n - 1`, `high = n - 1`).
+- **Integer Overflow**: Always compute mid as `low + (high - low) / 2` instead of `(low + high) / 2`.
+- **Negative Targets & Elements**: Ensure algorithms don't implicitly assume non-negative data unless explicitly specified.
+- **Empty or Single-Element Arrays**: Always handle $N = 0$ and $N = 1$ before entering main loops.
