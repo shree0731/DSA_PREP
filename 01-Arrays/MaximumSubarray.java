@@ -1,4 +1,8 @@
 /**
+ * @author Shreepurnaa V
+ * @version 1.0
+ */
+/**
  * Mathematical Principle of Kadane's Algorithm:
  * 
  * At each index `i`, we decide whether to:

@@ -1,4 +1,8 @@
 /**
+ * @author Shreepurnaa V
+ * @version 1.0
+ */
+/**
  * Algorithmic Walkthrough for Optimal One-Pass Hash Map:
  * 
  * Target = 9, Input = [2, 7, 11, 15]
