@@ -142,4 +142,37 @@ public class StringOperations {
         String compressed = sb.toString();
         return compressed.length() < str.length() ? compressed : str;
     }
+
+    /**
+     * Determines if two strings are isomorphic (LeetCode #205).
+     * Two strings s and t are isomorphic if characters in s can be replaced to get t.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1) auxiliary (fixed ASCII 256 arrays)
+     * 
+     * @param s first string
+     * @param t second string
+     * @return true if isomorphic, false otherwise
+     */
+    public static boolean areIsomorphic(String s, String t) {
+        if (s == null || t == null) return false;
+        if (s.length() != t.length()) return false;
+
+        int[] mapS = new int[256];
+        int[] mapT = new int[256];
+        Arrays.fill(mapS, -1);
+        Arrays.fill(mapT, -1);
+
+        for (int i = 0; i < s.length(); i++) {
+            char c1 = s.charAt(i);
+            char c2 = t.charAt(i);
+
+            if (mapS[c1] == -1 && mapT[c2] == -1) {
+                mapS[c1] = c2;
+                mapT[c2] = c1;
+            } else if (mapS[c1] != c2 || mapT[c2] != c1) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
