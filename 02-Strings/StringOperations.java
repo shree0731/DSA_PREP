@@ -114,4 +114,32 @@ public class StringOperations {
         }
         return new int[]{vowels, consonants, digits, others};
     }
+
+    /**
+     * Performs basic string compression using the counts of repeated characters (Run-Length Encoding).
+     * If compressed string is not smaller than original, returns original string.
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     * 
+     * @param str input string
+     * @return compressed string or original if compressed is longer/equal
+     */
+    public static String compress(String str) {
+        if (str == null || str.length() <= 2) return str;
+
+        StringBuilder sb = new StringBuilder();
+        int count = 1;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (i + 1 < str.length() && str.charAt(i) == str.charAt(i + 1)) {
+                count++;
+            } else {
+                sb.append(str.charAt(i)).append(count);
+                count = 1;
+            }
+        }
+
+        String compressed = sb.toString();
+        return compressed.length() < str.length() ? compressed : str;
+    }
 }
