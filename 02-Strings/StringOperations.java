@@ -46,4 +46,25 @@ public class StringOperations {
         }
         return new String(chars);
     }
+
+    /**
+     * Reverses the order of words in a given string, trimming leading/trailing
+     * and reducing multiple spaces to single spaces (LeetCode #151).
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     * 
+     * @param s input string containing words
+     * @return string with words in reversed order
+     */
+    public static String reverseWords(String s) {
+        if (s == null) return null;
+        String[] words = s.trim().split("\\s+");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = words.length - 1; i >= 0; i--) {
+            sb.append(words[i]);
+            if (i > 0) sb.append(" ");
+        }
+        return sb.toString();
+    }
 }
