@@ -22,4 +22,28 @@ public class StringOperations {
         System.out.println("s1.equals(s3) (value check): " + s1.equals(s3));     // true (identical content)
         System.out.println("s1 == s4 (literal vs interned): " + (s1 == s4));     // true (intern returns pool ref)
     }
+
+    /**
+     * Reverses a string using a two-pointer approach on a char array.
+     * Time Complexity: O(N)
+     * Space Complexity: O(N) for char array
+     * 
+     * @param str input string
+     * @return reversed string
+     */
+    public static String reverseString(String str) {
+        if (str == null || str.length() <= 1) return str;
+        char[] chars = str.toCharArray();
+        int left = 0;
+        int right = chars.length - 1;
+
+        while (left < right) {
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+            left++;
+            right--;
+        }
+        return new String(chars);
+    }
 }
