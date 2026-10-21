@@ -84,4 +84,34 @@ public class StringOperations {
         String doubled = s1 + s1;
         return doubled.contains(s2);
     }
+
+    /**
+     * Counts vowels, consonants, digits, and special characters in a string.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     * 
+     * @param str input string
+     * @return 4-element array [vowels, consonants, digits, others]
+     */
+    public static int[] countCharacters(String str) {
+        int vowels = 0, consonants = 0, digits = 0, others = 0;
+        if (str == null) return new int[]{0, 0, 0, 0};
+
+        String lower = str.toLowerCase();
+        for (int i = 0; i < lower.length(); i++) {
+            char ch = lower.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            } else if (ch >= '0' && ch <= '9') {
+                digits++;
+            } else {
+                others++;
+            }
+        }
+        return new int[]{vowels, consonants, digits, others};
+    }
 }
