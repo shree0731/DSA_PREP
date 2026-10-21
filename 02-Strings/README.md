@@ -27,3 +27,19 @@ A **String** in Java is an object that represents a sequence of char values. Unl
 2. **Thread Safety**: Immutable objects are inherently thread-safe without requiring synchronization.
 3. **Caching HashCode**: The `hashCode()` of a String is computed once and cached, making Strings ideal keys for `HashMap` and `HashSet`.
 4. **Memory Optimization**: String Pool allows thousands of references to share identical literal data.
+
+---
+
+## ⚡ String Operations Complexity Cheat Sheet
+
+| Operation | String | StringBuilder / StringBuffer |
+| :--- | :--- | :--- |
+| **`charAt(i)`** | $O(1)$ | $O(1)$ |
+| **`length()`** | $O(1)$ | $O(1)$ |
+| **Concatenation (`+`)** | $O(N + M)$ (allocates new string) | $O(1)$ amortized append |
+| **`substring(start, end)`** | $O(K)$ where $K = \text{end} - \text{start}$ | $O(K)$ |
+| **`indexOf(char)`** | $O(N)$ | $O(N)$ |
+| **Reversal** | $O(N)$ (requires new object/char array) | $O(N)$ in-place buffer |
+| **`equals()`** | $O(N)$ | N/A (uses Object `equals` by default) |
+
+> ⚠️ **Performance Warning**: Concatenating strings in a loop using `+` creates $O(N^2)$ garbage objects! Always use `StringBuilder` for sequential appends.
