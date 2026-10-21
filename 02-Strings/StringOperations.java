@@ -67,4 +67,21 @@ public class StringOperations {
         }
         return sb.toString();
     }
+
+    /**
+     * Checks if s2 is a rotation of s1.
+     * Property: If s2 is a rotation of s1, then s2 must be a substring of (s1 + s1).
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     * 
+     * @param s1 base string
+     * @param s2 candidate rotation string
+     * @return true if s2 is rotation of s1, false otherwise
+     */
+    public static boolean isRotation(String s1, String s2) {
+        if (s1 == null || s2 == null) return false;
+        if (s1.length() != s2.length()) return false;
+        String doubled = s1 + s1;
+        return doubled.contains(s2);
+    }
 }
