@@ -209,4 +209,39 @@ public class StringOperations {
     public static boolean isBlank(String str) {
         return str == null || str.trim().isEmpty();
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing StringOperations ===");
+        demonstrateStringPool();
+
+        System.out.println("\n--- String Reversal ---");
+        String original = "DataStructures";
+        System.out.println("Original: " + original);
+        System.out.println("Reversed: " + reverseString(original));
+
+        System.out.println("\n--- Reverse Words ---");
+        String sentence = "  the sky   is blue  ";
+        System.out.println("Input sentence : '" + sentence + "'");
+        System.out.println("Reversed words : '" + reverseWords(sentence) + "'");
+
+        System.out.println("\n--- Rotation Check ---");
+        System.out.println("isRotation('waterbottle', 'erbottlewat'): " + isRotation("waterbottle", "erbottlewat"));
+        System.out.println("isRotation('hello', 'world'): " + isRotation("hello", "world"));
+
+        System.out.println("\n--- Character Counting ---");
+        int[] counts = countCharacters("Hello World 2026!");
+        System.out.println("[Vowels, Consonants, Digits, Others]: " + Arrays.toString(counts));
+
+        System.out.println("\n--- String Compression ---");
+        System.out.println("aabcccccaaa -> " + compress("aabcccccaaa"));
+        System.out.println("abcdef -> " + compress("abcdef"));
+
+        System.out.println("\n--- Isomorphic Strings ---");
+        System.out.println("egg & add: " + areIsomorphic("egg", "add"));
+        System.out.println("foo & bar: " + areIsomorphic("foo", "bar"));
+
+        System.out.println("\n--- First Unique Character ---");
+        System.out.println("leetcode: idx=" + firstUniqChar("leetcode"));
+        System.out.println("loveleetcode: idx=" + firstUniqChar("loveleetcode"));
+    }
 }
