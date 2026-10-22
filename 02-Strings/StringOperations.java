@@ -199,4 +199,14 @@ public class StringOperations {
         }
         return -1;
     }
+
+    /**
+     * Checks if a string is null, empty, or consists only of whitespace.
+     * 
+     * @param str input string
+     * @return true if blank, false otherwise
+     */
+    public static boolean isBlank(String str) {
+        return str == null || str.trim().isEmpty();
+    }
 }
