@@ -43,3 +43,20 @@ A **String** in Java is an object that represents a sequence of char values. Unl
 | **`equals()`** | $O(N)$ | N/A (uses Object `equals` by default) |
 
 > ⚠️ **Performance Warning**: Concatenating strings in a loop using `+` creates $O(N^2)$ garbage objects! Always use `StringBuilder` for sequential appends.
+
+---
+
+## 🛠️ Essential String Operations Guide
+
+### 1. Reverse Words in String
+- Trim leading/trailing spaces.
+- Split using regex `\\s+` to handle multi-space delimiters.
+- Assemble in reverse order using `StringBuilder`.
+
+### 2. Rotation Check via Doubled String
+- Any cyclic rotation of $S_1$ is guaranteed to appear as a contiguous substring of $(S_1 + S_1)$ provided $|S_1| = |S_2|$.
+- Time Complexity: $O(N)$ with KMP or standard `contains()`.
+
+### 3. Run-Length Encoding Compression
+- Iterate through string tracking consecutive repetitions.
+- Only return compressed version if strictly shorter than original.
