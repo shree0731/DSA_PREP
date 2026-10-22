@@ -175,4 +175,28 @@ public class StringOperations {
         }
         return true;
     }
+
+    /**
+     * Finds the index of the first non-repeating character in a string (LeetCode #387).
+     * Time Complexity: O(N)
+     * Space Complexity: O(1) auxiliary (26 lower-case letter frequency array)
+     * 
+     * @param s input string
+     * @return 0-based index of first unique character, or -1 if none exists
+     */
+    public static int firstUniqChar(String s) {
+        if (s == null || s.length() == 0) return -1;
+        int[] freq = new int[26];
+
+        for (int i = 0; i < s.length(); i++) {
+            freq[s.charAt(i) - 'a']++;
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            if (freq[s.charAt(i) - 'a'] == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
