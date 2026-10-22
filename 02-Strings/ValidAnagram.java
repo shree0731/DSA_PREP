@@ -90,4 +90,27 @@ public class ValidAnagram {
         }
         return true;
     }
+
+    /**
+     * Groups anagrams together (LeetCode #49).
+     * Approach: Sort characters of each string as hash key.
+     * Time Complexity: O(N * K log K) where N = number of strings, K = max string length
+     * Space Complexity: O(N * K)
+     * 
+     * @param strs array of strings
+     * @return grouped anagrams
+     */
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        if (strs == null || strs.length == 0) return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String s : strs) {
+            char[] chars = s.toCharArray();
+            Arrays.sort(chars);
+            String key = new String(chars);
+
+            map.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
+        }
+        return new ArrayList<>(map.values());
+    }
 }
