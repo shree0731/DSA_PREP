@@ -32,4 +32,35 @@ public class ValidAnagram {
 
         return Arrays.equals(sArr, tArr);
     }
+
+    /**
+     * Approach 2: Hash Map Frequency Counter (Supports Unicode)
+     * Time Complexity: O(N)
+     * Space Complexity: O(K) where K is number of distinct characters
+     * 
+     * @param s first string
+     * @param t second string
+     * @return true if anagram
+     */
+    public static boolean isAnagramHashMap(String s, String t) {
+        if (s == null || t == null) return false;
+        if (s.length() != t.length()) return false;
+
+        Map<Character, Integer> counts = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            counts.put(c, counts.getOrDefault(c, 0) + 1);
+        }
+
+        for (char c : t.toCharArray()) {
+            if (!counts.containsKey(c)) return false;
+            int count = counts.get(c) - 1;
+            if (count == 0) {
+                counts.remove(c);
+            } else {
+                counts.put(c, count);
+            }
+        }
+
+        return counts.isEmpty();
+    }
 }
