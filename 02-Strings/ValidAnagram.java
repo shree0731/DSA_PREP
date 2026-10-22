@@ -143,4 +143,39 @@ public class ValidAnagram {
         }
         return new ArrayList<>(map.values());
     }
+
+    /**
+     * Finds all start indices of p's anagrams in s (LeetCode #438).
+     * Uses fixed-size sliding window of length p.length().
+     * Time Complexity: O(N) where N = s.length()
+     * Space Complexity: O(1) auxiliary (26-int arrays)
+     * 
+     * @param s base string
+     * @param p pattern string
+     * @return list of starting indices
+     */
+    public static List<Integer> findAnagrams(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        if (s == null || p == null || s.length() < p.length()) return result;
+
+        int[] pCount = new int[26];
+        int[] sCount = new int[26];
+
+        for (char c : p.toCharArray()) pCount[c - 'a']++;
+
+        int k = p.length();
+        for (int i = 0; i < s.length(); i++) {
+            sCount[s.charAt(i) - 'a']++;
+
+            // Remove character falling out of sliding window
+            if (i >= k) {
+                sCount[s.charAt(i - k) - 'a']--;
+            }
+
+            if (Arrays.equals(pCount, sCount)) {
+                result.add(i - k + 1);
+            }
+        }
+        return result;
+    }
 }
