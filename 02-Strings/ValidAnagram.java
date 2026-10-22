@@ -63,4 +63,31 @@ public class ValidAnagram {
 
         return counts.isEmpty();
     }
+
+    /**
+     * Approach 3: Optimal 26-integer Bucket Array
+     * Time Complexity: O(N)
+     * Space Complexity: O(1) auxiliary (26 ints)
+     * 
+     * Increments count for characters in s and decrements for t in a single loop.
+     * 
+     * @param s first string (lowercase english letters)
+     * @param t second string
+     * @return true if anagram
+     */
+    public static boolean isAnagramOptimal(String s, String t) {
+        if (s == null || t == null) return false;
+        if (s.length() != t.length()) return false;
+
+        int[] count = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            count[s.charAt(i) - 'a']++;
+            count[t.charAt(i) - 'a']--;
+        }
+
+        for (int c : count) {
+            if (c != 0) return false;
+        }
+        return true;
+    }
 }
