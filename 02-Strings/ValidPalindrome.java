@@ -159,4 +159,27 @@ public class ValidPalindrome {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Valid Palindrome ===");
+        String s1 = "A man, a plan, a canal: Panama";
+        System.out.println("Input: '" + s1 + "'");
+        System.out.println("  Filtered Approach: " + isPalindromeFiltered(s1));
+        System.out.println("  Optimal 2-Pointer: " + isPalindromeOptimal(s1));
+
+        String s2 = "race a car";
+        System.out.println("\nInput: '" + s2 + "'");
+        System.out.println("  Optimal 2-Pointer: " + isPalindromeOptimal(s2));
+
+        System.out.println("\n=== Testing Valid Palindrome II (1 deletion) ===");
+        System.out.println("aba: " + validPalindromeII("aba"));
+        System.out.println("abca: " + validPalindromeII("abca"));
+        System.out.println("abc: " + validPalindromeII("abc"));
+
+        System.out.println("\n=== Testing Longest Palindrome Constructible ===");
+        System.out.println("abccccdd: " + longestPalindromeLength("abccccdd")); // Expected 7
+
+        System.out.println("\n=== Testing Word-Level Palindrome ===");
+        System.out.println("fall leaves after leaves fall: " + isWordPalindrome("fall leaves after leaves fall"));
+    }
 }
