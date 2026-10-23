@@ -119,4 +119,32 @@ public class ValidPalindrome {
         }
         return true;
     }
+
+    /**
+     * Calculates the length of the longest palindrome that can be constructed
+     * from characters of the given string (LeetCode #409).
+     * Time Complexity: O(N)
+     * Space Complexity: O(1) auxiliary (128 ASCII buckets)
+     * 
+     * @param s input string
+     * @return maximum palindrome length
+     */
+    public static int longestPalindromeLength(String s) {
+        if (s == null || s.length() == 0) return 0;
+        int[] counts = new int[128];
+        for (char c : s.toCharArray()) {
+            counts[c]++;
+        }
+
+        int length = 0;
+        boolean hasOdd = false;
+
+        for (int count : counts) {
+            length += (count / 2) * 2;
+            if (count % 2 == 1) {
+                hasOdd = true;
+            }
+        }
+        return hasOdd ? length + 1 : length;
+    }
 }
