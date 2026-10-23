@@ -35,4 +35,36 @@ public class ValidPalindrome {
         String reversed = filtered.reverse().toString();
         return cleaned.equals(reversed);
     }
+
+    /**
+     * Approach 2: Optimal Two Pointers (In-place)
+     * Time Complexity: O(N)
+     * Space Complexity: O(1) auxiliary
+     * 
+     * Scans from both ends skipping non-alphanumeric characters without allocating copies.
+     * 
+     * @param s input string
+     * @return true if valid palindrome
+     */
+    public static boolean isPalindromeOptimal(String s) {
+        if (s == null) return false;
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left < right) {
+            while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
+            }
+            while (left < right && !Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
+            }
+
+            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
 }
