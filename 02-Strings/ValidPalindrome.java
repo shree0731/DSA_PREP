@@ -67,4 +67,38 @@ public class ValidPalindrome {
         }
         return true;
     }
+
+    /**
+     * Valid Palindrome II (LeetCode #680)
+     * Determines whether s can be a palindrome after deleting at most one character.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     * 
+     * @param s input string
+     * @return true if palindrome after <= 1 deletion
+     */
+    public static boolean validPalindromeII(String s) {
+        if (s == null) return false;
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                // Try skipping either left or right character
+                return isPalindromeRange(s, left + 1, right) || isPalindromeRange(s, left, right - 1);
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    private static boolean isPalindromeRange(String s, int left, int right) {
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
 }
