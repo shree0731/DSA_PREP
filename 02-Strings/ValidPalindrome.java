@@ -147,4 +147,16 @@ public class ValidPalindrome {
         }
         return hasOdd ? length + 1 : length;
     }
+
+    /**
+     * Case-sensitive exact palindrome check for substrings or tokens.
+     */
+    public static boolean isExactPalindrome(String s) {
+        if (s == null) return false;
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            if (s.charAt(i++) != s.charAt(j--)) return false;
+        }
+        return true;
+    }
 }
