@@ -12,4 +12,27 @@ public class ValidPalindrome {
     public ValidPalindrome() {
         // Utility class
     }
+
+    /**
+     * Approach 1: Filter and Reverse
+     * Time Complexity: O(N)
+     * Space Complexity: O(N) creates filtered copy
+     * 
+     * @param s input string
+     * @return true if palindrome
+     */
+    public static boolean isPalindromeFiltered(String s) {
+        if (s == null) return false;
+        StringBuilder filtered = new StringBuilder();
+
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                filtered.append(Character.toLowerCase(c));
+            }
+        }
+
+        String cleaned = filtered.toString();
+        String reversed = filtered.reverse().toString();
+        return cleaned.equals(reversed);
+    }
 }
