@@ -178,4 +178,15 @@ public class ValidAnagram {
         }
         return result;
     }
+
+    /**
+     * Checks if two phrases are anagrams ignoring case and non-letter characters.
+     * Example: "Debit Card" and "Bad Credit" -> true
+     */
+    public static boolean isAnagramPhrase(String s, String t) {
+        if (s == null || t == null) return false;
+        String cleanS = s.replaceAll("[^a-zA-Z]", "").toLowerCase();
+        String cleanT = t.replaceAll("[^a-zA-Z]", "").toLowerCase();
+        return isAnagramOptimal(cleanS, cleanT);
+    }
 }
