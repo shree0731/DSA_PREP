@@ -101,4 +101,22 @@ public class ValidPalindrome {
         }
         return true;
     }
+
+    /**
+     * Checks if a sentence is palindromic at word level.
+     * Example: "fall leaves after leaves fall" -> true
+     */
+    public static boolean isWordPalindrome(String sentence) {
+        if (sentence == null) return false;
+        String[] words = sentence.trim().toLowerCase().split("\\s+");
+        int left = 0;
+        int right = words.length - 1;
+
+        while (left < right) {
+            if (!words[left].equals(words[right])) return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
 }
