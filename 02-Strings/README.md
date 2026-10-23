@@ -60,3 +60,16 @@ A **String** in Java is an object that represents a sequence of char values. Unl
 ### 3. Run-Length Encoding Compression
 - Iterate through string tracking consecutive repetitions.
 - Only return compressed version if strictly shorter than original.
+
+---
+
+## 🔠 Anagrams (LeetCode #242 & #49)
+
+### Approaches Comparison
+
+| Method | Time Complexity | Space Complexity | Notes |
+| :--- | :--- | :--- | :--- |
+| **Sorting** | $O(N \log N)$ | $O(N)$ | Easy to implement, works well for small strings. |
+| **Hash Map** | $O(N)$ | $O(K)$ | Handles full Unicode character set seamlessly. |
+| **Fixed 26-Bucket Array** | $O(N)$ | $O(1)$ | Optimal performance and minimal memory overhead. |
+| **Group Anagrams (Count Key)**| $O(N \times K)$ | $O(N \times K)$ | Optimal linear approach avoiding string sorting. |
