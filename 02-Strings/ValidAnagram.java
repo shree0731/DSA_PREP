@@ -189,4 +189,23 @@ public class ValidAnagram {
         String cleanT = t.replaceAll("[^a-zA-Z]", "").toLowerCase();
         return isAnagramOptimal(cleanS, cleanT);
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Valid Anagram ===");
+        System.out.println("anagram & nagaram (Sorting) : " + isAnagramSorting("anagram", "nagaram"));
+        System.out.println("rat & car (HashMap)         : " + isAnagramHashMap("rat", "car"));
+        System.out.println("listen & silent (Optimal)   : " + isAnagramOptimal("listen", "silent"));
+        System.out.println("Phrase: 'Debit Card' & 'Bad Credit': " + isAnagramPhrase("Debit Card", "Bad Credit"));
+
+        System.out.println("\n=== Testing Group Anagrams ===");
+        String[] words = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        System.out.println("Input: " + Arrays.toString(words));
+        System.out.println("Grouped (Sorting): " + groupAnagrams(words));
+        System.out.println("Grouped (Optimal): " + groupAnagramsOptimal(words));
+
+        System.out.println("\n=== Testing Find All Anagrams (Sliding Window) ===");
+        String s = "cbaebabacd", p = "abc";
+        System.out.println("s = '" + s + "', p = '" + p + "'");
+        System.out.println("Indices: " + findAnagrams(s, p));
+    }
 }
