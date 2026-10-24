@@ -137,4 +137,57 @@ public class LongestSubstringWithoutRepeating {
         }
         return maxLen;
     }
+
+    /**
+     * Result container representing longest unique substring details.
+     */
+    public static class SubstringResult {
+        public final int length;
+        public final int startIndex;
+        public final int endIndex;
+        public final String substring;
+
+        public SubstringResult(int length, int startIndex, int endIndex, String original) {
+            this.length = length;
+            this.startIndex = startIndex;
+            this.endIndex = endIndex;
+            this.substring = original.substring(startIndex, endIndex + 1);
+        }
+
+        @Override
+        public String toString() {
+            return "SubstringResult{" +
+                    "length=" + length +
+                    ", range=[" + startIndex + ".." + endIndex + "]" +
+                    ", substring='" + substring + ''' +
+                    '}';
+        }
+    }
+
+    /**
+     * Returns the exact longest substring without repeating characters.
+     */
+    public static SubstringResult findLongestUniqueSubstring(String s) {
+        if (s == null || s.length() == 0) return new SubstringResult(0, 0, -1, "");
+        Map<Character, Integer> lastSeen = new HashMap<>();
+        int maxLen = 0;
+        int bestStart = 0;
+        int bestEnd = 0;
+        int left = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            char c = s.charAt(right);
+            if (lastSeen.containsKey(c)) {
+                left = Math.max(left, lastSeen.get(c) + 1);
+            }
+            lastSeen.put(c, right);
+
+            if (right - left + 1 > maxLen) {
+                maxLen = right - left + 1;
+                bestStart = left;
+                bestEnd = right;
+            }
+        }
+        return new SubstringResult(maxLen, bestStart, bestEnd, s);
+    }
 }
