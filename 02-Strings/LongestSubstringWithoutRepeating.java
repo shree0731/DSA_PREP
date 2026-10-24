@@ -50,4 +50,32 @@ public class LongestSubstringWithoutRepeating {
         }
         return true;
     }
+
+    /**
+     * Approach 2: Sliding Window with HashSet
+     * Time Complexity: O(2N) = O(N) in worst case each character is visited twice
+     * Space Complexity: O(min(N, M))
+     * 
+     * Uses two pointers (left, right) representing window [left .. right].
+     * 
+     * @param s input string
+     * @return max length
+     */
+    public static int lengthOfLongestSubstringSlidingWindow(String s) {
+        if (s == null || s.length() == 0) return 0;
+        Set<Character> set = new HashSet<>();
+        int maxLen = 0;
+        int left = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            char c = s.charAt(right);
+            while (set.contains(c)) {
+                set.remove(s.charAt(left));
+                left++;
+            }
+            set.add(c);
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+        return maxLen;
+    }
 }
