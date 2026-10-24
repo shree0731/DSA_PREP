@@ -89,3 +89,20 @@ A **String** in Java is an object that represents a sequence of char values. Unl
   1. Skip left: verify `(left + 1, right)` is palindrome.
   2. Skip right: verify `(left, right - 1)` is palindrome.
 - Total time stays $O(N)$ with no recursive stack blowup.
+
+---
+
+## 🪟 Sliding Window on Strings (LeetCode #3)
+
+### Mechanism Comparison
+
+1. **HashSet Sliding Window**:
+   - Shrinks left pointer step-by-step: `while (set.contains(c)) { set.remove(s[left++]); }`.
+   - Each character can be added and removed once $\implies \mathcal{O}(2N)$ steps.
+
+2. **HashMap Last-Seen Index (Optimal)**:
+   - Skips left pointer directly to `Math.max(left, map.get(c) + 1)`.
+   - Handles backtracking edge cases like `"abba"` without revisiting intermediate positions $\implies \mathcal{O}(N)$ exact steps.
+
+3. **ASCII Bucket Table**:
+   - Replaces `HashMap` hashing with direct array indexing `int[128]` for cache-friendly execution.
