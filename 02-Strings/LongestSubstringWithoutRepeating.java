@@ -197,4 +197,16 @@ public class LongestSubstringWithoutRepeating {
     public static boolean hasAllUniqueChars(String s) {
         return lengthOfLongestSubstringOptimal(s) == (s == null ? 0 : s.length());
     }
+
+    /**
+     * Validates edge case behavior: single characters, all identical characters (e.g. 'bbbbb').
+     */
+    public static boolean isUniformString(String s) {
+        if (s == null || s.length() <= 1) return true;
+        char first = s.charAt(0);
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) != first) return false;
+        }
+        return true;
+    }
 }
