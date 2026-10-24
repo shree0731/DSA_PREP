@@ -190,4 +190,11 @@ public class LongestSubstringWithoutRepeating {
         }
         return new SubstringResult(maxLen, bestStart, bestEnd, s);
     }
+
+    /**
+     * Checks whether a string contains all unique characters.
+     */
+    public static boolean hasAllUniqueChars(String s) {
+        return lengthOfLongestSubstringOptimal(s) == (s == null ? 0 : s.length());
+    }
 }
