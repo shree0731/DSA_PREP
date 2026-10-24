@@ -209,4 +209,29 @@ public class LongestSubstringWithoutRepeating {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Longest Substring Without Repeating Characters ===");
+
+        String[] testCases = {
+            "abcabcbb",
+            "bbbbb",
+            "pwwkew",
+            "",
+            "abcdef",
+            "abba",
+            "tmmzuxt"
+        };
+
+        for (String test : testCases) {
+            System.out.println("\nInput: '" + test + "'");
+            System.out.println("  Brute Force   : " + lengthOfLongestSubstringBruteForce(test));
+            System.out.println("  Sliding Window: " + lengthOfLongestSubstringSlidingWindow(test));
+            System.out.println("  Optimal Map   : " + lengthOfLongestSubstringOptimal(test));
+            System.out.println("  ASCII Array   : " + lengthOfLongestSubstringAscii(test));
+            if (!test.isEmpty()) {
+                System.out.println("  Exact Details : " + findLongestUniqueSubstring(test));
+            }
+        }
+    }
 }
