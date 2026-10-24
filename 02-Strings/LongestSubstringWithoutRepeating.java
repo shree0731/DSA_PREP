@@ -106,4 +106,35 @@ public class LongestSubstringWithoutRepeating {
         }
         return maxLen;
     }
+
+    /**
+     * Approach 4: Direct ASCII 128/256 Array Index Lookup
+     * Time Complexity: O(N)
+     * Space Complexity: O(1) auxiliary (fixed 128 ints)
+     * 
+     * Eliminates HashMap hashing overhead for standard ASCII text.
+     * 
+     * @param s input string
+     * @return max length
+     */
+    public static int lengthOfLongestSubstringAscii(String s) {
+        if (s == null || s.length() == 0) return 0;
+        int[] lastIndex = new int[128];
+        Arrays.fill(lastIndex, -1);
+
+        int maxLen = 0;
+        int left = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            char c = s.charAt(right);
+            if (c < 128 && lastIndex[c] >= left) {
+                left = lastIndex[c] + 1;
+            }
+            if (c < 128) {
+                lastIndex[c] = right;
+            }
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+        return maxLen;
+    }
 }
