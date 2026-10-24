@@ -73,3 +73,19 @@ A **String** in Java is an object that represents a sequence of char values. Unl
 | **Hash Map** | $O(N)$ | $O(K)$ | Handles full Unicode character set seamlessly. |
 | **Fixed 26-Bucket Array** | $O(N)$ | $O(1)$ | Optimal performance and minimal memory overhead. |
 | **Group Anagrams (Count Key)**| $O(N \times K)$ | $O(N \times K)$ | Optimal linear approach avoiding string sorting. |
+
+---
+
+## 🔁 Palindrome Patterns
+
+### Two-Pointer In-Place Filtering
+- Left and right pointers start at outer boundaries: `left = 0`, `right = length - 1`.
+- Skip invalid characters using `Character.isLetterOrDigit()`.
+- Compare lower-case values.
+- Space Complexity: $O(1)$ compared to $O(N)$ regex cleaning.
+
+### Tolerance Deletion (Valid Palindrome II)
+- When a mismatch occurs at `(left, right)`, branch into two sub-checks:
+  1. Skip left: verify `(left + 1, right)` is palindrome.
+  2. Skip right: verify `(left, right - 1)` is palindrome.
+- Total time stays $O(N)$ with no recursive stack blowup.
