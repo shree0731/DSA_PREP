@@ -70,3 +70,5 @@ javac LongestPalindromicSubstring.java && java LongestPalindromicSubstring
 - Git
 
 *Maintained by [Shreepurnaa V](https://github.com/shree0731)*
+
+> Milestone: 02-Strings module fully completed with comprehensive tests, documentation, and complexity analysis.
