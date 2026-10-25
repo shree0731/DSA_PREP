@@ -51,4 +51,54 @@ public class LongestPalindromicSubstring {
         }
         return true;
     }
+
+    /**
+     * Approach 2: 2D Dynamic Programming
+     * Time Complexity: O(N^2)
+     * Space Complexity: O(N^2) boolean table
+     * 
+     * State Definition:
+     * dp[i][j] = true if substring s[i .. j] is a palindrome.
+     * 
+     * Base cases:
+     * - Length 1: dp[i][i] = true
+     * - Length 2: dp[i][i+1] = (s[i] == s[i+1])
+     * 
+     * Recurrence:
+     * dp[i][j] = (s[i] == s[j]) && dp[i+1][j-1]
+     * 
+     * @param s input string
+     * @return longest palindromic substring
+     */
+    public static String longestPalindromeDP(String s) {
+        if (s == null || s.length() <= 1) return s;
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+
+        int start = 0;
+        int maxLen = 1;
+
+        // Base case: 1-character palindromes
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = true;
+        }
+
+        // Substrings of length >= 2
+        for (int len = 2; len <= n; len++) {
+            for (int i = 0; i <= n - len; i++) {
+                int j = i + len - 1;
+
+                if (s.charAt(i) == s.charAt(j)) {
+                    if (len == 2 || dp[i + 1][j - 1]) {
+                        dp[i][j] = true;
+                        if (len > maxLen) {
+                            start = i;
+                            maxLen = len;
+                        }
+                    }
+                }
+            }
+        }
+        return s.substring(start, start + maxLen);
+    }
 }
