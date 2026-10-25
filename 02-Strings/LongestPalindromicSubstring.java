@@ -167,4 +167,26 @@ public class LongestPalindromicSubstring {
         }
         return count;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Longest Palindromic Substring ===");
+
+        String[] testCases = {
+            "babad",
+            "cbbd",
+            "a",
+            "ac",
+            "racecar",
+            "noon",
+            "forgeeksskeegfor"
+        };
+
+        for (String test : testCases) {
+            System.out.println("\nInput: '" + test + "'");
+            System.out.println("  Brute Force   : " + longestPalindromeBruteForce(test));
+            System.out.println("  Dynamic Prog  : " + longestPalindromeDP(test));
+            System.out.println("  Expand Center : " + longestPalindromeExpandCenter(test));
+            System.out.println("  Total Palindromes: " + countSubstrings(test));
+        }
+    }
 }
