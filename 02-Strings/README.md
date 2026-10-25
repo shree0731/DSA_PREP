@@ -106,3 +106,16 @@ A **String** in Java is an object that represents a sequence of char values. Unl
 
 3. **ASCII Bucket Table**:
    - Replaces `HashMap` hashing with direct array indexing `int[128]` for cache-friendly execution.
+
+---
+
+## 🪞 Longest Palindromic Substring (LeetCode #5)
+
+### Strategy Comparison
+
+| Approach | Time Complexity | Space Complexity | Pros & Cons |
+| :--- | :--- | :--- | :--- |
+| **Brute Force** | $O(N^3)$ | $O(1)$ | Simple to verify, unacceptable for $N > 500$. |
+| **Dynamic Programming** | $O(N^2)$ | $O(N^2)$ | Clean state recurrence, but high $O(N^2)$ memory footprint. |
+| **Expand Around Center**| $O(N^2)$ | $O(1)$ | Optimal practical solution: zero auxiliary heap allocation. |
+| **Manacher's Algorithm** | $O(N)$ | $O(N)$ | Linear time complexity using previously matched palindrome mirrors. |
