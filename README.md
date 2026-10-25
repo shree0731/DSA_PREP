@@ -1,7 +1,7 @@
 # DSA Preparation (Java)
 
 [![Language](https://img.shields.io/badge/Language-Java_8+-orange.svg)](https://www.oracle.com/java/)
-[![Topics](https://img.shields.io/badge/Module-01--Arrays-blue.svg)](01-Arrays/)
+[![Modules](https://img.shields.io/badge/Modules-Arrays_%7C_Strings-blue.svg)](01-Arrays/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A curated, interview-focused repository for Data Structures and Algorithms preparation in Java. Every problem is implemented with multiple approaches (Brute Force, Better, and Optimal) along with Big-O complexity analysis and test cases.
@@ -11,62 +11,49 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 ## 📂 Modules Structure
 
 ### [01-Arrays](01-Arrays/)
-- **[BasicOperations.java](01-Arrays/BasicOperations.java)**:
-  - Custom Dynamic Array (amortized $O(1)$ append, element shifting)
-  - Linear Search & Binary Search (Iterative and Recursive)
-  - In-place Array Reversal
-  - Array Rotations (Left & Right via 3-step Reversal Algorithm)
-- **[SecondLargestElement.java](01-Arrays/SecondLargestElement.java)**:
-  - Approach 1: Sorting ($O(N \log N)$)
-  - Approach 2: Two-Pass Linear Scan ($O(2N)$)
-  - Approach 3: Optimal Single-Pass ($O(N)$ time, $O(1)$ space)
-  - Symmetry: Second Smallest Element
-- **[TwoSum.java](01-Arrays/TwoSum.java)**:
-  - Approach 1: Brute Force ($O(N^2)$)
-  - Approach 2: Two-Pass Hash Map ($O(N)$)
-  - Approach 3: Optimal One-Pass Hash Map ($O(N)$ time, $O(N)$ space with optimized load-factor preallocation)
-  - Approach 4: Two Sum II - Two Pointer ($O(N)$ time, $O(1)$ space)
-  - All Unique Pairs Generator
-- **[MaximumSubarray.java](01-Arrays/MaximumSubarray.java)**:
-  - Approach 1: Cubic Brute Force ($O(N^3)$)
-  - Approach 2: Quadratic Running Sum ($O(N^2)$)
-  - Approach 3: Optimal Kadane's Algorithm ($O(N)$ time, $O(1)$ space)
-  - Approach 4: Divide and Conquer ($O(N \log N)$)
-  - Approach 5: Tabular Dynamic Programming ($O(N)$)
-  - Range and Subarray Element Retrieval
-- **[README.md](01-Arrays/README.md)**:
-  - In-depth theoretical foundations, memory cache locality, complexity cheat-sheet, problem walkthroughs, and pattern guides.
+- **[BasicOperations.java](01-Arrays/BasicOperations.java)**: Custom dynamic array, linear & binary search, in-place reversal, 3-step left/right rotations.
+- **[SecondLargestElement.java](01-Arrays/SecondLargestElement.java)**: Sorting vs Two-Pass vs Optimal Single-Pass ($O(N)$ time, $O(1)$ space), duplicate handling, second smallest.
+- **[TwoSum.java](01-Arrays/TwoSum.java)**: Brute Force, Two-Pass Hash Map, Optimal One-Pass Hash Map with preallocated capacity, Two Sum II two-pointer.
+- **[MaximumSubarray.java](01-Arrays/MaximumSubarray.java)**: Cubic, Quadratic, Kadane's Algorithm ($O(N)$), Divide and Conquer ($O(N \log N)$), DP table, range tracker.
+- **[README.md](01-Arrays/README.md)**: Array memory characteristics, complexity tables, problem walkthroughs.
+
+### [02-Strings](02-Strings/)
+- **[StringOperations.java](02-Strings/StringOperations.java)**: String Constant Pool demo, immutability, reverse words, string rotation, run-length compression, isomorphic check, first unique character.
+- **[ValidAnagram.java](02-Strings/ValidAnagram.java)**: Sorting, Hash Map, 26-int frequency bucket, Group Anagrams (sorting key & frequency key), Sliding Window anagram search.
+- **[ValidPalindrome.java](02-Strings/ValidPalindrome.java)**: Two-pointer in-place alphanumeric filtering, Valid Palindrome II (1 deletion tolerance), longest constructible palindrome.
+- **[LongestSubstringWithoutRepeating.java](02-Strings/LongestSubstringWithoutRepeating.java)**: Brute force, Sliding window with Set, Optimal last-seen index map, ASCII array lookup, exact substring slice retrieval.
+- **[LongestPalindromicSubstring.java](02-Strings/LongestPalindromicSubstring.java)**: Cubic brute force, 2D Dynamic Programming table, Expand Around Center ($O(N^2)$ time, $O(1)$ space), palindromic substrings count.
+- **[README.md](02-Strings/README.md)**: String Pool internals, immutability benefits, sliding window & two-pointer pattern guides, interview tips.
 
 ---
 
 ## 🚀 How to Run
 
-Compile and execute any file directly from the command line:
+Compile and run any Java file from the command line:
 
 ```bash
-# Navigate to the module directory
+# 01-Arrays
 cd 01-Arrays
+javac BasicOperations.java && java BasicOperations
+javac SecondLargestElement.java && java SecondLargestElement
+javac TwoSum.java && java TwoSum
+javac MaximumSubarray.java && java MaximumSubarray
 
-# Compile
-javac BasicOperations.java
-java BasicOperations
-
-javac SecondLargestElement.java
-java SecondLargestElement
-
-javac TwoSum.java
-java TwoSum
-
-javac MaximumSubarray.java
-java MaximumSubarray
+# 02-Strings
+cd ../02-Strings
+javac StringOperations.java && java StringOperations
+javac ValidAnagram.java && java ValidAnagram
+javac ValidPalindrome.java && java ValidPalindrome
+javac LongestSubstringWithoutRepeating.java && java LongestSubstringWithoutRepeating
+javac LongestPalindromicSubstring.java && java LongestPalindromicSubstring
 ```
 
 ---
 
-## 📌 Roadmap
+## 📌 Curriculum Roadmap
 
 - [x] **01-Arrays**
-- [ ] **02-Strings**
+- [x] **02-Strings**
 - [ ] **03-Recursion & Backtracking**
 - [ ] **04-Searching & Sorting**
 - [ ] **05-Linked Lists**
@@ -77,10 +64,9 @@ java MaximumSubarray
 - [ ] **10-Dynamic Programming**
 
 ---
-*Maintained by [Shreepurnaa V](https://github.com/shree0731)*
 
 ## 💻 Requirements
 - Java Development Kit (JDK) 8 or higher
 - Git
 
-> Milestone: 01-Arrays module completed with full test coverage and comprehensive documentation.
+*Maintained by [Shreepurnaa V](https://github.com/shree0731)*
