@@ -137,4 +137,34 @@ public class LongestPalindromicSubstring {
         }
         return right - left - 1;
     }
+
+    /**
+     * Palindromic Substrings (LeetCode #647)
+     * Counts the total number of palindromic substrings in s.
+     * Time Complexity: O(N^2)
+     * Space Complexity: O(1)
+     * 
+     * @param s input string
+     * @return total count of palindromic substrings
+     */
+    public static int countSubstrings(String s) {
+        if (s == null || s.length() == 0) return 0;
+        int count = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            count += countPalindromesAround(s, i, i);     // Odd centers
+            count += countPalindromesAround(s, i, i + 1); // Even centers
+        }
+        return count;
+    }
+
+    private static int countPalindromesAround(String s, int left, int right) {
+        int count = 0;
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            count++;
+            left--;
+            right++;
+        }
+        return count;
+    }
 }
