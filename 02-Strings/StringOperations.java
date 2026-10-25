@@ -57,7 +57,7 @@ public class StringOperations {
      * @return string with words in reversed order
      */
     public static String reverseWords(String s) {
-        if (s == null) return null;
+        if (s == null) throw new IllegalArgumentException("Input string cannot be null");
         String[] words = s.trim().split("\\s+");
         StringBuilder sb = new StringBuilder();
 
