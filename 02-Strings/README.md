@@ -119,3 +119,22 @@ A **String** in Java is an object that represents a sequence of char values. Unl
 | **Dynamic Programming** | $O(N^2)$ | $O(N^2)$ | Clean state recurrence, but high $O(N^2)$ memory footprint. |
 | **Expand Around Center**| $O(N^2)$ | $O(1)$ | Optimal practical solution: zero auxiliary heap allocation. |
 | **Manacher's Algorithm** | $O(N)$ | $O(N)$ | Linear time complexity using previously matched palindrome mirrors. |
+
+---
+
+## 📋 Module Summary & Problem Mapping
+
+| File | LeetCode # | Primary Technique | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **StringOperations.java** | #151, #205, #387 | String Pool, In-place Reversal, Character Count | $O(N)$ | $O(1)$ to $O(N)$ |
+| **ValidAnagram.java** | #242, #49, #438 | 26-Integer Bucket / Frequency Hash Key | $O(N)$ | $O(1)$ / $O(N)$ |
+| **ValidPalindrome.java** | #125, #680, #409 | Two Pointers Converging / Tolerance Skipping | $O(N)$ | $O(1)$ |
+| **LongestSubstringWithoutRepeating.java** | #3 | Sliding Window + HashMap Last-Seen Index | $O(N)$ | $O(\min(N, M))$ |
+| **LongestPalindromicSubstring.java** | #5, #647 | Expand Around Center | $O(N^2)$ | $O(1)$ |
+
+---
+
+## 🎯 String Interview Tips & Tricks
+1. **Always ask character set scope**: Is input purely lowercase ASCII (`'a'-'z'`), standard ASCII 128, or UTF-8 Unicode?
+2. **Frequency array over HashMap**: If input is restricted to 26 letters, `int[26]` is faster by orders of magnitude due to CPU cache locality and zero object boxing.
+3. **Avoid repetitive string concatenation**: In Java, `str += c` inside a loop creates a new `String` and copies all characters every iteration ($\mathcal{O}(N^2)$ total work). Always use `StringBuilder`.
