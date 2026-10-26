@@ -117,4 +117,15 @@ public class BasicRecursion {
         if (s.charAt(left) != s.charAt(right)) return false;
         return isPalindromeHelper(s, left + 1, right - 1);
     }
+
+    /**
+     * Linear power computation x^n.
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     */
+    public static double powerLinear(double x, int n) {
+        if (n == 0) return 1.0;
+        if (n < 0) return 1.0 / powerLinear(x, -n);
+        return x * powerLinear(x, n - 1);
+    }
 }
