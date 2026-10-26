@@ -12,3 +12,27 @@ Welcome to the **Recursion & Backtracking** module of the DSA Preparation reposi
 3. **Permutations.java**: Permutations I & II (swapping vs boolean visited array), next permutation.
 4. **CombinationSum.java**: Combinations I, II & III with branch pruning and duplicate elimination.
 5. **NQueens.java**: N-Queens solver, O(1) diagonal lookup tracking, bitmasking, chessboard visualization.
+
+---
+
+## 🥞 The Call Stack & Recursion Tree
+
+### How the Call Stack Works
+1. Every recursive method invocation allocates a new **stack frame** in the JVM thread call stack.
+2. The stack frame stores:
+   - Local variables
+   - Parameters passed
+   - Return address (program counter to resume execution)
+3. When the **base case** is reached, stack frames begin returning and popping off the stack in LIFO (Last-In, First-Out) order.
+4. Missing a base case causes indefinite allocations leading to `java.lang.StackOverflowError`.
+
+```text
+Recursion Tree for fib(4):
+               fib(4)
+             /        \
+         fib(3)        fib(2)
+        /      \       /     \
+     fib(2)   fib(1) fib(1) fib(0)
+    /      \
+ fib(1)   fib(0)
+```
