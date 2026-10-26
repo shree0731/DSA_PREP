@@ -42,4 +42,18 @@ public class BasicRecursion {
         if (n <= 1) return acc;
         return factorialAccumulator(n - 1, n * acc);
     }
+
+    /**
+     * Naive recursive Fibonacci computation (LeetCode #509).
+     * Time Complexity: O(2^N) exponential
+     * Space Complexity: O(N) stack depth
+     * 
+     * @param n index in Fibonacci sequence
+     * @return nth Fibonacci number
+     */
+    public static int fibonacci(int n) {
+        if (n < 0) throw new IllegalArgumentException("Fibonacci undefined for negative: " + n);
+        if (n <= 1) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
 }
