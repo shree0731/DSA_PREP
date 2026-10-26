@@ -98,4 +98,23 @@ public class BasicRecursion {
         arr[right] = temp;
         reverseHelper(arr, left + 1, right - 1);
     }
+
+    /**
+     * Checks if a string is a palindrome recursively.
+     * Time Complexity: O(N)
+     * Space Complexity: O(N) call stack
+     * 
+     * @param str input string
+     * @return true if palindrome
+     */
+    public static boolean isPalindromeRecursive(String str) {
+        if (str == null) return false;
+        return isPalindromeHelper(str, 0, str.length() - 1);
+    }
+
+    private static boolean isPalindromeHelper(String s, int left, int right) {
+        if (left >= right) return true;
+        if (s.charAt(left) != s.charAt(right)) return false;
+        return isPalindromeHelper(s, left + 1, right - 1);
+    }
 }
