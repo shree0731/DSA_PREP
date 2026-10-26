@@ -78,4 +78,24 @@ public class BasicRecursion {
         memo[n] = fibMemoHelper(n - 1, memo) + fibMemoHelper(n - 2, memo);
         return memo[n];
     }
+
+    /**
+     * Reverses an array in-place recursively.
+     * Time Complexity: O(N)
+     * Space Complexity: O(N) call stack
+     * 
+     * @param arr array to reverse
+     */
+    public static void reverseArray(int[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        reverseHelper(arr, 0, arr.length - 1);
+    }
+
+    private static void reverseHelper(int[] arr, int left, int right) {
+        if (left >= right) return;
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        reverseHelper(arr, left + 1, right - 1);
+    }
 }
