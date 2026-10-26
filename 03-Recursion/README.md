@@ -36,3 +36,31 @@ Recursion Tree for fib(4):
     /      \
  fib(1)   fib(0)
 ```
+
+---
+
+## 🌿 The Canonical Backtracking Template
+
+All backtracking algorithms follow this universal 3-step blueprint:
+
+```java
+void backtrack(State state, Choices choices, List<Result> results) {
+    if (isSolution(state)) {
+        results.add(new Result(state));
+        return;
+    }
+
+    for (Choice choice : choices) {
+        if (!isValid(choice, state)) continue; // Pruning / Constraint Check
+
+        makeChoice(choice, state);             // 1. Choose
+        backtrack(state, choices, results);    // 2. Explore
+        undoChoice(choice, state);             // 3. Unchoose (Backtrack)
+    }
+}
+```
+
+### State Space Pruning
+- **Sorting before recursing**: Sorting input allows breaking early when choices exceed a target sum.
+- **Skipping adjacent duplicates**: `if (i > start && nums[i] == nums[i - 1]) continue;`
+- **Lookup caching**: Using boolean arrays or bitmasks instead of full board validation.
