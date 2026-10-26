@@ -56,4 +56,26 @@ public class BasicRecursion {
         if (n <= 1) return n;
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
+
+    /**
+     * Memoized Fibonacci (Top-Down Dynamic Programming).
+     * Time Complexity: O(N)
+     * Space Complexity: O(N) memo array + call stack
+     * 
+     * @param n index
+     * @return nth Fibonacci number
+     */
+    public static long fibonacciMemo(int n) {
+        if (n < 0) throw new IllegalArgumentException("Fibonacci undefined for negative: " + n);
+        long[] memo = new long[n + 1];
+        Arrays.fill(memo, -1);
+        return fibMemoHelper(n, memo);
+    }
+
+    private static long fibMemoHelper(int n, long[] memo) {
+        if (n <= 1) return n;
+        if (memo[n] != -1) return memo[n];
+        memo[n] = fibMemoHelper(n - 1, memo) + fibMemoHelper(n - 2, memo);
+        return memo[n];
+    }
 }
