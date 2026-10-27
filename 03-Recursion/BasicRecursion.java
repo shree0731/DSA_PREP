@@ -128,4 +128,36 @@ public class BasicRecursion {
         if (n < 0) return 1.0 / powerLinear(x, -n);
         return x * powerLinear(x, n - 1);
     }
+
+    /**
+     * Fast Power - Binary Exponentiation (LeetCode #50: Pow(x, n)).
+     * Time Complexity: O(log N)
+     * Space Complexity: O(log N) stack frames
+     * 
+     * Formula:
+     * x^n = (x^(n/2))^2        (if n is even)
+     * x^n = x * (x^(n/2))^2    (if n is odd)
+     * 
+     * @param x base
+     * @param n exponent
+     * @return x^n
+     */
+    public static double myPow(double x, int n) {
+        long exp = n;
+        if (exp < 0) {
+            x = 1.0 / x;
+            exp = -exp;
+        }
+        return fastPowHelper(x, exp);
+    }
+
+    private static double fastPowHelper(double x, long n) {
+        if (n == 0) return 1.0;
+        double half = fastPowHelper(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        } else {
+            return half * half * x;
+        }
+    }
 }
