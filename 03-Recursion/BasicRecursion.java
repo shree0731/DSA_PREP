@@ -179,4 +179,14 @@ public class BasicRecursion {
         moves.add("Move disk " + n + " from " + fromRod + " to " + toRod);
         towerOfHanoi(n - 1, auxRod, toRod, fromRod, moves);
     }
+
+    /**
+     * Computes sum of first N natural numbers recursively.
+     * Formula: N * (N + 1) / 2
+     */
+    public static long sumOfN(int n) {
+        if (n < 0) throw new IllegalArgumentException("N must be non-negative: " + n);
+        if (n == 0) return 0;
+        return n + sumOfN(n - 1);
+    }
 }
