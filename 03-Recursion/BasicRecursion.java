@@ -189,4 +189,33 @@ public class BasicRecursion {
         if (n == 0) return 0;
         return n + sumOfN(n - 1);
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Basic Recursion ===");
+        System.out.println("Factorial(5)          : " + factorial(5));
+        System.out.println("FactorialTail(5)      : " + factorialTailRecursive(5));
+        System.out.println("Fibonacci(7) Naive    : " + fibonacci(7));
+        System.out.println("Fibonacci(50) Memo    : " + fibonacciMemo(50));
+        System.out.println("Sum of first 100 nums : " + sumOfN(100));
+
+        System.out.println("\n--- Fast Exponentiation (Pow) ---");
+        System.out.println("2.0 ^ 10 = " + myPow(2.0, 10));
+        System.out.println("2.0 ^ -2 = " + myPow(2.0, -2));
+
+        System.out.println("\n--- Array Reversal ---");
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println("Original: " + Arrays.toString(arr));
+        reverseArray(arr);
+        System.out.println("Reversed: " + Arrays.toString(arr));
+
+        System.out.println("\n--- Palindrome Check ---");
+        System.out.println("racecar: " + isPalindromeRecursive("racecar"));
+        System.out.println("hello  : " + isPalindromeRecursive("hello"));
+
+        System.out.println("\n--- Tower of Hanoi (3 Disks) ---");
+        List<String> moves = new ArrayList<>();
+        towerOfHanoi(3, 'A', 'C', 'B', moves);
+        System.out.println("Total moves: " + moves.size());
+        for (String m : moves) System.out.println("  " + m);
+    }
 }
