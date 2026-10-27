@@ -95,4 +95,36 @@ public class Subsets {
         }
         return result;
     }
+
+    /**
+     * Subsets II (LeetCode #90: Input array contains duplicates)
+     * Sorts array and skips identical elements at the same tree depth:
+     * if (i > start && nums[i] == nums[i - 1]) continue;
+     * 
+     * Time Complexity: O(2^N * N)
+     * Space Complexity: O(N)
+     * 
+     * @param nums array that may contain duplicates
+     * @return all unique subsets
+     */
+    public static List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null) return result;
+        Arrays.sort(nums); // Critical step: group duplicates together
+        backtrackSubsetsWithDup(nums, 0, new ArrayList<>(), result);
+        return result;
+    }
+
+    private static void backtrackSubsetsWithDup(int[] nums, int start, List<Integer> current, List<List<Integer>> result) {
+        result.add(new ArrayList<>(current));
+
+        for (int i = start; i < nums.length; i++) {
+            // Skip duplicates at same recursion level
+            if (i > start && nums[i] == nums[i - 1]) continue;
+
+            current.add(nums[i]);
+            backtrackSubsetsWithDup(nums, i + 1, current, result);
+            current.remove(current.size() - 1);
+        }
+    }
 }
