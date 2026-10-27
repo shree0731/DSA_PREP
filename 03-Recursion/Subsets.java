@@ -45,4 +45,30 @@ public class Subsets {
         // Choice 2: Exclude nums[index]
         includeExcludeHelper(nums, index + 1, current, result);
     }
+
+    /**
+     * Subsets I (Looping Backtracking Pattern)
+     * Iterates over start index, adding current subset at each step of the tree.
+     * Time Complexity: O(2^N * N)
+     * Space Complexity: O(N)
+     * 
+     * @param nums array of unique integers
+     * @return all possible subsets
+     */
+    public static List<List<Integer>> subsetsLoop(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null) return result;
+        backtrackSubsets(nums, 0, new ArrayList<>(), result);
+        return result;
+    }
+
+    private static void backtrackSubsets(int[] nums, int start, List<Integer> current, List<List<Integer>> result) {
+        result.add(new ArrayList<>(current));
+
+        for (int i = start; i < nums.length; i++) {
+            current.add(nums[i]);                         // Choose
+            backtrackSubsets(nums, i + 1, current, result); // Explore
+            current.remove(current.size() - 1);           // Unchoose
+        }
+    }
 }
