@@ -64,3 +64,16 @@ void backtrack(State state, Choices choices, List<Result> results) {
 - **Sorting before recursing**: Sorting input allows breaking early when choices exceed a target sum.
 - **Skipping adjacent duplicates**: `if (i > start && nums[i] == nums[i - 1]) continue;`
 - **Lookup caching**: Using boolean arrays or bitmasks instead of full board validation.
+
+---
+
+## ⚖️ Recursion vs Iteration Tradeoffs
+
+| Criterion | Recursion | Iteration |
+| :--- | :--- | :--- |
+| **Code Readability** | Intuitive for trees, graphs, divide & conquer | Often requires manual stack or complex loops |
+| **Memory Consumption** | $O(N)$ auxiliary stack frames | $O(1)$ auxiliary memory (usually) |
+| **Execution Overhead** | Frame allocation, function calling cost | Fast machine jumps / register manipulation |
+| **Risk** | `StackOverflowError` if depth exceeds JVM stack | Infinite loop if condition never breaks |
+
+> 💡 **When to use recursion**: Trees, graphs (DFS), Divide & Conquer, Backtracking, and Combinatorial problems.
