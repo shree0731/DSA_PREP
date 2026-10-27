@@ -160,4 +160,23 @@ public class BasicRecursion {
             return half * half * x;
         }
     }
+
+    /**
+     * Solves the Tower of Hanoi puzzle with n disks.
+     * Total moves required: 2^n - 1
+     * Time Complexity: O(2^N)
+     * Space Complexity: O(N) call stack
+     * 
+     * @param n number of disks
+     * @param fromRod source peg
+     * @param toRod destination peg
+     * @param auxRod auxiliary peg
+     * @param moves record of moves
+     */
+    public static void towerOfHanoi(int n, char fromRod, char toRod, char auxRod, List<String> moves) {
+        if (n == 0) return;
+        towerOfHanoi(n - 1, fromRod, auxRod, toRod, moves);
+        moves.add("Move disk " + n + " from " + fromRod + " to " + toRod);
+        towerOfHanoi(n - 1, auxRod, toRod, fromRod, moves);
+    }
 }
