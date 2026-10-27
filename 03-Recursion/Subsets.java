@@ -71,4 +71,28 @@ public class Subsets {
             current.remove(current.size() - 1);           // Unchoose
         }
     }
+
+    /**
+     * Subsets I (Bit Manipulation Power Set)
+     * An array of length N has 2^N subsets, mapped 1-to-1 with binary numbers 0 to (2^N - 1).
+     * Time Complexity: O(2^N * N)
+     * Space Complexity: O(1) auxiliary
+     */
+    public static List<List<Integer>> subsetsBitwise(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null) return result;
+        int n = nums.length;
+        int totalSubsets = 1 << n; // 2^n
+
+        for (int mask = 0; mask < totalSubsets; mask++) {
+            List<Integer> subset = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                if ((mask & (1 << i)) != 0) {
+                    subset.add(nums[i]);
+                }
+            }
+            result.add(subset);
+        }
+        return result;
+    }
 }
