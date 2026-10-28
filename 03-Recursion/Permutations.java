@@ -45,4 +45,41 @@ public class Permutations {
             visited[i] = false;
         }
     }
+
+    /**
+     * Permutations I using In-Place Swapping.
+     * Eliminates auxiliary boolean visited array and extra list allocations during descent.
+     * Time Complexity: O(N! * N)
+     * Space Complexity: O(N) stack frames
+     * 
+     * @param nums array of distinct integers
+     * @return all permutations
+     */
+    public static List<List<Integer>> permuteSwap(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null || nums.length == 0) return result;
+        backtrackSwap(nums, 0, result);
+        return result;
+    }
+
+    private static void backtrackSwap(int[] nums, int index, List<List<Integer>> result) {
+        if (index == nums.length) {
+            List<Integer> perm = new ArrayList<>();
+            for (int n : nums) perm.add(n);
+            result.add(perm);
+            return;
+        }
+
+        for (int i = index; i < nums.length; i++) {
+            swap(nums, index, i);             // Choose: swap element i into current slot
+            backtrackSwap(nums, index + 1, result); // Explore
+            swap(nums, index, i);             // Unchoose: backtrack swap to restore original array
+        }
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 }
