@@ -82,4 +82,43 @@ public class Permutations {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+    /**
+     * Permutations II (LeetCode #47: May contain duplicates)
+     * Sorts array and ensures identical elements are not reused at the same position.
+     * Condition: if (visited[i] || (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1])) continue;
+     * 
+     * Time Complexity: O(N! * N)
+     * Space Complexity: O(N)
+     * 
+     * @param nums array with potential duplicates
+     * @return all unique permutations
+     */
+    public static List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums == null || nums.length == 0) return result;
+        Arrays.sort(nums); // Group duplicates
+        boolean[] visited = new boolean[nums.length];
+        backtrackPermuteUnique(nums, visited, new ArrayList<>(), result);
+        return result;
+    }
+
+    private static void backtrackPermuteUnique(int[] nums, boolean[] visited, List<Integer> current, List<List<Integer>> result) {
+        if (current.size() == nums.length) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (visited[i]) continue;
+            // If duplicate has not been visited in the current branch, skip it to prevent duplicate branch
+            if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
+
+            visited[i] = true;
+            current.add(nums[i]);
+            backtrackPermuteUnique(nums, visited, current, result);
+            current.remove(current.size() - 1);
+            visited[i] = false;
+        }
+    }
 }
