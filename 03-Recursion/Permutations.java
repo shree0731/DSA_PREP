@@ -121,4 +121,35 @@ public class Permutations {
             visited[i] = false;
         }
     }
+
+    /**
+     * Generates all permutations of a string in lexicographical order.
+     */
+    public static List<String> stringPermutations(String str) {
+        List<String> result = new ArrayList<>();
+        if (str == null || str.length() == 0) return result;
+        char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+        boolean[] visited = new boolean[chars.length];
+        backtrackString(chars, visited, new StringBuilder(), result);
+        return result;
+    }
+
+    private static void backtrackString(char[] chars, boolean[] visited, StringBuilder current, List<String> result) {
+        if (current.length() == chars.length) {
+            result.add(current.toString());
+            return;
+        }
+
+        for (int i = 0; i < chars.length; i++) {
+            if (visited[i]) continue;
+            if (i > 0 && chars[i] == chars[i - 1] && !visited[i - 1]) continue;
+
+            visited[i] = true;
+            current.append(chars[i]);
+            backtrackString(chars, visited, current, result);
+            current.deleteCharAt(current.length() - 1);
+            visited[i] = false;
+        }
+    }
 }
