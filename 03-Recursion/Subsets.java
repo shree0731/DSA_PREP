@@ -145,4 +145,12 @@ public class Subsets {
         return subsetSumHelper(nums, index + 1, target - nums[index]) ||
                subsetSumHelper(nums, index + 1, target);
     }
+
+    /**
+     * Returns total count of subsets for an array of size n: 2^n.
+     */
+    public static int countSubsets(int n) {
+        if (n < 0 || n > 30) throw new IllegalArgumentException("n out of range [0..30]");
+        return 1 << n;
+    }
 }
