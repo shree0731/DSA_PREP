@@ -77,3 +77,18 @@ void backtrack(State state, Choices choices, List<Result> results) {
 | **Risk** | `StackOverflowError` if depth exceeds JVM stack | Infinite loop if condition never breaks |
 
 > 💡 **When to use recursion**: Trees, graphs (DFS), Divide & Conquer, Backtracking, and Combinatorial problems.
+
+---
+
+## 🔢 Subsets & Power Set Patterns
+
+### Pattern 1: Pick / Don't Pick
+- At each index $i$, branch into two decisions:
+  1. Add `nums[i]` and recurse on $i+1$.
+  2. Skip `nums[i]` and recurse on $i+1$.
+- Total leaves: $2^N$. Each leaf takes $O(N)$ to copy into the result. Time: $O(N \cdot 2^N)$.
+
+### Pattern 2: Duplicates Skipping
+- In `Subsets II`, sort the array first.
+- Only process the duplicate if it is the first choice at the current level:
+  `if (i > start && nums[i] == nums[i - 1]) continue;`
