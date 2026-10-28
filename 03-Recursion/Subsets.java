@@ -153,4 +153,27 @@ public class Subsets {
         if (n < 0 || n > 30) throw new IllegalArgumentException("n out of range [0..30]");
         return 1 << n;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Subsets I (Unique Elements) ===");
+        int[] nums1 = {1, 2, 3};
+        System.out.println("Input: " + Arrays.toString(nums1));
+        List<List<Integer>> s1 = subsetsLoop(nums1);
+        System.out.println("Total subsets: " + s1.size());
+        System.out.println("Subsets: " + s1);
+
+        System.out.println("\nBitwise Generated Subsets: " + subsetsBitwise(nums1));
+
+        System.out.println("\n=== Testing Subsets II (With Duplicates) ===");
+        int[] nums2 = {1, 2, 2};
+        System.out.println("Input: " + Arrays.toString(nums2));
+        List<List<Integer>> s2 = subsetsWithDup(nums2);
+        System.out.println("Total unique subsets: " + s2.size());
+        System.out.println("Subsets: " + s2);
+
+        System.out.println("\n=== Testing Subset Sum ===");
+        int[] set = {3, 34, 4, 12, 5, 2};
+        System.out.println("hasSubsetSum(set, 9): " + hasSubsetSum(set, 9));  // true (4 + 5)
+        System.out.println("hasSubsetSum(set, 30): " + hasSubsetSum(set, 30)); // false
+    }
 }
