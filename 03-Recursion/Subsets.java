@@ -127,4 +127,22 @@ public class Subsets {
             current.remove(current.size() - 1);
         }
     }
+
+    /**
+     * Determines whether any subset of nums sums up to target.
+     * Time Complexity: O(2^N)
+     * Space Complexity: O(N)
+     */
+    public static boolean hasSubsetSum(int[] nums, int target) {
+        if (nums == null) return false;
+        return subsetSumHelper(nums, 0, target);
+    }
+
+    private static boolean subsetSumHelper(int[] nums, int index, int target) {
+        if (target == 0) return true;
+        if (index >= nums.length || target < 0) return false;
+        // Either include nums[index] or exclude it
+        return subsetSumHelper(nums, index + 1, target - nums[index]) ||
+               subsetSumHelper(nums, index + 1, target);
+    }
 }
