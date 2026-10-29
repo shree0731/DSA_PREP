@@ -196,4 +196,31 @@ public class Permutations {
         for (int i = 2; i <= n; i++) count *= i;
         return count;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Permutations I (Distinct Elements) ===");
+        int[] nums1 = {1, 2, 3};
+        System.out.println("Input: " + Arrays.toString(nums1));
+        List<List<Integer>> p1 = permuteVisited(nums1);
+        System.out.println("Total (Visited approach): " + p1.size());
+        System.out.println("Permutations: " + p1);
+
+        System.out.println("\nSwap-based Permutations: " + permuteSwap(nums1));
+
+        System.out.println("\n=== Testing Permutations II (With Duplicates) ===");
+        int[] nums2 = {1, 1, 2};
+        System.out.println("Input: " + Arrays.toString(nums2));
+        List<List<Integer>> p2 = permuteUnique(nums2);
+        System.out.println("Total unique: " + p2.size());
+        System.out.println("Permutations: " + p2);
+
+        System.out.println("\n=== Testing String Permutations ===");
+        System.out.println("ABC: " + stringPermutations("ABC"));
+
+        System.out.println("\n=== Testing Next Permutation ===");
+        int[] np = {1, 2, 3};
+        System.out.println("Original: " + Arrays.toString(np));
+        nextPermutation(np);
+        System.out.println("Next: " + Arrays.toString(np));
+    }
 }
