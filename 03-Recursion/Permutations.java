@@ -186,4 +186,14 @@ public class Permutations {
             swap(nums, start++, end--);
         }
     }
+
+    /**
+     * Returns total expected count of permutations for distinct n: n!
+     */
+    public static long totalPermutationsCount(int n) {
+        if (n < 0 || n > 20) throw new IllegalArgumentException("n out of range [0..20]");
+        long count = 1;
+        for (int i = 2; i <= n; i++) count *= i;
+        return count;
+    }
 }
