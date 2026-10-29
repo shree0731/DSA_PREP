@@ -103,4 +103,34 @@ public class CombinationSum {
             current.remove(current.size() - 1);
         }
     }
+
+    /**
+     * Combination Sum III (LeetCode #216).
+     * Find all valid combinations of k numbers that add up to n such that only numbers
+     * 1 through 9 are used and each number is used at most once.
+     * 
+     * @param k number of elements
+     * @param n target sum
+     * @return all combinations
+     */
+    public static List<List<Integer>> combinationSum3(int k, int n) {
+        List<List<Integer>> result = new ArrayList<>();
+        backtrackCombSum3(k, n, 1, new ArrayList<>(), result);
+        return result;
+    }
+
+    private static void backtrackCombSum3(int k, int remaining, int start, List<Integer> current, List<List<Integer>> result) {
+        if (remaining == 0 && current.size() == k) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+        if (current.size() >= k || remaining < 0) return;
+
+        for (int i = start; i <= 9; i++) {
+            if (i > remaining) break;
+            current.add(i);
+            backtrackCombSum3(k, remaining - i, i + 1, current, result);
+            current.remove(current.size() - 1);
+        }
+    }
 }
