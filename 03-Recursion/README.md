@@ -92,3 +92,19 @@ void backtrack(State state, Choices choices, List<Result> results) {
 - In `Subsets II`, sort the array first.
 - Only process the duplicate if it is the first choice at the current level:
   `if (i > start && nums[i] == nums[i - 1]) continue;`
+
+---
+
+## 🔄 Permutations (LeetCode #46 & #47)
+
+### Visited Array vs In-Place Swap
+
+| Strategy | Time Complexity | Auxiliary Space | Preserves Order? |
+| :--- | :--- | :--- | :--- |
+| **Visited Array** | $O(N! \times N)$ | $O(N)$ boolean array | Yes (natural index ordering) |
+| **In-Place Swap** | $O(N! \times N)$ | $O(1)$ extra space | Order varies by swap pattern |
+
+### De-duplication Rule for Permutations II
+When duplicates exist, sort `nums` and skip duplicate elements unless their preceding identical twin is currently visited:
+`if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;`
+This guarantees that only one canonical branch evaluates duplicate sequences.
