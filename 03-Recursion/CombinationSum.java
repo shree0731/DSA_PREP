@@ -42,4 +42,31 @@ public class CombinationSum {
             current.remove(current.size() - 1);
         }
     }
+
+    /**
+     * Optimized Combination Sum I with early loop pruning.
+     * By sorting candidates, when candidates[i] > remaining, we can immediately break.
+     */
+    public static List<List<Integer>> combinationSumPruned(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (candidates == null) return result;
+        Arrays.sort(candidates);
+        backtrackCombSum1Pruned(candidates, target, 0, new ArrayList<>(), result);
+        return result;
+    }
+
+    private static void backtrackCombSum1Pruned(int[] candidates, int remaining, int start, List<Integer> current, List<List<Integer>> result) {
+        if (remaining == 0) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (int i = start; i < candidates.length; i++) {
+            if (candidates[i] > remaining) break; // Pruning: remaining candidates are strictly larger
+
+            current.add(candidates[i]);
+            backtrackCombSum1Pruned(candidates, remaining - candidates[i], i, current, result);
+            current.remove(current.size() - 1);
+        }
+    }
 }
