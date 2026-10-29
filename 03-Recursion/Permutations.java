@@ -152,4 +152,38 @@ public class Permutations {
             visited[i] = false;
         }
     }
+
+    /**
+     * Next Permutation (LeetCode #31).
+     * Rearranges numbers into the lexicographically next greater permutation of numbers.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static void nextPermutation(int[] nums) {
+        if (nums == null || nums.length <= 1) return;
+        int i = nums.length - 2;
+
+        // Step 1: Find first decreasing element from right
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
+        }
+
+        // Step 2: If found, find element just larger than nums[i] from right
+        if (i >= 0) {
+            int j = nums.length - 1;
+            while (nums[j] <= nums[i]) {
+                j--;
+            }
+            swap(nums, i, j);
+        }
+
+        // Step 3: Reverse the descending suffix
+        reverseRange(nums, i + 1, nums.length - 1);
+    }
+
+    private static void reverseRange(int[] nums, int start, int end) {
+        while (start < end) {
+            swap(nums, start++, end--);
+        }
+    }
 }
