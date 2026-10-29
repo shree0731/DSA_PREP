@@ -69,4 +69,38 @@ public class CombinationSum {
             current.remove(current.size() - 1);
         }
     }
+
+    /**
+     * Combination Sum II (LeetCode #40: Each number may only be used once, input has duplicates).
+     * Time Complexity: O(2^N)
+     * Space Complexity: O(N)
+     * 
+     * @param candidates array with potential duplicates
+     * @param target target sum
+     * @return unique combinations
+     */
+    public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (candidates == null) return result;
+        Arrays.sort(candidates);
+        backtrackCombSum2(candidates, target, 0, new ArrayList<>(), result);
+        return result;
+    }
+
+    private static void backtrackCombSum2(int[] candidates, int remaining, int start, List<Integer> current, List<List<Integer>> result) {
+        if (remaining == 0) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (int i = start; i < candidates.length; i++) {
+            if (candidates[i] > remaining) break; // Pruning
+            if (i > start && candidates[i] == candidates[i - 1]) continue; // Skip duplicate at same level
+
+            current.add(candidates[i]);
+            // Notice: Pass i + 1 because each element used at most once
+            backtrackCombSum2(candidates, remaining - candidates[i], i + 1, current, result);
+            current.remove(current.size() - 1);
+        }
+    }
 }
