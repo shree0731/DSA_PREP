@@ -151,4 +151,22 @@ public class CombinationSum {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Combination Sum I (Unlimited Reuse) ===");
+        int[] c1 = {2, 3, 6, 7};
+        int target1 = 7;
+        System.out.println("Candidates: " + Arrays.toString(c1) + ", Target: " + target1);
+        System.out.println("Combinations: " + combinationSumPruned(c1, target1)); // Expected: [[2, 2, 3], [7]]
+
+        System.out.println("\n=== Testing Combination Sum II (Single Use, Duplicates) ===");
+        int[] c2 = {10, 1, 2, 7, 6, 1, 5};
+        int target2 = 8;
+        System.out.println("Candidates: " + Arrays.toString(c2) + ", Target: " + target2);
+        System.out.println("Combinations: " + combinationSum2(c2, target2));
+
+        System.out.println("\n=== Testing Combination Sum III (k numbers summing to n) ===");
+        System.out.println("k=3, n=7: " + combinationSum3(3, 7)); // [[1, 2, 4]]
+        System.out.println("k=3, n=9: " + combinationSum3(3, 9));
+    }
 }
