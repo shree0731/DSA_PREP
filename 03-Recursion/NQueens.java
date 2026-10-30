@@ -130,4 +130,42 @@ public class NQueens {
             antiDiag[d2] = false;
         }
     }
+
+    /**
+     * N-Queens II (LeetCode #52: Return total number of distinct solutions).
+     * Avoids board string creation entirely.
+     * 
+     * @param n board size
+     * @return count of distinct valid solutions
+     */
+    public static int totalNQueens(int n) {
+        if (n <= 0) return 0;
+        boolean[] cols = new boolean[n];
+        boolean[] mainDiag = new boolean[2 * n];
+        boolean[] antiDiag = new boolean[2 * n];
+        return countNQueensHelper(0, n, cols, mainDiag, antiDiag);
+    }
+
+    private static int countNQueensHelper(int row, int n, boolean[] cols, boolean[] mainDiag, boolean[] antiDiag) {
+        if (row == n) return 1;
+        int count = 0;
+
+        for (int col = 0; col < n; col++) {
+            int d1 = row - col + n - 1;
+            int d2 = row + col;
+
+            if (cols[col] || mainDiag[d1] || antiDiag[d2]) continue;
+
+            cols[col] = true;
+            mainDiag[d1] = true;
+            antiDiag[d2] = true;
+
+            count += countNQueensHelper(row + 1, n, cols, mainDiag, antiDiag);
+
+            cols[col] = false;
+            mainDiag[d1] = false;
+            antiDiag[d2] = false;
+        }
+        return count;
+    }
 }
