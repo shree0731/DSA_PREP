@@ -168,4 +168,23 @@ public class NQueens {
         }
         return count;
     }
+
+    /**
+     * Visualizes an N-Queens solution with a bordered ASCII chessboard.
+     */
+    public static void printBoard(List<String> solution) {
+        int n = solution.size();
+        StringBuilder border = new StringBuilder("+");
+        for (int i = 0; i < n; i++) border.append("---+");
+
+        System.out.println(border);
+        for (String row : solution) {
+            System.out.print("|");
+            for (char c : row.toCharArray()) {
+                System.out.print(" " + c + " |");
+            }
+            System.out.println();
+            System.out.println(border);
+        }
+    }
 }
