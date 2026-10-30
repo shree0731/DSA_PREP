@@ -76,4 +76,58 @@ public class NQueens {
         }
         return list;
     }
+
+    /**
+     * Optimized N-Queens with O(1) conflict lookups using boolean arrays.
+     * - Column conflicts: cols[col]
+     * - Main diagonal (\): (row - col + n - 1)
+     * - Anti diagonal (/): (row + col)
+     * 
+     * Eliminates loop in isSafe() check!
+     * 
+     * @param n board size
+     * @return all solutions
+     */
+    public static List<List<String>> solveNQueensOptimal(int n) {
+        List<List<String>> result = new ArrayList<>();
+        if (n <= 0) return result;
+
+        boolean[] cols = new boolean[n];
+        boolean[] mainDiag = new boolean[2 * n];
+        boolean[] antiDiag = new boolean[2 * n];
+        char[][] board = new char[n][n];
+        for (char[] row : board) Arrays.fill(row, '.');
+
+        solveOptimal(board, 0, cols, mainDiag, antiDiag, result);
+        return result;
+    }
+
+    private static void solveOptimal(char[][] board, int row, boolean[] cols, boolean[] mainDiag, boolean[] antiDiag, List<List<String>> result) {
+        int n = board.length;
+        if (row == n) {
+            result.add(constructBoard(board));
+            return;
+        }
+
+        for (int col = 0; col < n; col++) {
+            int d1 = row - col + n - 1;
+            int d2 = row + col;
+
+            if (cols[col] || mainDiag[d1] || antiDiag[d2]) continue;
+
+            // Place Queen and mark conflicts
+            board[row][col] = 'Q';
+            cols[col] = true;
+            mainDiag[d1] = true;
+            antiDiag[d2] = true;
+
+            solveOptimal(board, row + 1, cols, mainDiag, antiDiag, result);
+
+            // Backtrack
+            board[row][col] = '.';
+            cols[col] = false;
+            mainDiag[d1] = false;
+            antiDiag[d2] = false;
+        }
+    }
 }
