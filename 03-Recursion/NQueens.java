@@ -187,4 +187,30 @@ public class NQueens {
             System.out.println(border);
         }
     }
+
+    /**
+     * Bitmasking N-Queens solution counter.
+     * Uses bitwise operations for ultra-high performance solution counting.
+     * Time Complexity: O(N!) with minimal constant factor
+     * Space Complexity: O(N) stack
+     */
+    public static int totalNQueensBitmask(int n) {
+        if (n <= 0) return 0;
+        int allOnes = (1 << n) - 1;
+        return bitmaskHelper(0, 0, 0, allOnes);
+    }
+
+    private static int bitmaskHelper(int cols, int diag1, int diag2, int allOnes) {
+        if (cols == allOnes) return 1;
+
+        int count = 0;
+        int available = allOnes & (~(cols | diag1 | diag2));
+
+        while (available != 0) {
+            int pick = available & (-available); // Extract lowest set bit
+            available -= pick;
+            count += bitmaskHelper(cols | pick, (diag1 | pick) << 1, (diag2 | pick) >>> 1, allOnes);
+        }
+        return count;
+    }
 }
