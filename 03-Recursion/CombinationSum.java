@@ -133,4 +133,11 @@ public class CombinationSum {
             current.remove(current.size() - 1);
         }
     }
+
+    /**
+     * Counts the total number of combinations that add up to target.
+     */
+    public static int countCombinationWays(int[] candidates, int target) {
+        return combinationSum(candidates, target).size();
+    }
 }
