@@ -140,4 +140,15 @@ public class CombinationSum {
     public static int countCombinationWays(int[] candidates, int target) {
         return combinationSum(candidates, target).size();
     }
+
+    /**
+     * Validates candidate array for positive integers.
+     */
+    public static boolean hasValidCandidates(int[] candidates) {
+        if (candidates == null || candidates.length == 0) return false;
+        for (int c : candidates) {
+            if (c <= 0) return false;
+        }
+        return true;
+    }
 }
