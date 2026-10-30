@@ -108,3 +108,16 @@ void backtrack(State state, Choices choices, List<Result> results) {
 When duplicates exist, sort `nums` and skip duplicate elements unless their preceding identical twin is currently visited:
 `if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;`
 This guarantees that only one canonical branch evaluates duplicate sequences.
+
+---
+
+## 🎯 Combination Sum Problem Matrix
+
+| Problem | Reuse Policy | Duplicates in Input? | Next Index Recursive Call |
+| :--- | :--- | :--- | :--- |
+| **Combination Sum I** | Unlimited | No | `backtrack(..., i)` |
+| **Combination Sum II**| Single Use | Yes | `backtrack(..., i + 1)` with duplicate skip |
+| **Combination Sum III**| Single Use (1-9)| No | `backtrack(..., i + 1)` with fixed depth $k$ |
+
+### Pruning Rule
+Sorting the candidates array in ascending order allows an immediate `break` in the loop whenever `candidates[i] > remainingTarget`, eliminating whole subtrees.
