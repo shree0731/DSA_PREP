@@ -38,7 +38,7 @@ public class BasicRecursion {
     }
 
     private static long factorialAccumulator(int n, long acc) {
-        if (n < 0) throw new IllegalArgumentException("Negative input: " + n);
+        if (n < 0) throw new IllegalArgumentException("Factorial undefined for negative integer: " + n);
         if (n <= 1) return acc;
         return factorialAccumulator(n - 1, n * acc);
     }
