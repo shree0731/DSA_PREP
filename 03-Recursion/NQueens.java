@@ -213,4 +213,9 @@ public class NQueens {
         }
         return count;
     }
+
+    /**
+     * Known counts for N-Queens from N=1 to N=10 for quick verification.
+     */
+    public static final int[] KNOWN_N_QUEENS_COUNTS = {0, 1, 0, 0, 2, 10, 4, 40, 92, 352, 724};
 }
