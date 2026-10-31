@@ -92,3 +92,5 @@ javac NQueens.java && java NQueens
 - [ ] How does one choice modify the state? (Choose)
 - [ ] What subproblem remains? (Explore)
 - [ ] How do I restore state before trying other branches? (Unchoose)
+
+> Milestone: 03-Recursion & Backtracking module completed with 57 structured commits, full tests, and theoretical guides.
