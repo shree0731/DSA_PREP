@@ -134,3 +134,22 @@ Sorting the candidates array in ascending order allows an immediate `break` in t
 - Uses 3 integers (`cols`, `diag1`, `diag2`) as bitmasks.
 - `available = allOnes & (~(cols | diag1 | diag2))` identifies all open columns in a single bitwise operation!
 - Extract lowest set bit: `pick = available & (-available)`.
+
+---
+
+## 📋 Module Summary & Problem Mapping
+
+| File | LeetCode # | Technique | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **BasicRecursion.java** | #50, #509 | Tail Recursion, Binary Exponentiation | $O(\log N)$ to $O(2^N)$ | $O(\log N)$ to $O(N)$ |
+| **Subsets.java** | #78, #90 | Include/Exclude, Bitmasking, Duplicate Skip | $O(N \times 2^N)$ | $O(N)$ |
+| **Permutations.java** | #46, #47, #31 | In-Place Swapping, Visited State Array | $O(N! \times N)$ | $O(N)$ |
+| **CombinationSum.java**| #39, #40, #216| Branch Pruning, Bounded Depth | $O(2^T)$ | $O(T)$ |
+| **NQueens.java** | #51, #52 | Bitmasking, $O(1)$ Diagonal Lookups | $O(N!)$ | $O(N)$ |
+
+---
+
+## 🎯 Backtracking Interview Tips
+1. **Always draw the recursion tree on paper** before writing code: identify decision branches and leaf termination conditions.
+2. **Remember to undo (backtrack)**: If you append to a list before recurring, you must remove from the list right after the recursive call returns.
+3. **Sort to prune early**: Whenever target sums or duplicates are involved, sorting up front allows `break` and duplicate skips that reduce exponential runtimes by up to 99%.
