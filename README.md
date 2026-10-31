@@ -86,3 +86,9 @@ javac NQueens.java && java NQueens
 - Git
 
 *Maintained by [Shreepurnaa V](https://github.com/shree0731)*
+
+### 💡 Universal Recursion Checklist
+- [ ] What is the simplest input? (Base Case)
+- [ ] How does one choice modify the state? (Choose)
+- [ ] What subproblem remains? (Explore)
+- [ ] How do I restore state before trying other branches? (Unchoose)
