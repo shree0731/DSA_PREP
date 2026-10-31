@@ -121,3 +121,16 @@ This guarantees that only one canonical branch evaluates duplicate sequences.
 
 ### Pruning Rule
 Sorting the candidates array in ascending order allows an immediate `break` in the loop whenever `candidates[i] > remainingTarget`, eliminating whole subtrees.
+
+---
+
+## 👑 N-Queens Optimization Strategies
+
+### 1. Standard Check vs O(1) Lookup
+- Standard approach checks up to $3N$ squares per candidate cell $\implies O(N^2)$ per row exploration.
+- Maintaining boolean arrays for `cols`, `mainDiag (row - col)`, and `antiDiag (row + col)` eliminates loops entirely $\implies O(1)$ collision checks.
+
+### 2. Bitmask Representation
+- Uses 3 integers (`cols`, `diag1`, `diag2`) as bitmasks.
+- `available = allOnes & (~(cols | diag1 | diag2))` identifies all open columns in a single bitwise operation!
+- Extract lowest set bit: `pick = available & (-available)`.
