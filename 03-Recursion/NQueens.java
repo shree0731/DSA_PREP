@@ -218,4 +218,20 @@ public class NQueens {
      * Known counts for N-Queens from N=1 to N=10 for quick verification.
      */
     public static final int[] KNOWN_N_QUEENS_COUNTS = {0, 1, 0, 0, 2, 10, 4, 40, 92, 352, 724};
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing N-Queens ===");
+
+        for (int n = 1; n <= 8; n++) {
+            int count = totalNQueens(n);
+            int bitCount = totalNQueensBitmask(n);
+            System.out.println("N = " + n + " -> Solutions: " + count + " (Bitmask count: " + bitCount + ")");
+        }
+
+        System.out.println("\nVisualizing First Solution for 4-Queens:");
+        List<List<String>> solutions4 = solveNQueensOptimal(4);
+        if (!solutions4.isEmpty()) {
+            printBoard(solutions4.get(0));
+        }
+    }
 }
