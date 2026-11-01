@@ -88,4 +88,31 @@ public class BasicSorting {
             }
         }
     }
+
+    /**
+     * Insertion Sort.
+     * Builds sorted prefix one element at a time by shifting larger elements right.
+     * Best Time: O(N) when array is already sorted or nearly sorted
+     * Worst Time: O(N^2) reverse sorted array
+     * Space: O(1)
+     * Stability: Stable
+     * 
+     * @param arr array of integers
+     */
+    public static void insertionSort(int[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        int n = arr.length;
+
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+
+            // Shift elements of arr[0..i-1] that are greater than key to one position ahead
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+    }
 }
