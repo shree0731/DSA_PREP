@@ -148,4 +148,34 @@ public class BasicSorting {
             arr[j + 1] = key;
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Basic Sorting Algorithms ===");
+
+        int[] a1 = {64, 34, 25, 12, 22, 11, 90};
+        System.out.println("Original: " + Arrays.toString(a1));
+        bubbleSortOptimized(a1);
+        System.out.println("Bubble Sorted   : " + Arrays.toString(a1));
+
+        int[] a2 = {29, 10, 14, 37, 13};
+        System.out.println("\nOriginal: " + Arrays.toString(a2));
+        selectionSort(a2);
+        System.out.println("Selection Sorted: " + Arrays.toString(a2));
+
+        int[] a3 = {12, 11, 13, 5, 6};
+        System.out.println("\nOriginal: " + Arrays.toString(a3));
+        insertionSort(a3);
+        System.out.println("Insertion Sorted: " + Arrays.toString(a3));
+
+        System.out.println("\n--- Stability Test ---");
+        Pair[] pairs = {
+            new Pair(5, "first_5"),
+            new Pair(3, "only_3"),
+            new Pair(5, "second_5"),
+            new Pair(2, "only_2")
+        };
+        System.out.println("Before Stable Sort: " + Arrays.toString(pairs));
+        stableInsertionSort(pairs);
+        System.out.println("After Stable Sort : " + Arrays.toString(pairs));
+    }
 }
