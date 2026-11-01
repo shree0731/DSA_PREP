@@ -60,4 +60,32 @@ public class BasicSorting {
             if (!swapped) break; // Array is sorted!
         }
     }
+
+    /**
+     * Selection Sort.
+     * Repeatedly identifies the minimum element in unsorted suffix and swaps it to current index.
+     * Time Complexity: O(N^2) in all cases (Best, Average, Worst)
+     * Space Complexity: O(1)
+     * Stability: Unstable (long distance swaps can disrupt relative order of identical keys)
+     * 
+     * @param arr array of integers
+     */
+    public static void selectionSort(int[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            int minIdx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIdx]) {
+                    minIdx = j;
+                }
+            }
+            if (minIdx != i) {
+                int temp = arr[i];
+                arr[i] = arr[minIdx];
+                arr[minIdx] = temp;
+            }
+        }
+    }
 }
