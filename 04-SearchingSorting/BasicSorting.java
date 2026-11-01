@@ -115,4 +115,37 @@ public class BasicSorting {
             arr[j + 1] = key;
         }
     }
+
+    /**
+     * Pair data structure to verify stability of sorting algorithms.
+     */
+    public static class Pair {
+        public final int key;
+        public final String originalIndex;
+
+        public Pair(int key, String originalIndex) {
+            this.key = key;
+            this.originalIndex = originalIndex;
+        }
+
+        @Override
+        public String toString() {
+            return "(" + key + ", " + originalIndex + ")";
+        }
+    }
+
+    /**
+     * Demonstrates stable sorting on an array of Pairs using Insertion Sort.
+     */
+    public static void stableInsertionSort(Pair[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            Pair key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j].key > key.key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+    }
 }
