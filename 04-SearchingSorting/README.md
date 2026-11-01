@@ -39,3 +39,12 @@ Searching and Sorting are the core algorithmic building blocks in computer scien
 | **QuickSort** | $O(N \log N)$ | $O(N \log N)$ | $O(N^2)$ | $O(\log N)$ | No | Yes |
 | **HeapSort** | $O(N \log N)$ | $O(N \log N)$ | $O(N \log N)$ | $O(1)$ | No | Yes |
 | **QuickSelect** | $O(N)$ | $O(N)$ | $O(N^2)$ | $O(\log N)$ | N/A | Yes |
+
+---
+
+## 🔍 Elementary Sorts Analysis
+
+### Insertion Sort: Why it matters
+- Even though average time is $O(N^2)$, Insertion Sort is the fastest algorithm in practice for small arrays ($N \le 16$ to $32$).
+- Java's `Arrays.sort()` (Dual-Pivot Quicksort) switches to Insertion Sort for short subarrays.
+- Adaptive: only $O(N)$ comparisons when input is already sorted.
