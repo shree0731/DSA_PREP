@@ -56,4 +56,54 @@ public class MergeSort {
         while (i < n1) arr[k++] = leftArr[i++];
         while (j < n2) arr[k++] = rightArr[j++];
     }
+
+    /**
+     * Counts the number of inversions in an array.
+     * An inversion is a pair (i, j) such that i < j and arr[i] > arr[j].
+     * Time Complexity: O(N log N)
+     * Space Complexity: O(N)
+     * 
+     * @param arr input array
+     * @return total inversion count
+     */
+    public static long countInversions(int[] arr) {
+        if (arr == null || arr.length <= 1) return 0;
+        int[] copy = arr.clone();
+        int[] temp = new int[copy.length];
+        return countInversionsHelper(copy, temp, 0, copy.length - 1);
+    }
+
+    private static long countInversionsHelper(int[] arr, int[] temp, int left, int right) {
+        long invCount = 0;
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            invCount += countInversionsHelper(arr, temp, left, mid);
+            invCount += countInversionsHelper(arr, temp, mid + 1, right);
+            invCount += mergeAndCount(arr, temp, left, mid, right);
+        }
+        return invCount;
+    }
+
+    private static long mergeAndCount(int[] arr, int[] temp, int left, int mid, int right) {
+        int i = left;
+        int j = mid + 1;
+        int k = left;
+        long invCount = 0;
+
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+                // All remaining elements in left subarray [i .. mid] are greater than arr[j]
+                invCount += (mid - i + 1);
+            }
+        }
+
+        while (i <= mid) temp[k++] = arr[i++];
+        while (j <= right) temp[k++] = arr[j++];
+        System.arraycopy(temp, left, arr, left, right - left + 1);
+
+        return invCount;
+    }
 }
