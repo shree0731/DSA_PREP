@@ -48,3 +48,16 @@ Searching and Sorting are the core algorithmic building blocks in computer scien
 - Even though average time is $O(N^2)$, Insertion Sort is the fastest algorithm in practice for small arrays ($N \le 16$ to $32$).
 - Java's `Arrays.sort()` (Dual-Pivot Quicksort) switches to Insertion Sort for short subarrays.
 - Adaptive: only $O(N)$ comparisons when input is already sorted.
+
+---
+
+## 🧩 Merge Sort & Inversion Counting
+
+### Divide-and-Conquer Recurrence
+$$T(N) = 2T(N/2) + O(N) \implies O(N \log N)$$
+By the Master Theorem ($a = 2, b = 2, d = 1$), time complexity is strictly $\Theta(N \log N)$ across all inputs.
+
+### Inversion Counting
+When `leftArr[i] > rightArr[j]`, since `leftArr` is already sorted, **all** elements from `i` to `mid` are strictly greater than `rightArr[j]`:
+$$\text{inversions} += (\text{mid} - i + 1)$$
+This solves the inversion count problem in $O(N \log N)$ rather than $O(N^2)$ brute force.
