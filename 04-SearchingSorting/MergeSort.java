@@ -106,4 +106,23 @@ public class MergeSort {
 
         return invCount;
     }
+
+    /**
+     * Bottom-up Iterative Merge Sort.
+     * Eliminates recursive call stack frames by merging pairs of subarrays of size 1, 2, 4, 8...
+     * Time Complexity: O(N log N)
+     * Space Complexity: O(N)
+     */
+    public static void mergeSortIterative(int[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        int n = arr.length;
+
+        for (int currSize = 1; currSize < n; currSize = 2 * currSize) {
+            for (int leftStart = 0; leftStart < n - 1; leftStart += 2 * currSize) {
+                int mid = Math.min(leftStart + currSize - 1, n - 1);
+                int rightEnd = Math.min(leftStart + 2 * currSize - 1, n - 1);
+                merge(arr, leftStart, mid, rightEnd);
+            }
+        }
+    }
 }
