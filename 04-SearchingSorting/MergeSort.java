@@ -136,4 +136,26 @@ public class MergeSort {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Merge Sort ===");
+
+        int[] a1 = {38, 27, 43, 3, 9, 82, 10};
+        System.out.println("Original: " + Arrays.toString(a1));
+        mergeSort(a1);
+        System.out.println("Recursive Merge Sorted: " + Arrays.toString(a1));
+
+        int[] a2 = {12, 11, 13, 5, 6, 7};
+        System.out.println("\nOriginal: " + Arrays.toString(a2));
+        mergeSortIterative(a2);
+        System.out.println("Iterative Merge Sorted: " + Arrays.toString(a2));
+
+        System.out.println("\n--- Testing Inversion Count ---");
+        int[] invArr = {8, 4, 2, 1};
+        System.out.println("Array: " + Arrays.toString(invArr));
+        System.out.println("Inversions: " + countInversions(invArr)); // Expected 6: (8,4), (8,2), (8,1), (4,2), (4,1), (2,1)
+
+        int[] sortedArr = {1, 2, 3, 4, 5};
+        System.out.println("Sorted Array Inversions: " + countInversions(sortedArr)); // Expected 0
+    }
 }
