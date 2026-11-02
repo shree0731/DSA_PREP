@@ -47,4 +47,34 @@ public class QuickSort {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+    /**
+     * QuickSort using Hoare partition scheme (pivot at start, converging pointers).
+     * Makes approximately 3x fewer swaps than Lomuto on average.
+     */
+    public static void quickSortHoare(int[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        quickSortHoareHelper(arr, 0, arr.length - 1);
+    }
+
+    private static void quickSortHoareHelper(int[] arr, int low, int high) {
+        if (low < high) {
+            int p = partitionHoare(arr, low, high);
+            quickSortHoareHelper(arr, low, p);
+            quickSortHoareHelper(arr, p + 1, high);
+        }
+    }
+
+    private static int partitionHoare(int[] arr, int low, int high) {
+        int pivot = arr[low];
+        int i = low - 1;
+        int j = high + 1;
+
+        while (true) {
+            do { i++; } while (arr[i] < pivot);
+            do { j--; } while (arr[j] > pivot);
+            if (i >= j) return j;
+            swap(arr, i, j);
+        }
+    }
 }
