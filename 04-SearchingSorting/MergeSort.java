@@ -158,4 +158,37 @@ public class MergeSort {
         int[] sortedArr = {1, 2, 3, 4, 5};
         System.out.println("Sorted Array Inversions: " + countInversions(sortedArr)); // Expected 0
     }
+
+    /**
+     * Optimized Merge Sort allocating a single reusable buffer for the entire sort.
+     * Prevents GC thrashing from repeated O(N) array allocations at every recursion level.
+     */
+    public static void mergeSortOptimizedBuffer(int[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        int[] buffer = new int[arr.length];
+        mergeSortBufferHelper(arr, buffer, 0, arr.length - 1);
+    }
+
+    private static void mergeSortBufferHelper(int[] arr, int[] buffer, int left, int right) {
+        if (left >= right) return;
+        int mid = left + (right - left) / 2;
+        mergeSortBufferHelper(arr, buffer, left, mid);
+        mergeSortBufferHelper(arr, buffer, mid + 1, right);
+        mergeWithBuffer(arr, buffer, left, mid, right);
+    }
+
+    private static void mergeWithBuffer(int[] arr, int[] buffer, int left, int mid, int right) {
+        System.arraycopy(arr, left, buffer, left, right - left + 1);
+        int i = left, j = mid + 1, k = left;
+
+        while (i <= mid && j <= right) {
+            if (buffer[i] <= buffer[j]) {
+                arr[k++] = buffer[i++];
+            } else {
+                arr[k++] = buffer[j++];
+            }
+        }
+        while (i <= mid) arr[k++] = buffer[i++];
+        while (j <= right) arr[k++] = buffer[j++];
+    }
 }
