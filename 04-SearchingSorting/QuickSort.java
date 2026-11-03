@@ -190,4 +190,32 @@ public class QuickSort {
             }
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing QuickSort Variants ===");
+
+        int[] a1 = {10, 7, 8, 9, 1, 5};
+        System.out.println("Original: " + Arrays.toString(a1));
+        quickSortLomuto(a1);
+        System.out.println("Lomuto QuickSort: " + Arrays.toString(a1));
+
+        int[] a2 = {10, 7, 8, 9, 1, 5};
+        quickSortHoare(a2);
+        System.out.println("Hoare QuickSort : " + Arrays.toString(a2));
+
+        int[] a3 = {2, 0, 2, 1, 1, 0, 2, 0, 1};
+        System.out.println("\nOriginal Duplicates: " + Arrays.toString(a3));
+        quickSort3Way(a3);
+        System.out.println("3-Way QuickSorted  : " + Arrays.toString(a3));
+
+        System.out.println("\n--- Testing QuickSelect ---");
+        int[] qArr = {3, 2, 1, 5, 6, 4};
+        System.out.println("Array: " + Arrays.toString(qArr));
+        System.out.println("2nd Largest element: " + findKthLargest(qArr.clone(), 2)); // Expected: 5
+        System.out.println("1st Smallest element: " + findKthSmallest(qArr.clone(), 1)); // Expected: 1
+
+        int[] colors = {2, 0, 2, 1, 1, 0};
+        sortColors(colors);
+        System.out.println("Sort Colors (DNF): " + Arrays.toString(colors));
+    }
 }
