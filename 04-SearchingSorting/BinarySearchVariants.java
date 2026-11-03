@@ -51,4 +51,24 @@ public class BinarySearchVariants {
         }
         return low;
     }
+
+    /**
+     * Upper Bound: Smallest index i such that nums[i] > target.
+     * If all elements <= target, returns nums.length.
+     * Time Complexity: O(log N)
+     */
+    public static int upperBound(int[] nums, int target) {
+        if (nums == null) return 0;
+        int low = 0, high = nums.length;
+
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] > target) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
 }
