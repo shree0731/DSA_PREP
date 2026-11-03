@@ -162,4 +162,14 @@ public class QuickSort {
         }
         return nums[left];
     }
+
+    /**
+     * Finds the kth smallest element in an unsorted array (1-based rank).
+     */
+    public static int findKthSmallest(int[] nums, int k) {
+        if (nums == null || k < 1 || k > nums.length) {
+            throw new IllegalArgumentException("Invalid k: " + k);
+        }
+        return findKthLargest(nums, nums.length - k + 1);
+    }
 }
