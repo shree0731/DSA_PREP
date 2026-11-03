@@ -172,4 +172,22 @@ public class QuickSort {
         }
         return findKthLargest(nums, nums.length - k + 1);
     }
+
+    /**
+     * Sorts Colors / Dutch National Flag problem (LeetCode #75: 0s, 1s, and 2s in-place).
+     */
+    public static void sortColors(int[] nums) {
+        if (nums == null || nums.length <= 1) return;
+        int low = 0, mid = 0, high = nums.length - 1;
+
+        while (mid <= high) {
+            if (nums[mid] == 0) {
+                swap(nums, low++, mid++);
+            } else if (nums[mid] == 1) {
+                mid++;
+            } else {
+                swap(nums, mid, high--);
+            }
+        }
+    }
 }
