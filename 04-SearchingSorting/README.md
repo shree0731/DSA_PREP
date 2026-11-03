@@ -61,3 +61,16 @@ By the Master Theorem ($a = 2, b = 2, d = 1$), time complexity is strictly $\The
 When `leftArr[i] > rightArr[j]`, since `leftArr` is already sorted, **all** elements from `i` to `mid` are strictly greater than `rightArr[j]`:
 $$\text{inversions} += (\text{mid} - i + 1)$$
 This solves the inversion count problem in $O(N \log N)$ rather than $O(N^2)$ brute force.
+
+---
+
+## ⚡ QuickSort Partitioning Schemes
+
+### 1. Lomuto vs Hoare
+- **Lomuto Partition**: Moves right-to-left with single index; easier to reason about, but does $\approx 3\times$ more swaps.
+- **Hoare Partition**: Converging two-pointer search from both ends; stops scanning when matching elements found; significantly fewer swaps.
+
+### 2. 3-Way Partitioning (Dutch National Flag)
+- Standard Quicksort degrades to $O(N^2)$ when all elements are identical (e.g. $[1, 1, 1, 1]$).
+- 3-Way partitioning divides into three sections: $< v$, $== v$, $> v$.
+- Identical elements are grouped and never touched again in subsequent recursions $\implies O(N)$ best case for repeated keys.
