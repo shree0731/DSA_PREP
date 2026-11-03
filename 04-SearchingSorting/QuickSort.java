@@ -77,4 +77,24 @@ public class QuickSort {
             swap(arr, i, j);
         }
     }
+
+    /**
+     * Randomized QuickSort.
+     * Selects random pivot to eliminate O(N^2) adversarial worst cases on sorted inputs.
+     * Expected Time: O(N log N)
+     */
+    public static void quickSortRandomized(int[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        quickSortRandomHelper(arr, 0, arr.length - 1);
+    }
+
+    private static void quickSortRandomHelper(int[] arr, int low, int high) {
+        if (low < high) {
+            int randomIdx = low + RANDOM.nextInt(high - low + 1);
+            swap(arr, randomIdx, high);
+            int pivotIdx = partitionLomuto(arr, low, high);
+            quickSortRandomHelper(arr, low, pivotIdx - 1);
+            quickSortRandomHelper(arr, pivotIdx + 1, high);
+        }
+    }
 }
