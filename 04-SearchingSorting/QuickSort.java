@@ -129,4 +129,37 @@ public class QuickSort {
         quickSort3WayHelper(arr, low, lt - 1);
         quickSort3WayHelper(arr, gt + 1, high);
     }
+
+    /**
+     * QuickSelect algorithm (LeetCode #215: Kth Largest Element in an Array).
+     * Average Time: O(N)
+     * Worst Time: O(N^2)
+     * Space Complexity: O(1)
+     * 
+     * @param nums array of integers
+     * @param k 1-based rank (kth largest)
+     * @return kth largest element
+     */
+    public static int findKthLargest(int[] nums, int k) {
+        if (nums == null || k < 1 || k > nums.length) {
+            throw new IllegalArgumentException("Invalid k: " + k);
+        }
+        int targetIdx = nums.length - k; // Convert to (n-k)th smallest in 0-based index
+        int left = 0, right = nums.length - 1;
+
+        while (left <= right) {
+            int randomPivot = left + RANDOM.nextInt(right - left + 1);
+            swap(nums, randomPivot, right);
+            int p = partitionLomuto(nums, left, right);
+
+            if (p == targetIdx) {
+                return nums[p];
+            } else if (p < targetIdx) {
+                left = p + 1;
+            } else {
+                right = p - 1;
+            }
+        }
+        return nums[left];
+    }
 }
