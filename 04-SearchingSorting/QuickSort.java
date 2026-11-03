@@ -97,4 +97,36 @@ public class QuickSort {
             quickSortRandomHelper(arr, pivotIdx + 1, high);
         }
     }
+
+    /**
+     * 3-Way QuickSort (Dutch National Flag Partitioning).
+     * Partitions array into 3 regions: (< pivot), (== pivot), (> pivot).
+     * Extremely efficient on arrays with many duplicate elements (O(N) best case).
+     */
+    public static void quickSort3Way(int[] arr) {
+        if (arr == null || arr.length <= 1) return;
+        quickSort3WayHelper(arr, 0, arr.length - 1);
+    }
+
+    private static void quickSort3WayHelper(int[] arr, int low, int high) {
+        if (low >= high) return;
+
+        int lt = low;      // arr[low .. lt-1] < pivot
+        int gt = high;     // arr[gt+1 .. high] > pivot
+        int pivot = arr[low];
+        int i = low + 1;   // arr[lt .. i-1] == pivot
+
+        while (i <= gt) {
+            if (arr[i] < pivot) {
+                swap(arr, lt++, i++);
+            } else if (arr[i] > pivot) {
+                swap(arr, i, gt--);
+            } else {
+                i++;
+            }
+        }
+
+        quickSort3WayHelper(arr, low, lt - 1);
+        quickSort3WayHelper(arr, gt + 1, high);
+    }
 }
