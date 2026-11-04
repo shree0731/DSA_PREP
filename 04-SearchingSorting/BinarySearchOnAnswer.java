@@ -106,4 +106,42 @@ public class BinarySearchOnAnswer {
         }
         return daysUsed <= days;
     }
+
+    /**
+     * Aggressive Cows / Magnetic Force Between Two Balls (LeetCode #1552).
+     * Maximizes minimum distance between m placed cows/balls.
+     * Time Complexity: O(N log(max_distance))
+     */
+    public static int maxDistance(int[] position, int m) {
+        Arrays.sort(position);
+        int n = position.length;
+        int low = 1;
+        int high = position[n - 1] - position[0];
+        int ans = 1;
+
+        while (low <= high) {
+            int midDist = low + (high - low) / 2;
+            if (canPlaceBalls(position, m, midDist)) {
+                ans = midDist;
+                low = midDist + 1; // Try to maximize distance
+            } else {
+                high = midDist - 1;
+            }
+        }
+        return ans;
+    }
+
+    private static boolean canPlaceBalls(int[] position, int m, int minDist) {
+        int count = 1;
+        int lastPos = position[0];
+
+        for (int i = 1; i < position.length; i++) {
+            if (position[i] - lastPos >= minDist) {
+                count++;
+                lastPos = position[i];
+                if (count == m) return true;
+            }
+        }
+        return count >= m;
+    }
 }
