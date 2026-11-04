@@ -65,4 +65,45 @@ public class BinarySearchOnAnswer {
         }
         return hoursNeeded <= h;
     }
+
+    /**
+     * Capacity To Ship Packages Within D Days (LeetCode #1011).
+     * Finds least weight capacity of ship to transport all packages within days.
+     * Search space: [max(weights), sum(weights)]
+     */
+    public static int shipWithinDays(int[] weights, int days) {
+        int maxWeight = 0, sumWeight = 0;
+        for (int w : weights) {
+            maxWeight = Math.max(maxWeight, w);
+            sumWeight += w;
+        }
+
+        int low = maxWeight, high = sumWeight;
+        int ans = sumWeight;
+
+        while (low <= high) {
+            int capacity = low + (high - low) / 2;
+            if (canShip(weights, capacity, days)) {
+                ans = capacity;
+                high = capacity - 1;
+            } else {
+                low = capacity + 1;
+            }
+        }
+        return ans;
+    }
+
+    private static boolean canShip(int[] weights, int capacity, int days) {
+        int daysUsed = 1;
+        int currentLoad = 0;
+
+        for (int w : weights) {
+            if (currentLoad + w > capacity) {
+                daysUsed++;
+                currentLoad = 0;
+            }
+            currentLoad += w;
+        }
+        return daysUsed <= days;
+    }
 }
