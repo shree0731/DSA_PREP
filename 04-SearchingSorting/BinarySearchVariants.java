@@ -127,4 +127,42 @@ public class BinarySearchVariants {
         }
         return -1;
     }
+
+    /**
+     * Search in Rotated Sorted Array II (LeetCode #81: Contains duplicates).
+     * When nums[low] == nums[mid] == nums[high], shrink search window.
+     * Worst Time: O(N) when all elements are identical
+     * Average Time: O(log N)
+     */
+    public static boolean searchRotatedWithDuplicates(int[] nums, int target) {
+        if (nums == null || nums.length == 0) return false;
+        int low = 0, high = nums.length - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] == target) return true;
+
+            // Handle ambiguous boundary duplicates
+            if (nums[low] == nums[mid] && nums[mid] == nums[high]) {
+                low++;
+                high--;
+                continue;
+            }
+
+            if (nums[low] <= nums[mid]) {
+                if (target >= nums[low] && target < nums[mid]) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            } else {
+                if (target > nums[mid] && target <= nums[high]) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
+        }
+        return false;
+    }
 }
