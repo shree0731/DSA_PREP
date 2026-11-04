@@ -71,4 +71,28 @@ public class BinarySearchVariants {
         }
         return low;
     }
+
+    /**
+     * Find First and Last Position of Element in Sorted Array (LeetCode #34).
+     * Time Complexity: O(log N)
+     * Space Complexity: O(1)
+     * 
+     * @param nums sorted array
+     * @param target target value
+     * @return 2-element array [firstIndex, lastIndex] or [-1, -1]
+     */
+    public static int[] searchRange(int[] nums, int target) {
+        int[] result = {-1, -1};
+        if (nums == null || nums.length == 0) return result;
+
+        int lb = lowerBound(nums, target);
+        if (lb == nums.length || nums[lb] != target) {
+            return result; // Target not present
+        }
+
+        int ub = upperBound(nums, target);
+        result[0] = lb;
+        result[1] = ub - 1;
+        return result;
+    }
 }
