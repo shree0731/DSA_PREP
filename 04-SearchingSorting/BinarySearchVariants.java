@@ -188,4 +188,28 @@ public class BinarySearchVariants {
         }
         return low;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Binary Search Variants ===");
+
+        int[] sorted = {1, 3, 3, 5, 7, 8, 9, 9, 9, 11};
+        System.out.println("Array: " + Arrays.toString(sorted));
+        System.out.println("lowerBound(target=3) : idx = " + lowerBound(sorted, 3)); // 1
+        System.out.println("upperBound(target=3) : idx = " + upperBound(sorted, 3)); // 3
+        System.out.println("searchRange(target=9): " + Arrays.toString(searchRange(sorted, 9))); // [6, 8]
+        System.out.println("searchRange(target=4): " + Arrays.toString(searchRange(sorted, 4))); // [-1, -1]
+
+        System.out.println("\n--- Rotated Array Search ---");
+        int[] rotated = {4, 5, 6, 7, 0, 1, 2};
+        System.out.println("Rotated: " + Arrays.toString(rotated));
+        System.out.println("searchRotated(target=0): idx = " + searchRotated(rotated, 0)); // 4
+        System.out.println("searchRotated(target=3): idx = " + searchRotated(rotated, 3)); // -1
+
+        int[] dupRotated = {2, 5, 6, 0, 0, 1, 2};
+        System.out.println("searchRotatedWithDuplicates(target=0): " + searchRotatedWithDuplicates(dupRotated, 0)); // true
+
+        System.out.println("\n--- Peak Element ---");
+        int[] peakArr = {1, 2, 1, 3, 5, 6, 4};
+        System.out.println("Peak in " + Arrays.toString(peakArr) + ": idx = " + findPeakElement(peakArr));
+    }
 }
