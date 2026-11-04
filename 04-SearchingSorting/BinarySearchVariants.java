@@ -165,4 +165,27 @@ public class BinarySearchVariants {
         }
         return false;
     }
+
+    /**
+     * Find Peak Element (LeetCode #162).
+     * An element is a peak if it is strictly greater than its neighbors.
+     * Time Complexity: O(log N)
+     * Space Complexity: O(1)
+     */
+    public static int findPeakElement(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+        int low = 0, high = nums.length - 1;
+
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] > nums[mid + 1]) {
+                // Downward slope: peak lies on the left (including mid)
+                high = mid;
+            } else {
+                // Upward slope: peak lies strictly on the right
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
 }
