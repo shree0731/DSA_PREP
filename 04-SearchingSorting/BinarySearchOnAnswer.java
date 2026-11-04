@@ -33,4 +33,36 @@ public class BinarySearchOnAnswer {
         }
         return ans;
     }
+
+    /**
+     * Koko Eating Bananas (LeetCode #875).
+     * Finds minimum integer eating speed k to eat all bananas within h hours.
+     * Time Complexity: O(N * log(max(piles)))
+     * Space Complexity: O(1)
+     */
+    public static int minEatingSpeed(int[] piles, int h) {
+        int low = 1;
+        int high = 0;
+        for (int p : piles) high = Math.max(high, p);
+
+        int ans = high;
+        while (low <= high) {
+            int midSpeed = low + (high - low) / 2;
+            if (canEatAll(piles, midSpeed, h)) {
+                ans = midSpeed;
+                high = midSpeed - 1; // Try to find smaller speed
+            } else {
+                low = midSpeed + 1;
+            }
+        }
+        return ans;
+    }
+
+    private static boolean canEatAll(int[] piles, int speed, int h) {
+        long hoursNeeded = 0;
+        for (int p : piles) {
+            hoursNeeded += (p + speed - 1) / speed; // Ceiling division
+        }
+        return hoursNeeded <= h;
+    }
 }
