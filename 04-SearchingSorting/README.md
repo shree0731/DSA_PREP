@@ -74,3 +74,14 @@ This solves the inversion count problem in $O(N \log N)$ rather than $O(N^2)$ br
 - Standard Quicksort degrades to $O(N^2)$ when all elements are identical (e.g. $[1, 1, 1, 1]$).
 - 3-Way partitioning divides into three sections: $< v$, $== v$, $> v$.
 - Identical elements are grouped and never touched again in subsequent recursions $\implies O(N)$ best case for repeated keys.
+
+---
+
+## 🎯 Lower Bound & Upper Bound Invariants
+
+- **Lower Bound (`std::lower_bound`)**: First element with value $\ge \text{target}$.
+  - Predicate: `nums[mid] >= target` $\implies$ `high = mid`.
+- **Upper Bound (`std::upper_bound`)**: First element with value $> \text{target}$.
+  - Predicate: `nums[mid] > target` $\implies$ `high = mid`.
+- **Target Count**:
+  $$\text{count} = \text{upperBound}(target) - \text{lowerBound}(target)$$
