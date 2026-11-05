@@ -38,7 +38,7 @@ public class BinarySearchVariants {
      * Time Complexity: O(log N)
      */
     public static int lowerBound(int[] nums, int target) {
-        if (nums == null) return 0;
+        if (nums == null) throw new IllegalArgumentException("Input array cannot be null");
         int low = 0, high = nums.length;
 
         while (low < high) {
@@ -58,7 +58,7 @@ public class BinarySearchVariants {
      * Time Complexity: O(log N)
      */
     public static int upperBound(int[] nums, int target) {
-        if (nums == null) return 0;
+        if (nums == null) throw new IllegalArgumentException("Input array cannot be null");
         int low = 0, high = nums.length;
 
         while (low < high) {
