@@ -102,3 +102,10 @@ javac BinarySearchOnAnswer.java && java BinarySearchOnAnswer
 - Git
 
 *Maintained by [Shreepurnaa V](https://github.com/shree0731)*
+
+### ⚡ Algorithm Selection Rule of Thumb
+- Need guaranteed $O(N \log N)$ and stability? $\implies$ **Merge Sort**
+- Need in-place sorting with lowest constant factor? $\implies$ **Dual-Pivot QuickSort**
+- Dataset has massive number of duplicate keys? $\implies$ **3-Way QuickSort (DNF)**
+- Small array ($N \le 32$) or nearly sorted? $\implies$ **Insertion Sort**
+- Finding $K$th largest in unsorted array? $\implies$ **QuickSelect ($O(N)$ average)**
