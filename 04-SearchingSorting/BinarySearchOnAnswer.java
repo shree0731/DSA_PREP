@@ -144,4 +144,44 @@ public class BinarySearchOnAnswer {
         }
         return count >= m;
     }
+
+    /**
+     * Split Array Largest Sum (LeetCode #410 / Painter's Partition Problem).
+     * Minimizes largest sum among k contiguous split subarrays.
+     */
+    public static int splitArray(int[] nums, int k) {
+        int max = 0, sum = 0;
+        for (int n : nums) {
+            max = Math.max(max, n);
+            sum += n;
+        }
+
+        int low = max, high = sum;
+        int ans = sum;
+
+        while (low <= high) {
+            int midSum = low + (high - low) / 2;
+            if (canSplit(nums, midSum, k)) {
+                ans = midSum;
+                high = midSum - 1;
+            } else {
+                low = midSum + 1;
+            }
+        }
+        return ans;
+    }
+
+    private static boolean canSplit(int[] nums, int maxAllowedSum, int k) {
+        int splits = 1;
+        int currentSum = 0;
+
+        for (int n : nums) {
+            if (currentSum + n > maxAllowedSum) {
+                splits++;
+                currentSum = 0;
+            }
+            currentSum += n;
+        }
+        return splits <= k;
+    }
 }
