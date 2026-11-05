@@ -210,4 +210,25 @@ public class BinarySearchOnAnswer {
         }
         return -1;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Binary Search on Answer Space ===");
+
+        System.out.println("mySqrt(8)  : " + mySqrt(8));  // Expected 2
+        System.out.println("mySqrt(16) : " + mySqrt(16)); // Expected 4
+
+        int[] piles = {3, 6, 7, 11};
+        System.out.println("\nKoko eating bananas " + Arrays.toString(piles) + " in h=8 hours: speed = " + minEatingSpeed(piles, 8)); // Expected 4
+
+        int[] weights = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println("\nShipping weights within 5 days: capacity = " + shipWithinDays(weights, 5)); // Expected 15
+
+        int[] positions = {1, 2, 8, 4, 9};
+        System.out.println("\nAggressive cows (m=3): max min distance = " + maxDistance(positions, 3)); // Expected 3
+
+        int[] splitNums = {7, 2, 5, 10, 8};
+        System.out.println("\nSplit Array Largest Sum (k=2): " + splitArray(splitNums, 2)); // Expected 18
+
+        System.out.println("\nNth root: 3rd root of 27 = " + nthRoot(3, 27)); // Expected 3
+    }
 }
