@@ -1,7 +1,7 @@
 # DSA Preparation (Java)
 
 [![Language](https://img.shields.io/badge/Language-Java_8+-orange.svg)](https://www.oracle.com/java/)
-[![Modules](https://img.shields.io/badge/Modules-Arrays_%7C_Strings_%7C_Recursion_%7C_SearchingSorting-blue.svg)](01-Arrays/)
+[![Modules](https://img.shields.io/badge/Progress-4_Modules_Completed-brightgreen.svg)](01-Arrays/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A curated, interview-focused repository for Data Structures and Algorithms preparation in Java. Every problem is implemented with multiple approaches (Brute Force, Better, and Optimal) along with Big-O complexity analysis and test cases.
