@@ -111,3 +111,22 @@ while (low <= high) {
 }
 return best;
 ```
+
+---
+
+## 📋 Module Summary & Problem Mapping
+
+| Class | LeetCode # | Key Concepts | Time Complexity | Auxiliary Space |
+| :--- | :--- | :--- | :--- | :--- |
+| **BasicSorting.java** | N/A | Stability, Early exit, In-place swapping | $O(N)$ to $O(N^2)$ | $O(1)$ |
+| **MergeSort.java** | #912 | Divide & Conquer, Inversion Counting | $O(N \log N)$ | $O(N)$ |
+| **QuickSort.java** | #75, #215 | Lomuto, Hoare, DNF, QuickSelect | $O(N)$ avg, $O(N \log N)$ | $O(\log N)$ |
+| **BinarySearchVariants.java**| #33, #34, #81, #162| Rotated Array, Lower/Upper Bounds | $O(\log N)$ | $O(1)$ |
+| **BinarySearchOnAnswer.java**| #69, #410, #875, #1011, #1552| Monotonic Predicate, Feasibility | $O(N \log(\text{Range}))$ | $O(1)$ |
+
+---
+
+## 🎯 Top Interview Tips
+1. **Always compute midpoint safely**: `mid = low + (high - low) / 2` to avoid 32-bit signed integer overflow.
+2. **Rotated Sorted Array trick**: In any rotated sorted array, splitting at `mid` guarantees that at least one of the two halves is sorted. Check the sorted half first!
+3. **Recognize Search on Answer**: When asked for "maximum minimum" or "minimum capacity", immediately consider binary searching the solution range.
