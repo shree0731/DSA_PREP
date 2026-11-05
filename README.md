@@ -1,7 +1,7 @@
 # DSA Preparation (Java)
 
 [![Language](https://img.shields.io/badge/Language-Java_8+-orange.svg)](https://www.oracle.com/java/)
-[![Modules](https://img.shields.io/badge/Modules-Arrays_%7C_Strings_%7C_Recursion-blue.svg)](01-Arrays/)
+[![Modules](https://img.shields.io/badge/Modules-Arrays_%7C_Strings_%7C_Recursion_%7C_SearchingSorting-blue.svg)](01-Arrays/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A curated, interview-focused repository for Data Structures and Algorithms preparation in Java. Every problem is implemented with multiple approaches (Brute Force, Better, and Optimal) along with Big-O complexity analysis and test cases.
@@ -14,7 +14,7 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[BasicOperations.java](01-Arrays/BasicOperations.java)**: Dynamic array resizing, linear/binary search, in-place reversal, 3-step left/right rotations.
 - **[SecondLargestElement.java](01-Arrays/SecondLargestElement.java)**: Sorting vs Two-Pass vs Optimal Single-Pass ($O(N)$ time, $O(1)$ space), duplicate handling.
 - **[TwoSum.java](01-Arrays/TwoSum.java)**: Brute Force, Two-Pass Hash Map, Optimal One-Pass Hash Map with load-factor preallocation, Two Sum II.
-- **[MaximumSubarray.java](01-Arrays/MaximumSubarray.java)**: Cubic, Quadratic, Kadane's Algorithm ($O(N)$), Divide and Conquer ($O(N \log N)$), DP table, range tracker.
+- **[MaximumSubarray.java](01-Arrays/MaximumSubarray.java)**: Cubic, Quadratic, Kadane's Algorithm ($O(N)$), Divide and Conquer, DP table, range tracker.
 - **[README.md](01-Arrays/README.md)**: Array memory characteristics, complexity tables, problem walkthroughs.
 
 ### [02-Strings](02-Strings/)
@@ -32,6 +32,14 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[CombinationSum.java](03-Recursion/CombinationSum.java)**: Combination Sum I (unlimited reuse), II (single use with duplicates), III (fixed length k), sorted branch pruning.
 - **[NQueens.java](03-Recursion/NQueens.java)**: Backtracking solver, $O(1)$ diagonal lookups, N-Queens II solution counter, bitmasking solver, ASCII chessboard visualizer.
 - **[README.md](03-Recursion/README.md)**: Call stack mechanics, backtracking template, state pruning, complexity guides.
+
+### [04-SearchingSorting](04-SearchingSorting/)
+- **[BasicSorting.java](04-SearchingSorting/BasicSorting.java)**: Optimized Bubble Sort (early exit flag), Selection Sort, Insertion Sort, stability demonstration.
+- **[MergeSort.java](04-SearchingSorting/MergeSort.java)**: Divide & conquer recursive merge sort, iterative bottom-up merge sort, Inversion Counting, buffer reuse optimization.
+- **[QuickSort.java](04-SearchingSorting/QuickSort.java)**: Lomuto vs Hoare partitioning, 3-Way QuickSort (Dutch National Flag), QuickSelect ($O(N)$ Kth Largest / Smallest), Sort Colors.
+- **[BinarySearchVariants.java](04-SearchingSorting/BinarySearchVariants.java)**: Lower Bound, Upper Bound, First & Last Position (LeetCode #34), Rotated Array Search I & II, Peak Element.
+- **[BinarySearchOnAnswer.java](04-SearchingSorting/BinarySearchOnAnswer.java)**: Monotonic predicate framework, Sqrt(x), Koko Eating Bananas, Capacity to Ship Packages, Aggressive Cows, Split Array Largest Sum.
+- **[README.md](04-SearchingSorting/README.md)**: Big-O matrix, partitioning schemes, binary search on answer guide, interview tips.
 
 ---
 
@@ -62,6 +70,14 @@ javac Subsets.java && java Subsets
 javac Permutations.java && java Permutations
 javac CombinationSum.java && java CombinationSum
 javac NQueens.java && java NQueens
+
+# 04-SearchingSorting
+cd ../04-SearchingSorting
+javac BasicSorting.java && java BasicSorting
+javac MergeSort.java && java MergeSort
+javac QuickSort.java && java QuickSort
+javac BinarySearchVariants.java && java BinarySearchVariants
+javac BinarySearchOnAnswer.java && java BinarySearchOnAnswer
 ```
 
 ---
@@ -71,7 +87,7 @@ javac NQueens.java && java NQueens
 - [x] **01-Arrays**
 - [x] **02-Strings**
 - [x] **03-Recursion & Backtracking**
-- [ ] **04-Searching & Sorting**
+- [x] **04-Searching & Sorting**
 - [ ] **05-Linked Lists**
 - [ ] **06-Stacks & Queues**
 - [ ] **07-Trees & Binary Search Trees**
@@ -86,11 +102,3 @@ javac NQueens.java && java NQueens
 - Git
 
 *Maintained by [Shreepurnaa V](https://github.com/shree0731)*
-
-### 💡 Universal Recursion Checklist
-- [ ] What is the simplest input? (Base Case)
-- [ ] How does one choice modify the state? (Choose)
-- [ ] What subproblem remains? (Explore)
-- [ ] How do I restore state before trying other branches? (Unchoose)
-
-> Milestone: 03-Recursion & Backtracking module completed with 57 structured commits, full tests, and theoretical guides.
