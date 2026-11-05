@@ -109,3 +109,5 @@ javac BinarySearchOnAnswer.java && java BinarySearchOnAnswer
 - Dataset has massive number of duplicate keys? $\implies$ **3-Way QuickSort (DNF)**
 - Small array ($N \le 32$) or nearly sorted? $\implies$ **Insertion Sort**
 - Finding $K$th largest in unsorted array? $\implies$ **QuickSelect ($O(N)$ average)**
+
+> Milestone: 04-Searching & Sorting module completed with 56 structured commits, comprehensive tests, and Big-O cheat sheets.
