@@ -85,3 +85,12 @@ This solves the inversion count problem in $O(N \log N)$ rather than $O(N^2)$ br
   - Predicate: `nums[mid] > target` $\implies$ `high = mid`.
 - **Target Count**:
   $$\text{count} = \text{upperBound}(target) - \text{lowerBound}(target)$$
+
+---
+
+## 🎯 Binary Search on Answer Space (Monotonic Predicate Pattern)
+
+When a problem asks for the **minimum possible maximum** or **maximum possible minimum**, convert it to a decision problem:
+$$P(x) = \begin{cases} \text{True} & \text{if solution } x \text{ is feasible} \\ \text{False} & \text{otherwise} \end{cases}$$
+
+If $P(x)$ is monotonic (e.g., $\text{False}, \text{False}, \dots, \text{True}, \text{True}$), binary search can identify the exact inflection point in $O(\log(\text{search range}))$.
