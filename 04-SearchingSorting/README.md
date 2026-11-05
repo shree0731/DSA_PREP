@@ -94,3 +94,20 @@ When a problem asks for the **minimum possible maximum** or **maximum possible m
 $$P(x) = \begin{cases} \text{True} & \text{if solution } x \text{ is feasible} \\ \text{False} & \text{otherwise} \end{cases}$$
 
 If $P(x)$ is monotonic (e.g., $\text{False}, \text{False}, \dots, \text{True}, \text{True}$), binary search can identify the exact inflection point in $O(\log(\text{search range}))$.
+
+### Search on Answer Template
+```java
+int low = minFeasibleAnswer, high = maxFeasibleAnswer;
+int best = high;
+
+while (low <= high) {
+    int mid = low + (high - low) / 2;
+    if (isValid(mid)) {
+        best = mid;
+        high = mid - 1; // Minimize answer
+    } else {
+        low = mid + 1;
+    }
+}
+return best;
+```
