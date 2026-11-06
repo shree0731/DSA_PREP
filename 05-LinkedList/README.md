@@ -51,3 +51,11 @@ dummy.next = head;
 | **Delete Tail** | $O(N)$ (needs second-to-last node) | $O(N)$ | $O(1)$ (using `tail.prev`) |
 | **Search by Value** | $O(N)$ | $O(N)$ | $O(N)$ |
 | **Reverse List** | $O(N)$ time, $O(1)$ space | $O(N)$ | $O(N)$ |
+
+---
+
+## 🔁 Singly vs Doubly Linked Lists Tradeoffs
+
+- **Memory Overhead**: Doubly linked list nodes store both `prev` and `next`, increasing per-node reference overhead by 100%.
+- **O(1) Deletion**: In a singly linked list, deleting an arbitrary node requires finding its predecessor ($O(N)$). In a doubly linked list, given the node reference, deletion is strictly $O(1)$.
+- **Bidirectional Iteration**: Essential for LRU Caches, deque implementations, and text editors.
