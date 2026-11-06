@@ -107,4 +107,25 @@ public class DoublyLinkedList {
         size--;
         return removed;
     }
+
+    /**
+     * Deletes a given node directly without traversing from head.
+     * Time Complexity: O(1)
+     */
+    public void deleteNode(Node node) {
+        if (node == null) return;
+        if (node == head) {
+            deleteHead();
+            return;
+        }
+        if (node == tail) {
+            deleteTail();
+            return;
+        }
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        node.prev = null;
+        node.next = null;
+        size--;
+    }
 }
