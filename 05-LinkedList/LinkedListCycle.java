@@ -65,4 +65,32 @@ public class LinkedListCycle {
         }
         return false;
     }
+
+    /**
+     * Linked List Cycle II (LeetCode #142: Find starting node of cycle).
+     * After collision, reset one pointer to head. Move both 1 step at a time;
+     * their meeting point is the exact cycle entry node.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static Node detectCycle(Node head) {
+        if (head == null || head.next == null) return null;
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                // Phase 2: Find entry
+                Node entry = head;
+                while (entry != slow) {
+                    entry = entry.next;
+                    slow = slow.next;
+                }
+                return entry;
+            }
+        }
+        return null;
+    }
 }
