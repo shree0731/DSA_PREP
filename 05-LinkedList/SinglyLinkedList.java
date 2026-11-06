@@ -48,4 +48,32 @@ public class SinglyLinkedList {
     public boolean isEmpty() {
         return head == null;
     }
+
+    /**
+     * Inserts a new node at the beginning of the list.
+     * Time Complexity: O(1)
+     */
+    public void insertAtHead(int val) {
+        Node newNode = new Node(val, head);
+        head = newNode;
+        size++;
+    }
+
+    /**
+     * Appends a new node to the end of the list.
+     * Time Complexity: O(N) without tail pointer
+     */
+    public void insertAtTail(int val) {
+        Node newNode = new Node(val);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node curr = head;
+            while (curr.next != null) {
+                curr = curr.next;
+            }
+            curr.next = newNode;
+        }
+        size++;
+    }
 }
