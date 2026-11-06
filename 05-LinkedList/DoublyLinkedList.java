@@ -43,4 +43,34 @@ public class DoublyLinkedList {
     public Node getTail() { return tail; }
     public int size() { return size; }
     public boolean isEmpty() { return size == 0; }
+
+    /**
+     * Prepends an element at head.
+     * Time Complexity: O(1)
+     */
+    public void insertHead(int val) {
+        Node newNode = new Node(val, null, head);
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            head.prev = newNode;
+            head = newNode;
+        }
+        size++;
+    }
+
+    /**
+     * Appends an element at tail.
+     * Time Complexity: O(1)
+     */
+    public void insertTail(int val) {
+        Node newNode = new Node(val, tail, null);
+        if (tail == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+        }
+        size++;
+    }
 }
