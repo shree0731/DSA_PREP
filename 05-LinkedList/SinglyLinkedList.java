@@ -174,4 +174,27 @@ public class SinglyLinkedList {
         }
         return false;
     }
+
+    /**
+     * In-place iterative linked list reversal (LeetCode #206).
+     * Uses 3 pointers: prev, curr, next.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public void reverse() {
+        head = reverseList(head);
+    }
+
+    public static Node reverseList(Node head) {
+        Node prev = null;
+        Node curr = head;
+
+        while (curr != null) {
+            Node nextTemp = curr.next; // Store next
+            curr.next = prev;          // Reverse pointer
+            prev = curr;               // Advance prev
+            curr = nextTemp;           // Advance curr
+        }
+        return prev; // New head
+    }
 }
