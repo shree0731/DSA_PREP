@@ -152,4 +152,26 @@ public class DoublyLinkedList {
             head = temp.prev; // Final node becomes new head
         }
     }
+
+    public void displayForward() {
+        StringBuilder sb = new StringBuilder("Forward:  null <-> ");
+        Node curr = head;
+        while (curr != null) {
+            sb.append(curr.val).append(" <-> ");
+            curr = curr.next;
+        }
+        sb.append("null");
+        System.out.println(sb.toString());
+    }
+
+    public void displayBackward() {
+        StringBuilder sb = new StringBuilder("Backward: null <-> ");
+        Node curr = tail;
+        while (curr != null) {
+            sb.append(curr.val).append(" <-> ");
+            curr = curr.prev;
+        }
+        sb.append("null");
+        System.out.println(sb.toString());
+    }
 }
