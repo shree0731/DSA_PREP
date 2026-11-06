@@ -93,4 +93,28 @@ public class LinkedListCycle {
         }
         return null;
     }
+
+    /**
+     * Calculates the number of nodes in the cycle.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static int countLoopLength(Node head) {
+        Node slow = head, fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                int length = 1;
+                Node temp = slow.next;
+                while (temp != slow) {
+                    length++;
+                    temp = temp.next;
+                }
+                return length;
+            }
+        }
+        return 0; // No cycle
+    }
 }
