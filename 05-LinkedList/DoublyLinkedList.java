@@ -73,4 +73,38 @@ public class DoublyLinkedList {
         }
         size++;
     }
+
+    /**
+     * Removes and returns the head node.
+     * Time Complexity: O(1)
+     */
+    public int deleteHead() {
+        if (head == null) throw new NoSuchElementException("Empty list");
+        int removed = head.val;
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+        }
+        size--;
+        return removed;
+    }
+
+    /**
+     * Removes and returns the tail node.
+     * Time Complexity: O(1)
+     */
+    public int deleteTail() {
+        if (tail == null) throw new NoSuchElementException("Empty list");
+        int removed = tail.val;
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            tail = tail.prev;
+            tail.next = null;
+        }
+        size--;
+        return removed;
+    }
 }
