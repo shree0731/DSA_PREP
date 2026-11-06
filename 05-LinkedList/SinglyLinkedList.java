@@ -76,4 +76,25 @@ public class SinglyLinkedList {
         }
         size++;
     }
+
+    /**
+     * Inserts an element at a specified 0-based index.
+     * Time Complexity: O(N)
+     */
+    public void insertAt(int index, int val) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        if (index == 0) {
+            insertAtHead(val);
+            return;
+        }
+        Node prev = head;
+        for (int i = 0; i < index - 1; i++) {
+            prev = prev.next;
+        }
+        Node newNode = new Node(val, prev.next);
+        prev.next = newNode;
+        size++;
+    }
 }
