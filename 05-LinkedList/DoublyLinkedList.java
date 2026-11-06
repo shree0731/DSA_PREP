@@ -174,4 +174,13 @@ public class DoublyLinkedList {
         sb.append("null");
         System.out.println(sb.toString());
     }
+
+    /**
+     * Clears all elements from the list to assist garbage collection.
+     */
+    public void clear() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
 }
