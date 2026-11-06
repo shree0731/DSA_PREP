@@ -183,4 +183,24 @@ public class DoublyLinkedList {
         tail = null;
         size = 0;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Doubly Linked List ===");
+        DoublyLinkedList dll = new DoublyLinkedList();
+        dll.insertTail(10);
+        dll.insertTail(20);
+        dll.insertTail(30);
+        dll.insertHead(5);
+        dll.displayForward();
+        dll.displayBackward();
+
+        System.out.println("\nReversing Doubly Linked List...");
+        dll.reverse();
+        dll.displayForward();
+        dll.displayBackward();
+
+        System.out.println("\nDeleting Head (val=" + dll.deleteHead() + ")...");
+        System.out.println("Deleting Tail (val=" + dll.deleteTail() + ")...");
+        dll.displayForward();
+    }
 }
