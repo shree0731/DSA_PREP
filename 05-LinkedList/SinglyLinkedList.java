@@ -132,4 +132,46 @@ public class SinglyLinkedList {
         size--;
         return removed;
     }
+
+    /**
+     * Deletes the node at the specified 0-based index.
+     * Time Complexity: O(N)
+     */
+    public int deleteAt(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        if (index == 0) return deleteAtHead();
+
+        Node prev = head;
+        for (int i = 0; i < index - 1; i++) {
+            prev = prev.next;
+        }
+        int removed = prev.next.val;
+        prev.next = prev.next.next;
+        size--;
+        return removed;
+    }
+
+    /**
+     * Deletes the first occurrence of the specified value.
+     * Time Complexity: O(N)
+     */
+    public boolean deleteValue(int val) {
+        if (head == null) return false;
+        if (head.val == val) {
+            deleteAtHead();
+            return true;
+        }
+        Node curr = head;
+        while (curr.next != null && curr.next.val != val) {
+            curr = curr.next;
+        }
+        if (curr.next != null) {
+            curr.next = curr.next.next;
+            size--;
+            return true;
+        }
+        return false;
+    }
 }
