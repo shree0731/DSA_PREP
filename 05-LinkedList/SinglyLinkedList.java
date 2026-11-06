@@ -197,4 +197,17 @@ public class SinglyLinkedList {
         }
         return prev; // New head
     }
+
+    /**
+     * Recursive linked list reversal.
+     * Time Complexity: O(N)
+     * Space Complexity: O(N) call stack
+     */
+    public static Node reverseListRecursive(Node head) {
+        if (head == null || head.next == null) return head;
+        Node newHead = reverseListRecursive(head.next);
+        head.next.next = head; // Point successor's next back to self
+        head.next = null;      // Prevent cycle
+        return newHead;
+    }
 }
