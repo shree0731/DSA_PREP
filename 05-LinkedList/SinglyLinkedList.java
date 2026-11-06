@@ -240,4 +240,30 @@ public class SinglyLinkedList {
         sb.append(" -> null");
         System.out.println(sb.toString());
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Singly Linked List Operations ===");
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.insertAtHead(30);
+        list.insertAtHead(20);
+        list.insertAtHead(10);
+        list.insertAtTail(40);
+        list.insertAtTail(50);
+        System.out.print("Initial List: ");
+        list.printList();
+
+        System.out.println("Inserting 25 at index 2...");
+        list.insertAt(2, 25);
+        list.printList();
+
+        System.out.println("Deleted Head: " + list.deleteAtHead());
+        System.out.println("Deleted Tail: " + list.deleteAtTail());
+        list.printList();
+
+        System.out.println("Reversing list in-place...");
+        list.reverse();
+        list.printList();
+
+        System.out.println("Middle node value: " + findMiddle(list.getHead()).val);
+    }
 }
