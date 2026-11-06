@@ -210,4 +210,34 @@ public class SinglyLinkedList {
         head.next = null;      // Prevent cycle
         return newHead;
     }
+
+    /**
+     * Middle of the Linked List (LeetCode #876: Tortoise and Hare).
+     * For even lengths, returns the second middle node.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static Node findMiddle(Node head) {
+        if (head == null) return null;
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public void printList() {
+        StringBuilder sb = new StringBuilder();
+        Node curr = head;
+        while (curr != null) {
+            sb.append(curr.val);
+            if (curr.next != null) sb.append(" -> ");
+            curr = curr.next;
+        }
+        sb.append(" -> null");
+        System.out.println(sb.toString());
+    }
 }
