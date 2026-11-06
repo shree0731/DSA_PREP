@@ -128,4 +128,28 @@ public class DoublyLinkedList {
         node.next = null;
         size--;
     }
+
+    /**
+     * In-place reversal of Doubly Linked List by swapping next and prev pointers for every node.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public void reverse() {
+        if (head == null || head == tail) return;
+        Node curr = head;
+        Node temp = null;
+
+        tail = head; // Former head becomes new tail
+
+        while (curr != null) {
+            temp = curr.prev;
+            curr.prev = curr.next;
+            curr.next = temp;
+            curr = curr.prev; // Since prev and next were swapped, curr.prev moves to original next
+        }
+
+        if (temp != null) {
+            head = temp.prev; // Final node becomes new head
+        }
+    }
 }
