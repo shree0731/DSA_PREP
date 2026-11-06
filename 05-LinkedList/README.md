@@ -37,3 +37,17 @@ dummy.next = head;
 1. **Eliminates Null Head Edge Cases**: Inserting or deleting the head node is identical to modifying internal nodes.
 2. **Simplifies Loop Invariants**: The head can be reassigned seamlessly (`return dummy.next`).
 3. **Avoids Special Case Conditions**: Zero extra `if (head == null)` or `if (curr == head)` checks needed.
+
+---
+
+## ⚡ Big-O Complexity Cheat Sheet
+
+| Operation | Singly Linked List | Singly (with Tail) | Doubly Linked List |
+| :--- | :--- | :--- | :--- |
+| **Prepend (Insert Head)** | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Append (Insert Tail)** | $O(N)$ | $O(1)$ | $O(1)$ |
+| **Insert at Index $K$** | $O(K)$ | $O(K)$ | $O(\min(K, N - K))$ |
+| **Delete Head** | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Delete Tail** | $O(N)$ (needs second-to-last node) | $O(N)$ | $O(1)$ (using `tail.prev`) |
+| **Search by Value** | $O(N)$ | $O(N)$ | $O(N)$ |
+| **Reverse List** | $O(N)$ time, $O(1)$ space | $O(N)$ | $O(N)$ |
