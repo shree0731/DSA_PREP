@@ -1,3 +1,23 @@
+/**
+ * Mathematical Derivation of Floyd's Cycle Entry Finding:
+ * 
+ * Let:
+ *   L = distance from head to cycle entry
+ *   C = circumference of the cycle
+ *   x = distance from cycle entry to collision point
+ * 
+ * Distance traveled by slow = L + x
+ * Distance traveled by fast = L + x + nC
+ * 
+ * Since fast travels twice as fast:
+ *   2 * (L + x) = L + x + nC
+ *   L + x = nC
+ *   L = nC - x = (n - 1)C + (C - x)
+ * 
+ * (C - x) is the remaining distance from collision point to cycle entry!
+ * Therefore, advancing one pointer from head and one from collision point
+ * at equal speed guarantees meeting at the cycle entry node after L steps.
+ */
 import java.util.*;
 
 /**
