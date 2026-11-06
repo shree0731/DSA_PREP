@@ -155,4 +155,20 @@ public class LinkedListCycle {
         curr.next = null; // Break loop
         return true;
     }
+
+    /**
+     * Utility to print up to maxNodes elements to avoid infinite loops during debugging.
+     */
+    public static void printSafe(Node head, int maxNodes) {
+        StringBuilder sb = new StringBuilder();
+        Node curr = head;
+        int count = 0;
+        while (curr != null && count < maxNodes) {
+            sb.append(curr.val).append(" -> ");
+            curr = curr.next;
+            count++;
+        }
+        sb.append(curr == null ? "null" : "(...) [cycle truncated]");
+        System.out.println(sb.toString());
+    }
 }
