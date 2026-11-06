@@ -117,4 +117,22 @@ public class LinkedListCycle {
         }
         return 0; // No cycle
     }
+
+    /**
+     * Removes the cycle from the linked list, restoring it to a linear structure.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static boolean removeCycle(Node head) {
+        Node entry = detectCycle(head);
+        if (entry == null) return false;
+
+        // Traverse to the tail of the cycle (node whose next points to entry)
+        Node curr = entry;
+        while (curr.next != entry) {
+            curr = curr.next;
+        }
+        curr.next = null; // Break loop
+        return true;
+    }
 }
