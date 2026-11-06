@@ -97,4 +97,39 @@ public class SinglyLinkedList {
         prev.next = newNode;
         size++;
     }
+
+    /**
+     * Deletes and returns the element at the head of the list.
+     * Time Complexity: O(1)
+     */
+    public int deleteAtHead() {
+        if (head == null) {
+            throw new NoSuchElementException("Cannot delete from an empty list");
+        }
+        int removed = head.val;
+        head = head.next;
+        size--;
+        return removed;
+    }
+
+    /**
+     * Deletes and returns the element at the tail of the list.
+     * Time Complexity: O(N)
+     */
+    public int deleteAtTail() {
+        if (head == null) {
+            throw new NoSuchElementException("Cannot delete from an empty list");
+        }
+        if (head.next == null) {
+            return deleteAtHead();
+        }
+        Node curr = head;
+        while (curr.next.next != null) {
+            curr = curr.next;
+        }
+        int removed = curr.next.val;
+        curr.next = null;
+        size--;
+        return removed;
+    }
 }
