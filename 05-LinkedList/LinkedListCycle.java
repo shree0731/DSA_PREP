@@ -45,4 +45,24 @@ public class LinkedListCycle {
         }
         return head;
     }
+
+    /**
+     * Linked List Cycle Detection (LeetCode #141).
+     * Fast pointer advances 2 steps while slow advances 1 step.
+     * If they meet, a cycle exists.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static boolean hasCycle(Node head) {
+        if (head == null || head.next == null) return false;
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) return true;
+        }
+        return false;
+    }
 }
