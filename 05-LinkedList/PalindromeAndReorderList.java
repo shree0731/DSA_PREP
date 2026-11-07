@@ -123,4 +123,28 @@ public class PalindromeAndReorderList {
             second = tmp2;
         }
     }
+
+    /**
+     * Remove Nth Node From End of List (LeetCode #19: Single-pass).
+     * Uses two pointers with gap of n between fast and slow.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static Node removeNthFromEnd(Node head, int n) {
+        Node dummy = new Node(0, head);
+        Node fast = dummy;
+        Node slow = dummy;
+
+        for (int i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
+        return dummy.next;
+    }
 }
