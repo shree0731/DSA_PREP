@@ -78,3 +78,12 @@ Advancing a pointer from `head` and one from the `meetingPoint` step-by-step cau
 Unlike arrays where MergeSort requires $O(N)$ auxiliary storage, on Linked Lists MergeSort achieves:
 - **$O(1)$ Auxiliary Space**: Merging requires only relinking existing node pointers (`next`).
 - **Ideal for Non-Contiguous Memory**: Dispersed node references avoid cache penalties during pointer reassignments.
+
+---
+
+## 🎭 The Halving & In-Place Reversal Pattern
+
+A powerful pattern shared by **Palindrome Linked List** and **Reorder List**:
+1. **Find Middle**: Tortoise & Hare `slow = head, fast = head; while (fast.next != null && fast.next.next != null)`
+2. **Reverse 2nd Half**: `Node second = reverse(slow.next); slow.next = null;`
+3. **Traverse/Interweave**: Advance through both halves concurrently in $O(N)$ time with $O(1)$ extra memory.
