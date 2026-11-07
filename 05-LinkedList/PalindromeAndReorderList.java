@@ -29,4 +29,53 @@ public class PalindromeAndReorderList {
     public PalindromeAndReorderList() {
         // Utility class
     }
+
+    /**
+     * Palindrome Linked List (LeetCode #234).
+     * Algorithm:
+     * 1. Find middle of list using fast/slow pointers.
+     * 2. Reverse second half of list.
+     * 3. Compare values of first and second half.
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static boolean isPalindrome(Node head) {
+        if (head == null || head.next == null) return true;
+
+        Node slow = head, fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Reverse second half
+        Node secondHalfHead = reverse(slow.next);
+        Node p1 = head;
+        Node p2 = secondHalfHead;
+        boolean palindrome = true;
+
+        while (p2 != null) {
+            if (p1.val != p2.val) {
+                palindrome = false;
+                break;
+            }
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        // Restore original list
+        slow.next = reverse(secondHalfHead);
+        return palindrome;
+    }
+
+    private static Node reverse(Node head) {
+        Node prev = null, curr = head;
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
 }
