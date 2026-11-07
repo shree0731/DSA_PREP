@@ -104,7 +104,7 @@ public class SinglyLinkedList {
      */
     public int deleteAtHead() {
         if (head == null) {
-            throw new NoSuchElementException("Cannot delete from an empty list");
+            throw new NoSuchElementException("Cannot perform delete: SinglyLinkedList is currently empty");
         }
         int removed = head.val;
         head = head.next;
@@ -118,7 +118,7 @@ public class SinglyLinkedList {
      */
     public int deleteAtTail() {
         if (head == null) {
-            throw new NoSuchElementException("Cannot delete from an empty list");
+            throw new NoSuchElementException("Cannot perform delete: SinglyLinkedList is currently empty");
         }
         if (head.next == null) {
             return deleteAtHead();
