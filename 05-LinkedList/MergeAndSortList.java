@@ -163,4 +163,24 @@ public class MergeAndSortList {
         }
         return list;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Merge Two Sorted Lists ===");
+        Node l1 = fromArray(new int[]{1, 2, 4});
+        Node l2 = fromArray(new int[]{1, 3, 4});
+        System.out.println("Merged: " + toList(mergeTwoLists(l1, l2)));
+
+        System.out.println("\n=== Testing Merge K Sorted Lists ===");
+        Node[] kLists = {
+            fromArray(new int[]{1, 4, 5}),
+            fromArray(new int[]{1, 3, 4}),
+            fromArray(new int[]{2, 6})
+        };
+        System.out.println("Merged K Lists: " + toList(mergeKLists(kLists)));
+
+        System.out.println("\n=== Testing Sort List (MergeSort) ===");
+        Node unsorted = fromArray(new int[]{4, 2, 1, 3, 0});
+        System.out.println("Unsorted: " + toList(unsorted));
+        System.out.println("Sorted  : " + toList(sortList(unsorted)));
+    }
 }
