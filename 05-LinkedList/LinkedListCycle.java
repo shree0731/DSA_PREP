@@ -1,4 +1,8 @@
 /**
+ * @author Shreepurnaa V
+ * @version 1.0
+ */
+/**
  * Mathematical Derivation of Floyd's Cycle Entry Finding:
  * 
  * Let:
