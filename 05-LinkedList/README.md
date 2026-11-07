@@ -87,3 +87,22 @@ A powerful pattern shared by **Palindrome Linked List** and **Reorder List**:
 1. **Find Middle**: Tortoise & Hare `slow = head, fast = head; while (fast.next != null && fast.next.next != null)`
 2. **Reverse 2nd Half**: `Node second = reverse(slow.next); slow.next = null;`
 3. **Traverse/Interweave**: Advance through both halves concurrently in $O(N)$ time with $O(1)$ extra memory.
+
+---
+
+## 📋 Module Summary & Problem Mapping
+
+| Class | LeetCode # | Primary Technique | Time Complexity | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **SinglyLinkedList.java** | #206, #876 | 3-Pointer Reversal, Fast & Slow Pointers | $O(N)$ | $O(1)$ |
+| **DoublyLinkedList.java** | N/A | Bidirectional Relinking, $O(1)$ Node Deletion | $O(1)$ to $O(N)$ | $O(1)$ |
+| **LinkedListCycle.java** | #141, #142 | Floyd's Cycle Detection & Mathematical Entry | $O(N)$ | $O(1)$ |
+| **MergeAndSortList.java** | #21, #23, #148, #160 | Dummy Head, Min-Heap, MergeSort | $O(N \log K)$ | $O(1)$ to $O(K)$ |
+| **PalindromeAndReorderList.java** | #2, #19, #143, #234, #328 | In-Place Half-Reversal, Sentinel Dummy | $O(N)$ | $O(1)$ |
+
+---
+
+## 🎯 Top Linked List Interview Tips
+1. **Always use a Dummy / Sentinel Node** whenever head might be deleted, swapped, or merged.
+2. **Never lose the reference to `curr.next`** before modifying pointer connections.
+3. **Watch out for memory leaks / cycles**: When breaking lists into halves, immediately sever the connection: `slow.next = null`.
