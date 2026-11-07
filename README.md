@@ -99,3 +99,10 @@ javac PalindromeAndReorderList.java && java PalindromeAndReorderList
 - Git
 
 *Maintained by [Shreepurnaa V](https://github.com/shree0731)*
+
+### 💡 Linked List Golden Rules
+- **Always consider a Dummy Head** when inserting/deleting could affect `head`.
+- **Fast and Slow Pointers**:
+  - Finding middle: `slow = slow.next; fast = fast.next.next;`
+  - Finding cycle: `if (slow == fast) cycleDetected();`
+- **In-place reversal** requires 3 pointers: `prev`, `curr`, `nextTemp`.
