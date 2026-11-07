@@ -171,4 +171,24 @@ public class LinkedListCycle {
         sb.append(curr == null ? "null" : "(...) [cycle truncated]");
         System.out.println(sb.toString());
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Floyd's Cycle Algorithm ===");
+
+        int[] vals = {3, 2, 0, -4};
+        Node cyclic = createCyclicList(vals, 1); // Cycle begins at node with value 2
+        System.out.print("Cyclic list: ");
+        printSafe(cyclic, 8);
+
+        System.out.println("hasCycle: " + hasCycle(cyclic));
+        Node entry = detectCycle(cyclic);
+        System.out.println("detectCycle entry node value: " + (entry != null ? entry.val : "none"));
+        System.out.println("countLoopLength: " + countLoopLength(cyclic));
+
+        System.out.println("\nBreaking the cycle...");
+        removeCycle(cyclic);
+        System.out.println("hasCycle after removal: " + hasCycle(cyclic));
+        System.out.print("Linearized list: ");
+        printSafe(cyclic, 8);
+    }
 }
