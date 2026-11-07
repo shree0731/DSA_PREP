@@ -29,4 +29,28 @@ public class MergeAndSortList {
     public MergeAndSortList() {
         // Utility class
     }
+
+    /**
+     * Merge Two Sorted Lists (LeetCode #21: Iterative).
+     * Time Complexity: O(N + M)
+     * Space Complexity: O(1)
+     */
+    public static Node mergeTwoLists(Node list1, Node list2) {
+        Node dummy = new Node(0);
+        Node curr = dummy;
+
+        while (list1 != null && list2 != null) {
+            if (list1.val <= list2.val) {
+                curr.next = list1;
+                list1 = list1.next;
+            } else {
+                curr.next = list2;
+                list2 = list2.next;
+            }
+            curr = curr.next;
+        }
+
+        curr.next = (list1 != null) ? list1 : list2;
+        return dummy.next;
+    }
 }
