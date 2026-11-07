@@ -106,3 +106,5 @@ javac PalindromeAndReorderList.java && java PalindromeAndReorderList
   - Finding middle: `slow = slow.next; fast = fast.next.next;`
   - Finding cycle: `if (slow == fast) cycleDetected();`
 - **In-place reversal** requires 3 pointers: `prev`, `curr`, `nextTemp`.
+
+> Milestone: 05-Linked Lists module completed with 56 structured commits, comprehensive tests, and Big-O cheat sheets.
