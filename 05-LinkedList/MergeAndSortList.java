@@ -71,4 +71,34 @@ public class MergeAndSortList {
             return l2;
         }
     }
+
+    /**
+     * Merge k Sorted Lists (LeetCode #23).
+     * Uses a Min-Heap of size K.
+     * Time Complexity: O(N log K) where N = total nodes, K = number of lists
+     * Space Complexity: O(K) for PriorityQueue
+     */
+    public static Node mergeKLists(Node[] lists) {
+        if (lists == null || lists.length == 0) return null;
+
+        PriorityQueue<Node> pq = new PriorityQueue<>(lists.length, Comparator.comparingInt(a -> a.val));
+
+        for (Node listHead : lists) {
+            if (listHead != null) pq.add(listHead);
+        }
+
+        Node dummy = new Node(0);
+        Node curr = dummy;
+
+        while (!pq.isEmpty()) {
+            Node minNode = pq.poll();
+            curr.next = minNode;
+            curr = curr.next;
+
+            if (minNode.next != null) {
+                pq.add(minNode.next);
+            }
+        }
+        return dummy.next;
+    }
 }
