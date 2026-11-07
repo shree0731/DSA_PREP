@@ -53,4 +53,22 @@ public class MergeAndSortList {
         curr.next = (list1 != null) ? list1 : list2;
         return dummy.next;
     }
+
+    /**
+     * Merge Two Sorted Lists (Recursive).
+     * Time Complexity: O(N + M)
+     * Space Complexity: O(N + M) call stack
+     */
+    public static Node mergeTwoListsRecursive(Node l1, Node l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+
+        if (l1.val <= l2.val) {
+            l1.next = mergeTwoListsRecursive(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoListsRecursive(l1, l2.next);
+            return l2;
+        }
+    }
 }
