@@ -197,4 +197,25 @@ public class PalindromeAndReorderList {
         odd.next = evenHead;
         return head;
     }
+
+    public static Node fromArray(int[] arr) {
+        if (arr == null || arr.length == 0) return null;
+        Node head = new Node(arr[0]);
+        Node curr = head;
+        for (int i = 1; i < arr.length; i++) {
+            curr.next = new Node(arr[i]);
+            curr = curr.next;
+        }
+        return head;
+    }
+
+    public static List<Integer> toList(Node head) {
+        List<Integer> list = new ArrayList<>();
+        Node curr = head;
+        while (curr != null) {
+            list.add(curr.val);
+            curr = curr.next;
+        }
+        return list;
+    }
 }
