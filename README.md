@@ -1,7 +1,7 @@
 # DSA Preparation (Java)
 
 [![Language](https://img.shields.io/badge/Language-Java_8+-orange.svg)](https://www.oracle.com/java/)
-[![Modules](https://img.shields.io/badge/Progress-4_Modules_Completed-brightgreen.svg)](01-Arrays/)
+[![Progress](https://img.shields.io/badge/Progress-5_Modules_Completed-brightgreen.svg)](01-Arrays/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A curated, interview-focused repository for Data Structures and Algorithms preparation in Java. Every problem is implemented with multiple approaches (Brute Force, Better, and Optimal) along with Big-O complexity analysis and test cases.
@@ -41,6 +41,14 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[BinarySearchOnAnswer.java](04-SearchingSorting/BinarySearchOnAnswer.java)**: Monotonic predicate framework, Sqrt(x), Koko Eating Bananas, Capacity to Ship Packages, Aggressive Cows, Split Array Largest Sum.
 - **[README.md](04-SearchingSorting/README.md)**: Big-O matrix, partitioning schemes, binary search on answer guide, interview tips.
 
+### [05-LinkedList](05-LinkedList/)
+- **[SinglyLinkedList.java](05-LinkedList/SinglyLinkedList.java)**: Custom Singly Linked List, head/tail/indexed operations, in-place reversal (iterative & recursive), Tortoise & Hare middle node.
+- **[DoublyLinkedList.java](05-LinkedList/DoublyLinkedList.java)**: Bidirectional node structure, $O(1)$ arbitrary node deletion, forward/backward traversals, in-place reversal.
+- **[LinkedListCycle.java](05-LinkedList/LinkedListCycle.java)**: Floyd's Cycle Detection (LeetCode #141), Cycle entry derivation (LeetCode #142), loop circumference, cycle removal.
+- **[MergeAndSortList.java](05-LinkedList/MergeAndSortList.java)**: Merge Two Sorted Lists (iterative/recursive), Merge K Lists (Min-Heap), MergeSort on List ($O(N \log N)$), Intersection node.
+- **[PalindromeAndReorderList.java](05-LinkedList/PalindromeAndReorderList.java)**: Palindrome check in $O(1)$ space with list restoration, Reorder List, Remove Nth node from end, Add Two Numbers.
+- **[README.md](05-LinkedList/README.md)**: Node memory layout, dummy sentinel pattern, fast/slow pointer guide, complexity tables.
+
 ---
 
 ## 🚀 How to Run
@@ -49,35 +57,24 @@ Compile and run any Java file from the command line:
 
 ```bash
 # 01-Arrays
-cd 01-Arrays
-javac BasicOperations.java && java BasicOperations
-javac SecondLargestElement.java && java SecondLargestElement
-javac TwoSum.java && java TwoSum
-javac MaximumSubarray.java && java MaximumSubarray
+cd 01-Arrays && javac BasicOperations.java && java BasicOperations
 
 # 02-Strings
-cd ../02-Strings
-javac StringOperations.java && java StringOperations
-javac ValidAnagram.java && java ValidAnagram
-javac ValidPalindrome.java && java ValidPalindrome
-javac LongestSubstringWithoutRepeating.java && java LongestSubstringWithoutRepeating
-javac LongestPalindromicSubstring.java && java LongestPalindromicSubstring
+cd ../02-Strings && javac StringOperations.java && java StringOperations
 
 # 03-Recursion
-cd ../03-Recursion
-javac BasicRecursion.java && java BasicRecursion
-javac Subsets.java && java Subsets
-javac Permutations.java && java Permutations
-javac CombinationSum.java && java CombinationSum
-javac NQueens.java && java NQueens
+cd ../03-Recursion && javac BasicRecursion.java && java BasicRecursion
 
 # 04-SearchingSorting
-cd ../04-SearchingSorting
-javac BasicSorting.java && java BasicSorting
-javac MergeSort.java && java MergeSort
-javac QuickSort.java && java QuickSort
-javac BinarySearchVariants.java && java BinarySearchVariants
-javac BinarySearchOnAnswer.java && java BinarySearchOnAnswer
+cd ../04-SearchingSorting && javac BasicSorting.java && java BasicSorting
+
+# 05-LinkedList
+cd ../05-LinkedList
+javac SinglyLinkedList.java && java SinglyLinkedList
+javac DoublyLinkedList.java && java DoublyLinkedList
+javac LinkedListCycle.java && java LinkedListCycle
+javac MergeAndSortList.java && java MergeAndSortList
+javac PalindromeAndReorderList.java && java PalindromeAndReorderList
 ```
 
 ---
@@ -88,7 +85,7 @@ javac BinarySearchOnAnswer.java && java BinarySearchOnAnswer
 - [x] **02-Strings**
 - [x] **03-Recursion & Backtracking**
 - [x] **04-Searching & Sorting**
-- [ ] **05-Linked Lists**
+- [x] **05-Linked Lists**
 - [ ] **06-Stacks & Queues**
 - [ ] **07-Trees & Binary Search Trees**
 - [ ] **08-Heaps & Priority Queues**
@@ -102,12 +99,3 @@ javac BinarySearchOnAnswer.java && java BinarySearchOnAnswer
 - Git
 
 *Maintained by [Shreepurnaa V](https://github.com/shree0731)*
-
-### ⚡ Algorithm Selection Rule of Thumb
-- Need guaranteed $O(N \log N)$ and stability? $\implies$ **Merge Sort**
-- Need in-place sorting with lowest constant factor? $\implies$ **Dual-Pivot QuickSort**
-- Dataset has massive number of duplicate keys? $\implies$ **3-Way QuickSort (DNF)**
-- Small array ($N \le 32$) or nearly sorted? $\implies$ **Insertion Sort**
-- Finding $K$th largest in unsorted array? $\implies$ **QuickSelect ($O(N)$ average)**
-
-> Milestone: 04-Searching & Sorting module completed with 56 structured commits, comprehensive tests, and Big-O cheat sheets.
