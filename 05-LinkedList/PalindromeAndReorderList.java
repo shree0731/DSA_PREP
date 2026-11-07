@@ -78,4 +78,16 @@ public class PalindromeAndReorderList {
         }
         return prev;
     }
+
+    /**
+     * Validates that list structure remains intact after palindrome check.
+     */
+    public static boolean verifyListRestoration(Node head, int[] original) {
+        Node curr = head;
+        for (int val : original) {
+            if (curr == null || curr.val != val) return false;
+            curr = curr.next;
+        }
+        return curr == null;
+    }
 }
