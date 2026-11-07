@@ -90,4 +90,37 @@ public class PalindromeAndReorderList {
         }
         return curr == null;
     }
+
+    /**
+     * Reorder List (LeetCode #143: L0 -> Ln -> L1 -> Ln-1 ...).
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static void reorderList(Node head) {
+        if (head == null || head.next == null) return;
+
+        // Step 1: Find middle
+        Node slow = head, fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Step 2: Reverse second half
+        Node second = reverse(slow.next);
+        slow.next = null; // Sever link
+
+        // Step 3: Interweave nodes
+        Node first = head;
+        while (second != null) {
+            Node tmp1 = first.next;
+            Node tmp2 = second.next;
+
+            first.next = second;
+            second.next = tmp1;
+
+            first = tmp1;
+            second = tmp2;
+        }
+    }
 }
