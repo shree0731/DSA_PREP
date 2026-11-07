@@ -101,4 +101,26 @@ public class MergeAndSortList {
         }
         return dummy.next;
     }
+
+    /**
+     * Sort List (LeetCode #148: MergeSort on Linked List).
+     * Time Complexity: O(N log N)
+     * Space Complexity: O(log N) stack
+     */
+    public static Node sortList(Node head) {
+        if (head == null || head.next == null) return head;
+
+        // Split into two halves
+        Node prev = null, slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        prev.next = null; // Sever link
+
+        Node l1 = sortList(head);
+        Node l2 = sortList(slow);
+        return mergeTwoLists(l1, l2);
+    }
 }
