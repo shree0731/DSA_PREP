@@ -70,3 +70,11 @@ dummy.next = head;
 - Cycle Circumference: $C$
 $$2(L + x) = L + x + kC \implies L = kC - x$$
 Advancing a pointer from `head` and one from the `meetingPoint` step-by-step causes them to collide precisely at the cycle start after traversing distance $L$.
+
+---
+
+## 🔀 MergeSort on Linked Lists
+
+Unlike arrays where MergeSort requires $O(N)$ auxiliary storage, on Linked Lists MergeSort achieves:
+- **$O(1)$ Auxiliary Space**: Merging requires only relinking existing node pointers (`next`).
+- **Ideal for Non-Contiguous Memory**: Dispersed node references avoid cache penalties during pointer reassignments.
