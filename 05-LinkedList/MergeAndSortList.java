@@ -123,4 +123,23 @@ public class MergeAndSortList {
         Node l2 = sortList(slow);
         return mergeTwoLists(l1, l2);
     }
+
+    /**
+     * Intersection of Two Linked Lists (LeetCode #160).
+     * Two pointers switch to opposite heads upon reaching null.
+     * Both pointers traverse exactly (lengthA + lengthB) steps before meeting.
+     * Time Complexity: O(N + M)
+     * Space Complexity: O(1)
+     */
+    public static Node getIntersectionNode(Node headA, Node headB) {
+        if (headA == null || headB == null) return null;
+        Node pA = headA;
+        Node pB = headB;
+
+        while (pA != pB) {
+            pA = (pA == null) ? headB : pA.next;
+            pB = (pB == null) ? headA : pB.next;
+        }
+        return pA; // Either intersection node or null
+    }
 }
