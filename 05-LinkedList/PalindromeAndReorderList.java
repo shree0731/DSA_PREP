@@ -218,4 +218,24 @@ public class PalindromeAndReorderList {
         }
         return list;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Palindrome Linked List ===");
+        int[] palArr = {1, 2, 2, 1};
+        Node palList = fromArray(palArr);
+        System.out.println("List: " + toList(palList));
+        System.out.println("isPalindrome: " + isPalindrome(palList));
+        System.out.println("Structure Restored: " + verifyListRestoration(palList, palArr));
+
+        System.out.println("\n=== Testing Reorder List ===");
+        Node reorder = fromArray(new int[]{1, 2, 3, 4, 5});
+        System.out.println("Before: " + toList(reorder));
+        reorderList(reorder);
+        System.out.println("After : " + toList(reorder)); // Expected: [1, 5, 2, 4, 3]
+
+        System.out.println("\n=== Testing Add Two Numbers ===");
+        Node l1 = fromArray(new int[]{2, 4, 3}); // 342
+        Node l2 = fromArray(new int[]{5, 6, 4}); // 465
+        System.out.println("342 + 465 = " + toList(addTwoNumbers(l1, l2))); // [7, 0, 8] -> 807
+    }
 }
