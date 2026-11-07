@@ -59,3 +59,14 @@ dummy.next = head;
 - **Memory Overhead**: Doubly linked list nodes store both `prev` and `next`, increasing per-node reference overhead by 100%.
 - **O(1) Deletion**: In a singly linked list, deleting an arbitrary node requires finding its predecessor ($O(N)$). In a doubly linked list, given the node reference, deletion is strictly $O(1)$.
 - **Bidirectional Iteration**: Essential for LRU Caches, deque implementations, and text editors.
+
+---
+
+## ⭕ Cycle Detection & Floyd's Algorithm (LeetCode #141 & #142)
+
+### The Mathematics:
+- Distance from Head to Cycle Start: $L$
+- Distance from Cycle Start to Meeting Point: $x$
+- Cycle Circumference: $C$
+$$2(L + x) = L + x + kC \implies L = kC - x$$
+Advancing a pointer from `head` and one from the `meetingPoint` step-by-step causes them to collide precisely at the cycle start after traversing distance $L$.
