@@ -264,4 +264,13 @@ public class StackImplementations {
             return arr[top2];
         }
     }
+
+        public void display() {
+            System.out.print("Stack 1: ");
+            for (int i = 0; i <= top1; i++) System.out.print(arr[i] + " ");
+            System.out.print("| Stack 2: ");
+            for (int i = arr.length - 1; i >= top2; i--) System.out.print(arr[i] + " ");
+            System.out.println();
+        }
+    }
 }
