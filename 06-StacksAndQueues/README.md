@@ -62,3 +62,17 @@ Permits $O(1)$ bidirectional operations: `pushFirst`, `pushLast`, `pollFirst`, `
 | **Peek / Top / Front**| $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
 | **Search by Value** | $O(N)$ | $O(N)$ | $O(N)$ | $O(N)$ | $O(N)$ |
 | **Auxiliary Memory** | $O(N)$ buffer | $O(N)$ node refs | $O(N)$ buffer | $O(N)$ node refs | $O(N)$ stack |
+
+---
+
+## 🛠️ Stack Implementations Guide
+
+### MinStack Space Trade-offs
+1. **Dual Stack**: Stores each minimum separately in an auxiliary stack.
+   - Time: $O(1)$ push/pop/getMin
+   - Auxiliary Space: $O(N)$
+2. **Mathematical Encoding ($2x - \text{min}$)**:
+   - When pushing a smaller element $x < \text{min}$, store $2x - \text{min} < x$.
+   - When popping, if $\text{top} < \text{min}$, the original value was $\text{min}$, and previous min was $2\text{min} - \text{top}$.
+   - Time: $O(1)$ push/pop/getMin
+   - Auxiliary Space: $O(1)$
