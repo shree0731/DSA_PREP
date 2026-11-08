@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Demonstrates custom Stack implementations and patterns in Java.
  * Includes ArrayStack, LinkedStack, MinStack (dual and encoded), and TwoStacks.
@@ -7,12 +9,12 @@
 public class StackImplementations {
 
     /**
-     * Custom Array-backed Stack with initial capacity and pointer tracking.
+     * Custom Array-backed Stack with dynamic capacity resizing.
      */
     public static class ArrayStack {
         private int[] data;
         private int top;
-        private static final int DEFAULT_CAPACITY = 10;
+        private static final int DEFAULT_CAPACITY = 4;
 
         public ArrayStack() {
             this(DEFAULT_CAPACITY);
@@ -31,11 +33,33 @@ public class StackImplementations {
             return top + 1;
         }
 
+        public void push(int val) {
+            if (top + 1 == data.length) {
+                resize(data.length * 2);
+            }
+            data[++top] = val;
+        }
+
+        public int pop() {
+            if (isEmpty()) {
+                throw new IllegalStateException("Stack Underflow: cannot pop from empty stack.");
+            }
+            int val = data[top--];
+            if (size() > 0 && size() == data.length / 4 && data.length / 2 >= DEFAULT_CAPACITY) {
+                resize(data.length / 2);
+            }
+            return val;
+        }
+
         public int peek() {
             if (isEmpty()) {
-                throw new IllegalStateException("Stack Underflow: Stack is empty.");
+                throw new IllegalStateException("Stack Underflow: cannot peek empty stack.");
             }
             return data[top];
+        }
+
+        private void resize(int newCapacity) {
+            data = Arrays.copyOf(data, newCapacity);
         }
     }
 }
