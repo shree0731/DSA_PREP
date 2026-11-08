@@ -33,4 +33,29 @@ public class MonotonicStack {
         }
         return result;
     }
+
+    /**
+     * Next Greater Element II on Circular Array (LeetCode 503).
+     * Simulates circular traversal by scanning array twice (indices 0 to 2N-1).
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     */
+    public static int[] nextGreaterElementII(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        Arrays.fill(result, -1);
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for (int i = 0; i < 2 * n; i++) {
+            int current = nums[i % n];
+            while (!stack.isEmpty() && nums[stack.peek()] < current) {
+                result[stack.pop()] = current;
+            }
+            if (i < n) {
+                stack.push(i);
+            }
+        }
+        return result;
+    }
 }
