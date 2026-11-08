@@ -114,4 +114,45 @@ public class StackImplementations {
             return head.val;
         }
     }
+
+    /**
+     * MinStack supporting push, pop, top, and getMin in O(1) time (LeetCode 155).
+     * Approach 1: Dual Stacks (main stack + minimum tracking stack).
+     */
+    public static class DualMinStack {
+        private final java.util.ArrayDeque<Integer> stack = new java.util.ArrayDeque<>();
+        private final java.util.ArrayDeque<Integer> minStack = new java.util.ArrayDeque<>();
+
+        public void push(int val) {
+            stack.push(val);
+            if (minStack.isEmpty() || val <= minStack.peek()) {
+                minStack.push(val);
+            }
+        }
+
+        public int pop() {
+            if (stack.isEmpty()) {
+                throw new IllegalStateException("Stack is empty.");
+            }
+            int val = stack.pop();
+            if (val == minStack.peek()) {
+                minStack.pop();
+            }
+            return val;
+        }
+
+        public int top() {
+            if (stack.isEmpty()) {
+                throw new IllegalStateException("Stack is empty.");
+            }
+            return stack.peek();
+        }
+
+        public int getMin() {
+            if (minStack.isEmpty()) {
+                throw new IllegalStateException("Stack is empty.");
+            }
+            return minStack.peek();
+        }
+    }
 }
