@@ -58,4 +58,26 @@ public class MonotonicStack {
         }
         return result;
     }
+
+    /**
+     * Previous Smaller Element (Nearest Smaller to Left).
+     * Returns nearest element to the left smaller than nums[i], or -1.
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     */
+    public static int[] previousSmallerElement(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && stack.peek() >= nums[i]) {
+                stack.pop();
+            }
+            result[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(nums[i]);
+        }
+        return result;
+    }
 }
