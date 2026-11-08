@@ -20,3 +20,33 @@ Stacks and Queues are fundamental linear data structures governed by strict elem
 ├── SlidingWindowAndQueueProblems.java  # Sliding Window Max (Deque), Stream Uniques, Rotting Oranges BFS
 └── README.md                           # Documentation, complexity reference, and interview templates
 ```
+
+---
+
+## 🏛️ Memory Architecture & Principles
+
+### Stack (LIFO)
+A stack restricts manipulation to the top element:
+```
+       Push ↓   ↑ Pop
+     +---------------+
+top  |    Node 3     |
+     +---------------+
+     |    Node 2     |
+     +---------------+
+     |    Node 1     | (bottom)
+     +---------------+
+```
+
+### Queue (FIFO)
+A queue maintains separate pointers for insertion and deletion:
+```
+  Enqueue (rear)                       Dequeue (front)
+        ↓                                     ↓
+   +---------+     +---------+     +---------+
+   | Node 3  | --> | Node 2  | --> | Node 1  | --> Out
+   +---------+     +---------+     +---------+
+```
+
+### Deque (Double-Ended Queue)
+Permits $O(1)$ bidirectional operations: `pushFirst`, `pushLast`, `pollFirst`, `pollLast`.
