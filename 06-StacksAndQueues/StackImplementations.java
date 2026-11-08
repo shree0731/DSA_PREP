@@ -273,4 +273,54 @@ public class StackImplementations {
             System.out.println();
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing ArrayStack with Dynamic Resizing ===");
+        ArrayStack arrayStack = new ArrayStack(2);
+        for (int i = 1; i <= 6; i++) {
+            arrayStack.push(i * 10);
+        }
+        System.out.println("ArrayStack Size: " + arrayStack.size());
+        System.out.println("ArrayStack Peek: " + arrayStack.peek());
+        System.out.print("ArrayStack Popped: ");
+        while (!arrayStack.isEmpty()) {
+            System.out.print(arrayStack.pop() + " ");
+        }
+        System.out.println();
+
+        System.out.println("\n=== Testing LinkedStack ===");
+        LinkedStack linkedStack = new LinkedStack();
+        linkedStack.push(100);
+        linkedStack.push(200);
+        linkedStack.push(300);
+        System.out.println("LinkedStack Top: " + linkedStack.peek());
+        System.out.println("LinkedStack Pop: " + linkedStack.pop());
+        System.out.println("LinkedStack Size: " + linkedStack.size());
+
+        System.out.println("\n=== Testing Dual & Encoded MinStack ===");
+        DualMinStack dualMin = new DualMinStack();
+        EncodedMinStack encMin = new EncodedMinStack();
+        int[] vals = {5, 3, 7, 2, 8, 2, 1};
+        for (int v : vals) {
+            dualMin.push(v);
+            encMin.push(v);
+        }
+        System.out.println("Dual MinStack Min: " + dualMin.getMin() + " (Expected: 1)");
+        System.out.println("Encoded MinStack Min: " + encMin.getMin() + " (Expected: 1)");
+        dualMin.pop();
+        encMin.pop();
+        System.out.println("After pop -> Dual Min: " + dualMin.getMin() + ", Encoded Min: " + encMin.getMin() + " (Expected: 2)");
+
+        System.out.println("\n=== Testing TwoStacksInOneArray ===");
+        TwoStacksInOneArray dual = new TwoStacksInOneArray(6);
+        dual.push1(11);
+        dual.push1(22);
+        dual.push2(99);
+        dual.push2(88);
+        dual.push1(33);
+        dual.display();
+        System.out.println("Stack 1 Top: " + dual.peek1() + ", Stack 2 Top: " + dual.peek2());
+        System.out.println("Pop Stack 1: " + dual.pop1() + ", Pop Stack 2: " + dual.pop2());
+        System.out.println("All StackImplementations tests completed successfully!");
+    }
 }
