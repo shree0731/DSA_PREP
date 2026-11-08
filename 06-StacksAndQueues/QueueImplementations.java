@@ -7,7 +7,7 @@
 public class QueueImplementations {
 
     /**
-     * Circular Array-backed FIFO Queue with modular arithmetic.
+     * Circular Array-backed FIFO Queue with automatic dynamic expansion.
      */
     public static class CircularArrayQueue {
         private int[] arr;
@@ -37,6 +37,43 @@ public class QueueImplementations {
 
         public int size() {
             return count;
+        }
+
+        public void enqueue(int val) {
+            if (isFull()) {
+                expandCapacity();
+            }
+            arr[rear] = val;
+            rear = (rear + 1) % arr.length;
+            count++;
+        }
+
+        public int dequeue() {
+            if (isEmpty()) {
+                throw new IllegalStateException("Queue Underflow: cannot dequeue empty queue.");
+            }
+            int val = arr[front];
+            front = (front + 1) % arr.length;
+            count--;
+            return val;
+        }
+
+        public int peek() {
+            if (isEmpty()) {
+                throw new IllegalStateException("Queue Underflow: cannot peek empty queue.");
+            }
+            return arr[front];
+        }
+
+        private void expandCapacity() {
+            int newCap = arr.length * 2;
+            int[] newArr = new int[newCap];
+            for (int i = 0; i < count; i++) {
+                newArr[i] = arr[(front + i) % arr.length];
+            }
+            this.arr = newArr;
+            this.front = 0;
+            this.rear = count;
         }
     }
 }
