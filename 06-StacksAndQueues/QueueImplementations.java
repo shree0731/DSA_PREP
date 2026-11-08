@@ -283,4 +283,56 @@ public class QueueImplementations {
             System.out.println();
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing CircularArrayQueue ===");
+        CircularArrayQueue caq = new CircularArrayQueue(3);
+        caq.enqueue(10);
+        caq.enqueue(20);
+        caq.enqueue(30);
+        System.out.println("Dequeued: " + caq.dequeue());
+        caq.enqueue(40);
+        caq.enqueue(50);
+        System.out.println("Size after resize: " + caq.size());
+        System.out.print("Remaining in queue: ");
+        while (!caq.isEmpty()) {
+            System.out.print(caq.dequeue() + " ");
+        }
+        System.out.println();
+
+        System.out.println("\n=== Testing LinkedQueue ===");
+        LinkedQueue lq = new LinkedQueue();
+        lq.enqueue(100);
+        lq.enqueue(200);
+        lq.enqueue(300);
+        System.out.println("LinkedQueue Front: " + lq.peek() + ", Dequeued: " + lq.dequeue());
+
+        System.out.println("\n=== Testing QueueUsingStacks ===");
+        QueueUsingStacks qus = new QueueUsingStacks();
+        qus.push(1);
+        qus.push(2);
+        qus.push(3);
+        System.out.println("QueueUsingStacks Pop: " + qus.pop() + " (Expected: 1)");
+        System.out.println("QueueUsingStacks Peek: " + qus.peek() + " (Expected: 2)");
+
+        System.out.println("\n=== Testing StackUsingQueues ===");
+        StackUsingQueues suq = new StackUsingQueues();
+        suq.push(10);
+        suq.push(20);
+        suq.push(30);
+        System.out.println("StackUsingQueues Top: " + suq.top() + " (Expected: 30)");
+        System.out.println("StackUsingQueues Pop: " + suq.pop() + " (Expected: 30)");
+
+        System.out.println("\n=== Testing CircularDeque ===");
+        CircularDeque deque = new CircularDeque(3);
+        deque.insertLast(1);
+        deque.insertLast(2);
+        deque.insertFront(3);
+        deque.display();
+        System.out.println("Front: " + deque.getFront() + " (Expected: 3)");
+        System.out.println("Rear: " + deque.getRear() + " (Expected: 2)");
+        deque.deleteLast();
+        System.out.println("New Rear after deleteLast: " + deque.getRear() + " (Expected: 1)");
+        System.out.println("All QueueImplementations tests completed successfully!");
+    }
 }
