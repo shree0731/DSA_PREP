@@ -87,3 +87,18 @@ Permits $O(1)$ bidirectional operations: `pushFirst`, `pushLast`, `pollFirst`, `
   - Subsequent pops are $O(1)$.
   - Each item is pushed into `inStack` once, popped from `inStack` once, pushed into `outStack` once, and popped from `outStack` once.
   - Total operations per element = 4. **Amortized Time Complexity = $O(1)$**.
+
+---
+
+## 📈 Monotonic Stack Decision Guide
+
+A **Monotonic Stack** maintains its elements in strictly sorted order.
+When an incoming element violates the monotonic order, elements are popped until the invariant is restored.
+
+### Pattern Matrix
+| Query | Stack Invariant | Traversal Direction |
+|:---|:---|:---:|
+| **Next Greater Element** | Monotonic Decreasing | Left to Right |
+| **Next Smaller Element** | Monotonic Increasing | Left to Right |
+| **Previous Greater Element** | Monotonic Decreasing | Right to Left (or Left to Right with monotonic push) |
+| **Previous Smaller Element** | Monotonic Increasing | Left to Right |
