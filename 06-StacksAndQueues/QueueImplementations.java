@@ -76,4 +76,64 @@ public class QueueImplementations {
             this.rear = count;
         }
     }
+
+    /**
+     * Linked List Queue maintaining head and tail pointers for true O(1) operations.
+     */
+    public static class LinkedQueue {
+        private static class Node {
+            int val;
+            Node next;
+            Node(int val) { this.val = val; }
+        }
+
+        private Node head;
+        private Node tail;
+        private int count;
+
+        public LinkedQueue() {
+            this.head = null;
+            this.tail = null;
+            this.count = 0;
+        }
+
+        public boolean isEmpty() {
+            return count == 0;
+        }
+
+        public int size() {
+            return count;
+        }
+
+        public void enqueue(int val) {
+            Node newNode = new Node(val);
+            if (isEmpty()) {
+                head = tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+            count++;
+        }
+
+        public int dequeue() {
+            if (isEmpty()) {
+                throw new IllegalStateException("Queue Underflow: linked queue is empty.");
+            }
+            int val = head.val;
+            head = head.next;
+            if (head == null) {
+                tail = null;
+            }
+            count--;
+            return val;
+        }
+
+        public int peek() {
+            if (isEmpty()) {
+                throw new IllegalStateException("Queue Underflow: linked queue is empty.");
+            }
+            return head.val;
+        }
+    }
 }
