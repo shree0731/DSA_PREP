@@ -80,4 +80,26 @@ public class MonotonicStack {
         }
         return result;
     }
+
+    /**
+     * Daily Temperatures (LeetCode 739).
+     * Returns the number of days until a warmer day.
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     */
+    public static int[] dailyTemperatures(int[] temperatures) {
+        int n = temperatures.length;
+        int[] waitDays = new int[n];
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && temperatures[stack.peek()] < temperatures[i]) {
+                int prevDay = stack.pop();
+                waitDays[prevDay] = i - prevDay;
+            }
+            stack.push(i);
+        }
+        return waitDays;
+    }
 }
