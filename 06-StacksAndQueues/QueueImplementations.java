@@ -136,4 +136,44 @@ public class QueueImplementations {
             return head.val;
         }
     }
+
+    /**
+     * Queue implemented using two Stacks with amortized O(1) time per operation (LeetCode 232).
+     */
+    public static class QueueUsingStacks {
+        private final java.util.ArrayDeque<Integer> inStack = new java.util.ArrayDeque<>();
+        private final java.util.ArrayDeque<Integer> outStack = new java.util.ArrayDeque<>();
+
+        public void push(int x) {
+            inStack.push(x);
+        }
+
+        public int pop() {
+            moveIfNecessary();
+            if (outStack.isEmpty()) {
+                throw new IllegalStateException("Queue is empty.");
+            }
+            return outStack.pop();
+        }
+
+        public int peek() {
+            moveIfNecessary();
+            if (outStack.isEmpty()) {
+                throw new IllegalStateException("Queue is empty.");
+            }
+            return outStack.peek();
+        }
+
+        public boolean empty() {
+            return inStack.isEmpty() && outStack.isEmpty();
+        }
+
+        private void moveIfNecessary() {
+            if (outStack.isEmpty()) {
+                while (!inStack.isEmpty()) {
+                    outStack.push(inStack.pop());
+                }
+            }
+        }
+    }
 }
