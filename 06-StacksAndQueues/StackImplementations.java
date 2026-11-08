@@ -62,4 +62,56 @@ public class StackImplementations {
             data = Arrays.copyOf(data, newCapacity);
         }
     }
+
+    /**
+     * Singly Linked List-backed Stack ensuring true O(1) operations without reallocation.
+     */
+    public static class LinkedStack {
+        private static class Node {
+            int val;
+            Node next;
+            Node(int val, Node next) {
+                this.val = val;
+                this.next = next;
+            }
+        }
+
+        private Node head;
+        private int size;
+
+        public LinkedStack() {
+            this.head = null;
+            this.size = 0;
+        }
+
+        public boolean isEmpty() {
+            return head == null;
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public void push(int val) {
+            head = new Node(val, head);
+            size++;
+        }
+
+        public int pop() {
+            if (isEmpty()) {
+                throw new IllegalStateException("Stack Underflow: linked stack is empty.");
+            }
+            int val = head.val;
+            head = head.next;
+            size--;
+            return val;
+        }
+
+        public int peek() {
+            if (isEmpty()) {
+                throw new IllegalStateException("Stack Underflow: linked stack is empty.");
+            }
+            return head.val;
+        }
+    }
 }
