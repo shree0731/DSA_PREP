@@ -210,4 +210,58 @@ public class StackImplementations {
             return (int) min;
         }
     }
+
+    /**
+     * Implements two stacks within a single array to maximize memory efficiency.
+     * Stack 1 grows left-to-right from index 0; Stack 2 grows right-to-left from index N-1.
+     */
+    public static class TwoStacksInOneArray {
+        private final int[] arr;
+        private int top1;
+        private int top2;
+
+        public TwoStacksInOneArray(int capacity) {
+            this.arr = new int[capacity];
+            this.top1 = -1;
+            this.top2 = capacity;
+        }
+
+        public void push1(int val) {
+            if (top1 + 1 == top2) {
+                throw new IllegalStateException("Stack Overflow: No space remaining between stacks.");
+            }
+            arr[++top1] = val;
+        }
+
+        public void push2(int val) {
+            if (top1 + 1 == top2) {
+                throw new IllegalStateException("Stack Overflow: No space remaining between stacks.");
+            }
+            arr[--top2] = val;
+        }
+
+        public int pop1() {
+            if (top1 == -1) {
+                throw new IllegalStateException("Stack 1 Underflow: stack 1 is empty.");
+            }
+            return arr[top1--];
+        }
+
+        public int pop2() {
+            if (top2 == arr.length) {
+                throw new IllegalStateException("Stack 2 Underflow: stack 2 is empty.");
+            }
+            return arr[top2++];
+        }
+
+        public int peek1() {
+            if (top1 == -1) throw new IllegalStateException("Stack 1 is empty.");
+            return arr[top1];
+        }
+
+        public int peek2() {
+            if (top2 == arr.length) throw new IllegalStateException("Stack 2 is empty.");
+            return arr[top2];
+        }
+    }
 }
