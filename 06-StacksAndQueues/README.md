@@ -50,3 +50,15 @@ A queue maintains separate pointers for insertion and deletion:
 
 ### Deque (Double-Ended Queue)
 Permits $O(1)$ bidirectional operations: `pushFirst`, `pushLast`, `pollFirst`, `pollLast`.
+
+---
+
+## 📊 Big-O Complexity Comparison
+
+| Operation | Array Stack | Linked Stack | Circular Array Queue | Linked Queue | Monotonic Stack |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **Push / Enqueue** | $O(1)$ amortized | $O(1)$ | $O(1)$ amortized | $O(1)$ | $O(1)$ amortized |
+| **Pop / Dequeue** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ amortized |
+| **Peek / Top / Front**| $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Search by Value** | $O(N)$ | $O(N)$ | $O(N)$ | $O(N)$ | $O(N)$ |
+| **Auxiliary Memory** | $O(N)$ buffer | $O(N)$ node refs | $O(N)$ buffer | $O(N)$ node refs | $O(N)$ stack |
