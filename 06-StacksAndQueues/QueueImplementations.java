@@ -274,4 +274,13 @@ public class QueueImplementations {
             return count == capacity;
         }
     }
+
+        public void display() {
+            System.out.print("Deque [Front: " + front + ", Rear: " + rear + ", Count: " + count + "]: ");
+            for (int i = 0; i < count; i++) {
+                System.out.print(arr[(front + i) % capacity] + " ");
+            }
+            System.out.println();
+        }
+    }
 }
