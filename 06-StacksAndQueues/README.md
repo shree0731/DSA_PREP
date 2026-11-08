@@ -76,3 +76,14 @@ Permits $O(1)$ bidirectional operations: `pushFirst`, `pushLast`, `pollFirst`, `
    - When popping, if $\text{top} < \text{min}$, the original value was $\text{min}$, and previous min was $2\text{min} - \text{top}$.
    - Time: $O(1)$ push/pop/getMin
    - Auxiliary Space: $O(1)$
+
+---
+
+## 🔄 Queue & Stack Adapters: Amortized Analysis
+
+### Queue using Two Stacks (`QueueUsingStacks`)
+- `push(x)`: $O(1)$ directly pushed to `inStack`.
+- `pop()`: If `outStack` is empty, move all $N$ elements from `inStack` to `outStack` ($O(N)$ once).
+  - Subsequent pops are $O(1)$.
+  - Each item is pushed into `inStack` once, popped from `inStack` once, pushed into `outStack` once, and popped from `outStack` once.
+  - Total operations per element = 4. **Amortized Time Complexity = $O(1)$**.
