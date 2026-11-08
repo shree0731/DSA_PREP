@@ -176,4 +176,37 @@ public class QueueImplementations {
             }
         }
     }
+
+    /**
+     * Stack implemented using a single Queue with O(N) push and O(1) pop (LeetCode 225).
+     */
+    public static class StackUsingQueues {
+        private final java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+
+        public void push(int x) {
+            queue.add(x);
+            int rotations = queue.size() - 1;
+            while (rotations-- > 0) {
+                queue.add(queue.remove());
+            }
+        }
+
+        public int pop() {
+            if (queue.isEmpty()) {
+                throw new IllegalStateException("Stack is empty.");
+            }
+            return queue.remove();
+        }
+
+        public int top() {
+            if (queue.isEmpty()) {
+                throw new IllegalStateException("Stack is empty.");
+            }
+            return queue.peek();
+        }
+
+        public boolean empty() {
+            return queue.isEmpty();
+        }
+    }
 }
