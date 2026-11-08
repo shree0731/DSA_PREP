@@ -209,4 +209,69 @@ public class QueueImplementations {
             return queue.isEmpty();
         }
     }
+
+    /**
+     * Circular Deque supporting O(1) insertions and deletions at both ends (LeetCode 641).
+     */
+    public static class CircularDeque {
+        private final int[] arr;
+        private int front;
+        private int rear;
+        private int count;
+        private final int capacity;
+
+        public CircularDeque(int k) {
+            this.capacity = k;
+            this.arr = new int[k];
+            this.front = 0;
+            this.rear = 0;
+            this.count = 0;
+        }
+
+        public boolean insertFront(int value) {
+            if (isFull()) return false;
+            front = (front - 1 + capacity) % capacity;
+            arr[front] = value;
+            count++;
+            return true;
+        }
+
+        public boolean insertLast(int value) {
+            if (isFull()) return false;
+            arr[rear] = value;
+            rear = (rear + 1) % capacity;
+            count++;
+            return true;
+        }
+
+        public boolean deleteFront() {
+            if (isEmpty()) return false;
+            front = (front + 1) % capacity;
+            count--;
+            return true;
+        }
+
+        public boolean deleteLast() {
+            if (isEmpty()) return false;
+            rear = (rear - 1 + capacity) % capacity;
+            count--;
+            return true;
+        }
+
+        public int getFront() {
+            return isEmpty() ? -1 : arr[front];
+        }
+
+        public int getRear() {
+            return isEmpty() ? -1 : arr[(rear - 1 + capacity) % capacity];
+        }
+
+        public boolean isEmpty() {
+            return count == 0;
+        }
+
+        public boolean isFull() {
+            return count == capacity;
+        }
+    }
 }
