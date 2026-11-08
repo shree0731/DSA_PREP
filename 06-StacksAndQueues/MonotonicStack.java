@@ -102,4 +102,25 @@ public class MonotonicStack {
         }
         return waitDays;
     }
+
+    /**
+     * Next Smaller Element (Nearest Smaller to Right).
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     */
+    public static int[] nextSmallerElement(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        Arrays.fill(result, -1);
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
+                result[stack.pop()] = nums[i];
+            }
+            stack.push(i);
+        }
+        return result;
+    }
 }
