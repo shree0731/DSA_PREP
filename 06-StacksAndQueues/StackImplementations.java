@@ -155,4 +155,59 @@ public class StackImplementations {
             return minStack.peek();
         }
     }
+
+    /**
+     * MinStack supporting push, pop, top, and getMin in O(1) time and O(1) auxiliary space (LeetCode 155).
+     * Approach 2: Mathematical Value Encoding.
+     * When a new minimum x is pushed, store: encoded = 2 * x - currentMin.
+     */
+    public static class EncodedMinStack {
+        private final java.util.ArrayDeque<Long> stack = new java.util.ArrayDeque<>();
+        private long min;
+
+        public void push(int val) {
+            if (stack.isEmpty()) {
+                stack.push((long) val);
+                min = val;
+            } else if (val >= min) {
+                stack.push((long) val);
+            } else {
+                stack.push(2L * val - min);
+                min = val;
+            }
+        }
+
+        public int pop() {
+            if (stack.isEmpty()) {
+                throw new IllegalStateException("Stack is empty.");
+            }
+            long top = stack.pop();
+            if (top >= min) {
+                return (int) top;
+            } else {
+                int actualVal = (int) min;
+                min = 2 * min - top;
+                return actualVal;
+            }
+        }
+
+        public int top() {
+            if (stack.isEmpty()) {
+                throw new IllegalStateException("Stack is empty.");
+            }
+            long top = stack.peek();
+            if (top >= min) {
+                return (int) top;
+            } else {
+                return (int) min;
+            }
+        }
+
+        public int getMin() {
+            if (stack.isEmpty()) {
+                throw new IllegalStateException("Stack is empty.");
+            }
+            return (int) min;
+        }
+    }
 }
