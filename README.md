@@ -83,6 +83,14 @@ javac DoublyLinkedList.java && java DoublyLinkedList
 javac LinkedListCycle.java && java LinkedListCycle
 javac MergeAndSortList.java && java MergeAndSortList
 javac PalindromeAndReorderList.java && java PalindromeAndReorderList
+
+# 06-StacksAndQueues
+cd ../06-StacksAndQueues
+javac StackImplementations.java && java StackImplementations
+javac QueueImplementations.java && java QueueImplementations
+javac MonotonicStack.java && java MonotonicStack
+javac ExpressionEvaluation.java && java ExpressionEvaluation
+javac SlidingWindowAndQueueProblems.java && java SlidingWindowAndQueueProblems
 ```
 
 ---
