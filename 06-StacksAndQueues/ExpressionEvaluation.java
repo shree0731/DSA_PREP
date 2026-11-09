@@ -89,4 +89,51 @@ public class ExpressionEvaluation {
         }
         return maxLen;
     }
+
+    /**
+     * Infix to Postfix Conversion using Dijkstra's Shunting-yard Algorithm.
+     * Supports operators +, -, *, /, ^ and parentheses.
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     */
+    public static String infixToPostfix(String expression) {
+        StringBuilder result = new StringBuilder();
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (int i = 0; i < expression.length(); i++) {
+            char ch = expression.charAt(i);
+            if (Character.isWhitespace(ch)) continue;
+
+            if (Character.isLetterOrDigit(ch)) {
+                result.append(ch);
+            } else if (ch == '(') {
+                stack.push(ch);
+            } else if (ch == ')') {
+                while (!stack.isEmpty() && stack.peek() != '(') {
+                    result.append(stack.pop());
+                }
+                if (!stack.isEmpty() && stack.peek() == '(') stack.pop();
+            } else {
+                while (!stack.isEmpty() && precedence(ch) <= precedence(stack.peek()) && ch != '^') {
+                    result.append(stack.pop());
+                }
+                stack.push(ch);
+            }
+        }
+
+        while (!stack.isEmpty()) {
+            result.append(stack.pop());
+        }
+        return result.toString();
+    }
+
+    private static int precedence(char op) {
+        switch (op) {
+            case '+': case '-': return 1;
+            case '*': case '/': return 2;
+            case '^': return 3;
+            default: return -1;
+        }
+    }
 }
