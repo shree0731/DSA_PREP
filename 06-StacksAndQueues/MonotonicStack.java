@@ -148,4 +148,26 @@ public class MonotonicStack {
         }
         return maxArea;
     }
+
+    /**
+     * Maximal Rectangle in 2D Binary Matrix (LeetCode 85).
+     * Reduces 2D matrix problem to row-by-row histogram evaluation.
+     *
+     * Time Complexity: O(Rows * Cols)
+     * Space Complexity: O(Cols)
+     */
+    public static int maximalRectangle(char[][] matrix) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
+        int cols = matrix[0].length;
+        int[] heights = new int[cols];
+        int maxArea = 0;
+
+        for (char[] row : matrix) {
+            for (int j = 0; j < cols; j++) {
+                heights[j] = (row[j] == '1') ? heights[j] + 1 : 0;
+            }
+            maxArea = Math.max(maxArea, largestRectangleArea(heights));
+        }
+        return maxArea;
+    }
 }
