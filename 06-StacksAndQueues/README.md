@@ -102,3 +102,10 @@ When an incoming element violates the monotonic order, elements are popped until
 | **Next Smaller Element** | Monotonic Increasing | Left to Right |
 | **Previous Greater Element** | Monotonic Decreasing | Right to Left (or Left to Right with monotonic push) |
 | **Previous Smaller Element** | Monotonic Increasing | Left to Right |
+
+### Histogram Largest Rectangle Mechanics
+For each bar $i$, we find:
+1. `leftBoundary[i]`: index of previous smaller bar.
+2. `rightBoundary[i]`: index of next smaller bar.
+3. Width of rectangle bounded by height $h$: $\text{width} = \text{right} - \text{left} - 1$.
+Using a single pass with a sentinel height $0$ at index $n$ allows computation in exact $O(N)$ time and $O(N)$ space.
