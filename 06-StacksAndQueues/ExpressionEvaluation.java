@@ -171,4 +171,45 @@ public class ExpressionEvaluation {
         }
         return stack.pop();
     }
+
+    /**
+     * Basic Calculator II (LeetCode 227).
+     * Evaluates arithmetic expressions with +, -, *, / without parentheses.
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     */
+    public static int calculate(String s) {
+        if (s == null || s.isEmpty()) return 0;
+        Deque<Integer> stack = new ArrayDeque<>();
+        int currentNumber = 0;
+        char operation = '+';
+        int n = s.length();
+
+        for (int i = 0; i < n; i++) {
+            char ch = s.charAt(i);
+            if (Character.isDigit(ch)) {
+                currentNumber = currentNumber * 10 + (ch - '0');
+            }
+            if ((!Character.isDigit(ch) && !Character.isWhitespace(ch)) || i == n - 1) {
+                if (operation == '+') {
+                    stack.push(currentNumber);
+                } else if (operation == '-') {
+                    stack.push(-currentNumber);
+                } else if (operation == '*') {
+                    stack.push(stack.pop() * currentNumber);
+                } else if (operation == '/') {
+                    stack.push(stack.pop() / currentNumber);
+                }
+                operation = ch;
+                currentNumber = 0;
+            }
+        }
+
+        int result = 0;
+        while (!stack.isEmpty()) {
+            result += stack.pop();
+        }
+        return result;
+    }
 }
