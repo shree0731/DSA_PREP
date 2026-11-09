@@ -212,4 +212,22 @@ public class ExpressionEvaluation {
         }
         return result;
     }
+
+    /**
+     * Converts Postfix expression back to fully parenthesized Infix format.
+     */
+    public static String postfixToInfix(String postfix) {
+        Deque<String> stack = new ArrayDeque<>();
+        for (char ch : postfix.toCharArray()) {
+            if (Character.isWhitespace(ch)) continue;
+            if (Character.isLetterOrDigit(ch)) {
+                stack.push(String.valueOf(ch));
+            } else {
+                String op2 = stack.pop();
+                String op1 = stack.pop();
+                stack.push("(" + op1 + ch + op2 + ")");
+            }
+        }
+        return stack.isEmpty() ? "" : stack.pop();
+    }
 }
