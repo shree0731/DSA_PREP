@@ -102,7 +102,7 @@ javac SlidingWindowAndQueueProblems.java && java SlidingWindowAndQueueProblems
 - [x] **03-Recursion & Backtracking**
 - [x] **04-Searching & Sorting**
 - [x] **05-Linked Lists**
-- [ ] **06-Stacks & Queues**
+- [x] **06-Stacks & Queues**
 - [ ] **07-Trees & Binary Search Trees**
 - [ ] **08-Heaps & Priority Queues**
 - [ ] **09-Graphs**
