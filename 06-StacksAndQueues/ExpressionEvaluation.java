@@ -230,4 +230,32 @@ public class ExpressionEvaluation {
         }
         return stack.isEmpty() ? "" : stack.pop();
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Valid Parentheses ===");
+        System.out.println("()[]{}: " + isValidParentheses("()[]{}") + " (Expected: true)");
+        System.out.println("([)]: " + isValidParentheses("([)]") + " (Expected: false)");
+
+        System.out.println("\n=== Testing Longest Valid Parentheses ===");
+        String s = ")()())";
+        System.out.println("Stack approach: " + longestValidParenthesesStack(s) + " (Expected: 4)");
+        System.out.println("Optimal approach: " + longestValidParenthesesOptimal(s) + " (Expected: 4)");
+
+        System.out.println("\n=== Testing Infix to Postfix & Back ===");
+        String infix = "a+b*(c^d-e)";
+        String postfix = infixToPostfix(infix);
+        System.out.println("Infix: " + infix);
+        System.out.println("Postfix: " + postfix);
+        System.out.println("Reconstructed Infix: " + postfixToInfix(postfix));
+
+        System.out.println("\n=== Testing Evaluate Postfix (RPN) ===");
+        String[] rpn = {"4", "13", "5", "/", "+"};
+        System.out.println("RPN Result: " + evalRPN(rpn) + " (Expected: 6)");
+
+        System.out.println("\n=== Testing Basic Calculator II ===");
+        System.out.println("3+2*2 = " + calculate("3+2*2") + " (Expected: 7)");
+        System.out.println(" 3/2  = " + calculate(" 3/2 ") + " (Expected: 1)");
+        System.out.println(" 3+5 / 2 = " + calculate(" 3+5 / 2 ") + " (Expected: 5)");
+        System.out.println("All ExpressionEvaluation tests completed successfully!");
+    }
 }
