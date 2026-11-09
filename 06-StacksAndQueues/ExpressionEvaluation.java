@@ -59,4 +59,34 @@ public class ExpressionEvaluation {
         }
         return maxLen;
     }
+
+    /**
+     * Longest Valid Parentheses - O(1) Auxiliary Space (LeetCode 32).
+     * Two-pass scan (left-to-right then right-to-left) counting open and close brackets.
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static int longestValidParenthesesOptimal(String s) {
+        if (s == null || s.length() < 2) return 0;
+        int left = 0, right = 0, maxLen = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') left++;
+            else right++;
+
+            if (left == right) maxLen = Math.max(maxLen, 2 * right);
+            else if (right > left) { left = 0; right = 0; }
+        }
+
+        left = right = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == '(') left++;
+            else right++;
+
+            if (left == right) maxLen = Math.max(maxLen, 2 * left);
+            else if (left > right) { left = 0; right = 0; }
+        }
+        return maxLen;
+    }
 }
