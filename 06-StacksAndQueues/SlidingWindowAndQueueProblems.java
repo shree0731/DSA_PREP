@@ -111,4 +111,35 @@ public class SlidingWindowAndQueueProblems {
 
         return freshCount == 0 ? minutes : -1;
     }
+
+    /**
+     * Simplify Path (LeetCode 71).
+     * Resolves absolute Unix-style file path using Deque stack.
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(N)
+     */
+    public static String simplifyPath(String path) {
+        Deque<String> stack = new ArrayDeque<>();
+        String[] parts = path.split("/");
+
+        for (String part : parts) {
+            if (part.isEmpty() || part.equals(".")) {
+                continue;
+            }
+            if (part.equals("..")) {
+                if (!stack.isEmpty()) {
+                    stack.pollLast();
+                }
+            } else {
+                stack.offerLast(part);
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (String dir : stack) {
+            sb.append("/").append(dir);
+        }
+        return sb.length() == 0 ? "/" : sb.toString();
+    }
 }
