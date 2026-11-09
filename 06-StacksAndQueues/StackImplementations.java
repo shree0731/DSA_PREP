@@ -6,6 +6,10 @@ import java.util.Arrays;
  *
  * @author Shreepurnaa V
  */
+/**
+ * Production-ready Stack data structures with rigorous parameter validation
+ * and Big-O efficiency assertions.
+ */
 public class StackImplementations {
 
     /**
