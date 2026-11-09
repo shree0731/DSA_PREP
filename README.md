@@ -49,6 +49,14 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[PalindromeAndReorderList.java](05-LinkedList/PalindromeAndReorderList.java)**: Palindrome check in $O(1)$ space with list restoration, Reorder List, Remove Nth node from end, Add Two Numbers.
 - **[README.md](05-LinkedList/README.md)**: Node memory layout, dummy sentinel pattern, fast/slow pointer guide, complexity tables.
 
+### [06-StacksAndQueues](06-StacksAndQueues/)
+- **[StackImplementations.java](06-StacksAndQueues/StackImplementations.java)**: Dynamic ArrayStack, LinkedStack, Dual MinStack, Encoded MinStack ($O(1)$ space), Two Stacks in One Array.
+- **[QueueImplementations.java](06-StacksAndQueues/QueueImplementations.java)**: CircularArrayQueue, LinkedQueue, Queue using Stacks ($O(1)$ amortized), Stack using Queues, CircularDeque.
+- **[MonotonicStack.java](06-StacksAndQueues/MonotonicStack.java)**: Next Greater Element I & II, Previous Smaller Element, Daily Temperatures, Largest Rectangle in Histogram ($O(N)$), Maximal Rectangle in Matrix.
+- **[ExpressionEvaluation.java](06-StacksAndQueues/ExpressionEvaluation.java)**: Valid Parentheses, Longest Valid Parentheses, Infix-to-Postfix (Shunting-yard), RPN Evaluation, Basic Calculator II.
+- **[SlidingWindowAndQueueProblems.java](06-StacksAndQueues/SlidingWindowAndQueueProblems.java)**: Sliding Window Maximum (Monotonic Deque), First Unique in Stream, Rotting Oranges (Multi-source BFS), Simplify Path.
+- **[README.md](06-StacksAndQueues/README.md)**: LIFO/FIFO architecture, Monotonic Stack decision matrix, Shunting-yard guide, complexity tables.
+
 ---
 
 ## 🚀 How to Run
