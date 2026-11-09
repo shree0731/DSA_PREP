@@ -169,4 +169,31 @@ public class SlidingWindowAndQueueProblems {
         }
         return result;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Sliding Window Maximum & Minimum ===");
+        int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
+        int k = 3;
+        System.out.println("Max Window: " + Arrays.toString(maxSlidingWindow(nums, k))
+                + " (Expected: [3, 3, 5, 5, 6, 7])");
+        System.out.println("Min Window: " + Arrays.toString(minSlidingWindow(nums, k))
+                + " (Expected: [-1, -3, -3, -3, 3, 3])");
+
+        System.out.println("\n=== Testing First Non-Repeating Character in Stream ===");
+        String stream = "aabc";
+        System.out.println("Stream Result: " + firstNonRepeatingInStream(stream) + " (Expected: 'a#bb')");
+
+        System.out.println("\n=== Testing Rotting Oranges ===");
+        int[][] grid = {
+                {2, 1, 1},
+                {1, 1, 0},
+                {0, 1, 1}
+        };
+        System.out.println("Minutes to Rot All: " + orangesRotting(grid) + " (Expected: 4)");
+
+        System.out.println("\n=== Testing Simplify Path ===");
+        System.out.println("/a/./b/../../c/ -> " + simplifyPath("/a/./b/../../c/") + " (Expected: /c)");
+        System.out.println("/home//foo/ -> " + simplifyPath("/home//foo/") + " (Expected: /home/foo)");
+        System.out.println("All SlidingWindowAndQueueProblems tests completed successfully!");
+    }
 }
