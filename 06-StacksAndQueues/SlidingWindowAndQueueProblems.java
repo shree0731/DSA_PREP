@@ -37,4 +37,29 @@ public class SlidingWindowAndQueueProblems {
         }
         return result;
     }
+
+    /**
+     * Finds the first non-repeating character in a stream of characters.
+     * Uses a FIFO Queue to preserve arrival order and frequency array for counts.
+     *
+     * Time Complexity: O(N)
+     * Space Complexity: O(1)
+     */
+    public static String firstNonRepeatingInStream(String stream) {
+        StringBuilder result = new StringBuilder();
+        int[] count = new int[26];
+        Queue<Character> queue = new LinkedList<>();
+
+        for (char ch : stream.toCharArray()) {
+            count[ch - 'a']++;
+            queue.offer(ch);
+
+            while (!queue.isEmpty() && count[queue.peek() - 'a'] > 1) {
+                queue.poll();
+            }
+
+            result.append(queue.isEmpty() ? '#' : queue.peek());
+        }
+        return result.toString();
+    }
 }
