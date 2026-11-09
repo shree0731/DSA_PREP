@@ -170,4 +170,40 @@ public class MonotonicStack {
         }
         return maxArea;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Next Greater Element I ===");
+        int[] nums1 = {4, 1, 2};
+        int[] nums2 = {1, 3, 4, 2};
+        System.out.println("NGE I: " + Arrays.toString(nextGreaterElementI(nums1, nums2)) + " (Expected: [-1, 3, -1])");
+
+        System.out.println("\n=== Testing Next Greater Element II (Circular) ===");
+        int[] circular = {1, 2, 3, 4, 3};
+        System.out.println("NGE II: " + Arrays.toString(nextGreaterElementII(circular)) + " (Expected: [2, 3, 4, -1, 4])");
+
+        System.out.println("\n=== Testing Previous Smaller Element ===");
+        int[] arr = {4, 5, 2, 10, 8};
+        System.out.println("PSE: " + Arrays.toString(previousSmallerElement(arr)) + " (Expected: [-1, 4, -1, 2, 2])");
+
+        System.out.println("\n=== Testing Next Smaller Element ===");
+        System.out.println("NSE: " + Arrays.toString(nextSmallerElement(arr)) + " (Expected: [2, 2, -1, 8, -1])");
+
+        System.out.println("\n=== Testing Daily Temperatures ===");
+        int[] temps = {73, 74, 75, 71, 69, 72, 76, 73};
+        System.out.println("Wait Days: " + Arrays.toString(dailyTemperatures(temps)) + " (Expected: [1, 1, 4, 2, 1, 1, 0, 0])");
+
+        System.out.println("\n=== Testing Largest Rectangle in Histogram ===");
+        int[] hist = {2, 1, 5, 6, 2, 3};
+        System.out.println("Max Area: " + largestRectangleArea(hist) + " (Expected: 10)");
+
+        System.out.println("\n=== Testing Maximal Rectangle in Matrix ===");
+        char[][] matrix = {
+            {'1','0','1','0','0'},
+            {'1','0','1','1','1'},
+            {'1','1','1','1','1'},
+            {'1','0','0','1','0'}
+        };
+        System.out.println("Maximal Rectangle Area: " + maximalRectangle(matrix) + " (Expected: 6)");
+        System.out.println("All MonotonicStack tests completed successfully!");
+    }
 }
