@@ -130,3 +130,26 @@ In **Sliding Window Maximum** ([LeetCode 239](https://leetcode.com/problems/slid
    $$nums[d_0] > nums[d_1] > \dots > nums[d_m]$$
 2. **Freshness**: All stored indices satisfy $d_i \ge i - k + 1$.
 3. **Efficiency**: Each index enters and leaves the deque at most once $\implies O(N)$ total time.
+
+---
+
+## 📋 Comprehensive Problem Summary Matrix
+
+| Problem | LeetCode | Core Data Structure | Time Complexity | Space Complexity |
+|:---|:---:|:---:|:---:|:---:|
+| **Min Stack** | [#155](https://leetcode.com/problems/min-stack/) | Dual Stack / Encoded Stack | $O(1)$ | $O(N)$ or $O(1)$ |
+| **Queue using Stacks** | [#232](https://leetcode.com/problems/implement-queue-using-stacks/) | Two Stacks (`in` & `out`) | $O(1)$ amortized | $O(N)$ |
+| **Stack using Queues** | [#225](https://leetcode.com/problems/implement-stack-using-queues/) | Single Queue with Rotations | $O(N)$ push, $O(1)$ pop | $O(N)$ |
+| **Circular Deque** | [#641](https://leetcode.com/problems/design-circular-deque/) | Circular Array + Modular Indexing | $O(1)$ | $O(K)$ |
+| **Next Greater Element I** | [#496](https://leetcode.com/problems/next-greater-element-i/) | Monotonic Decreasing Stack + Map | $O(N + M)$ | $O(N)$ |
+| **Next Greater Element II** | [#503](https://leetcode.com/problems/next-greater-element-ii/) | Monotonic Stack on Circular Array | $O(N)$ | $O(N)$ |
+| **Daily Temperatures** | [#739](https://leetcode.com/problems/daily-temperatures/) | Monotonic Stack with Index Storing | $O(N)$ | $O(N)$ |
+| **Largest Rectangle in Histogram** | [#84](https://leetcode.com/problems/largest-rectangle-in-histogram/) | Monotonic Increasing Stack + Sentinels | $O(N)$ | $O(N)$ |
+| **Maximal Rectangle** | [#85](https://leetcode.com/problems/maximal-rectangle/) | Monotonic Stack + 2D DP Reduction | $O(R \times C)$ | $O(C)$ |
+| **Valid Parentheses** | [#20](https://leetcode.com/problems/valid-parentheses/) | Character Stack | $O(N)$ | $O(N)$ |
+| **Longest Valid Parentheses** | [#32](https://leetcode.com/problems/longest-valid-parentheses/) | Index Stack / Two-Pass Counters | $O(N)$ | $O(N)$ or $O(1)$ |
+| **Evaluate RPN** | [#150](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | Operand Evaluation Stack | $O(N)$ | $O(N)$ |
+| **Basic Calculator II** | [#227](https://leetcode.com/problems/basic-calculator-ii/) | Precedence Parsing Stack | $O(N)$ | $O(N)$ |
+| **Sliding Window Maximum** | [#239](https://leetcode.com/problems/sliding-window-maximum/) | Monotonic Decreasing Deque | $O(N)$ | $O(K)$ |
+| **Rotting Oranges** | [#994](https://leetcode.com/problems/rotting-oranges/) | Multi-source BFS Queue | $O(R \times C)$ | $O(R \times C)$ |
+| **Simplify Path** | [#71](https://leetcode.com/problems/simplify-path/) | Deque Path Stack | $O(N)$ | $O(N)$ |
