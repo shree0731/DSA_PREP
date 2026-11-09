@@ -120,3 +120,13 @@ Operates via an operator stack and output buffer:
 2. Operators pop higher or equal precedence operators from stack to output, then push themselves.
 3. Left parenthesis `(` is pushed onto stack.
 4. Right parenthesis `)` pops operators to output until matching `(` is encountered.
+
+---
+
+## 🪟 Sliding Window Deque Invariant
+
+In **Sliding Window Maximum** ([LeetCode 239](https://leetcode.com/problems/sliding-window-maximum/)), we maintain:
+1. **Monotonicity**: Deque stores indices with values in strictly decreasing order:
+   $$nums[d_0] > nums[d_1] > \dots > nums[d_m]$$
+2. **Freshness**: All stored indices satisfy $d_i \ge i - k + 1$.
+3. **Efficiency**: Each index enters and leaves the deque at most once $\implies O(N)$ total time.
