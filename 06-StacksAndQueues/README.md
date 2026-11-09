@@ -109,3 +109,14 @@ For each bar $i$, we find:
 2. `rightBoundary[i]`: index of next smaller bar.
 3. Width of rectangle bounded by height $h$: $\text{width} = \text{right} - \text{left} - 1$.
 Using a single pass with a sentinel height $0$ at index $n$ allows computation in exact $O(N)$ time and $O(N)$ space.
+
+---
+
+## 🧮 Expression Parsing Mechanics
+
+### Dijkstra's Shunting-yard Algorithm
+Operates via an operator stack and output buffer:
+1. Operands are output immediately.
+2. Operators pop higher or equal precedence operators from stack to output, then push themselves.
+3. Left parenthesis `(` is pushed onto stack.
+4. Right parenthesis `)` pops operators to output until matching `(` is encountered.
