@@ -48,3 +48,15 @@ Trees are hierarchical, non-linear data structures consisting of nodes connected
 | **Postorder** | Left $\to$ Right $\to$ Root | $O(H)$ | Bottom-up metrics (height, delete, LCA) |
 | **Level Order (BFS)** | Depth by depth | $O(W)$ max width | Shortest paths, level views |
 | **Morris Inorder** | Left $\to$ Root $\to$ Right | **$O(1)$** | Space-constrained tree traversal via threads |
+
+---
+
+## 🧵 Morris Traversal Mechanics ($O(1)$ Space)
+
+Standard recursive or stack-based traversals require $O(H)$ auxiliary memory to backtrack from a left subtree to its parent.
+**Morris Traversal** eliminates the stack by modifying null right pointers of the **inorder predecessor**:
+1. If `curr.left == null`: record `curr.val` and move `curr = curr.right`.
+2. Else, locate `pred` (rightmost node in `curr.left`):
+   - If `pred.right == null`: establish thread `pred.right = curr`, then advance `curr = curr.left`.
+   - If `pred.right == curr`: thread already visited; revert `pred.right = null` to restore the tree, record `curr.val`, and move `curr = curr.right`.
+Each edge is traversed at most 3 times $\implies O(N)$ amortized time.
