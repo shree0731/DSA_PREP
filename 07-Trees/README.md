@@ -68,3 +68,15 @@ Each edge is traversed at most 3 times $\implies O(N)$ amortized time.
 Avoid $O(N^2)$ top-down recomputations of height by passing height upward alongside validity/diameter states:
 - **Balanced Binary Tree** returns `-1` immediately upon encountering an imbalanced child.
 - **Max Path Sum** returns `Math.max(0, branchGain)` upward while updating a global variable with `node.val + left + right` for paths arching through the root node.
+
+---
+
+## 🧭 Coordinate & View Mapping
+
+Treating the root as `(row = 0, hd = 0)`:
+- Moving **Left**: `row + 1, hd - 1`
+- Moving **Right**: `row + 1, hd + 1`
+
+Using BFS with a `TreeMap<Integer, Integer>`:
+- **Top View**: `putIfAbsent(hd, val)` keeps the shallowest node at each horizontal distance.
+- **Bottom View**: `put(hd, val)` updates to the deepest node (and rightmost on ties).
