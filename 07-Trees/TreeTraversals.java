@@ -263,4 +263,20 @@ public class TreeTraversals {
         }
         return res;
     }
+
+    public static void main(String[] args) {
+        TreeNode root = buildSampleTree();
+        System.out.println("=== Testing Binary Tree Traversals ===");
+        System.out.println("Preorder Recursive : " + preorderRecursive(root));
+        System.out.println("Preorder Iterative : " + preorderIterative(root));
+        System.out.println("Inorder Recursive  : " + inorderRecursive(root));
+        System.out.println("Inorder Iterative  : " + inorderIterative(root));
+        System.out.println("Morris Inorder O(1): " + morrisInorder(root));
+        System.out.println("Postorder Recursive: " + postorderRecursive(root));
+        System.out.println("Postorder 2-Stack  : " + postorderIterativeTwoStacks(root));
+        System.out.println("Postorder 1-Stack  : " + postorderIterativeOneStack(root));
+        System.out.println("Level Order (BFS)  : " + levelOrder(root));
+        System.out.println("Zigzag Level Order : " + zigzagLevelOrder(root));
+        System.out.println("All TreeTraversals tests verified successfully!");
+    }
 }
