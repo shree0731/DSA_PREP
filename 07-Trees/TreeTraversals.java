@@ -232,4 +232,35 @@ public class TreeTraversals {
         }
         return result;
     }
+
+    /**
+     * Morris Inorder Traversal in O(N) time and O(1) auxiliary space.
+     * Establishes temporary threaded links from inorder predecessor back to current node,
+     * then cleanly restores tree structure.
+     */
+    public static List<Integer> morrisInorder(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        TreeNode curr = root;
+
+        while (curr != null) {
+            if (curr.left == null) {
+                res.add(curr.val);
+                curr = curr.right;
+            } else {
+                TreeNode pred = curr.left;
+                while (pred.right != null && pred.right != curr) {
+                    pred = pred.right;
+                }
+                if (pred.right == null) {
+                    pred.right = curr; // Create temporary thread
+                    curr = curr.left;
+                } else {
+                    pred.right = null; // Remove temporary thread
+                    res.add(curr.val);
+                    curr = curr.right;
+                }
+            }
+        }
+        return res;
+    }
 }
