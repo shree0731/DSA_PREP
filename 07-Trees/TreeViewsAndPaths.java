@@ -140,4 +140,17 @@ public class TreeViewsAndPaths {
         dfsVertical(node.left, row + 1, col - 1, map);
         dfsVertical(node.right, row + 1, col + 1, map);
     }
+
+    /**
+     * Lowest Common Ancestor of a Binary Tree (LeetCode 236).
+     * Time: O(N), Space: O(H).
+     */
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) return root;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        if (left != null && right != null) return root;
+        return left != null ? left : right;
+    }
 }
