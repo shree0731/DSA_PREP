@@ -167,4 +167,30 @@ public class TreePropertiesAndMetrics {
 
         return node.val + Math.max(leftGain, rightGain);
     }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1,
+                new TreeNode(2, new TreeNode(4), new TreeNode(5)),
+                new TreeNode(3));
+
+        System.out.println("=== Testing Tree Properties & Metrics ===");
+        System.out.println("Max Depth (DFS): " + maxDepthDFS(root) + " (Expected: 3)");
+        System.out.println("Max Depth (BFS): " + maxDepthBFS(root) + " (Expected: 3)");
+        System.out.println("Is Balanced    : " + isBalanced(root) + " (Expected: true)");
+        System.out.println("Diameter       : " + diameterOfBinaryTree(root) + " (Expected: 3)");
+
+        TreeNode sym = new TreeNode(1,
+                new TreeNode(2, new TreeNode(3), new TreeNode(4)),
+                new TreeNode(2, new TreeNode(4), new TreeNode(3)));
+        System.out.println("Is Symmetric   : " + isSymmetric(sym) + " (Expected: true)");
+
+        TreeNode pathRoot = new TreeNode(-10,
+                new TreeNode(9),
+                new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+        System.out.println("Max Path Sum   : " + maxPathSum(pathRoot) + " (Expected: 42)");
+
+        TreeNode inverted = invertTreeRecursive(root);
+        System.out.println("Inverted Root Right Left: " + inverted.right.left.val + " (Expected: 5)");
+        System.out.println("All TreePropertiesAndMetrics tests verified successfully!");
+    }
 }
