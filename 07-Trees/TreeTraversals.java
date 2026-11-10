@@ -91,4 +91,43 @@ public class TreeTraversals {
         postorderHelper(node.right, res);
         res.add(node.val);
     }
+
+    /**
+     * Iterative Preorder Traversal using explicit Stack (LeetCode 144).
+     * Push right child first so left child is popped first.
+     */
+    public static List<Integer> preorderIterative(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+            res.add(curr.val);
+            if (curr.right != null) stack.push(curr.right);
+            if (curr.left != null) stack.push(curr.left);
+        }
+        return res;
+    }
+
+    /**
+     * Iterative Inorder Traversal using explicit Stack (LeetCode 94).
+     */
+    public static List<Integer> inorderIterative(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode curr = root;
+
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            res.add(curr.val);
+            curr = curr.right;
+        }
+        return res;
+    }
 }
