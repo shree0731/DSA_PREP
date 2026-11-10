@@ -92,4 +92,27 @@ public class TreePropertiesAndMetrics {
         maxDiameter[0] = Math.max(maxDiameter[0], left + right);
         return 1 + Math.max(left, right);
     }
+
+    /**
+     * Same Tree Check (LeetCode 100).
+     */
+    public static boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null) return true;
+        if (p == null || q == null || p.val != q.val) return false;
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+
+    /**
+     * Symmetric Tree / Mirror Check (LeetCode 101).
+     */
+    public static boolean isSymmetric(TreeNode root) {
+        if (root == null) return true;
+        return isMirror(root.left, root.right);
+    }
+
+    private static boolean isMirror(TreeNode t1, TreeNode t2) {
+        if (t1 == null && t2 == null) return true;
+        if (t1 == null || t2 == null || t1.val != t2.val) return false;
+        return isMirror(t1.left, t2.right) && isMirror(t1.right, t2.left);
+    }
 }
