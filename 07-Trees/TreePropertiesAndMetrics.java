@@ -115,4 +115,34 @@ public class TreePropertiesAndMetrics {
         if (t1 == null || t2 == null || t1.val != t2.val) return false;
         return isMirror(t1.left, t2.right) && isMirror(t1.right, t2.left);
     }
+
+    /**
+     * Invert Binary Tree (LeetCode 226) using Recursive Postorder Swap.
+     */
+    public static TreeNode invertTreeRecursive(TreeNode root) {
+        if (root == null) return null;
+        TreeNode temp = root.left;
+        root.left = invertTreeRecursive(root.right);
+        root.right = invertTreeRecursive(temp);
+        return root;
+    }
+
+    /**
+     * Iterative BFS Tree Inversion.
+     */
+    public static TreeNode invertTreeIterative(TreeNode root) {
+        if (root == null) return null;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode curr = queue.poll();
+            TreeNode temp = curr.left;
+            curr.left = curr.right;
+            curr.right = temp;
+            if (curr.left != null) queue.offer(curr.left);
+            if (curr.right != null) queue.offer(curr.right);
+        }
+        return root;
+    }
 }
