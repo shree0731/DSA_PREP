@@ -130,4 +130,52 @@ public class TreeTraversals {
         }
         return res;
     }
+
+    /**
+     * Iterative Postorder Traversal using Two Stacks (LeetCode 145).
+     */
+    public static List<Integer> postorderIterativeTwoStacks(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Deque<TreeNode> s1 = new ArrayDeque<>();
+        Deque<TreeNode> s2 = new ArrayDeque<>();
+        s1.push(root);
+
+        while (!s1.isEmpty()) {
+            TreeNode curr = s1.pop();
+            s2.push(curr);
+            if (curr.left != null) s1.push(curr.left);
+            if (curr.right != null) s1.push(curr.right);
+        }
+        while (!s2.isEmpty()) {
+            res.add(s2.pop().val);
+        }
+        return res;
+    }
+
+    /**
+     * Iterative Postorder Traversal using One Stack with last-visited pointer.
+     */
+    public static List<Integer> postorderIterativeOneStack(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode curr = root;
+        TreeNode lastVisited = null;
+
+        while (curr != null || !stack.isEmpty()) {
+            if (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            } else {
+                TreeNode peekNode = stack.peek();
+                if (peekNode.right != null && lastVisited != peekNode.right) {
+                    curr = peekNode.right;
+                } else {
+                    res.add(peekNode.val);
+                    lastVisited = stack.pop();
+                }
+            }
+        }
+        return res;
+    }
 }
