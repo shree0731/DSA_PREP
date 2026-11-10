@@ -108,4 +108,36 @@ public class TreeViewsAndPaths {
         res.addAll(hdMap.values());
         return res;
     }
+
+    /**
+     * Vertical Order Traversal of a Binary Tree (LeetCode 987).
+     * Coordinates grouped by column (HD), sorted by row then node value.
+     */
+    public static List<List<Integer>> verticalTraversal(TreeNode root) {
+        TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map = new TreeMap<>();
+        dfsVertical(root, 0, 0, map);
+
+        List<List<Integer>> result = new ArrayList<>();
+        for (TreeMap<Integer, PriorityQueue<Integer>> rows : map.values()) {
+            List<Integer> colList = new ArrayList<>();
+            for (PriorityQueue<Integer> pq : rows.values()) {
+                while (!pq.isEmpty()) {
+                    colList.add(pq.poll());
+                }
+            }
+            result.add(colList);
+        }
+        return result;
+    }
+
+    private static void dfsVertical(TreeNode node, int row, int col,
+                                    TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map) {
+        if (node == null) return;
+        map.putIfAbsent(col, new TreeMap<>());
+        map.get(col).putIfAbsent(row, new PriorityQueue<>());
+        map.get(col).get(row).offer(node.val);
+
+        dfsVertical(node.left, row + 1, col - 1, map);
+        dfsVertical(node.right, row + 1, col + 1, map);
+    }
 }
