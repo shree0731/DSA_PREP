@@ -73,4 +73,23 @@ public class TreePropertiesAndMetrics {
         if (Math.abs(leftH - rightH) > 1) return -1;
         return 1 + Math.max(leftH, rightH);
     }
+
+    /**
+     * Diameter of Binary Tree (LeetCode 543).
+     * Length (in edges) of longest path between any two nodes in the tree.
+     * Time: O(N), Space: O(H).
+     */
+    public static int diameterOfBinaryTree(TreeNode root) {
+        int[] maxDiameter = new int[1];
+        diameterHeight(root, maxDiameter);
+        return maxDiameter[0];
+    }
+
+    private static int diameterHeight(TreeNode node, int[] maxDiameter) {
+        if (node == null) return 0;
+        int left = diameterHeight(node.left, maxDiameter);
+        int right = diameterHeight(node.right, maxDiameter);
+        maxDiameter[0] = Math.max(maxDiameter[0], left + right);
+        return 1 + Math.max(left, right);
+    }
 }
