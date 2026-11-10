@@ -36,3 +36,15 @@ Trees are hierarchical, non-linear data structures consisting of nodes connected
 - **Perfect Binary Tree**: All internal nodes have 2 children and all leaves are at the same depth ($2^{h+1} - 1$ nodes).
 - **Balanced Binary Tree**: For every node, $|height(left) - height(right)| \le 1$, guaranteeing $O(\log N)$ height.
 - **Binary Search Tree (BST)**: For any node $x$, all left subtree keys $< x.\text{val} <$ all right subtree keys.
+
+---
+
+## 📊 Traversal Comparison
+
+| Traversal | Order | Auxiliary Space | Use Case |
+|:---|:---|:---:|:---|
+| **Preorder** | Root $\to$ Left $\to$ Right | $O(H)$ | Tree serialization, copying tree |
+| **Inorder** | Left $\to$ Root $\to$ Right | $O(H)$ | Retrieving BST keys in sorted order |
+| **Postorder** | Left $\to$ Right $\to$ Root | $O(H)$ | Bottom-up metrics (height, delete, LCA) |
+| **Level Order (BFS)** | Depth by depth | $O(W)$ max width | Shortest paths, level views |
+| **Morris Inorder** | Left $\to$ Root $\to$ Right | **$O(1)$** | Space-constrained tree traversal via threads |
