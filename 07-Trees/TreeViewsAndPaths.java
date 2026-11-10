@@ -31,4 +31,37 @@ public class TreeViewsAndPaths {
             this.hd = hd;
         }
     }
+
+    /**
+     * Binary Tree Right Side View using Reverse Preorder DFS (LeetCode 199).
+     * Visits Root -> Right -> Left so first node seen at each depth is the rightmost node.
+     */
+    public static List<Integer> rightSideView(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        rightViewDFS(root, 0, res);
+        return res;
+    }
+
+    private static void rightViewDFS(TreeNode node, int level, List<Integer> res) {
+        if (node == null) return;
+        if (level == res.size()) res.add(node.val);
+        rightViewDFS(node.right, level + 1, res);
+        rightViewDFS(node.left, level + 1, res);
+    }
+
+    /**
+     * Binary Tree Left Side View using Preorder DFS.
+     */
+    public static List<Integer> leftSideView(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        leftViewDFS(root, 0, res);
+        return res;
+    }
+
+    private static void leftViewDFS(TreeNode node, int level, List<Integer> res) {
+        if (node == null) return;
+        if (level == res.size()) res.add(node.val);
+        leftViewDFS(node.left, level + 1, res);
+        leftViewDFS(node.right, level + 1, res);
+    }
 }
