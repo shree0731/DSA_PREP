@@ -145,4 +145,26 @@ public class TreePropertiesAndMetrics {
         }
         return root;
     }
+
+    /**
+     * Binary Tree Maximum Path Sum (LeetCode 124).
+     * Clamps negative subtree contributions to 0 so path only extends when beneficial.
+     * Time: O(N), Space: O(H).
+     */
+    public static int maxPathSum(TreeNode root) {
+        int[] maxSum = {Integer.MIN_VALUE};
+        maxPathGain(root, maxSum);
+        return maxSum[0];
+    }
+
+    private static int maxPathGain(TreeNode node, int[] maxSum) {
+        if (node == null) return 0;
+        int leftGain = Math.max(0, maxPathGain(node.left, maxSum));
+        int rightGain = Math.max(0, maxPathGain(node.right, maxSum));
+
+        int currentPathSum = node.val + leftGain + rightGain;
+        maxSum[0] = Math.max(maxSum[0], currentPathSum);
+
+        return node.val + Math.max(leftGain, rightGain);
+    }
 }
