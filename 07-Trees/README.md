@@ -60,3 +60,11 @@ Standard recursive or stack-based traversals require $O(H)$ auxiliary memory to 
    - If `pred.right == null`: establish thread `pred.right = curr`, then advance `curr = curr.left`.
    - If `pred.right == curr`: thread already visited; revert `pred.right = null` to restore the tree, record `curr.val`, and move `curr = curr.right`.
 Each edge is traversed at most 3 times $\implies O(N)$ amortized time.
+
+---
+
+## 📏 Bottom-Up Pruning Pattern
+
+Avoid $O(N^2)$ top-down recomputations of height by passing height upward alongside validity/diameter states:
+- **Balanced Binary Tree** returns `-1` immediately upon encountering an imbalanced child.
+- **Max Path Sum** returns `Math.max(0, branchGain)` upward while updating a global variable with `node.val + left + right` for paths arching through the root node.
