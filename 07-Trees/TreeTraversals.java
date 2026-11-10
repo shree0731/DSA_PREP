@@ -178,4 +178,28 @@ public class TreeTraversals {
         }
         return res;
     }
+
+    /**
+     * Level Order Traversal using BFS Queue (LeetCode 102).
+     * Time: O(N), Space: O(W) where W is max tree width.
+     */
+    public static List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) return result;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            List<Integer> level = new ArrayList<>(levelSize);
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode node = queue.poll();
+                level.add(node.val);
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
+            }
+            result.add(level);
+        }
+        return result;
+    }
 }
