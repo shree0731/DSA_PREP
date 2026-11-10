@@ -17,3 +17,22 @@ Trees are hierarchical, non-linear data structures consisting of nodes connected
 ├── AdvancedTreeProblems.java     # Boundary, Flatten List, Complete Node Count, Distance K, Burn, BST Iterator
 └── README.md                     # Architecture notes, traversal cheat sheets, and complexity matrix
 ```
+
+---
+
+## 🌳 Tree Anatomy & Types
+
+```
+          [1]          <-- Root (Depth 0, Height 2)
+         /   \
+       [2]   [3]       <-- Internal Nodes (Depth 1)
+      /  \     \
+    [4]  [5]   [6]     <-- Leaf Nodes (Depth 2, no children)
+```
+
+### Key Categories
+- **Full Binary Tree**: Every node has either 0 or 2 children.
+- **Complete Binary Tree**: All levels completely filled except possibly the last, which is filled left-to-right.
+- **Perfect Binary Tree**: All internal nodes have 2 children and all leaves are at the same depth ($2^{h+1} - 1$ nodes).
+- **Balanced Binary Tree**: For every node, $|height(left) - height(right)| \le 1$, guaranteeing $O(\log N)$ height.
+- **Binary Search Tree (BST)**: For any node $x$, all left subtree keys $< x.\text{val} <$ all right subtree keys.
