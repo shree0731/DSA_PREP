@@ -153,4 +153,49 @@ public class TreeViewsAndPaths {
         if (left != null && right != null) return root;
         return left != null ? left : right;
     }
+
+    /**
+     * Binary Tree Paths (LeetCode 257).
+     * Collects all root-to-leaf path strings.
+     */
+    public static List<String> binaryTreePaths(TreeNode root) {
+        List<String> paths = new ArrayList<>();
+        if (root != null) dfsPaths(root, new StringBuilder(), paths);
+        return paths;
+    }
+
+    private static void dfsPaths(TreeNode node, StringBuilder sb, List<String> paths) {
+        int len = sb.length();
+        sb.append(node.val);
+        if (node.left == null && node.right == null) {
+            paths.add(sb.toString());
+        } else {
+            sb.append("->");
+            if (node.left != null) dfsPaths(node.left, sb, paths);
+            if (node.right != null) dfsPaths(node.right, sb, paths);
+        }
+        sb.setLength(len);
+    }
+
+    /**
+     * Path Sum II (LeetCode 113).
+     * Collects all root-to-leaf paths whose sum equals targetSum.
+     */
+    public static List<List<Integer>> pathSumII(TreeNode root, int targetSum) {
+        List<List<Integer>> result = new ArrayList<>();
+        backtrackPathSum(root, targetSum, new ArrayList<>(), result);
+        return result;
+    }
+
+    private static void backtrackPathSum(TreeNode node, int remaining, List<Integer> path, List<List<Integer>> res) {
+        if (node == null) return;
+        path.add(node.val);
+        if (node.left == null && node.right == null && remaining == node.val) {
+            res.add(new ArrayList<>(path));
+        } else {
+            backtrackPathSum(node.left, remaining - node.val, path, res);
+            backtrackPathSum(node.right, remaining - node.val, path, res);
+        }
+        path.remove(path.size() - 1);
+    }
 }
