@@ -198,4 +198,28 @@ public class TreeViewsAndPaths {
         }
         path.remove(path.size() - 1);
     }
+
+    /**
+     * Construct Binary Tree from Preorder and Inorder Traversal (LeetCode 105).
+     * Uses HashMap for O(1) inorder root index lookup. Time: O(N), Space: O(N).
+     */
+    public static TreeNode buildTree(int[] preorder, int[] inorder) {
+        Map<Integer, Integer> inMap = new HashMap<>();
+        for (int i = 0; i < inorder.length; i++) {
+            inMap.put(inorder[i], i);
+        }
+        return buildHelper(preorder, 0, preorder.length - 1, 0, inorder.length - 1, inMap);
+    }
+
+    private static TreeNode buildHelper(int[] preorder, int preStart, int preEnd,
+                                        int inStart, int inEnd, Map<Integer, Integer> inMap) {
+        if (preStart > preEnd || inStart > inEnd) return null;
+        TreeNode root = new TreeNode(preorder[preStart]);
+        int inRoot = inMap.get(root.val);
+        int numsLeft = inRoot - inStart;
+
+        root.left = buildHelper(preorder, preStart + 1, preStart + numsLeft, inStart, inRoot - 1, inMap);
+        root.right = buildHelper(preorder, preStart + numsLeft + 1, preEnd, inRoot + 1, inEnd, inMap);
+        return root;
+    }
 }
