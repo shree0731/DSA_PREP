@@ -168,4 +168,42 @@ public class AdvancedTreeProblems {
             }
         }
     }
+
+    /**
+     * Computes minimum time in minutes to burn the entire binary tree starting from target node.
+     */
+    public static int minTimeToBurnTree(TreeNode root, TreeNode target) {
+        if (root == null || target == null) return 0;
+        Map<TreeNode, TreeNode> parentMap = new HashMap<>();
+        buildParentMap(root, parentMap);
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        Set<TreeNode> visited = new HashSet<>();
+        queue.offer(target);
+        visited.add(target);
+
+        int minutes = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            boolean burnedAny = false;
+            for (int i = 0; i < size; i++) {
+                TreeNode curr = queue.poll();
+                if (curr.left != null && visited.add(curr.left)) {
+                    queue.offer(curr.left);
+                    burnedAny = true;
+                }
+                if (curr.right != null && visited.add(curr.right)) {
+                    queue.offer(curr.right);
+                    burnedAny = true;
+                }
+                TreeNode parent = parentMap.get(curr);
+                if (parent != null && visited.add(parent)) {
+                    queue.offer(parent);
+                    burnedAny = true;
+                }
+            }
+            if (burnedAny) minutes++;
+        }
+        return minutes;
+    }
 }
