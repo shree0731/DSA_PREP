@@ -6,6 +6,9 @@ import java.util.*;
  *
  * @author Shreepurnaa V
  */
+/**
+ * Collection of high-frequency Tree graph/BFS/O(1)-rewiring algorithms.
+ */
 public class AdvancedTreeProblems {
 
     public static class TreeNode {
