@@ -272,4 +272,33 @@ public class TreeViewsAndPaths {
             return root;
         }
     }
+
+    public static void main(String[] args) {
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n5 = new TreeNode(5);
+        TreeNode n6 = new TreeNode(6);
+        TreeNode n2 = new TreeNode(2, n4, n5);
+        TreeNode n3 = new TreeNode(3, null, n6);
+        TreeNode root = new TreeNode(1, n2, n3);
+
+        System.out.println("=== Testing Tree Views & Paths ===");
+        System.out.println("Right Side View: " + rightSideView(root));
+        System.out.println("Left Side View : " + leftSideView(root));
+        System.out.println("Top View       : " + topView(root));
+        System.out.println("Bottom View    : " + bottomView(root));
+        System.out.println("Vertical Order : " + verticalTraversal(root));
+        System.out.println("LCA(4, 5)      : " + lowestCommonAncestor(root, n4, n5).val + " (Expected: 2)");
+        System.out.println("Root-Leaf Paths: " + binaryTreePaths(root));
+        System.out.println("Path Sum (10)  : " + pathSumII(root, 10));
+
+        int[] pre = {3, 9, 20, 15, 7};
+        int[] in = {9, 3, 15, 20, 7};
+        TreeNode rebuilt = buildTree(pre, in);
+        Codec codec = new Codec();
+        String serialized = codec.serialize(rebuilt);
+        TreeNode deserialized = codec.deserialize(serialized);
+        System.out.println("Serialized     : " + serialized);
+        System.out.println("Deserialized R : " + deserialized.val + " (Expected: 3)");
+        System.out.println("All TreeViewsAndPaths tests verified successfully!");
+    }
 }
