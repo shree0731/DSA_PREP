@@ -87,4 +87,25 @@ public class BinarySearchTree {
         if (node.val <= minVal || node.val >= maxVal) return false;
         return validate(node.left, minVal, node.val) && validate(node.right, node.val, maxVal);
     }
+
+    /**
+     * Kth Smallest Element in a BST (LeetCode 230).
+     * Iterative inorder traversal stopping as soon as k-th node is visited.
+     * Time: O(H + k), Space: O(H).
+     */
+    public static int kthSmallest(TreeNode root, int k) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode curr = root;
+
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            if (--k == 0) return curr.val;
+            curr = curr.right;
+        }
+        throw new IllegalArgumentException("k exceeds BST size.");
+    }
 }
