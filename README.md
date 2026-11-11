@@ -57,6 +57,14 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[SlidingWindowAndQueueProblems.java](06-StacksAndQueues/SlidingWindowAndQueueProblems.java)**: Sliding Window Maximum (Monotonic Deque), First Unique in Stream, Rotting Oranges (Multi-source BFS), Simplify Path.
 - **[README.md](06-StacksAndQueues/README.md)**: LIFO/FIFO architecture, Monotonic Stack decision matrix, Shunting-yard guide, complexity tables.
 
+### [07-Trees](07-Trees/)
+- **[TreeTraversals.java](07-Trees/TreeTraversals.java)**: Recursive & Iterative Pre/In/Postorder, Level Order & Zigzag BFS, Morris $O(1)$ Traversal.
+- **[TreePropertiesAndMetrics.java](07-Trees/TreePropertiesAndMetrics.java)**: Max Depth, Balanced Tree Check ($O(N)$), Diameter, Same/Symmetric Checks, Invert Tree, Max Path Sum.
+- **[TreeViewsAndPaths.java](07-Trees/TreeViewsAndPaths.java)**: Right/Left/Top/Bottom/Vertical Views, Lowest Common Ancestor (LCA), Root-to-Leaf Paths, Build Tree, Codec Serialization.
+- **[BinarySearchTree.java](07-Trees/BinarySearchTree.java)**: Search, Insert, Delete Node, Validate BST, Kth Smallest, BST LCA ($O(1)$ space), Successor/Predecessor, Sorted Array to BST, Recover BST.
+- **[AdvancedTreeProblems.java](07-Trees/AdvancedTreeProblems.java)**: Boundary Traversal, Flatten Tree in-place ($O(1)$), Count Complete Nodes ($O(\log^2 N)$), Distance K BFS, Burn Tree, BST Iterator.
+- **[README.md](07-Trees/README.md)**: Tree anatomy, Morris threading guide, bottom-up pruning, BST deletion cases, complexity matrix.
+
 ---
 
 ## 🚀 How to Run
