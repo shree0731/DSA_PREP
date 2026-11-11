@@ -189,4 +189,34 @@ public class BinarySearchTree {
         root.right = buildPreorderBST(preorder, bound, idx);
         return root;
     }
+
+    /**
+     * Recover Binary Search Tree (LeetCode 99).
+     * Two elements of a BST are swapped by mistake. Identifies swapped nodes via inorder inversion detection
+     * and swaps their values in-place.
+     */
+    public static void recoverTree(TreeNode root) {
+        TreeNode[] refs = new TreeNode[3]; // [prev, first, second]
+        recoverInorder(root, refs);
+        if (refs[1] != null && refs[2] != null) {
+            int temp = refs[1].val;
+            refs[1].val = refs[2].val;
+            refs[2].val = temp;
+        }
+    }
+
+    private static void recoverInorder(TreeNode curr, TreeNode[] refs) {
+        if (curr == null) return;
+        recoverInorder(curr.left, refs);
+
+        if (refs[0] != null && curr.val < refs[0].val) {
+            if (refs[1] == null) {
+                refs[1] = refs[0];
+            }
+            refs[2] = curr;
+        }
+        refs[0] = curr;
+
+        recoverInorder(curr.right, refs);
+    }
 }
