@@ -99,6 +99,14 @@ javac QueueImplementations.java && java QueueImplementations
 javac MonotonicStack.java && java MonotonicStack
 javac ExpressionEvaluation.java && java ExpressionEvaluation
 javac SlidingWindowAndQueueProblems.java && java SlidingWindowAndQueueProblems
+
+# 07-Trees
+cd ../07-Trees
+javac TreeTraversals.java && java TreeTraversals
+javac TreePropertiesAndMetrics.java && java TreePropertiesAndMetrics
+javac TreeViewsAndPaths.java && java TreeViewsAndPaths
+javac BinarySearchTree.java && java BinarySearchTree
+javac AdvancedTreeProblems.java && java AdvancedTreeProblems
 ```
 
 ---
