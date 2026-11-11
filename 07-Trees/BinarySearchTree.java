@@ -108,4 +108,21 @@ public class BinarySearchTree {
         }
         throw new IllegalArgumentException("k exceeds BST size.");
     }
+
+    /**
+     * Lowest Common Ancestor of a Binary Search Tree (LeetCode 235).
+     * Exploits BST ordering to descend directly toward the split point in O(H) time and O(1) space.
+     */
+    public static TreeNode lowestCommonAncestorBST(TreeNode root, TreeNode p, TreeNode q) {
+        while (root != null) {
+            if (p.val < root.val && q.val < root.val) {
+                root = root.left;
+            } else if (p.val > root.val && q.val > root.val) {
+                root = root.right;
+            } else {
+                return root;
+            }
+        }
+        return null;
+    }
 }
