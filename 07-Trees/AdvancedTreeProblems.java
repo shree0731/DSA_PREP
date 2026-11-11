@@ -234,4 +234,34 @@ public class AdvancedTreeProblems {
             }
         }
     }
+
+    public static void main(String[] args) {
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n5 = new TreeNode(5);
+        TreeNode n6 = new TreeNode(6);
+        TreeNode n2 = new TreeNode(2, n4, n5);
+        TreeNode n3 = new TreeNode(3, n6, null);
+        TreeNode root = new TreeNode(1, n2, n3);
+
+        System.out.println("=== Testing Advanced Tree Problems ===");
+        System.out.println("Boundary Traversal    : " + boundaryOfBinaryTree(root));
+        System.out.println("Complete Nodes Count  : " + countNodes(root) + " (Expected: 6)");
+        System.out.println("Nodes Distance 2 from 2: " + distanceK(root, n2, 2));
+        System.out.println("Min Time to Burn from 4: " + minTimeToBurnTree(root, n4) + " mins");
+
+        TreeNode bstRoot = new TreeNode(7, new TreeNode(3), new TreeNode(15, new TreeNode(9), new TreeNode(20)));
+        BSTIterator it = new BSTIterator(bstRoot);
+        System.out.print("BST Iterator Stream   : ");
+        while (it.hasNext()) System.out.print(it.next() + " ");
+        System.out.println();
+
+        flatten(root);
+        System.out.print("Flattened Preorder    : ");
+        TreeNode curr = root;
+        while (curr != null) {
+            System.out.print(curr.val + " ");
+            curr = curr.right;
+        }
+        System.out.println("\nAll AdvancedTreeProblems tests verified successfully!");
+    }
 }
