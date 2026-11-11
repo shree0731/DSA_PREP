@@ -157,4 +157,36 @@ public class BinarySearchTree {
         }
         return predecessor;
     }
+
+    /**
+     * Convert Sorted Array to Height-Balanced BST (LeetCode 108).
+     */
+    public static TreeNode sortedArrayToBST(int[] nums) {
+        return buildBalancedBST(nums, 0, nums.length - 1);
+    }
+
+    private static TreeNode buildBalancedBST(int[] nums, int left, int right) {
+        if (left > right) return null;
+        int mid = left + (right - left) / 2;
+        TreeNode node = new TreeNode(nums[mid]);
+        node.left = buildBalancedBST(nums, left, mid - 1);
+        node.right = buildBalancedBST(nums, mid + 1, right);
+        return node;
+    }
+
+    /**
+     * Construct BST from Preorder Traversal in O(N) time using upper bound check (LeetCode 1008).
+     */
+    public static TreeNode bstFromPreorder(int[] preorder) {
+        int[] index = {0};
+        return buildPreorderBST(preorder, Integer.MAX_VALUE, index);
+    }
+
+    private static TreeNode buildPreorderBST(int[] preorder, int bound, int[] idx) {
+        if (idx[0] == preorder.length || preorder[idx[0]] > bound) return null;
+        TreeNode root = new TreeNode(preorder[idx[0]++]);
+        root.left = buildPreorderBST(preorder, root.val, idx);
+        root.right = buildPreorderBST(preorder, bound, idx);
+        return root;
+    }
 }
