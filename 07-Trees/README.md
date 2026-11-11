@@ -95,3 +95,29 @@ Using BFS with a `TreeMap<Integer, Integer>`:
 1. **Leaf Node**: Remove reference directly.
 2. **One Child**: Bypass node and attach its single child.
 3. **Two Children**: Locate **Inorder Successor** (minimum node in right subtree), copy its value, and recursively delete the successor from the right subtree.
+
+---
+
+## 📋 Comprehensive Problem Summary Matrix
+
+| Problem | LeetCode | Core Pattern | Time Complexity | Space Complexity |
+|:---|:---:|:---|:---:|:---:|
+| **Morris Inorder Traversal** | [#94](https://leetcode.com/problems/binary-tree-inorder-traversal/) | Threaded Tree Predecessor Links | $O(N)$ | $O(1)$ |
+| **Level / Zigzag Traversal** | [#102](https://leetcode.com/problems/binary-tree-level-order-traversal/), [#103](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | BFS Queue | $O(N)$ | $O(W)$ |
+| **Balanced Binary Tree** | [#110](https://leetcode.com/problems/balanced-binary-tree/) | Bottom-up Height Pruning | $O(N)$ | $O(H)$ |
+| **Diameter of Binary Tree** | [#543](https://leetcode.com/problems/diameter-of-binary-tree/) | DFS Global Height Sum | $O(N)$ | $O(H)$ |
+| **Binary Tree Max Path Sum** | [#124](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | Bottom-up Negative Clamping | $O(N)$ | $O(H)$ |
+| **Right Side View** | [#199](https://leetcode.com/problems/binary-tree-right-side-view/) | Reverse Preorder DFS | $O(N)$ | $O(H)$ |
+| **Vertical Order Traversal** | [#987](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/) | HD & Row Coordinate `TreeMap` | $O(N \log N)$ | $O(N)$ |
+| **Lowest Common Ancestor** | [#236](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | Postorder Existence Propagation | $O(N)$ | $O(H)$ |
+| **Construct from Pre & Inorder** | [#105](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Inorder Index `HashMap` Partitioning | $O(N)$ | $O(N)$ |
+| **Serialize & Deserialize** | [#297](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | BFS with `#` Null Markers | $O(N)$ | $O(N)$ |
+| **Validate BST** | [#98](https://leetcode.com/problems/validate-binary-search-tree/) | Range Propagation `(min, max)` | $O(N)$ | $O(H)$ |
+| **Delete Node in BST** | [#450](https://leetcode.com/problems/delete-node-in-a-bst/) | Inorder Successor Replacement | $O(H)$ | $O(H)$ |
+| **Kth Smallest in BST** | [#230](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | Iterative Inorder Early Stop | $O(H + k)$ | $O(H)$ |
+| **LCA in BST** | [#235](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | BST Split Point Descent | $O(H)$ | $O(1)$ |
+| **Recover BST** | [#99](https://leetcode.com/problems/recover-binary-search-tree/) | Inorder Inversion Swap | $O(N)$ | $O(H)$ |
+| **Flatten Tree to List** | [#114](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) | Morris-Style In-Place Rewiring | $O(N)$ | $O(1)$ |
+| **Count Complete Nodes** | [#222](https://leetcode.com/problems/count-complete-tree-nodes/) | Full Subtree Bitwise Height Check | $O(\log^2 N)$ | $O(\log N)$ |
+| **All Nodes Distance K** | [#863](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | Parent Pointer Graph + BFS | $O(N)$ | $O(N)$ |
+| **BST Iterator** | [#173](https://leetcode.com/problems/binary-search-tree-iterator/) | Controlled Lazy Left-Spine Stack | $O(1)$ amortized | $O(H)$ |
