@@ -119,4 +119,53 @@ public class AdvancedTreeProblems {
         }
         return h;
     }
+
+    /**
+     * All Nodes Distance K in Binary Tree (LeetCode 863).
+     * Annotates parent links via BFS, then radiates outward K steps from target using visited set.
+     */
+    public static List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+        Map<TreeNode, TreeNode> parentMap = new HashMap<>();
+        buildParentMap(root, parentMap);
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        Set<TreeNode> visited = new HashSet<>();
+        queue.offer(target);
+        visited.add(target);
+
+        int dist = 0;
+        while (!queue.isEmpty()) {
+            if (dist == k) break;
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode curr = queue.poll();
+                if (curr.left != null && visited.add(curr.left)) queue.offer(curr.left);
+                if (curr.right != null && visited.add(curr.right)) queue.offer(curr.right);
+                TreeNode parent = parentMap.get(curr);
+                if (parent != null && visited.add(parent)) queue.offer(parent);
+            }
+            dist++;
+        }
+
+        List<Integer> res = new ArrayList<>();
+        while (!queue.isEmpty()) res.add(queue.poll().val);
+        return res;
+    }
+
+    private static void buildParentMap(TreeNode root, Map<TreeNode, TreeNode> parentMap) {
+        if (root == null) return;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode curr = queue.poll();
+            if (curr.left != null) {
+                parentMap.put(curr.left, curr);
+                queue.offer(curr.left);
+            }
+            if (curr.right != null) {
+                parentMap.put(curr.right, curr);
+                queue.offer(curr.right);
+            }
+        }
+    }
 }
