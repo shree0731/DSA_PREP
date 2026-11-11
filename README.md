@@ -119,7 +119,7 @@ javac AdvancedTreeProblems.java && java AdvancedTreeProblems
 - [x] **04-Searching & Sorting**
 - [x] **05-Linked Lists**
 - [x] **06-Stacks & Queues**
-- [ ] **07-Trees & Binary Search Trees**
+- [x] **07-Trees & Binary Search Trees**
 - [ ] **08-Heaps & Priority Queues**
 - [ ] **09-Graphs**
 - [ ] **10-Dynamic Programming**
