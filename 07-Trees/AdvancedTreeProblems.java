@@ -69,4 +69,24 @@ public class AdvancedTreeProblems {
             res.add(temp.get(i));
         }
     }
+
+    /**
+     * Flatten Binary Tree to Linked List in-place in O(N) time and O(1) space (LeetCode 114).
+     * Rewires rightmost node of left subtree to point to current right subtree (Morris-style linking).
+     */
+    public static void flatten(TreeNode root) {
+        TreeNode curr = root;
+        while (curr != null) {
+            if (curr.left != null) {
+                TreeNode prev = curr.left;
+                while (prev.right != null) {
+                    prev = prev.right;
+                }
+                prev.right = curr.right;
+                curr.right = curr.left;
+                curr.left = null;
+            }
+            curr = curr.right;
+        }
+    }
 }
