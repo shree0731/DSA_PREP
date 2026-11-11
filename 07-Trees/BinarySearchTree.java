@@ -219,4 +219,29 @@ public class BinarySearchTree {
 
         recoverInorder(curr.right, refs);
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Binary Search Tree Operations ===");
+        int[] keys = {5, 3, 7, 2, 4, 6, 8};
+        TreeNode bst = null;
+        for (int k : keys) bst = insertIntoBST(bst, k);
+
+        System.out.println("Is Valid BST : " + isValidBST(bst) + " (Expected: true)");
+        System.out.println("Search 4     : " + (searchBST(bst, 4) != null ? "Found" : "Not Found"));
+        System.out.println("3rd Smallest : " + kthSmallest(bst, 3) + " (Expected: 4)");
+
+        TreeNode n2 = searchBST(bst, 2);
+        TreeNode n4 = searchBST(bst, 4);
+        System.out.println("BST LCA(2,4) : " + lowestCommonAncestorBST(bst, n2, n4).val + " (Expected: 3)");
+        System.out.println("Successor(4) : " + inorderSuccessor(bst, n4).val + " (Expected: 5)");
+
+        bst = deleteNode(bst, 5);
+        System.out.println("Root after deleting 5: " + bst.val + " (Expected: 6)");
+
+        TreeNode broken = new TreeNode(3, new TreeNode(1), new TreeNode(4, new TreeNode(2), null));
+        System.out.println("Broken BST valid? " + isValidBST(broken));
+        recoverTree(broken);
+        System.out.println("Recovered BST valid? " + isValidBST(broken) + " (Expected: true)");
+        System.out.println("All BinarySearchTree tests verified successfully!");
+    }
 }
