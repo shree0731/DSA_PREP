@@ -125,4 +125,36 @@ public class BinarySearchTree {
         }
         return null;
     }
+
+    /**
+     * Finds Inorder Successor of target value in BST in O(H) time and O(1) space.
+     */
+    public static TreeNode inorderSuccessor(TreeNode root, TreeNode target) {
+        TreeNode successor = null;
+        while (root != null) {
+            if (target.val < root.val) {
+                successor = root;
+                root = root.left;
+            } else {
+                root = root.right;
+            }
+        }
+        return successor;
+    }
+
+    /**
+     * Finds Inorder Predecessor of target value in BST in O(H) time and O(1) space.
+     */
+    public static TreeNode inorderPredecessor(TreeNode root, TreeNode target) {
+        TreeNode predecessor = null;
+        while (root != null) {
+            if (target.val > root.val) {
+                predecessor = root;
+                root = root.right;
+            } else {
+                root = root.left;
+            }
+        }
+        return predecessor;
+    }
 }
