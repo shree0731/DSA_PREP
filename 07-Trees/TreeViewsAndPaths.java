@@ -222,4 +222,54 @@ public class TreeViewsAndPaths {
         root.right = buildHelper(preorder, preStart + numsLeft + 1, preEnd, inRoot + 1, inEnd, inMap);
         return root;
     }
+
+    /**
+     * Serialize and Deserialize Binary Tree using BFS Level-Order Markers (LeetCode 297).
+     */
+    public static class Codec {
+        public String serialize(TreeNode root) {
+            if (root == null) return "";
+            StringBuilder sb = new StringBuilder();
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+
+            while (!queue.isEmpty()) {
+                TreeNode curr = queue.poll();
+                if (curr == null) {
+                    sb.append("#,");
+                } else {
+                    sb.append(curr.val).append(",");
+                    queue.offer(curr.left);
+                    queue.offer(curr.right);
+                }
+            }
+            return sb.toString();
+        }
+
+        public TreeNode deserialize(String data) {
+            if (data == null || data.isEmpty()) return null;
+            String[] values = data.split(",");
+            TreeNode root = new TreeNode(Integer.parseInt(values[0]));
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+
+            int i = 1;
+            while (!queue.isEmpty() && i < values.length) {
+                TreeNode parent = queue.poll();
+                if (!values[i].equals("#")) {
+                    TreeNode left = new TreeNode(Integer.parseInt(values[i]));
+                    parent.left = left;
+                    queue.offer(left);
+                }
+                i++;
+                if (i < values.length && !values[i].equals("#")) {
+                    TreeNode right = new TreeNode(Integer.parseInt(values[i]));
+                    parent.right = right;
+                    queue.offer(right);
+                }
+                i++;
+            }
+            return root;
+        }
+    }
 }
