@@ -86,3 +86,12 @@ Using BFS with a `TreeMap<Integer, Integer>`:
 ## 🛠️ Reconstruction & Serialization
 - **Preorder + Inorder** ([LeetCode 105](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)): `preorder[0]` identifies root; finding root in `inorder` partitions left vs right subtree sizes in $O(1)$ using a `HashMap`.
 - **BFS Serialization** ([LeetCode 297](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)): Storing `#` for `null` children guarantees lossless structural fidelity in a single linear pass.
+
+---
+
+## 🔍 BST Deletion & Validation Invariants
+
+### Node Deletion Cases (`deleteNode`)
+1. **Leaf Node**: Remove reference directly.
+2. **One Child**: Bypass node and attach its single child.
+3. **Two Children**: Locate **Inorder Successor** (minimum node in right subtree), copy its value, and recursively delete the successor from the right subtree.
