@@ -89,4 +89,34 @@ public class AdvancedTreeProblems {
             curr = curr.right;
         }
     }
+
+    /**
+     * Count Complete Tree Nodes in O((log N)^2) time (LeetCode 222).
+     * If left height == right height, left subtree is a full binary tree of size (2^h - 1).
+     */
+    public static int countNodes(TreeNode root) {
+        if (root == null) return 0;
+        int lh = getLeftHeight(root);
+        int rh = getRightHeight(root);
+        if (lh == rh) return (1 << lh) - 1;
+        return 1 + countNodes(root.left) + countNodes(root.right);
+    }
+
+    private static int getLeftHeight(TreeNode node) {
+        int h = 0;
+        while (node != null) {
+            h++;
+            node = node.left;
+        }
+        return h;
+    }
+
+    private static int getRightHeight(TreeNode node) {
+        int h = 0;
+        while (node != null) {
+            h++;
+            node = node.right;
+        }
+        return h;
+    }
 }
