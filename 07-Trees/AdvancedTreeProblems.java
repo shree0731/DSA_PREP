@@ -206,4 +206,32 @@ public class AdvancedTreeProblems {
         }
         return minutes;
     }
+
+    /**
+     * Binary Search Tree Iterator with lazy O(H) auxiliary space (LeetCode 173).
+     */
+    public static class BSTIterator {
+        private final Deque<TreeNode> stack = new ArrayDeque<>();
+
+        public BSTIterator(TreeNode root) {
+            pushAllLeft(root);
+        }
+
+        public int next() {
+            TreeNode node = stack.pop();
+            pushAllLeft(node.right);
+            return node.val;
+        }
+
+        public boolean hasNext() {
+            return !stack.isEmpty();
+        }
+
+        private void pushAllLeft(TreeNode node) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+        }
+    }
 }
