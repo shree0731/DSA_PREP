@@ -80,3 +80,9 @@ Treating the root as `(row = 0, hd = 0)`:
 Using BFS with a `TreeMap<Integer, Integer>`:
 - **Top View**: `putIfAbsent(hd, val)` keeps the shallowest node at each horizontal distance.
 - **Bottom View**: `put(hd, val)` updates to the deepest node (and rightmost on ties).
+
+---
+
+## 🛠️ Reconstruction & Serialization
+- **Preorder + Inorder** ([LeetCode 105](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)): `preorder[0]` identifies root; finding root in `inorder` partitions left vs right subtree sizes in $O(1)$ using a `HashMap`.
+- **BFS Serialization** ([LeetCode 297](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)): Storing `#` for `null` children guarantees lossless structural fidelity in a single linear pass.
