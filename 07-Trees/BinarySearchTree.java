@@ -73,4 +73,18 @@ public class BinarySearchTree {
         while (node.left != null) node = node.left;
         return node;
     }
+
+    /**
+     * Validate Binary Search Tree (LeetCode 98).
+     * Enforces strict range bounds (min, max) using Long boundaries to support Integer extremes.
+     */
+    public static boolean isValidBST(TreeNode root) {
+        return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    private static boolean validate(TreeNode node, long minVal, long maxVal) {
+        if (node == null) return true;
+        if (node.val <= minVal || node.val >= maxVal) return false;
+        return validate(node.left, minVal, node.val) && validate(node.right, node.val, maxVal);
+    }
 }
