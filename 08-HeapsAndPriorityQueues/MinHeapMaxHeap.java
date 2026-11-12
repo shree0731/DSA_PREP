@@ -27,5 +27,42 @@ public class MinHeapMaxHeap {
         private int parent(int i) { return (i - 1) / 2; }
         private int leftChild(int i) { return 2 * i + 1; }
         private int rightChild(int i) { return 2 * i + 2; }
+
+        public void insert(int val) {
+            if (size == data.length) data = Arrays.copyOf(data, data.length * 2);
+            data[size] = val;
+            siftUp(size);
+            size++;
+        }
+
+        public int extractMin() {
+            if (isEmpty()) throw new IllegalStateException("Heap Underflow: cannot extract from empty heap.");
+            int minVal = data[0];
+            data[0] = data[size - 1];
+            size--;
+            if (size > 0) siftDown(0);
+            return minVal;
+        }
+
+        private void siftUp(int i) {
+            while (i > 0 && data[i] < data[parent(i)]) {
+                swap(i, parent(i));
+                i = parent(i);
+            }
+        }
+
+        private void siftDown(int i) {
+            int minIdx = i, l = leftChild(i), r = rightChild(i);
+            if (l < size && data[l] < data[minIdx]) minIdx = l;
+            if (r < size && data[r] < data[minIdx]) minIdx = r;
+            if (minIdx != i) {
+                swap(i, minIdx);
+                siftDown(minIdx);
+            }
+        }
+
+        private void swap(int i, int j) {
+            int temp = data[i]; data[i] = data[j]; data[j] = temp;
+        }
     }
 }
