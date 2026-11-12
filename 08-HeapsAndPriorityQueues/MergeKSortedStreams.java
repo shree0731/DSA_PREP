@@ -150,4 +150,38 @@ public class MergeKSortedStreams {
         }
         return result;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Merge K Sorted Streams ===");
+        int[][] sortedArrays = {
+                {1, 4, 7},
+                {2, 5, 8},
+                {3, 6, 9}
+        };
+        System.out.println("Merged 3 Arrays: " + mergeKSortedArrays(sortedArrays));
+
+        ListNode l1 = new ListNode(1, new ListNode(4, new ListNode(5)));
+        ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(4)));
+        ListNode l3 = new ListNode(2, new ListNode(6));
+        ListNode mergedList = mergeKLists(new ListNode[]{l1, l2, l3});
+
+        System.out.print("Merged K Lists : ");
+        while (mergedList != null) {
+            System.out.print(mergedList.val + " ");
+            mergedList = mergedList.next;
+        }
+        System.out.println();
+
+        List<List<Integer>> rangeInput = Arrays.asList(
+                Arrays.asList(4, 10, 15, 24, 26),
+                Arrays.asList(0, 9, 12, 20),
+                Arrays.asList(5, 18, 22, 30)
+        );
+        System.out.println("Smallest Range : " + Arrays.toString(smallestRange(rangeInput)) + " (Expected: [20, 24])");
+
+        int[] n1 = {1, 7, 11};
+        int[] n2 = {2, 4, 6};
+        System.out.println("3 Smallest Pairs: " + kSmallestPairs(n1, n2, 3));
+        System.out.println("All MergeKSortedStreams tests completed successfully!");
+    }
 }
