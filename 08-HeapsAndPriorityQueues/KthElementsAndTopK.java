@@ -113,4 +113,24 @@ public class KthElementsAndTopK {
         }
         return res;
     }
+
+    /**
+     * Sort Characters By Frequency (LeetCode 451).
+     * Time: O(N log K) where K is number of unique characters (<= 62).
+     */
+    public static String frequencySort(String s) {
+        Map<Character, Integer> counts = new HashMap<>();
+        for (char c : s.toCharArray()) counts.put(c, counts.getOrDefault(c, 0) + 1);
+
+        PriorityQueue<Map.Entry<Character, Integer>> maxHeap =
+                new PriorityQueue<>((a, b) -> Integer.compare(b.getValue(), a.getValue()));
+        maxHeap.addAll(counts.entrySet());
+
+        StringBuilder sb = new StringBuilder();
+        while (!maxHeap.isEmpty()) {
+            Map.Entry<Character, Integer> e = maxHeap.poll();
+            for (int i = 0; i < e.getValue(); i++) sb.append(e.getKey());
+        }
+        return sb.toString();
+    }
 }
