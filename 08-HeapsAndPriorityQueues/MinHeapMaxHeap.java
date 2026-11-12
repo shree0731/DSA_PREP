@@ -143,4 +143,33 @@ public class MinHeapMaxHeap {
             heapify(arr, n, largest);
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing MinHeap Operations ===");
+        MinHeap minHeap = new MinHeap(5);
+        int[] input = {30, 10, 50, 20, 5, 40};
+        for (int v : input) minHeap.insert(v);
+        minHeap.display();
+        System.out.println("Extracted Min: " + minHeap.extractMin() + " (Expected: 5)");
+        System.out.println("Current Min  : " + minHeap.peek() + " (Expected: 10)");
+
+        System.out.println("\n=== Testing Linear O(N) BuildHeap ===");
+        int[] raw = {12, 11, 13, 5, 6, 7};
+        MinHeap built = MinHeap.buildHeap(raw);
+        System.out.print("Extracted from BuildHeap: ");
+        while (!built.isEmpty()) System.out.print(built.extractMin() + " ");
+        System.out.println();
+
+        System.out.println("\n=== Testing MaxHeap ===");
+        MaxHeap maxHeap = new MaxHeap(5);
+        for (int v : input) maxHeap.insert(v);
+        System.out.println("Extracted Max: " + maxHeap.extractMax() + " (Expected: 50)");
+
+        System.out.println("\n=== Testing In-Place HeapSort ===");
+        int[] arrToSort = {64, 34, 25, 12, 22, 11, 90};
+        System.out.println("Before Sort: " + Arrays.toString(arrToSort));
+        heapSort(arrToSort);
+        System.out.println("After Sort : " + Arrays.toString(arrToSort));
+        System.out.println("All MinHeapMaxHeap tests completed successfully!");
+    }
 }
