@@ -131,7 +131,7 @@ public class MergeKSortedStreams {
 
         // Min-Heap stores index pairs [i, j]
         PriorityQueue<int[]> minHeap = new PriorityQueue<>(
-                (a, b) -> (nums1[a[0]] + nums2[a[1]]) - (nums1[b[0]] + nums2[b[1]])
+                (a, b) -> Integer.compare(nums1[a[0]] + nums2[a[1]], nums1[b[0]] + nums2[b[1]])
         );
 
         for (int i = 0; i < Math.min(nums1.length, k); i++) {
