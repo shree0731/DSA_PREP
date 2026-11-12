@@ -58,3 +58,10 @@ $$\text{Total Operations} \le \sum_{h=0}^{\lfloor \log_2 n \rfloor} \frac{n}{2^{
 Using the arithmetic-geometric progression sum:
 $$\sum_{h=0}^{\infty} \frac{h}{2^h} = 2 \implies \text{Total Work} \le \frac{n}{2} \cdot 2 = O(N)$$
 Thus, building a heap from an arbitrary array takes strictly **linear time $O(N)$**.
+
+---
+
+## ⚡ HeapSort Characteristics
+- **Time Complexity**: $O(N \log N)$ in all cases (best, worst, average).
+- **Space Complexity**: $O(1)$ auxiliary memory (true in-place sorting).
+- **Stability**: **Unstable** — siftDown operations swap non-adjacent elements across arbitrary levels.
