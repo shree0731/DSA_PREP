@@ -44,3 +44,17 @@ Because a binary heap is always a **complete binary tree**, it can be compactly 
 - **Left Child of node $i$**: `left(i) = 2 * i + 1`
 - **Right Child of node $i$**: `right(i) = 2 * i + 2`
 - **First Non-Leaf Node**: `(n / 2) - 1`
+
+---
+
+## 🧮 Mathematical Proof: $O(N)$ BuildHeap
+
+A naive heap construction performs $N$ insertions $\implies O(N \log N)$.
+However, bottom-up **Floyd's algorithm** (`buildHeap`) starts at the last non-leaf node `(n/2) - 1` and runs `siftDown` toward the root:
+
+At height $h$, there are at most $\lceil \frac{n}{2^{h+1}} \rceil$ nodes, each taking at most $h$ swaps:
+$$\text{Total Operations} \le \sum_{h=0}^{\lfloor \log_2 n \rfloor} \frac{n}{2^{h+1}} \cdot h = \frac{n}{2} \sum_{h=0}^{\infty} \frac{h}{2^h}$$
+
+Using the arithmetic-geometric progression sum:
+$$\sum_{h=0}^{\infty} \frac{h}{2^h} = 2 \implies \text{Total Work} \le \frac{n}{2} \cdot 2 = O(N)$$
+Thus, building a heap from an arbitrary array takes strictly **linear time $O(N)$**.
