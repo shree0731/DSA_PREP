@@ -72,6 +72,12 @@ public class MinHeapMaxHeap {
             for (int i = (heap.size / 2) - 1; i >= 0; i--) heap.siftDown(i);
             return heap;
         }
+
+        public void display() {
+            System.out.print("MinHeap elements: ");
+            for (int i = 0; i < size; i++) System.out.print(data[i] + " ");
+            System.out.println();
+        }
     }
 
     public static class MaxHeap {
