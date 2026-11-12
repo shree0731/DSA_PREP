@@ -64,5 +64,13 @@ public class MinHeapMaxHeap {
         private void swap(int i, int j) {
             int temp = data[i]; data[i] = data[j]; data[j] = temp;
         }
+
+        public static MinHeap buildHeap(int[] arr) {
+            MinHeap heap = new MinHeap(arr.length);
+            heap.data = Arrays.copyOf(arr, arr.length);
+            heap.size = arr.length;
+            for (int i = (heap.size / 2) - 1; i >= 0; i--) heap.siftDown(i);
+            return heap;
+        }
     }
 }
