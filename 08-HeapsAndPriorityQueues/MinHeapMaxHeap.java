@@ -73,4 +73,49 @@ public class MinHeapMaxHeap {
             return heap;
         }
     }
+
+    public static class MaxHeap {
+        private int[] data;
+        private int size;
+        public MaxHeap(int capacity) {
+            this.data = new int[Math.max(1, capacity)];
+            this.size = 0;
+        }
+        public int size() { return size; }
+        public boolean isEmpty() { return size == 0; }
+        public int peek() {
+            if (isEmpty()) throw new IllegalStateException("Heap is empty.");
+            return data[0];
+        }
+        public void insert(int val) {
+            if (size == data.length) data = Arrays.copyOf(data, data.length * 2);
+            data[size] = val;
+            siftUp(size);
+            size++;
+        }
+        public int extractMax() {
+            if (isEmpty()) throw new IllegalStateException("Heap is empty.");
+            int maxVal = data[0];
+            data[0] = data[size - 1];
+            size--;
+            if (size > 0) siftDown(0);
+            return maxVal;
+        }
+        private void siftUp(int i) {
+            while (i > 0 && data[i] > data[(i - 1) / 2]) {
+                int p = (i - 1) / 2;
+                int temp = data[i]; data[i] = data[p]; data[p] = temp;
+                i = p;
+            }
+        }
+        private void siftDown(int i) {
+            int maxIdx = i, l = 2 * i + 1, r = 2 * i + 2;
+            if (l < size && data[l] > data[maxIdx]) maxIdx = l;
+            if (r < size && data[r] > data[maxIdx]) maxIdx = r;
+            if (maxIdx != i) {
+                int temp = data[i]; data[i] = data[maxIdx]; data[maxIdx] = temp;
+                siftDown(maxIdx);
+            }
+        }
+    }
 }
