@@ -83,4 +83,41 @@ public class MergeKSortedStreams {
         }
         return result;
     }
+
+    /**
+     * Smallest Range Covering Elements from K Lists (LeetCode 632).
+     * Maintains a Min-Heap of size K alongside a running maximum.
+     * Window width = (currentMax - minHeap.peek().val).
+     * Time: O(N log K), Space: O(K).
+     */
+    public static int[] smallestRange(List<List<Integer>> nums) {
+        PriorityQueue<ArrayEntry> minHeap = new PriorityQueue<>(
+                nums.size(), (a, b) -> Integer.compare(a.val, b.val)
+        );
+
+        int currentMax = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.size(); i++) {
+            int val = nums.get(i).get(0);
+            minHeap.offer(new ArrayEntry(val, i, 0));
+            currentMax = Math.max(currentMax, val);
+        }
+
+        int rangeStart = 0;
+        int rangeEnd = Integer.MAX_VALUE;
+
+        while (minHeap.size() == nums.size()) {
+            ArrayEntry minEntry = minHeap.poll();
+            if ((long) currentMax - minEntry.val < (long) rangeEnd - rangeStart) {
+                rangeStart = minEntry.val;
+                rangeEnd = currentMax;
+            }
+
+            if (minEntry.col + 1 < nums.get(minEntry.row).size()) {
+                int nextVal = nums.get(minEntry.row).get(minEntry.col + 1);
+                minHeap.offer(new ArrayEntry(nextVal, minEntry.row, minEntry.col + 1));
+                currentMax = Math.max(currentMax, nextVal);
+            }
+        }
+        return new int[]{rangeStart, rangeEnd};
+    }
 }
