@@ -44,4 +44,43 @@ public class MergeKSortedStreams {
         }
         return dummy.next;
     }
+
+    private static class ArrayEntry {
+        int val;
+        int row;
+        int col;
+        ArrayEntry(int val, int row, int col) {
+            this.val = val;
+            this.row = row;
+            this.col = col;
+        }
+    }
+
+    /**
+     * Merges K sorted arrays into a single unified sorted List.
+     * Time: O(N log K), Space: O(K).
+     */
+    public static List<Integer> mergeKSortedArrays(int[][] arrays) {
+        List<Integer> result = new ArrayList<>();
+        if (arrays == null || arrays.length == 0) return result;
+
+        PriorityQueue<ArrayEntry> minHeap = new PriorityQueue<>(
+                arrays.length, (a, b) -> Integer.compare(a.val, b.val)
+        );
+
+        for (int r = 0; r < arrays.length; r++) {
+            if (arrays[r] != null && arrays[r].length > 0) {
+                minHeap.offer(new ArrayEntry(arrays[r][0], r, 0));
+            }
+        }
+
+        while (!minHeap.isEmpty()) {
+            ArrayEntry curr = minHeap.poll();
+            result.add(curr.val);
+            if (curr.col + 1 < arrays[curr.row].length) {
+                minHeap.offer(new ArrayEntry(arrays[curr.row][curr.col + 1], curr.row, curr.col + 1));
+            }
+        }
+        return result;
+    }
 }
