@@ -23,4 +23,20 @@ public class KthElementsAndTopK {
         }
         return minHeap.peek();
     }
+
+    /**
+     * Kth Smallest Element in an Array.
+     * Maintains a Max-Heap of size K.
+     * Time: O(N log K), Space: O(K).
+     */
+    public static int findKthSmallest(int[] nums, int k) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, Collections.reverseOrder());
+        for (int num : nums) {
+            maxHeap.offer(num);
+            if (maxHeap.size() > k) {
+                maxHeap.poll();
+            }
+        }
+        return maxHeap.peek();
+    }
 }
