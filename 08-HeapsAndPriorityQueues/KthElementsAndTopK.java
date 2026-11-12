@@ -62,4 +62,31 @@ public class KthElementsAndTopK {
         }
         return result;
     }
+
+    /**
+     * Top K Frequent Elements using Bucket Sort in strictly linear O(N) time (LeetCode 347).
+     */
+    public static int[] topKFrequentBucket(int[] nums, int k) {
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        for (int n : nums) freqMap.put(n, freqMap.getOrDefault(n, 0) + 1);
+
+        List<Integer>[] buckets = new List[nums.length + 1];
+        for (int key : freqMap.keySet()) {
+            int freq = freqMap.get(key);
+            if (buckets[freq] == null) buckets[freq] = new ArrayList<>();
+            buckets[freq].add(key);
+        }
+
+        int[] res = new int[k];
+        int idx = 0;
+        for (int f = buckets.length - 1; f >= 0 && idx < k; f--) {
+            if (buckets[f] != null) {
+                for (int val : buckets[f]) {
+                    res[idx++] = val;
+                    if (idx == k) break;
+                }
+            }
+        }
+        return res;
+    }
 }
