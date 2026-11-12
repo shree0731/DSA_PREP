@@ -65,3 +65,13 @@ Thus, building a heap from an arbitrary array takes strictly **linear time $O(N)
 - **Time Complexity**: $O(N \log N)$ in all cases (best, worst, average).
 - **Space Complexity**: $O(1)$ auxiliary memory (true in-place sorting).
 - **Stability**: **Unstable** — siftDown operations swap non-adjacent elements across arbitrary levels.
+
+---
+
+## 🎯 Bounded Heap Pattern: $O(N \log K)$
+
+To find the **$K$-th Largest** element:
+- Maintain a **Min-Heap** bounded at size $K$.
+- When a new element arrives, push it. If size exceeds $K$, `poll()` drops the smallest.
+- The heap always holds the top $K$ largest elements; its root (`peek()`) is the $K$-th largest!
+- Drastically out-performs full sorting: $\log K \ll \log N$ when $K \ll N$.
