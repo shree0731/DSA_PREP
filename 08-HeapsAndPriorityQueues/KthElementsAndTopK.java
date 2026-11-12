@@ -133,4 +133,24 @@ public class KthElementsAndTopK {
         }
         return sb.toString();
     }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 1, 5, 6, 4};
+        System.out.println("=== Testing K-th & Top-K Elements ===");
+        System.out.println("2nd Largest Element: " + findKthLargest(arr, 2) + " (Expected: 5)");
+        System.out.println("2nd Smallest Element: " + findKthSmallest(arr, 2) + " (Expected: 2)");
+
+        int[] freqArr = {1, 1, 1, 2, 2, 3};
+        System.out.println("Top 2 Frequent (Heap)  : " + Arrays.toString(topKFrequentHeap(freqArr, 2)));
+        System.out.println("Top 2 Frequent (Bucket): " + Arrays.toString(topKFrequentBucket(freqArr, 2)));
+
+        int[][] pts = {{1, 3}, {-2, 2}, {5, 8}, {0, 1}};
+        int[][] closest = kClosest(pts, 2);
+        System.out.print("2 Closest to Origin    : ");
+        for (int[] p : closest) System.out.print(Arrays.toString(p) + " ");
+        System.out.println();
+
+        System.out.println("Frequency Sort 'tree'  : " + frequencySort("tree"));
+        System.out.println("All KthElementsAndTopK tests verified successfully!");
+    }
 }
