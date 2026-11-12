@@ -75,3 +75,10 @@ To find the **$K$-th Largest** element:
 - When a new element arrives, push it. If size exceeds $K$, `poll()` drops the smallest.
 - The heap always holds the top $K$ largest elements; its root (`peek()`) is the $K$-th largest!
 - Drastically out-performs full sorting: $\log K \ll \log N$ when $K \ll N$.
+
+---
+
+## 🔀 Multi-Way Merge ($K$ Pointers)
+When merging $K$ sorted streams with $N$ total elements:
+- Rather than checking all $K$ candidates ($O(K)$ per element $\implies O(N \cdot K)$), a **Min-Heap of size $K$** selects the minimum in $O(\log K)$ time.
+- Total runtime is reduced to **$O(N \log K)$**, which is optimal.
