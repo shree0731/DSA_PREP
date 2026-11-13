@@ -134,4 +134,27 @@ public class TaskSchedulerAndGreedyHeaps {
         }
         return result;
     }
+
+    /**
+     * Seat Reservation Manager (LeetCode 1845).
+     * Maintains available seat numbers in a Min-Heap.
+     */
+    public static class SeatManager {
+        private final PriorityQueue<Integer> availableSeats;
+
+        public SeatManager(int n) {
+            this.availableSeats = new PriorityQueue<>(n);
+            for (int i = 1; i <= n; i++) {
+                availableSeats.offer(i);
+            }
+        }
+
+        public int reserve() {
+            return availableSeats.poll();
+        }
+
+        public void unreserve(int seatNumber) {
+            availableSeats.offer(seatNumber);
+        }
+    }
 }
