@@ -162,4 +162,23 @@ public class TaskSchedulerAndGreedyHeaps {
             availableSeats.offer(seatNumber);
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Task Scheduler ===");
+        char[] tasks = {'A', 'A', 'A', 'B', 'B', 'B'};
+        System.out.println("Heap  Slots (n=2): " + leastIntervalHeap(tasks, 2) + " (Expected: 8)");
+        System.out.println("Math  Slots (n=2): " + leastIntervalMath(tasks, 2) + " (Expected: 8)");
+
+        System.out.println("\n=== Testing Reorganize String ===");
+        System.out.println("Reorganize 'aab' : " + reorganizeString("aab") + " (Valid: 'aba')");
+        System.out.println("Reorganize 'aaab': " + reorganizeString("aaab") + " (Expected: '')");
+
+        System.out.println("\n=== Testing SeatManager ===");
+        SeatManager sm = new SeatManager(5);
+        System.out.println("Reserve seat: " + sm.reserve() + " (Expected: 1)");
+        System.out.println("Reserve seat: " + sm.reserve() + " (Expected: 2)");
+        sm.unreserve(1);
+        System.out.println("Reserve after unreserve(1): " + sm.reserve() + " (Expected: 1)");
+        System.out.println("All TaskSchedulerAndGreedyHeaps tests completed successfully!");
+    }
 }
