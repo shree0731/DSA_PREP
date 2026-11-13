@@ -136,7 +136,7 @@ javac TaskSchedulerAndGreedyHeaps.java && java TaskSchedulerAndGreedyHeaps
 - [x] **05-Linked Lists**
 - [x] **06-Stacks & Queues**
 - [x] **07-Trees & Binary Search Trees**
-- [ ] **08-Heaps & Priority Queues**
+- [x] **08-Heaps & Priority Queues**
 - [ ] **09-Graphs**
 - [ ] **10-Dynamic Programming**
 
