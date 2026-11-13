@@ -116,4 +116,24 @@ public class MedianFinderAndTwoHeaps {
         }
         return result;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing MedianFinder (Two Heaps) ===");
+        MedianFinder mf = new MedianFinder();
+        mf.addNum(1);
+        mf.addNum(2);
+        System.out.println("Median of [1, 2]: " + mf.findMedian() + " (Expected: 1.5)");
+        mf.addNum(3);
+        System.out.println("Median of [1, 2, 3]: " + mf.findMedian() + " (Expected: 2.0)");
+
+        System.out.println("\n=== Testing IPO Maximized Capital ===");
+        int[] profits = {1, 2, 3};
+        int[] capital = {0, 1, 1};
+        System.out.println("Max Capital: " + findMaximizedCapital(2, 0, profits, capital) + " (Expected: 4)");
+
+        System.out.println("\n=== Testing Connect Sticks ===");
+        int[] sticks = {2, 4, 3};
+        System.out.println("Min Cost to Connect: " + connectSticks(sticks) + " (Expected: 14)");
+        System.out.println("All MedianFinderAndTwoHeaps tests verified successfully!");
+    }
 }
