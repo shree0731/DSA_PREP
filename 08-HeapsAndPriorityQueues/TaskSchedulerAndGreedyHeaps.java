@@ -100,6 +100,11 @@ public class TaskSchedulerAndGreedyHeaps {
      * Time: O(N log N + Q log Q), Space: O(N + Q).
      */
     public static int[] minInterval(int[][] intervals, int[] queries) {
+        if (intervals == null || intervals.length == 0 || queries == null || queries.length == 0) {
+            int[] empty = new int[queries == null ? 0 : queries.length];
+            Arrays.fill(empty, -1);
+            return empty;
+        }
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
         int qLen = queries.length;
         int[][] sortedQ = new int[qLen][2];
