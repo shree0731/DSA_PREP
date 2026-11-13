@@ -156,3 +156,7 @@ javac TaskSchedulerAndGreedyHeaps.java && java TaskSchedulerAndGreedyHeaps
 - **In-place reversal** requires 3 pointers: `prev`, `curr`, `nextTemp`.
 
 > Milestone: 05-Linked Lists module completed with 56 structured commits, comprehensive tests, and Big-O cheat sheets.
+
+### 💡 Priority Queue Golden Rules
+- Use bounded heaps of size $K$ to solve Top-$K$ queries in $O(N \log K)$ rather than $O(N \log N)$.
+- Avoid integer subtraction in comparators `(a - b)` to prevent 32-bit integer overflow; always use `Integer.compare(a, b)`.
