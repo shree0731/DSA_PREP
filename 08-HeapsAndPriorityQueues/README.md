@@ -129,3 +129,6 @@ When executing tasks with cooldown $n$:
 In competitive programming and high-frequency algorithms:
 1. `java.util.PriorityQueue<Integer>` incurs **primitive boxing (`int` $\to$ `Integer`)**, generating $N$ heap-allocated objects and cache thrashing.
 2. A custom primitive `int[]` array heap avoids object allocation, yielding **$3\times$ to $5\times$ faster execution** and zero GC pressure.
+
+---
+*Module 08 completed and fully verified with test harnesses.*
