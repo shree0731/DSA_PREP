@@ -94,3 +94,11 @@ We achieve:
 - `addNum(x)`: $O(\log N)$
 - `findMedian()`: **$O(1)$**
 Size invariant: `left.size() == right.size()` or `left.size() == right.size() + 1`.
+
+---
+
+## ⏱️ Greedy Task Scheduling & Cooldown Queue
+When executing tasks with cooldown $n$:
+1. Always prioritize the task with the highest remaining frequency (**Max-Heap**).
+2. Placed tasks enter a **FIFO Cooldown Queue** with their available unblock timestamp `time + n`.
+3. When `current_time` reaches unblock timestamp, tasks return to the Max-Heap.
