@@ -1,8 +1,8 @@
 import java.util.Arrays;
 
 /**
- * Custom Min-Heap and Max-Heap implementations from scratch using dynamic arrays.
- * Demonstrates Sift-Up, Sift-Down, O(N) BuildHeap, and In-Place HeapSort.
+ * Production-ready Min-Heap and Max-Heap implementations with bounds checks,
+ * in-place heapify, and heapSort.
  *
  * @author Shreepurnaa V
  */
