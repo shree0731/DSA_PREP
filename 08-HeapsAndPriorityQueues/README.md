@@ -82,3 +82,15 @@ To find the **$K$-th Largest** element:
 When merging $K$ sorted streams with $N$ total elements:
 - Rather than checking all $K$ candidates ($O(K)$ per element $\implies O(N \cdot K)$), a **Min-Heap of size $K$** selects the minimum in $O(\log K)$ time.
 - Total runtime is reduced to **$O(N \log K)$**, which is optimal.
+
+---
+
+## ⚖️ The Two-Heaps Dynamic Median Technique
+By splitting numbers into:
+- Lower half in a **Max-Heap** `left`
+- Upper half in a **Min-Heap** `right`
+
+We achieve:
+- `addNum(x)`: $O(\log N)$
+- `findMedian()`: **$O(1)$**
+Size invariant: `left.size() == right.size()` or `left.size() == right.size() + 1`.
