@@ -122,3 +122,10 @@ When executing tasks with cooldown $n$:
 | **Reorganize String** | [#767](https://leetcode.com/problems/reorganize-string/) | Max-Heap Alternating Extract | $O(N \log 26)$ | $O(1)$ |
 | **Min Interval for Query** | [#1851](https://leetcode.com/problems/minimum-interval-to-include-each-query/) | Sweep-Line + Length Min-Heap | $O(N \log N + Q \log Q)$ | $O(N + Q)$ |
 | **Seat Reservation Manager** | [#1845](https://leetcode.com/problems/seat-reservation-manager/) | Min-Heap of Available Seats | $O(\log N)$ | $O(N)$ |
+
+---
+
+## 🚀 Performance: Custom Heap vs `java.util.PriorityQueue`
+In competitive programming and high-frequency algorithms:
+1. `java.util.PriorityQueue<Integer>` incurs **primitive boxing (`int` $\to$ `Integer`)**, generating $N$ heap-allocated objects and cache thrashing.
+2. A custom primitive `int[]` array heap avoids object allocation, yielding **$3\times$ to $5\times$ faster execution** and zero GC pressure.
