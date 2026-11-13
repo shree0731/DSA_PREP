@@ -65,6 +65,14 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[AdvancedTreeProblems.java](07-Trees/AdvancedTreeProblems.java)**: Boundary Traversal, Flatten Tree in-place ($O(1)$), Count Complete Nodes ($O(\log^2 N)$), Distance K BFS, Burn Tree, BST Iterator.
 - **[README.md](07-Trees/README.md)**: Tree anatomy, Morris threading guide, bottom-up pruning, BST deletion cases, complexity matrix.
 
+### [08-HeapsAndPriorityQueues](08-HeapsAndPriorityQueues/)
+- **[MinHeapMaxHeap.java](08-HeapsAndPriorityQueues/MinHeapMaxHeap.java)**: Custom Min/Max Heaps from scratch, Sift-Up/Down, $O(N)$ BuildHeap, in-place HeapSort ($O(1)$ space).
+- **[KthElementsAndTopK.java](08-HeapsAndPriorityQueues/KthElementsAndTopK.java)**: Kth Largest/Smallest ($O(N \log K)$), Top K Frequent (Heap & Bucket Sort), K Closest Points to Origin.
+- **[MergeKSortedStreams.java](08-HeapsAndPriorityQueues/MergeKSortedStreams.java)**: Merge K Sorted Lists, Merge K Arrays, Smallest Range from K Lists, K Pairs with Smallest Sum.
+- **[MedianFinderAndTwoHeaps.java](08-HeapsAndPriorityQueues/MedianFinderAndTwoHeaps.java)**: Continuous Median Tracking (Dual Heaps), Sliding Window Median, IPO Capital Maximization, Connect Sticks.
+- **[TaskSchedulerAndGreedyHeaps.java](08-HeapsAndPriorityQueues/TaskSchedulerAndGreedyHeaps.java)**: Task Scheduler (Heap vs Math), Reorganize String, Minimum Interval per Query, Seat Reservation Manager.
+- **[README.md](08-HeapsAndPriorityQueues/README.md)**: 1D array tree mapping, $O(N)$ buildHeap proof, two-heaps median invariant, Big-O matrix.
+
 ---
 
 ## 🚀 How to Run
