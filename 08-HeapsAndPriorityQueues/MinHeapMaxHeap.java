@@ -153,6 +153,22 @@ public class MinHeapMaxHeap {
         return res;
     }
 
+    public static void runBenchmark() {
+        int n = 1_000_000;
+        int[] data = new int[n];
+        java.util.Random rand = new java.util.Random(42);
+        for (int i = 0; i < n; i++) data[i] = rand.nextInt();
+        long start = System.currentTimeMillis();
+        MinHeap custom = MinHeap.buildHeap(data);
+        long customTime = System.currentTimeMillis() - start;
+        start = System.currentTimeMillis();
+        java.util.PriorityQueue<Integer> pq = new java.util.PriorityQueue<>(n);
+        for (int v : data) pq.offer(v);
+        long pqTime = System.currentTimeMillis() - start;
+        System.out.println("Custom Primitive BuildHeap Time: " + customTime + " ms");
+        System.out.println("Java PriorityQueue Insertion Time: " + pqTime + " ms");
+    }
+
     public static void main(String[] args) {
         System.out.println("=== Testing MinHeap Operations ===");
         MinHeap minHeap = new MinHeap(5);
