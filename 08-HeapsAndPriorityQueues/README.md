@@ -102,3 +102,23 @@ When executing tasks with cooldown $n$:
 1. Always prioritize the task with the highest remaining frequency (**Max-Heap**).
 2. Placed tasks enter a **FIFO Cooldown Queue** with their available unblock timestamp `time + n`.
 3. When `current_time` reaches unblock timestamp, tasks return to the Max-Heap.
+
+---
+
+## 📋 Comprehensive Problem Summary Matrix
+
+| Problem | LeetCode | Core Heap Pattern | Time Complexity | Space Complexity |
+|:---|:---:|:---|:---:|:---:|
+| **Build Heap (Floyd's Algorithm)** | — | Bottom-Up Sift-Down | $O(N)$ | $O(1)$ |
+| **HeapSort** | [#912](https://leetcode.com/problems/sort-an-array/) | In-Place Max-Heapify + Swap | $O(N \log N)$ | $O(1)$ |
+| **Kth Largest Element** | [#215](https://leetcode.com/problems/kth-largest-element-in-an-array/) | Min-Heap bounded at size $K$ | $O(N \log K)$ | $O(K)$ |
+| **Top K Frequent Elements** | [#347](https://leetcode.com/problems/top-k-frequent-elements/) | Frequency Min-Heap / Bucket Sort | $O(N \log K)$ or $O(N)$ | $O(N)$ |
+| **K Closest Points to Origin** | [#973](https://leetcode.com/problems/k-closest-points-to-origin/) | Max-Heap of size $K$ | $O(N \log K)$ | $O(K)$ |
+| **Merge K Sorted Lists** | [#23](https://leetcode.com/problems/merge-k-sorted-lists/) | Min-Heap of size $K$ | $O(N \log K)$ | $O(K)$ |
+| **Smallest Range from K Lists** | [#632](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/) | Min-Heap + Running Max | $O(N \log K)$ | $O(K)$ |
+| **Find Median from Data Stream** | [#295](https://leetcode.com/problems/find-median-from-data-stream/) | Dual Heaps (Max-Left, Min-Right) | $O(\log N)$ add, $O(1)$ median | $O(N)$ |
+| **IPO (Maximized Capital)** | [#502](https://leetcode.com/problems/ipo/) | Min-Capital Heap + Max-Profit Heap | $O(N \log N + K \log N)$ | $O(N)$ |
+| **Task Scheduler** | [#621](https://leetcode.com/problems/task-scheduler/) | Max-Heap + Cooldown Queue | $O(N)$ | $O(1)$ |
+| **Reorganize String** | [#767](https://leetcode.com/problems/reorganize-string/) | Max-Heap Alternating Extract | $O(N \log 26)$ | $O(1)$ |
+| **Min Interval for Query** | [#1851](https://leetcode.com/problems/minimum-interval-to-include-each-query/) | Sweep-Line + Length Min-Heap | $O(N \log N + Q \log Q)$ | $O(N + Q)$ |
+| **Seat Reservation Manager** | [#1845](https://leetcode.com/problems/seat-reservation-manager/) | Min-Heap of Available Seats | $O(\log N)$ | $O(N)$ |
