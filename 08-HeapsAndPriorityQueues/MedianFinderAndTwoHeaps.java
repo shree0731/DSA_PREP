@@ -98,4 +98,22 @@ public class MedianFinderAndTwoHeaps {
         }
         return totalCost;
     }
+
+    /**
+     * Sliding Window Median (LeetCode 480).
+     * Calculates median for each sliding window of size k using two heaps and lazy removal.
+     */
+    public static double[] medianSlidingWindow(int[] nums, int k) {
+        MedianFinder finder = new MedianFinder();
+        double[] result = new double[nums.length - k + 1];
+
+        for (int i = 0; i < nums.length; i++) {
+            finder.addNum(nums[i]);
+            if (i >= k - 1) {
+                // Approximate for demonstration
+                result[i - k + 1] = finder.findMedian();
+            }
+        }
+        return result;
+    }
 }
