@@ -79,4 +79,23 @@ public class MedianFinderAndTwoHeaps {
         }
         return w;
     }
+
+    /**
+     * Minimum Cost to Connect Sticks (LeetCode 1167).
+     * Greedy Huffman-style aggregation: always combine the two shortest sticks.
+     * Time: O(N log N), Space: O(N).
+     */
+    public static int connectSticks(int[] sticks) {
+        if (sticks == null || sticks.length <= 1) return 0;
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        for (int s : sticks) minHeap.offer(s);
+
+        int totalCost = 0;
+        while (minHeap.size() > 1) {
+            int cost = minHeap.poll() + minHeap.poll();
+            totalCost += cost;
+            minHeap.offer(cost);
+        }
+        return totalCost;
+    }
 }
