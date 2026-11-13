@@ -115,6 +115,14 @@ javac TreePropertiesAndMetrics.java && java TreePropertiesAndMetrics
 javac TreeViewsAndPaths.java && java TreeViewsAndPaths
 javac BinarySearchTree.java && java BinarySearchTree
 javac AdvancedTreeProblems.java && java AdvancedTreeProblems
+
+# 08-HeapsAndPriorityQueues
+cd ../08-HeapsAndPriorityQueues
+javac MinHeapMaxHeap.java && java MinHeapMaxHeap
+javac KthElementsAndTopK.java && java KthElementsAndTopK
+javac MergeKSortedStreams.java && java MergeKSortedStreams
+javac MedianFinderAndTwoHeaps.java && java MedianFinderAndTwoHeaps
+javac TaskSchedulerAndGreedyHeaps.java && java TaskSchedulerAndGreedyHeaps
 ```
 
 ---
