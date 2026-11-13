@@ -144,6 +144,15 @@ public class MinHeapMaxHeap {
         }
     }
 
+    public static int[] getKSmallest(int[] arr, int k) {
+        if (arr == null || k <= 0) return new int[0];
+        MinHeap heap = MinHeap.buildHeap(arr);
+        int count = Math.min(k, arr.length);
+        int[] res = new int[count];
+        for (int i = 0; i < count; i++) res[i] = heap.extractMin();
+        return res;
+    }
+
     public static void main(String[] args) {
         System.out.println("=== Testing MinHeap Operations ===");
         MinHeap minHeap = new MinHeap(5);
