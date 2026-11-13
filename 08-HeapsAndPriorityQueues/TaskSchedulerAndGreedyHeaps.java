@@ -58,4 +58,39 @@ public class TaskSchedulerAndGreedyHeaps {
         int slots = (maxFreq - 1) * (n + 1) + maxCount;
         return Math.max(tasks.length, slots);
     }
+
+    /**
+     * Reorganize String (LeetCode 767).
+     * Reorganizes characters such that no two adjacent characters are identical.
+     * Time: O(N log A) where A = 26, Space: O(A).
+     */
+    public static String reorganizeString(String s) {
+        int[] freq = new int[26];
+        for (char c : s.toCharArray()) freq[c - 'a']++;
+
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
+                (a, b) -> Integer.compare(b[1], a[1])
+        );
+
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] > (s.length() + 1) / 2) return "";
+            if (freq[i] > 0) maxHeap.offer(new int[]{i, freq[i]});
+        }
+
+        StringBuilder sb = new StringBuilder();
+        int[] prev = null;
+
+        while (!maxHeap.isEmpty()) {
+            int[] curr = maxHeap.poll();
+            sb.append((char) ('a' + curr[0]));
+            curr[1]--;
+
+            if (prev != null && prev[1] > 0) {
+                maxHeap.offer(prev);
+            }
+
+            prev = curr;
+        }
+        return sb.toString();
+    }
 }
