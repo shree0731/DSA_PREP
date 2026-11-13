@@ -93,4 +93,45 @@ public class TaskSchedulerAndGreedyHeaps {
         }
         return sb.toString();
     }
+
+    /**
+     * Minimum Interval to Include Each Query (LeetCode 1851).
+     * Sorts queries and intervals, then uses a Min-Heap of intervals [length, rightEnd].
+     * Time: O(N log N + Q log Q), Space: O(N + Q).
+     */
+    public static int[] minInterval(int[][] intervals, int[] queries) {
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+        int qLen = queries.length;
+        int[][] sortedQ = new int[qLen][2];
+        for (int i = 0; i < qLen; i++) {
+            sortedQ[i][0] = queries[i];
+            sortedQ[i][1] = i;
+        }
+        Arrays.sort(sortedQ, Comparator.comparingInt(a -> a[0]));
+
+        // Min-Heap ordered by interval length
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(
+                Comparator.comparingInt(a -> (a[1] - a[0] + 1))
+        );
+
+        int[] result = new int[qLen];
+        int i = 0;
+
+        for (int[] q : sortedQ) {
+            int qVal = q[0];
+            int qIdx = q[1];
+
+            while (i < intervals.length && intervals[i][0] <= qVal) {
+                minHeap.offer(intervals[i]);
+                i++;
+            }
+
+            while (!minHeap.isEmpty() && minHeap.peek()[1] < qVal) {
+                minHeap.poll();
+            }
+
+            result[qIdx] = minHeap.isEmpty() ? -1 : (minHeap.peek()[1] - minHeap.peek()[0] + 1);
+        }
+        return result;
+    }
 }
