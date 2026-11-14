@@ -78,3 +78,10 @@ Graphs model complex real-world networks such as social networks, routing protoc
 - Relaxes all $|E|$ edges $|V| - 1$ times.
 - Since the longest simple path in a graph has at most $|V| - 1$ edges, all shortest paths are resolved after $|V| - 1$ passes.
 - A further relaxation on pass $|V|$ indicates a **Negative Weight Cycle**.
+
+---
+
+## 🏗️ Topological Sort Mechanics
+A Topological Ordering exists **if and only if** the graph is a Directed Acyclic Graph (**DAG**).
+- **Kahn's Algorithm**: Count in-degrees. Vertices with `inDegree == 0` have no dependencies and are processed first.
+- If total processed vertices $< V$, a cycle exists!
