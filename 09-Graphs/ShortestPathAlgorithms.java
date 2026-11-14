@@ -142,4 +142,48 @@ public class ShortestPathAlgorithms {
         }
         return -1;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Dijkstra's Algorithm ===");
+        int v = 5;
+        List<List<Edge>> adj = new ArrayList<>();
+        for (int i = 0; i < v; i++) adj.add(new ArrayList<>());
+        adj.get(0).add(new Edge(1, 4));
+        adj.get(0).add(new Edge(2, 1));
+        adj.get(2).add(new Edge(1, 2));
+        adj.get(1).add(new Edge(3, 1));
+        adj.get(2).add(new Edge(3, 5));
+        adj.get(3).add(new Edge(4, 3));
+
+        int[] dijkstraDist = dijkstra(v, adj, 0);
+        System.out.println("Dijkstra Distances from 0: " + Arrays.toString(dijkstraDist) + " (Expected: [0, 3, 1, 4, 7])");
+
+        System.out.println("\n=== Testing Bellman-Ford ===");
+        int[][] edges = {
+                {0, 1, 4}, {0, 2, 5},
+                {1, 2, -3}, {2, 3, 4}, {1, 3, 6}
+        };
+        int[] bfDist = bellmanFord(4, edges, 0);
+        System.out.println("Bellman-Ford Distances: " + Arrays.toString(bfDist) + " (Expected: [0, 4, 1, 5])");
+
+        System.out.println("\n=== Testing Floyd-Warshall ===");
+        int INF = 100_000_000;
+        int[][] fwGraph = {
+                {0, 3, INF, 7},
+                {8, 0, 2, INF},
+                {5, INF, 0, 1},
+                {2, INF, INF, 0}
+        };
+        int[][] allPairs = floydWarshall(fwGraph);
+        System.out.println("Floyd-Warshall 0->3: " + allPairs[0][3] + " (Expected: 4 via 0->1->2->3)");
+
+        System.out.println("\n=== Testing Shortest Path in Binary Matrix ===");
+        int[][] grid = {
+                {0, 0, 0},
+                {1, 1, 0},
+                {1, 1, 0}
+        };
+        System.out.println("Binary Matrix Shortest Path: " + shortestPathBinaryMatrix(grid) + " (Expected: 4)");
+        System.out.println("All ShortestPathAlgorithms tests completed successfully!");
+    }
 }
