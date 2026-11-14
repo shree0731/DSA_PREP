@@ -66,7 +66,8 @@ public class ShortestPathAlgorithms {
         for (int i = 1; i <= vertices - 1; i++) {
             for (int[] e : edges) {
                 int u = e[0], v = e[1], w = e[2];
-                if (dist[u] != 100_000_000 && dist[u] + w < dist[v]) {
+                // Integer overflow guard during edge relaxation
+                if (dist[u] != 100_000_000 && (long) dist[u] + w < dist[v]) {
                     dist[v] = dist[u] + w;
                 }
             }
