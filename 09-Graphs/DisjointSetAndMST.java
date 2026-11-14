@@ -117,4 +117,18 @@ public class DisjointSetAndMST {
         }
         return provinces;
     }
+
+    /**
+     * Redundant Connection (LeetCode 684).
+     * Finds the edge that introduces a cycle in an undirected tree.
+     */
+    public static int[] findRedundantConnection(int[][] edges) {
+        DisjointSet dsu = new DisjointSet(edges.length + 1);
+        for (int[] e : edges) {
+            if (!dsu.unionByRank(e[0], e[1])) {
+                return e; // Adding this edge forms a cycle!
+            }
+        }
+        return new int[0];
+    }
 }
