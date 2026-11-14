@@ -82,4 +82,53 @@ public class NetworkFlowAndAdvancedGraphs {
         }
         return true;
     }
+
+    /**
+     * Kosaraju's Algorithm for Strongly Connected Components (SCC).
+     * 1. DFS to get finishing time order in stack.
+     * 2. Reverse all edges (transpose graph).
+     * 3. DFS in stack order on transposed graph.
+     * Time: O(V + E), Space: O(V + E).
+     */
+    public static int countSCC(int v, List<List<Integer>> adj) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        boolean[] visited = new boolean[v];
+
+        for (int i = 0; i < v; i++) {
+            if (!visited[i]) dfsFillStack(i, adj, visited, stack);
+        }
+
+        List<List<Integer>> transpose = new ArrayList<>(v);
+        for (int i = 0; i < v; i++) transpose.add(new ArrayList<>());
+        for (int u = 0; u < v; u++) {
+            for (int neighbor : adj.get(u)) transpose.get(neighbor).add(u);
+        }
+
+        Arrays.fill(visited, false);
+        int sccCount = 0;
+
+        while (!stack.isEmpty()) {
+            int u = stack.pop();
+            if (!visited[u]) {
+                sccCount++;
+                dfsCollect(u, transpose, visited);
+            }
+        }
+        return sccCount;
+    }
+
+    private static void dfsFillStack(int u, List<List<Integer>> adj, boolean[] visited, Deque<Integer> stack) {
+        visited[u] = true;
+        for (int v : adj.get(u)) {
+            if (!visited[v]) dfsFillStack(v, adj, visited, stack);
+        }
+        stack.push(u);
+    }
+
+    private static void dfsCollect(int u, List<List<Integer>> transpose, boolean[] visited) {
+        visited[u] = true;
+        for (int v : transpose.get(u)) {
+            if (!visited[v]) dfsCollect(v, transpose, visited);
+        }
+    }
 }
