@@ -35,4 +35,31 @@ public class GraphRepresentationsAndTraversals {
             return adj.get(u);
         }
     }
+
+    /**
+     * Breadth-First Search (BFS) Traversal.
+     * Explores neighbors level by level using an explicit FIFO Queue.
+     * Time: O(V + E), Space: O(V).
+     */
+    public static List<Integer> bfs(Graph graph, int start) {
+        List<Integer> order = new ArrayList<>();
+        boolean[] visited = new boolean[graph.getVertices()];
+        Queue<Integer> queue = new LinkedList<>();
+
+        visited[start] = true;
+        queue.offer(start);
+
+        while (!queue.isEmpty()) {
+            int curr = queue.poll();
+            order.add(curr);
+
+            for (int neighbor : graph.getNeighbors(curr)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.offer(neighbor);
+                }
+            }
+        }
+        return order;
+    }
 }
