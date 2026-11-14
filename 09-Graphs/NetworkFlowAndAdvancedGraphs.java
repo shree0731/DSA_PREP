@@ -52,4 +52,34 @@ public class NetworkFlowAndAdvancedGraphs {
         }
         return 0;
     }
+
+    /**
+     * Is Graph Bipartite? (LeetCode 785).
+     * Determines whether graph vertices can be partitioned into 2 independent sets using 2-color BFS.
+     * Time: O(V + E), Space: O(V).
+     */
+    public static boolean isBipartite(int[][] graph) {
+        int n = graph.length;
+        int[] color = new int[n]; // 0 = uncolored, 1 = red, -1 = blue
+
+        for (int i = 0; i < n; i++) {
+            if (color[i] != 0) continue;
+            Queue<Integer> queue = new LinkedList<>();
+            queue.offer(i);
+            color[i] = 1;
+
+            while (!queue.isEmpty()) {
+                int curr = queue.poll();
+                for (int neighbor : graph[curr]) {
+                    if (color[neighbor] == 0) {
+                        color[neighbor] = -color[curr];
+                        queue.offer(neighbor);
+                    } else if (color[neighbor] == color[curr]) {
+                        return false; // Same color on adjacent vertices!
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }
