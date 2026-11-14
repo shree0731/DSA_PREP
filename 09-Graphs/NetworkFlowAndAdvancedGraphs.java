@@ -162,8 +162,9 @@ public class NetworkFlowAndAdvancedGraphs {
         tin[u] = low[u] = timer[0]++;
 
         for (int v : adj.get(u)) {
-            if (v == p) continue;
+            if (v == p) continue; // Skip direct parent to avoid trivial back-step
             if (visited[v]) {
+                // Back-edge to an ancestor: update lowest link with discovery time
                 low[u] = Math.min(low[u], tin[v]);
             } else {
                 dfsBridge(v, u, adj, visited, tin, low, timer, bridges);
