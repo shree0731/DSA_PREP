@@ -74,4 +74,48 @@ public class TopologicalSortAndDAG {
         }
         stack.push(u); // Reverse postorder
     }
+
+    /**
+     * Course Schedule I (LeetCode 207).
+     * Determines whether all courses can be finished without cyclical prerequisites.
+     */
+    public static boolean canFinishCourses(int numCourses, int[][] prerequisites) {
+        return findOrderCourses(numCourses, prerequisites).length == numCourses;
+    }
+
+    /**
+     * Course Schedule II (LeetCode 210).
+     * Returns valid course ordering if possible; otherwise returns empty array.
+     */
+    public static int[] findOrderCourses(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < numCourses; i++) adj.add(new ArrayList<>());
+        int[] inDegree = new int[numCourses];
+
+        for (int[] p : prerequisites) {
+            adj.get(p[1]).add(p[0]); // p[1] -> p[0]
+            inDegree[p[0]]++;
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (inDegree[i] == 0) queue.offer(i);
+        }
+
+        int[] order = new int[numCourses];
+        int idx = 0;
+
+        while (!queue.isEmpty()) {
+            int curr = queue.poll();
+            order[idx++] = curr;
+
+            for (int next : adj.get(curr)) {
+                if (--inDegree[next] == 0) {
+                    queue.offer(next);
+                }
+            }
+        }
+
+        return idx == numCourses ? order : new int[0];
+    }
 }
