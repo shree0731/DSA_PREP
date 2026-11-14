@@ -52,4 +52,33 @@ public class ShortestPathAlgorithms {
         }
         return dist;
     }
+
+    /**
+     * Bellman-Ford Algorithm: handles negative edge weights and detects negative weight cycles.
+     * Relaxes all edges V - 1 times.
+     * Time: O(V * E), Space: O(V).
+     */
+    public static int[] bellmanFord(int vertices, int[][] edges, int source) {
+        int[] dist = new int[vertices];
+        Arrays.fill(dist, 100_000_000); // Initial large bound
+        dist[source] = 0;
+
+        for (int i = 1; i <= vertices - 1; i++) {
+            for (int[] e : edges) {
+                int u = e[0], v = e[1], w = e[2];
+                if (dist[u] != 100_000_000 && dist[u] + w < dist[v]) {
+                    dist[v] = dist[u] + w;
+                }
+            }
+        }
+
+        // N-th relaxation to detect negative weight cycles
+        for (int[] e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            if (dist[u] != 100_000_000 && dist[u] + w < dist[v]) {
+                throw new IllegalStateException("Negative weight cycle detected in graph.");
+            }
+        }
+        return dist;
+    }
 }
