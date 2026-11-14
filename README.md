@@ -153,7 +153,7 @@ javac NetworkFlowAndAdvancedGraphs.java && java NetworkFlowAndAdvancedGraphs
 - [x] **06-Stacks & Queues**
 - [x] **07-Trees & Binary Search Trees**
 - [x] **08-Heaps & Priority Queues**
-- [ ] **09-Graphs**
+- [x] **09-Graphs**
 - [ ] **10-Dynamic Programming**
 
 ---
