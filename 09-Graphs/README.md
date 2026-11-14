@@ -85,3 +85,11 @@ Graphs model complex real-world networks such as social networks, routing protoc
 A Topological Ordering exists **if and only if** the graph is a Directed Acyclic Graph (**DAG**).
 - **Kahn's Algorithm**: Count in-degrees. Vertices with `inDegree == 0` have no dependencies and are processed first.
 - If total processed vertices $< V$, a cycle exists!
+
+---
+
+## 🌲 Disjoint Set Union (DSU) & Inverse Ackermann $\alpha(N)$
+With **Path Compression** and **Union by Rank**, any sequence of $M$ operations on $N$ elements executes in:
+$$O(M \cdot \alpha(N))$$
+Where $\alpha(N)$ is the **Inverse Ackermann function**, which for all practical values ($N < 10^{80}$) satisfies $\alpha(N) \le 4$.
+Thus, each DSU operation runs in **effectively constant time $O(1)$**.
