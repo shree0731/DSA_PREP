@@ -41,4 +41,37 @@ public class TopologicalSortAndDAG {
 
         return idx == vertices ? order : new int[0]; // Empty array if cycle detected
     }
+
+    /**
+     * Topological Sort using DFS Reverse Postorder.
+     * Vertices pushed to stack after all descendants are visited.
+     * Time: O(V + E), Space: O(V).
+     */
+    public static int[] topoSortDFS(int vertices, List<List<Integer>> adj) {
+        boolean[] visited = new boolean[vertices];
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for (int i = 0; i < vertices; i++) {
+            if (!visited[i]) {
+                dfsTopo(i, adj, visited, stack);
+            }
+        }
+
+        int[] order = new int[vertices];
+        int idx = 0;
+        while (!stack.isEmpty()) {
+            order[idx++] = stack.pop();
+        }
+        return order;
+    }
+
+    private static void dfsTopo(int u, List<List<Integer>> adj, boolean[] visited, Deque<Integer> stack) {
+        visited[u] = true;
+        for (int v : adj.get(u)) {
+            if (!visited[v]) {
+                dfsTopo(v, adj, visited, stack);
+            }
+        }
+        stack.push(u); // Reverse postorder
+    }
 }
