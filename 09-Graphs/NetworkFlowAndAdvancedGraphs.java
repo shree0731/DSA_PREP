@@ -175,4 +175,26 @@ public class NetworkFlowAndAdvancedGraphs {
             }
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Word Ladder ===");
+        List<String> words = Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
+        System.out.println("Word Ladder Length: " + ladderLength("hit", "cog", words) + " (Expected: 5)");
+
+        System.out.println("\n=== Testing Bipartite Check ===");
+        int[][] bipartiteGraph = {{1, 3}, {0, 2}, {1, 3}, {0, 2}};
+        System.out.println("Is Bipartite? " + isBipartite(bipartiteGraph) + " (Expected: true)");
+
+        System.out.println("\n=== Testing Kosaraju's SCC ===");
+        int v = 5;
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < v; i++) adj.add(new ArrayList<>());
+        adj.get(1).add(0);
+        adj.get(0).add(2);
+        adj.get(2).add(1);
+        adj.get(0).add(3);
+        adj.get(3).add(4);
+        System.out.println("SCC Count: " + countSCC(v, adj) + " (Expected: 3)");
+        System.out.println("All NetworkFlowAndAdvancedGraphs tests completed successfully!");
+    }
 }
