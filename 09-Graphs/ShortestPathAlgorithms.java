@@ -191,4 +191,16 @@ public class ShortestPathAlgorithms {
         System.out.println("Binary Matrix Shortest Path: " + shortestPathBinaryMatrix(grid) + " (Expected: 4)");
         System.out.println("All ShortestPathAlgorithms tests completed successfully!");
     }
+
+    /**
+     * Reconstructs shortest path from predecessor array.
+     */
+    public static List<Integer> reconstructPath(int[] parent, int target) {
+        List<Integer> path = new ArrayList<>();
+        for (int at = target; at != -1; at = parent[at]) {
+            path.add(at);
+        }
+        Collections.reverse(path);
+        return path;
+    }
 }
