@@ -98,4 +98,23 @@ public class DisjointSetAndMST {
         }
         return totalWeight;
     }
+
+    /**
+     * Number of Provinces (LeetCode 547).
+     * Solved via Disjoint Set Union.
+     */
+    public static int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        DisjointSet dsu = new DisjointSet(n);
+        int provinces = n;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (isConnected[i][j] == 1 && dsu.unionByRank(i, j)) {
+                    provinces--;
+                }
+            }
+        }
+        return provinces;
+    }
 }
