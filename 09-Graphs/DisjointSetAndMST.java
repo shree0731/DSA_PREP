@@ -131,4 +131,26 @@ public class DisjointSetAndMST {
         }
         return new int[0];
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Disjoint Set Union & Kruskal MST ===");
+        int[][] edges = {
+                {0, 1, 10}, {0, 2, 6}, {0, 3, 5},
+                {1, 3, 15}, {2, 3, 4}
+        };
+        System.out.println("Kruskal MST Weight : " + kruskalMST(4, edges) + " (Expected: 19)");
+
+        System.out.println("\n=== Testing Number of Provinces ===");
+        int[][] cityGrid = {
+                {1, 1, 0},
+                {1, 1, 0},
+                {0, 0, 1}
+        };
+        System.out.println("Provinces Count    : " + findCircleNum(cityGrid) + " (Expected: 2)");
+
+        System.out.println("\n=== Testing Redundant Connection ===");
+        int[][] treeWithCycle = {{1, 2}, {1, 3}, {2, 3}};
+        System.out.println("Redundant Edge     : " + Arrays.toString(findRedundantConnection(treeWithCycle)) + " (Expected: [2, 3])");
+        System.out.println("All DisjointSetAndMST tests completed successfully!");
+    }
 }
