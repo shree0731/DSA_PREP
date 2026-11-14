@@ -127,3 +127,14 @@ For an edge $(u, v)$:
 | **Is Graph Bipartite?** | [#785](https://leetcode.com/problems/is-graph-bipartite/) | 2-Color BFS/DFS | $O(V + E)$ | $O(V)$ |
 | **Strongly Connected Components** | — | Kosaraju's Two-Pass DFS | $O(V + E)$ | $O(V + E)$ |
 | **Critical Bridges** | [#1192](https://leetcode.com/problems/critical-connections-in-a-network/) | Tarjan's Discovery/Low DFS | $O(V + E)$ | $O(V + E)$ |
+
+---
+
+## 📊 Kosaraju 2-Pass DFS Flowchart
+```
+  [Original Graph G] ----(Pass 1: DFS finish order)----> [Stack]
+                                                            |
+  [Transpose Graph G^T] <--(Pass 2: Pop from stack)--------+
+           |
+           +--> Produces Isolated Strongly Connected Components (SCCs)
+```
