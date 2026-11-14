@@ -93,3 +93,12 @@ With **Path Compression** and **Union by Rank**, any sequence of $M$ operations 
 $$O(M \cdot \alpha(N))$$
 Where $\alpha(N)$ is the **Inverse Ackermann function**, which for all practical values ($N < 10^{80}$) satisfies $\alpha(N) \le 4$.
 Thus, each DSU operation runs in **effectively constant time $O(1)$**.
+
+---
+
+## 🌉 Tarjan's Bridge Condition: `low[v] > tin[u]`
+For an edge $(u, v)$:
+- `tin[u]`: Timestamp when node $u$ was first visited.
+- `low[v]`: Lowest discovery time reachable from $v$ through its subtree without using edge $(u, v)$.
+- If `low[v] > tin[u]`, the subtree rooted at $v$ has **no back-edge** to $u$ or any ancestor of $u$.
+  Removing $(u, v)$ isolates $v$, proving $(u, v)$ is a **Critical Bridge**!
