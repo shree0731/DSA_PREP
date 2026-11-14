@@ -36,3 +36,15 @@ Graphs model complex real-world networks such as social networks, routing protoc
 - **Edge Existence Check**: $O(\deg(u))$
 - **All Neighbors of $u$**: $O(\deg(u))$
 - Best for **sparse graphs** ($E \ll V^2$).
+
+---
+
+## 🧭 Shortest Path Decision Matrix
+
+| Algorithm | Graph Type | Weights | Time Complexity | Space Complexity |
+|:---|:---|:---|:---:|:---:|
+| **BFS** | Directed / Undirected | Unweighted (all edge weight = 1) | $O(V + E)$ | $O(V)$ |
+| **Dijkstra** | Directed / Undirected | Non-negative weights ($w \ge 0$) | $O((V + E) \log V)$ | $O(V + E)$ |
+| **Bellman-Ford** | Directed | Negative weights permitted, detects -ve cycles | $O(V \cdot E)$ | $O(V)$ |
+| **Floyd-Warshall** | Directed / Undirected | All-Pairs shortest paths ($w$ can be negative) | $O(V^3)$ | $O(V^2)$ |
+| **DAG Shortest Path**| Directed Acyclic | Any weights (even negative), no cycles | $O(V + E)$ | $O(V + E)$ |
