@@ -157,4 +157,35 @@ public class GraphRepresentationsAndTraversals {
         color[curr] = 2; // Mark as fully visited (BLACK)
         return false;
     }
+
+    /**
+     * Connected Components Count in an Undirected Graph.
+     * Uses BFS traversal to discover all disconnected subgraphs.
+     * Time: O(V + E), Space: O(V).
+     */
+    public static int countConnectedComponents(Graph graph) {
+        int v = graph.getVertices();
+        boolean[] visited = new boolean[v];
+        int count = 0;
+
+        for (int i = 0; i < v; i++) {
+            if (!visited[i]) {
+                count++;
+                Queue<Integer> queue = new LinkedList<>();
+                visited[i] = true;
+                queue.offer(i);
+
+                while (!queue.isEmpty()) {
+                    int curr = queue.poll();
+                    for (int neighbor : graph.getNeighbors(curr)) {
+                        if (!visited[neighbor]) {
+                            visited[neighbor] = true;
+                            queue.offer(neighbor);
+                        }
+                    }
+                }
+            }
+        }
+        return count;
+    }
 }
