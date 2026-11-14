@@ -149,3 +149,6 @@ For an edge $(u, v)$:
 - **Negative weights / detect negative cycle**: Bellman-Ford ($V-1$ iterations).
 - **All-pairs shortest paths**: Floyd-Warshall ($O(V^3)$).
 - **Bridges / Critical edges**: Tarjan's algorithm (`low[v] > tin[u]`).
+
+---
+*Module 09 completed and fully verified with test harnesses.*
