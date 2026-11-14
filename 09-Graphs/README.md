@@ -64,3 +64,17 @@ Graphs model complex real-world networks such as social networks, routing protoc
   - **WHITE (0)**: Unvisited.
   - **GRAY (1)**: Currently active on call stack (visiting). Encountering a GRAY node confirms a back-edge and cycle!
   - **BLACK (2)**: Completely processed (subtree explored).
+
+---
+
+## ⚡ Shortest Path Algorithms Deep-Dive
+
+### Dijkstra's Algorithm
+- **Condition**: Non-negative edge weights only ($w \ge 0$).
+- **Mechanism**: Greedy choice property with Min-Heap.
+- **Why does negative weight break Dijkstra?** Once a node is extracted from the PriorityQueue, Dijkstra assumes its shortest distance is finalized. A negative edge visited later could reduce this distance, violating the greedy invariant.
+
+### Bellman-Ford Algorithm
+- Relaxes all $|E|$ edges $|V| - 1$ times.
+- Since the longest simple path in a graph has at most $|V| - 1$ edges, all shortest paths are resolved after $|V| - 1$ passes.
+- A further relaxation on pass $|V|$ indicates a **Negative Weight Cycle**.
