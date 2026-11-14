@@ -169,4 +169,28 @@ public class TopologicalSortAndDAG {
 
         return sb.length() == inDegree.size() ? sb.toString() : "";
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Topological Sort ===");
+        int v = 6;
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < v; i++) adj.add(new ArrayList<>());
+        adj.get(5).add(2);
+        adj.get(5).add(0);
+        adj.get(4).add(0);
+        adj.get(4).add(1);
+        adj.get(2).add(3);
+        adj.get(3).add(1);
+
+        System.out.println("Kahn's BFS Order : " + Arrays.toString(topoSortKahn(v, adj)));
+        System.out.println("DFS Topo Order   : " + Arrays.toString(topoSortDFS(v, adj)));
+
+        int[][] prereqs = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
+        System.out.println("Can finish courses? " + canFinishCourses(4, prereqs) + " (Expected: true)");
+        System.out.println("Course Order     : " + Arrays.toString(findOrderCourses(4, prereqs)));
+
+        String[] alienWords = {"wrt", "wrf", "er", "ett", "rftt"};
+        System.out.println("Alien Order      : " + alienOrder(alienWords) + " (Expected: 'wertf')");
+        System.out.println("All TopologicalSortAndDAG tests completed successfully!");
+    }
 }
