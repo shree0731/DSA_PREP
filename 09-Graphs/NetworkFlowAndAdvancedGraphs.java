@@ -131,4 +131,47 @@ public class NetworkFlowAndAdvancedGraphs {
             if (!visited[v]) dfsCollect(v, transpose, visited);
         }
     }
+
+    /**
+     * Tarjan's Algorithm for Critical Connections / Bridges (LeetCode 1192).
+     * Identifies edges whose removal disconnects the graph using discovery time (tin) and lowest link (low).
+     * Condition for bridge (u, v): low[v] > tin[u].
+     * Time: O(V + E), Space: O(V + E).
+     */
+    public static List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < n; i++) adj.add(new ArrayList<>());
+        for (List<Integer> edge : connections) {
+            adj.get(edge.get(0)).add(edge.get(1));
+            adj.get(edge.get(1)).add(edge.get(0));
+        }
+
+        int[] tin = new int[n];
+        int[] low = new int[n];
+        boolean[] visited = new boolean[n];
+        List<List<Integer>> bridges = new ArrayList<>();
+        int[] timer = {0};
+
+        dfsBridge(0, -1, adj, visited, tin, low, timer, bridges);
+        return bridges;
+    }
+
+    private static void dfsBridge(int u, int p, List<List<Integer>> adj, boolean[] visited,
+                                  int[] tin, int[] low, int[] timer, List<List<Integer>> bridges) {
+        visited[u] = true;
+        tin[u] = low[u] = timer[0]++;
+
+        for (int v : adj.get(u)) {
+            if (v == p) continue;
+            if (visited[v]) {
+                low[u] = Math.min(low[u], tin[v]);
+            } else {
+                dfsBridge(v, u, adj, visited, tin, low, timer, bridges);
+                low[u] = Math.min(low[u], low[v]);
+                if (low[v] > tin[u]) {
+                    bridges.add(Arrays.asList(u, v));
+                }
+            }
+        }
+    }
 }
