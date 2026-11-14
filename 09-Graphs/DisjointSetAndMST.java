@@ -43,6 +43,20 @@ public class DisjointSetAndMST {
             return true;
         }
 
+        public boolean unionBySize(int u, int v) {
+            int rootU = find(u);
+            int rootV = find(v);
+            if (rootU == rootV) return false;
+            if (size[rootU] < size[rootV]) {
+                parent[rootU] = rootV;
+                size[rootV] += size[rootU];
+            } else {
+                parent[rootV] = rootU;
+                size[rootU] += size[rootV];
+            }
+            return true;
+        }
+
         public boolean isConnected(int u, int v) {
             return find(u) == find(v);
         }
