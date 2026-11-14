@@ -47,4 +47,25 @@ public class DisjointSetAndMST {
             return find(u) == find(v);
         }
     }
+
+    /**
+     * Kruskal's Algorithm for Minimum Spanning Tree (MST).
+     * Sorts edges by weight and greedily connects disjoint sets using DSU.
+     * Time: O(E log E), Space: O(V).
+     */
+    public static int kruskalMST(int vertices, int[][] edges) {
+        Arrays.sort(edges, Comparator.comparingInt(a -> a[2]));
+        DisjointSet dsu = new DisjointSet(vertices);
+        int mstWeight = 0;
+        int edgesCount = 0;
+
+        for (int[] e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            if (dsu.unionByRank(u, v)) {
+                mstWeight += w;
+                if (++edgesCount == vertices - 1) break;
+            }
+        }
+        return mstWeight;
+    }
 }
