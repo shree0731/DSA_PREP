@@ -102,3 +102,28 @@ For an edge $(u, v)$:
 - `low[v]`: Lowest discovery time reachable from $v$ through its subtree without using edge $(u, v)$.
 - If `low[v] > tin[u]`, the subtree rooted at $v$ has **no back-edge** to $u$ or any ancestor of $u$.
   Removing $(u, v)$ isolates $v$, proving $(u, v)$ is a **Critical Bridge**!
+
+---
+
+## 📋 Comprehensive Problem Summary Matrix
+
+| Problem | LeetCode | Core Graph Algorithm | Time Complexity | Space Complexity |
+|:---|:---:|:---|:---:|:---:|
+| **BFS / DFS Traversal** | — | Adjacency List Queue/Recursion | $O(V + E)$ | $O(V)$ |
+| **Undirected Cycle** | — | BFS Parent Pointer | $O(V + E)$ | $O(V)$ |
+| **Directed Cycle** | — | 3-Color DFS Back-Edge | $O(V + E)$ | $O(V)$ |
+| **Dijkstra** | [#743](https://leetcode.com/problems/network-delay-time/) | Min-Heap PriorityQueue | $O((V + E) \log V)$ | $O(V + E)$ |
+| **Bellman-Ford** | — | $V-1$ Edge Relaxations | $O(V \cdot E)$ | $O(V)$ |
+| **Floyd-Warshall** | — | 3-Loop 2D Dynamic Programming | $O(V^3)$ | $O(V^2)$ |
+| **Shortest Path in Binary Matrix** | [#1091](https://leetcode.com/problems/shortest-path-in-binary-matrix/) | 8-Directional Grid BFS | $O(N^2)$ | $O(N^2)$ |
+| **Course Schedule I & II** | [#207](https://leetcode.com/problems/course-schedule/), [#210](https://leetcode.com/problems/course-schedule-ii/) | Kahn's Algorithm / Topo Sort | $O(V + E)$ | $O(V + E)$ |
+| **Alien Dictionary** | [#269](https://leetcode.com/problems/alien-dictionary/) | Char DAG Topo Sort | $O(C)$ | $O(1)$ |
+| **Disjoint Set Union (DSU)** | — | Path Compression + Rank | $O(\alpha(V))$ amortized | $O(V)$ |
+| **Kruskal's MST** | — | Edge Sorting + DSU | $O(E \log E)$ | $O(V)$ |
+| **Prim's MST** | — | Min-Heap PriorityQueue | $O(E \log V)$ | $O(V + E)$ |
+| **Number of Provinces** | [#547](https://leetcode.com/problems/number-of-provinces/) | DSU / Connected Components | $O(V^2 \cdot \alpha(V))$ | $O(V)$ |
+| **Redundant Connection** | [#684](https://leetcode.com/problems/redundant-connection/) | DSU Cycle-Closing Edge | $O(E \cdot \alpha(V))$ | $O(V)$ |
+| **Word Ladder** | [#127](https://leetcode.com/problems/word-ladder/) | Bidirectional BFS | $O(M^2 \cdot N)$ | $O(M \cdot N)$ |
+| **Is Graph Bipartite?** | [#785](https://leetcode.com/problems/is-graph-bipartite/) | 2-Color BFS/DFS | $O(V + E)$ | $O(V)$ |
+| **Strongly Connected Components** | — | Kosaraju's Two-Pass DFS | $O(V + E)$ | $O(V + E)$ |
+| **Critical Bridges** | [#1192](https://leetcode.com/problems/critical-connections-in-a-network/) | Tarjan's Discovery/Low DFS | $O(V + E)$ | $O(V + E)$ |
