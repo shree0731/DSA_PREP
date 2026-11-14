@@ -124,4 +124,37 @@ public class GraphRepresentationsAndTraversals {
         }
         return false;
     }
+
+    /**
+     * Directed Graph Cycle Detection using 3-Color DFS.
+     * 0 = WHITE (unvisited), 1 = GRAY (currently in recursion stack), 2 = BLACK (fully processed).
+     * Time: O(V + E), Space: O(V).
+     */
+    public static boolean hasCycleDirected(Graph graph) {
+        int v = graph.getVertices();
+        int[] color = new int[v]; // 0: White, 1: Gray, 2: Black
+
+        for (int i = 0; i < v; i++) {
+            if (color[i] == 0) {
+                if (dfsColorCheck(graph, i, color)) return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean dfsColorCheck(Graph graph, int curr, int[] color) {
+        color[curr] = 1; // Mark as currently exploring (GRAY)
+
+        for (int neighbor : graph.getNeighbors(curr)) {
+            if (color[neighbor] == 1) {
+                return true; // Found back-edge to an active ancestor on recursion stack!
+            }
+            if (color[neighbor] == 0 && dfsColorCheck(graph, neighbor, color)) {
+                return true;
+            }
+        }
+
+        color[curr] = 2; // Mark as fully visited (BLACK)
+        return false;
+    }
 }
