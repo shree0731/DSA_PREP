@@ -138,3 +138,14 @@ For an edge $(u, v)$:
            |
            +--> Produces Isolated Strongly Connected Components (SCCs)
 ```
+
+---
+
+## 🎯 Graph Problem Identification Cheat Sheet
+- **Connected components / Cycle in undirected**: Use BFS or Disjoint Set Union (DSU).
+- **Cycle in directed**: 3-Color DFS (`color == 1` back-edge) or Kahn's in-degree count.
+- **Shortest path (unweighted)**: BFS queue.
+- **Shortest path (weighted, non-negative)**: Dijkstra Min-Heap.
+- **Negative weights / detect negative cycle**: Bellman-Ford ($V-1$ iterations).
+- **All-pairs shortest paths**: Floyd-Warshall ($O(V^3)$).
+- **Bridges / Critical edges**: Tarjan's algorithm (`low[v] > tin[u]`).
