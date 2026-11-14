@@ -62,4 +62,27 @@ public class GraphRepresentationsAndTraversals {
         }
         return order;
     }
+
+    /**
+     * Depth-First Search (DFS) Traversal.
+     * Explores as deep as possible along each branch before backtracking.
+     * Time: O(V + E), Space: O(V) call stack.
+     */
+    public static List<Integer> dfs(Graph graph, int start) {
+        List<Integer> order = new ArrayList<>();
+        boolean[] visited = new boolean[graph.getVertices()];
+        dfsRecursive(graph, start, visited, order);
+        return order;
+    }
+
+    private static void dfsRecursive(Graph graph, int curr, boolean[] visited, List<Integer> order) {
+        visited[curr] = true;
+        order.add(curr);
+
+        for (int neighbor : graph.getNeighbors(curr)) {
+            if (!visited[neighbor]) {
+                dfsRecursive(graph, neighbor, visited, order);
+            }
+        }
+    }
 }
