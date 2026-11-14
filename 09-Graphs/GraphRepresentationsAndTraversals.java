@@ -85,4 +85,43 @@ public class GraphRepresentationsAndTraversals {
             }
         }
     }
+
+    /**
+     * Undirected Graph Cycle Detection using BFS.
+     * Tracks the parent node that led to each vertex to distinguish tree edges from cross/back edges.
+     * Time: O(V + E), Space: O(V).
+     */
+    public static boolean hasCycleUndirected(Graph graph) {
+        int v = graph.getVertices();
+        boolean[] visited = new boolean[v];
+
+        for (int i = 0; i < v; i++) {
+            if (!visited[i]) {
+                if (bfsCycleCheck(graph, i, visited)) return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean bfsCycleCheck(Graph graph, int src, boolean[] visited) {
+        Queue<int[]> queue = new LinkedList<>(); // [current, parent]
+        visited[src] = true;
+        queue.offer(new int[]{src, -1});
+
+        while (!queue.isEmpty()) {
+            int[] pair = queue.poll();
+            int curr = pair[0];
+            int parent = pair[1];
+
+            for (int neighbor : graph.getNeighbors(curr)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.offer(new int[]{neighbor, curr});
+                } else if (neighbor != parent) {
+                    return true; // Visited node that is NOT the immediate parent -> cycle!
+                }
+            }
+        }
+        return false;
+    }
 }
