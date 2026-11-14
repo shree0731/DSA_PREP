@@ -118,4 +118,52 @@ public class TopologicalSortAndDAG {
 
         return idx == numCourses ? order : new int[0];
     }
+
+    /**
+     * Alien Dictionary (LeetCode 269).
+     * Derives unique alphabetical character ordering from sorted foreign words.
+     * Time: O(Total Characters), Space: O(1) bounded by alphabet size 26.
+     */
+    public static String alienOrder(String[] words) {
+        Map<Character, Set<Character>> adj = new HashMap<>();
+        Map<Character, Integer> inDegree = new HashMap<>();
+
+        for (String w : words) {
+            for (char c : w.toCharArray()) {
+                adj.putIfAbsent(c, new HashSet<>());
+                inDegree.putIfAbsent(c, 0);
+            }
+        }
+
+        for (int i = 0; i < words.length - 1; i++) {
+            String w1 = words[i], w2 = words[i + 1];
+            int minLen = Math.min(w1.length(), w2.length());
+            for (int j = 0; j < minLen; j++) {
+                char c1 = w1.charAt(j), c2 = w2.charAt(j);
+                if (c1 != c2) {
+                    if (adj.get(c1).add(c2)) {
+                        inDegree.put(c2, inDegree.get(c2) + 1);
+                    }
+                    break;
+                }
+            }
+        }
+
+        Queue<Character> queue = new LinkedList<>();
+        for (char c : inDegree.keySet()) {
+            if (inDegree.get(c) == 0) queue.offer(c);
+        }
+
+        StringBuilder sb = new StringBuilder();
+        while (!queue.isEmpty()) {
+            char curr = queue.poll();
+            sb.append(curr);
+            for (char next : adj.get(curr)) {
+                inDegree.put(next, inDegree.get(next) - 1);
+                if (inDegree.get(next) == 0) queue.offer(next);
+            }
+        }
+
+        return sb.length() == inDegree.size() ? sb.toString() : "";
+    }
 }
