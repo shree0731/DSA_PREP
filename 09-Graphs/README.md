@@ -48,3 +48,19 @@ Graphs model complex real-world networks such as social networks, routing protoc
 | **Bellman-Ford** | Directed | Negative weights permitted, detects -ve cycles | $O(V \cdot E)$ | $O(V)$ |
 | **Floyd-Warshall** | Directed / Undirected | All-Pairs shortest paths ($w$ can be negative) | $O(V^3)$ | $O(V^2)$ |
 | **DAG Shortest Path**| Directed Acyclic | Any weights (even negative), no cycles | $O(V + E)$ | $O(V + E)$ |
+
+---
+
+## 🔄 Cycle Detection Strategies
+
+### Undirected Graph Cycle Detection
+- Use **BFS or DFS with parent tracking**.
+- If a visited neighbor is encountered that is **not the immediate parent**, a back-edge exists $\implies$ cycle!
+- Time: $O(V + E)$, Space: $O(V)$.
+
+### Directed Graph Cycle Detection
+- Simple visited array is **insufficient** (cross edges do not form cycles in directed graphs).
+- Must use **3-Color DFS** (or Kahn's Topological Sort):
+  - **WHITE (0)**: Unvisited.
+  - **GRAY (1)**: Currently active on call stack (visiting). Encountering a GRAY node confirms a back-edge and cycle!
+  - **BLACK (2)**: Completely processed (subtree explored).
