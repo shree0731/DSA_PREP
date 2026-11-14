@@ -131,6 +131,14 @@ javac KthElementsAndTopK.java && java KthElementsAndTopK
 javac MergeKSortedStreams.java && java MergeKSortedStreams
 javac MedianFinderAndTwoHeaps.java && java MedianFinderAndTwoHeaps
 javac TaskSchedulerAndGreedyHeaps.java && java TaskSchedulerAndGreedyHeaps
+
+# 09-Graphs
+cd ../09-Graphs
+javac GraphRepresentationsAndTraversals.java && java GraphRepresentationsAndTraversals
+javac ShortestPathAlgorithms.java && java ShortestPathAlgorithms
+javac TopologicalSortAndDAG.java && java TopologicalSortAndDAG
+javac DisjointSetAndMST.java && java DisjointSetAndMST
+javac NetworkFlowAndAdvancedGraphs.java && java NetworkFlowAndAdvancedGraphs
 ```
 
 ---
