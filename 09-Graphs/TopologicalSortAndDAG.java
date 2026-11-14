@@ -137,6 +137,9 @@ public class TopologicalSortAndDAG {
 
         for (int i = 0; i < words.length - 1; i++) {
             String w1 = words[i], w2 = words[i + 1];
+            // Fix: Invalid prefix order edge case (e.g., ["abc", "ab"])
+            if (w1.length() > w2.length() && w1.startsWith(w2)) return "";
+
             int minLen = Math.min(w1.length(), w2.length());
             for (int j = 0; j < minLen; j++) {
                 char c1 = w1.charAt(j), c2 = w2.charAt(j);
