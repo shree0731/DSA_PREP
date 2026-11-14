@@ -6,6 +6,11 @@ import java.util.*;
  *
  * @author Shreepurnaa V
  */
+/**
+ * Production-ready shortest path algorithms with priority queue relaxation.
+ *
+ * @author Shreepurnaa V
+ */
 public class ShortestPathAlgorithms {
 
     public static class Edge {
