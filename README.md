@@ -73,6 +73,14 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[TaskSchedulerAndGreedyHeaps.java](08-HeapsAndPriorityQueues/TaskSchedulerAndGreedyHeaps.java)**: Task Scheduler (Heap vs Math), Reorganize String, Minimum Interval per Query, Seat Reservation Manager.
 - **[README.md](08-HeapsAndPriorityQueues/README.md)**: 1D array tree mapping, $O(N)$ buildHeap proof, two-heaps median invariant, Big-O matrix.
 
+### [09-Graphs](09-Graphs/)
+- **[GraphRepresentationsAndTraversals.java](09-Graphs/GraphRepresentationsAndTraversals.java)**: Matrix/List, BFS, DFS, Undirected Cycle (BFS), Directed Cycle (3-color DFS), Components.
+- **[ShortestPathAlgorithms.java](09-Graphs/ShortestPathAlgorithms.java)**: Dijkstra ($O((V+E)\log V)$), Bellman-Ford (negative cycle detection), Floyd-Warshall ($O(V^3)$), Binary Matrix BFS.
+- **[TopologicalSortAndDAG.java](09-Graphs/TopologicalSortAndDAG.java)**: Kahn's Algorithm (in-degree BFS), DFS Topo Sort, Course Schedule I & II, Alien Dictionary.
+- **[DisjointSetAndMST.java](09-Graphs/DisjointSetAndMST.java)**: DSU with Path Compression & Rank ($O(\alpha(V))$), Kruskal MST, Prim MST, Provinces, Redundant Connection.
+- **[NetworkFlowAndAdvancedGraphs.java](09-Graphs/NetworkFlowAndAdvancedGraphs.java)**: Word Ladder (Bidirectional BFS), Kosaraju's SCC, Tarjan's Critical Bridges, Bipartite Check.
+- **[README.md](09-Graphs/README.md)**: Representation trade-offs, shortest path decision matrix, DSU Ackermann proof, Tarjan bridge condition, Big-O matrix.
+
 ---
 
 ## 🚀 How to Run
