@@ -188,4 +188,40 @@ public class GraphRepresentationsAndTraversals {
         }
         return count;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Graph Representations and Traversals ===");
+        Graph undirected = new Graph(6);
+        undirected.addEdge(0, 1, false);
+        undirected.addEdge(0, 2, false);
+        undirected.addEdge(1, 3, false);
+        undirected.addEdge(2, 4, false);
+        undirected.addEdge(3, 5, false);
+
+        System.out.println("BFS Traversal from 0: " + bfs(undirected, 0));
+        System.out.println("DFS Traversal from 0: " + dfs(undirected, 0));
+        System.out.println("Undirected Has Cycle: " + hasCycleUndirected(undirected) + " (Expected: false)");
+
+        // Add cycle edge 5 - 1
+        undirected.addEdge(5, 1, false);
+        System.out.println("Undirected Has Cycle (after adding 5-1): " + hasCycleUndirected(undirected) + " (Expected: true)");
+
+        System.out.println("\n=== Testing Directed Cycle Detection ===");
+        Graph directed = new Graph(4);
+        directed.addEdge(0, 1, true);
+        directed.addEdge(1, 2, true);
+        directed.addEdge(2, 3, true);
+        System.out.println("Directed Has Cycle: " + hasCycleDirected(directed) + " (Expected: false)");
+        directed.addEdge(3, 1, true); // Back edge forming 1->2->3->1
+        System.out.println("Directed Has Cycle (after 3->1): " + hasCycleDirected(directed) + " (Expected: true)");
+
+        System.out.println("\n=== Testing Connected Components ===");
+        Graph disconnected = new Graph(7);
+        disconnected.addEdge(0, 1, false);
+        disconnected.addEdge(1, 2, false);
+        disconnected.addEdge(3, 4, false);
+        // nodes 5 and 6 are isolated
+        System.out.println("Connected Components Count: " + countConnectedComponents(disconnected) + " (Expected: 4)");
+        System.out.println("All GraphRepresentationsAndTraversals tests completed successfully!");
+    }
 }
