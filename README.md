@@ -176,3 +176,7 @@ javac NetworkFlowAndAdvancedGraphs.java && java NetworkFlowAndAdvancedGraphs
 ### 💡 Priority Queue Golden Rules
 - Use bounded heaps of size $K$ to solve Top-$K$ queries in $O(N \log K)$ rather than $O(N \log N)$.
 - Avoid integer subtraction in comparators `(a - b)` to prevent 32-bit integer overflow; always use `Integer.compare(a, b)`.
+
+### 💡 Graph Golden Rules
+- Use BFS for shortest path in unweighted graphs; use Dijkstra for non-negative weights; use Bellman-Ford when negative weights or cycles are possible.
+- A topological sort only exists on Directed Acyclic Graphs (DAGs); Kahn's algorithm detects cycles if processed count < V.
