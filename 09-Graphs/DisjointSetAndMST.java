@@ -68,4 +68,34 @@ public class DisjointSetAndMST {
         }
         return mstWeight;
     }
+
+    /**
+     * Prim's Algorithm for Minimum Spanning Tree (MST) using Min-Heap.
+     * Time: O(E log V), Space: O(V + E).
+     */
+    public static int primMST(int vertices, List<List<int[]>> adj) {
+        boolean[] visited = new boolean[vertices];
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[1])); // [node, weight]
+        minHeap.offer(new int[]{0, 0});
+        int totalWeight = 0;
+
+        while (!minHeap.isEmpty()) {
+            int[] curr = minHeap.poll();
+            int u = curr[0];
+            int w = curr[1];
+
+            if (visited[u]) continue;
+            visited[u] = true;
+            totalWeight += w;
+
+            for (int[] edge : adj.get(u)) {
+                int next = edge[0];
+                int weight = edge[1];
+                if (!visited[next]) {
+                    minHeap.offer(new int[]{next, weight});
+                }
+            }
+        }
+        return totalWeight;
+    }
 }
