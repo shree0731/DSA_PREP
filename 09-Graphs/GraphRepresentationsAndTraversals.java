@@ -6,6 +6,11 @@ import java.util.*;
  *
  * @author Shreepurnaa V
  */
+/**
+ * Production-ready Graph representation and traversal framework.
+ *
+ * @author Shreepurnaa V
+ */
 public class GraphRepresentationsAndTraversals {
 
     public static class Graph {
