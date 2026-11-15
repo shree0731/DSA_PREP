@@ -178,4 +178,27 @@ public class OneDimensionalDP {
         }
         return globalMax;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing One-Dimensional DP ===");
+        System.out.println("Climb Stairs (5): " + climbStairs(5) + " (Expected: 8)");
+
+        int[] houseLoot1 = {1, 2, 3, 1};
+        System.out.println("House Robber I: " + rob(houseLoot1) + " (Expected: 4)");
+
+        int[] houseLoot2 = {2, 3, 2};
+        System.out.println("House Robber II: " + robII(houseLoot2) + " (Expected: 3)");
+
+        int[] coins = {1, 2, 5};
+        System.out.println("Coin Change (11): " + coinChange(coins, 11) + " (Expected: 3)");
+        System.out.println("Coin Change Combinations (5): " + change(5, coins) + " (Expected: 4)");
+
+        int[] lisNums = {10, 9, 2, 5, 3, 7, 101, 18};
+        System.out.println("LIS Quadratic: " + lengthOfLIS(lisNums) + " (Expected: 4)");
+        System.out.println("LIS Optimal O(N log N): " + lengthOfLISOptimal(lisNums) + " (Expected: 4)");
+
+        int[] prodNums = {2, 3, -2, 4};
+        System.out.println("Max Product Subarray: " + maxProduct(prodNums) + " (Expected: 6)");
+        System.out.println("All OneDimensionalDP tests passed successfully!");
+    }
 }
