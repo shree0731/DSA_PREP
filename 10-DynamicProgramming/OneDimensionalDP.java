@@ -88,4 +88,22 @@ public class OneDimensionalDP {
         }
         return dp[amount] > amount ? -1 : dp[amount];
     }
+
+    /**
+     * Coin Change II (LeetCode 518).
+     * Counts total unique combinations that sum up to amount.
+     * Outer loop coins, inner loop amounts to ensure combination uniqueness (avoids permutations).
+     * Time: O(Amount * Coins), Space: O(Amount).
+     */
+    public static int change(int amount, int[] coins) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+
+        for (int coin : coins) {
+            for (int i = coin; i <= amount; i++) {
+                dp[i] += dp[i - coin];
+            }
+        }
+        return dp[amount];
+    }
 }
