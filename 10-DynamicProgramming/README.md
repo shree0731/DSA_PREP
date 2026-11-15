@@ -50,3 +50,10 @@ A problem is solvable via Dynamic Programming if it exhibits:
    - If $x$ is larger than all elements in `tails`, append it (`size++`).
    - Otherwise, replace the first element $\ge x$ with $x$ (greedily minimizing tail value).
 3. Resulting length of `tails` is the length of LIS!
+
+---
+
+## 🗺️ 2D Grid DP Patterns
+1. **Top-Left to Bottom-Right**: Transitions only depend on `dp[r-1][c]` and `dp[r][c-1]`.
+   - Dimension reduction: Reduce $O(M \times N)$ space down to $O(N)$ with a single rolling array.
+2. **Reverse Dynamic Programming (Dungeon Game)**: When the decision at $(r, c)$ depends on the future state (e.g. surviving subsequent rooms), iterate backwards from $(M-1, N-1)$ down to $(0, 0)$.
