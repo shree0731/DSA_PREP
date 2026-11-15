@@ -71,4 +71,28 @@ public class GridAndTwoDimensionalDP {
         }
         return dp[n - 1];
     }
+
+    /**
+     * Maximal Square (LeetCode 221).
+     * Finds largest square containing only '1's and returns its area.
+     * Recurrence: dp[r][c] = 1 + min(top, left, diagonal_top_left).
+     * Time: O(M * N), Space: O(M * N).
+     */
+    public static int maximalSquare(char[][] matrix) {
+        if (matrix == null || matrix.length == 0) return 0;
+        int m = matrix.length, n = matrix[0].length;
+        int[][] dp = new int[m + 1][n + 1];
+        int maxSide = 0;
+
+        for (int r = 1; r <= m; r++) {
+            for (int c = 1; c <= n; c++) {
+                if (matrix[r - 1][c - 1] == '1') {
+                    dp[r][c] = 1 + Math.min(dp[r - 1][c],
+                                   Math.min(dp[r][c - 1], dp[r - 1][c - 1]));
+                    maxSide = Math.max(maxSide, dp[r][c]);
+                }
+            }
+        }
+        return maxSide * maxSide;
+    }
 }
