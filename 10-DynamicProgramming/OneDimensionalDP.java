@@ -154,4 +154,28 @@ public class OneDimensionalDP {
         }
         return size;
     }
+
+    /**
+     * Maximum Product Subarray (LeetCode 152).
+     * Tracks running max and min products because multiplying negative by negative yields positive.
+     * Time: O(N), Space: O(1).
+     */
+    public static int maxProduct(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int globalMax = nums[0];
+        int currMax = nums[0], currMin = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            int x = nums[i];
+            if (x < 0) {
+                int temp = currMax;
+                currMax = currMin;
+                currMin = temp;
+            }
+            currMax = Math.max(x, currMax * x);
+            currMin = Math.min(x, currMin * x);
+            globalMax = Math.max(globalMax, currMax);
+        }
+        return globalMax;
+    }
 }
