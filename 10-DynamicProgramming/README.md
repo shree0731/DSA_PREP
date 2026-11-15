@@ -32,3 +32,11 @@ A problem is solvable via Dynamic Programming if it exhibits:
 | **State Evaluation** | Evaluates only subproblems required for answer | Evaluates all subproblems in topological order |
 | **Call Stack** | Overhead of $O(\text{depth})$ recursion call stack | Zero call-stack overhead ($O(1)$) |
 | **Space Optimization** | Rarely possible to reduce cache space | Often reducible to $O(1)$ or $O(N)$ rolling arrays |
+
+---
+
+## 📈 1D DP State Transition Patterns
+- **Fibonacci / Step transitions**: $dp[i] = dp[i - 1] + dp[i - 2]$ $\implies$ Keep two pointers (`prev1`, `prev2`) for $O(1)$ space.
+- **Decision Choice (Take / Skip)**: $dp[i] = \max(dp[i - 1], \text{val}[i] + dp[i - 2])$.
+- **Min / Max Cost Aggregation**: $dp[i] = \min_{c \in \text{coins}} (dp[i - c] + 1)$.
+- **Patience Sorting (LIS)**: Binary search on active tails for $O(N \log N)$ complexity.
