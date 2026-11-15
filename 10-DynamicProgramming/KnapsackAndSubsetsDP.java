@@ -46,4 +46,27 @@ public class KnapsackAndSubsetsDP {
         }
         return dp[capacity];
     }
+
+    /**
+     * Partition Equal Subset Sum (LeetCode 416).
+     * Determines whether array can be partitioned into two subsets with equal sum.
+     * Maps to 0/1 Knapsack where target = sum / 2.
+     * Time: O(N * Target), Space: O(Target).
+     */
+    public static boolean canPartition(int[] nums) {
+        int totalSum = 0;
+        for (int x : nums) totalSum += x;
+        if ((totalSum & 1) != 0) return false; // Odd sum cannot be partitioned equally
+
+        int target = totalSum / 2;
+        boolean[] dp = new boolean[target + 1];
+        dp[0] = true;
+
+        for (int num : nums) {
+            for (int cap = target; cap >= num; cap--) {
+                dp[cap] = dp[cap] || dp[cap - num];
+            }
+        }
+        return dp[target];
+    }
 }
