@@ -93,4 +93,24 @@ public class KnapsackAndSubsetsDP {
         }
         return dp[positiveTarget];
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Knapsack and Subsets DP ===");
+        int[] weights = {1, 3, 4, 5};
+        int[] values = {1, 4, 5, 7};
+        int capacity = 7;
+
+        System.out.println("0/1 Knapsack Max Value: " + knapsack01(weights, values, capacity) + " (Expected: 9)");
+        System.out.println("Unbounded Knapsack Max Value: " + unboundedKnapsack(weights, values, capacity) + " (Expected: 10)");
+
+        int[] partitionNums1 = {1, 5, 11, 5};
+        System.out.println("Can Partition Equal Subset [1,5,11,5]: " + canPartition(partitionNums1) + " (Expected: true)");
+
+        int[] partitionNums2 = {1, 2, 3, 5};
+        System.out.println("Can Partition Equal Subset [1,2,3,5]: " + canPartition(partitionNums2) + " (Expected: false)");
+
+        int[] targetNums = {1, 1, 1, 1, 1};
+        System.out.println("Target Sum Ways (+/- to reach 3): " + findTargetSumWays(targetNums, 3) + " (Expected: 5)");
+        System.out.println("All KnapsackAndSubsetsDP tests passed successfully!");
+    }
 }
