@@ -69,4 +69,28 @@ public class KnapsackAndSubsetsDP {
         }
         return dp[target];
     }
+
+    /**
+     * Target Sum (LeetCode 494).
+     * Assigns + or - to each integer to reach target.
+     * Mathematical reduction:
+     *   P - N = target, P + N = sum => 2P = sum + target => P = (sum + target) / 2.
+     * Time: O(N * P), Space: O(P).
+     */
+    public static int findTargetSumWays(int[] nums, int target) {
+        int totalSum = 0;
+        for (int x : nums) totalSum += x;
+        if (Math.abs(target) > totalSum || ((totalSum + target) & 1) != 0) return 0;
+
+        int positiveTarget = (totalSum + target) / 2;
+        int[] dp = new int[positiveTarget + 1];
+        dp[0] = 1;
+
+        for (int num : nums) {
+            for (int cap = positiveTarget; cap >= num; cap--) {
+                dp[cap] += dp[cap - num];
+            }
+        }
+        return dp[positiveTarget];
+    }
 }
