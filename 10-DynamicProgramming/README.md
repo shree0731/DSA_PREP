@@ -40,3 +40,13 @@ A problem is solvable via Dynamic Programming if it exhibits:
 - **Decision Choice (Take / Skip)**: $dp[i] = \max(dp[i - 1], \text{val}[i] + dp[i - 2])$.
 - **Min / Max Cost Aggregation**: $dp[i] = \min_{c \in \text{coins}} (dp[i - c] + 1)$.
 - **Patience Sorting (LIS)**: Binary search on active tails for $O(N \log N)$ complexity.
+
+---
+
+## 🎯 Patience Sorting for $O(N \log N)$ LIS
+1. Maintain an array `tails` where `tails[i]` stores the smallest tail of all increasing subsequences of length $i + 1$.
+2. For each number $x$ in input array:
+   - Use **Binary Search** (`Arrays.binarySearch` or bisect left) to find insertion point.
+   - If $x$ is larger than all elements in `tails`, append it (`size++`).
+   - Otherwise, replace the first element $\ge x$ with $x$ (greedily minimizing tail value).
+3. Resulting length of `tails` is the length of LIS!
