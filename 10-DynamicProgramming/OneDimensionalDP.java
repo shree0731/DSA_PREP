@@ -128,4 +128,30 @@ public class OneDimensionalDP {
         }
         return maxLIS;
     }
+
+    /**
+     * Longest Increasing Subsequence - Optimal Patience Sorting with Binary Search.
+     * Maintains active tails array where tails[i] stores smallest tail of all increasing subsequences of length i+1.
+     * Time: O(N log N), Space: O(N).
+     */
+    public static int lengthOfLISOptimal(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int[] tails = new int[nums.length];
+        int size = 0;
+
+        for (int x : nums) {
+            int low = 0, high = size;
+            while (low < high) {
+                int mid = (low + high) >>> 1;
+                if (tails[mid] < x) {
+                    low = mid + 1;
+                } else {
+                    high = mid;
+                }
+            }
+            tails[low] = x;
+            if (low == size) size++;
+        }
+        return size;
+    }
 }
