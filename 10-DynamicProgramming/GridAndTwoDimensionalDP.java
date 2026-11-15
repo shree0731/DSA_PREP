@@ -125,4 +125,39 @@ public class GridAndTwoDimensionalDP {
         }
         return dp[0];
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Grid and Two-Dimensional DP ===");
+        System.out.println("Unique Paths (3x7): " + uniquePaths(3, 7) + " (Expected: 28)");
+
+        int[][] obstacleGrid = {
+                {0, 0, 0},
+                {0, 1, 0},
+                {0, 0, 0}
+        };
+        System.out.println("Unique Paths with Obstacles: " + uniquePathsWithObstacles(obstacleGrid) + " (Expected: 2)");
+
+        int[][] grid = {
+                {1, 3, 1},
+                {1, 5, 1},
+                {4, 2, 1}
+        };
+        System.out.println("Minimum Path Sum: " + minPathSum(grid) + " (Expected: 7)");
+
+        char[][] squareMatrix = {
+                {'1', '0', '1', '0', '0'},
+                {'1', '0', '1', '1', '1'},
+                {'1', '1', '1', '1', '1'},
+                {'1', '0', '0', '1', '0'}
+        };
+        System.out.println("Maximal Square Area: " + maximalSquare(squareMatrix) + " (Expected: 4)");
+
+        int[][] dungeon = {
+                {-2, -3, 3},
+                {-5, -10, 1},
+                {10, 30, -5}
+        };
+        System.out.println("Dungeon Game Minimum HP: " + calculateMinimumHP(dungeon) + " (Expected: 7)");
+        System.out.println("All GridAndTwoDimensionalDP tests passed successfully!");
+    }
 }
