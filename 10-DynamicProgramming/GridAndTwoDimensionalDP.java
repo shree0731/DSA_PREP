@@ -48,4 +48,27 @@ public class GridAndTwoDimensionalDP {
         }
         return dp[n - 1];
     }
+
+    /**
+     * Minimum Path Sum (LeetCode 64).
+     * Finds path from top-left to bottom-right minimizing cell sum.
+     * Time: O(M * N), Space: O(N).
+     */
+    public static int minPathSum(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int[] dp = new int[n];
+        dp[0] = grid[0][0];
+
+        for (int c = 1; c < n; c++) {
+            dp[c] = dp[c - 1] + grid[0][c];
+        }
+
+        for (int r = 1; r < m; r++) {
+            dp[0] += grid[r][0];
+            for (int c = 1; c < n; c++) {
+                dp[c] = Math.min(dp[c], dp[c - 1]) + grid[r][c];
+            }
+        }
+        return dp[n - 1];
+    }
 }
