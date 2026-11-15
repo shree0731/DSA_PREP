@@ -25,4 +25,21 @@ public class OneDimensionalDP {
         }
         return prev1;
     }
+
+    /**
+     * House Robber (LeetCode 198).
+     * Decides optimal loot without robbing two adjacent houses.
+     * Time: O(N), Space: O(1).
+     */
+    public static int rob(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int robPrev = 0, skipPrev = 0;
+        for (int num : nums) {
+            int currentRob = skipPrev + num;
+            int currentSkip = Math.max(skipPrev, robPrev);
+            robPrev = currentRob;
+            skipPrev = currentSkip;
+        }
+        return Math.max(robPrev, skipPrev);
+    }
 }
