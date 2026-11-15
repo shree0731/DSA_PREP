@@ -42,4 +42,28 @@ public class OneDimensionalDP {
         }
         return Math.max(robPrev, skipPrev);
     }
+
+    /**
+     * House Robber II (LeetCode 213).
+     * Houses arranged in a circle: house[0] and house[n-1] are neighbors.
+     * Decomposes problem into two linear passes: [0, n-2] and [1, n-1].
+     * Time: O(N), Space: O(1).
+     */
+    public static int robII(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+        return Math.max(robLinear(nums, 0, nums.length - 2),
+                        robLinear(nums, 1, nums.length - 1));
+    }
+
+    private static int robLinear(int[] nums, int start, int end) {
+        int robPrev = 0, skipPrev = 0;
+        for (int i = start; i <= end; i++) {
+            int currentRob = skipPrev + nums[i];
+            int currentSkip = Math.max(skipPrev, robPrev);
+            robPrev = currentRob;
+            skipPrev = currentSkip;
+        }
+        return Math.max(robPrev, skipPrev);
+    }
 }
