@@ -21,3 +21,14 @@ A problem is solvable via Dynamic Programming if it exhibits:
 ├── PartitionAndIntervalDP.java   # Matrix Chain Multiplication, Palindrome Partitioning II, Burst Balloons, Minimax Game
 └── README.md                     # Recurrence formulas, transition graphs, space optimization patterns, Big-O cheat sheet
 ```
+
+---
+
+## 🧠 Memoization vs Tabulation
+
+| Feature | Top-Down (Memoization) | Bottom-Up (Tabulation) |
+|:---|:---|:---|
+| **Approach** | Recursive + Cache (HashMap / Array) | Iterative table-filling |
+| **State Evaluation** | Evaluates only subproblems required for answer | Evaluates all subproblems in topological order |
+| **Call Stack** | Overhead of $O(\text{depth})$ recursion call stack | Zero call-stack overhead ($O(1)$) |
+| **Space Optimization** | Rarely possible to reduce cache space | Often reducible to $O(1)$ or $O(N)$ rolling arrays |
