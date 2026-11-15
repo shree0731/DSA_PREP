@@ -27,4 +27,23 @@ public class KnapsackAndSubsetsDP {
         }
         return dp[capacity];
     }
+
+    /**
+     * Unbounded Knapsack Problem (Rod Cutting).
+     * Items can be picked unlimited times.
+     * Iterating capacities in FORWARD order allows using the same item repeatedly.
+     * Time: O(N * W), Space: O(W).
+     */
+    public static int unboundedKnapsack(int[] weights, int[] values, int capacity) {
+        int[] dp = new int[capacity + 1];
+
+        for (int i = 0; i < weights.length; i++) {
+            int w = weights[i], v = values[i];
+            // Forward iteration enables multiple picks of current item
+            for (int cap = w; cap <= capacity; cap++) {
+                dp[cap] = Math.max(dp[cap], dp[cap - w] + v);
+            }
+        }
+        return dp[capacity];
+    }
 }
