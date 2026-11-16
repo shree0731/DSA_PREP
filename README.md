@@ -204,3 +204,17 @@ javac PartitionAndIntervalDP.java && java PartitionAndIntervalDP
 - **0/1 vs Unbounded Knapsack**: Reverse inner loop (`capacity -> weight`) for 0/1; forward inner loop (`weight -> capacity`) for unbounded.
 - **Rolling Space Reduction**: If $dp[i][j]$ depends only on row $i-1$, reduce space from $O(M \times N)$ to $O(N)$ with a 1D array.
 - **LIS in $O(N \log N)$**: Use patience sorting with binary search on active subsequence tails instead of quadratic nested loops.
+
+---
+## 🎓 Curriculum Completion Certificate
+All 10 core modules in the Java Data Structures & Algorithms curriculum have been designed, coded, documented, and rigorously verified:
+1. `01-Arrays`
+2. `02-Strings`
+3. `03-Recursion`
+4. `04-SearchingSorting`
+5. `05-LinkedList`
+6. `06-StacksAndQueues`
+7. `07-Trees`
+8. `08-HeapsAndPriorityQueues`
+9. `09-Graphs`
+10. `10-DynamicProgramming`
