@@ -81,6 +81,14 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[NetworkFlowAndAdvancedGraphs.java](09-Graphs/NetworkFlowAndAdvancedGraphs.java)**: Word Ladder (Bidirectional BFS), Kosaraju's SCC, Tarjan's Critical Bridges, Bipartite Check.
 - **[README.md](09-Graphs/README.md)**: Representation trade-offs, shortest path decision matrix, DSU Ackermann proof, Tarjan bridge condition, Big-O matrix.
 
+### [10-DynamicProgramming](10-DynamicProgramming/)
+- **[OneDimensionalDP.java](10-DynamicProgramming/OneDimensionalDP.java)**: Climbing Stairs, House Robber I/II, Coin Change I/II, LIS ($O(N \log N)$), Max Product Subarray.
+- **[GridAndTwoDimensionalDP.java](10-DynamicProgramming/GridAndTwoDimensionalDP.java)**: Unique Paths I/II, Minimum Path Sum, Maximal Square, Dungeon Game.
+- **[KnapsackAndSubsetsDP.java](10-DynamicProgramming/KnapsackAndSubsetsDP.java)**: 0/1 Knapsack, Unbounded Knapsack, Partition Equal Subset Sum, Target Sum.
+- **[StringAndSequenceDP.java](10-DynamicProgramming/StringAndSequenceDP.java)**: LCS, Path Reconstruction, Longest Common Substring, Edit Distance, Distinct Subsequences, Wildcard Matching.
+- **[PartitionAndIntervalDP.java](10-DynamicProgramming/PartitionAndIntervalDP.java)**: Matrix Chain Multiplication, Palindrome Partitioning II, Burst Balloons, Minimax Stone Game.
+- **[README.md](10-DynamicProgramming/README.md)**: Recurrence formulas, space optimization patterns, Knapsack loops, Interval DP template, and 24-problem Big-O matrix.
+
 ---
 
 ## 🚀 How to Run
