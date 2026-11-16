@@ -147,6 +147,14 @@ javac ShortestPathAlgorithms.java && java ShortestPathAlgorithms
 javac TopologicalSortAndDAG.java && java TopologicalSortAndDAG
 javac DisjointSetAndMST.java && java DisjointSetAndMST
 javac NetworkFlowAndAdvancedGraphs.java && java NetworkFlowAndAdvancedGraphs
+
+# 10-DynamicProgramming
+cd ../10-DynamicProgramming
+javac OneDimensionalDP.java && java OneDimensionalDP
+javac GridAndTwoDimensionalDP.java && java GridAndTwoDimensionalDP
+javac KnapsackAndSubsetsDP.java && java KnapsackAndSubsetsDP
+javac StringAndSequenceDP.java && java StringAndSequenceDP
+javac PartitionAndIntervalDP.java && java PartitionAndIntervalDP
 ```
 
 ---
