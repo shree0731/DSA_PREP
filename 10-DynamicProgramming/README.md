@@ -105,3 +105,34 @@ for (int len = 2; len <= n; len++) {
 }
 ```
 Key insight for **Burst Balloons**: Think of $k$ as the **last balloon to burst** in $(i, j)$ rather than the first.
+
+---
+
+## 📋 Complete Problem Summary Matrix
+
+| Problem | LeetCode | Core DP Pattern | Time Complexity | Space Complexity |
+|:---|:---:|:---|:---:|:---:|
+| **Climbing Stairs** | [#70](https://leetcode.com/problems/climbing-stairs/) | 1D Fibonacci Transition | $O(N)$ | $O(1)$ |
+| **House Robber I** | [#198](https://leetcode.com/problems/house-robber/) | 1D Rolling Choice | $O(N)$ | $O(1)$ |
+| **House Robber II** | [#213](https://leetcode.com/problems/house-robber-ii/) | 1D Circular Range Decomposition | $O(N)$ | $O(1)$ |
+| **Coin Change I** | [#322](https://leetcode.com/problems/coin-change/) | Unbounded Knapsack Min Value | $O(N \cdot \text{Amt})$ | $O(\text{Amt})$ |
+| **Coin Change II** | [#518](https://leetcode.com/problems/coin-change-ii/) | Unbounded Knapsack Combinations | $O(N \cdot \text{Amt})$ | $O(\text{Amt})$ |
+| **Longest Increasing Subsequence** | [#300](https://leetcode.com/problems/longest-increasing-subsequence/) | Patience Sorting + Binary Search | $O(N \log N)$ | $O(N)$ |
+| **Maximum Product Subarray** | [#152](https://leetcode.com/problems/maximum-product-subarray/) | Dual Running Min/Max | $O(N)$ | $O(1)$ |
+| **Unique Paths I** | [#62](https://leetcode.com/problems/unique-paths/) | 2D Grid Rolling Row | $O(M \cdot N)$ | $O(N)$ |
+| **Unique Paths II** | [#63](https://leetcode.com/problems/unique-paths-ii/) | 2D Grid with Obstacles | $O(M \cdot N)$ | $O(N)$ |
+| **Minimum Path Sum** | [#64](https://leetcode.com/problems/minimum-path-sum/) | 2D Grid Cumulative Min | $O(M \cdot N)$ | $O(N)$ |
+| **Maximal Square** | [#221](https://leetcode.com/problems/maximal-square/) | 2D Min of 3 Neighbors | $O(M \cdot N)$ | $O(M \cdot N)$ |
+| **Dungeon Game** | [#174](https://leetcode.com/problems/dungeon-game/) | Reverse Grid Health DP | $O(M \cdot N)$ | $O(N)$ |
+| **0/1 Knapsack** | — | Reverse Capacity 1D DP | $O(N \cdot W)$ | $O(W)$ |
+| **Unbounded Knapsack** | — | Forward Capacity 1D DP | $O(N \cdot W)$ | $O(W)$ |
+| **Partition Equal Subset** | [#416](https://leetcode.com/problems/partition-equal-subset-sum/) | Boolean 0/1 Subset Sum | $O(N \cdot \text{Target})$ | $O(\text{Target})$ |
+| **Target Sum** | [#494](https://leetcode.com/problems/target-sum/) | Subset Sum Algebraic Reduction | $O(N \cdot \text{Target})$ | $O(\text{Target})$ |
+| **Longest Common Subsequence** | [#1143](https://leetcode.com/problems/longest-common-subsequence/) | 2D Match / Diagonal DP | $O(M \cdot N)$ | $O(M \cdot N)$ |
+| **Edit Distance** | [#72](https://leetcode.com/problems/edit-distance/) | 2D Insert/Delete/Replace Min | $O(M \cdot N)$ | $O(M \cdot N)$ |
+| **Distinct Subsequences** | [#115](https://leetcode.com/problems/distinct-subsequences/) | 1D Reverse Matching Count | $O(M \cdot N)$ | $O(N)$ |
+| **Wildcard Matching** | [#44](https://leetcode.com/problems/wildcard-matching/) | Sequence Pattern Matching | $O(M \cdot N)$ | $O(N)$ |
+| **Matrix Chain Multiplication** | — | Classical Interval DP | $O(N^3)$ | $O(N^2)$ |
+| **Palindrome Partitioning II** | [#132](https://leetcode.com/problems/palindrome-partitioning-ii/) | Precomputed Palindrome + 1D DP | $O(N^2)$ | $O(N^2)$ |
+| **Burst Balloons** | [#312](https://leetcode.com/problems/burst-balloons/) | Reverse Last Balloon Interval DP | $O(N^3)$ | $O(N^2)$ |
+| **Stone Game** | [#877](https://leetcode.com/problems/stone-game/) | 2-Player Minimax DP | $O(N^2)$ | $O(N)$ |
