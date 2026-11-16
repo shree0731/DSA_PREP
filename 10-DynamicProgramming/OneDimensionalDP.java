@@ -7,6 +7,12 @@ import java.util.*;
  *
  * @author Shreepurnaa V
  */
+/**
+ * High-performance 1-Dimensional Dynamic Programming solutions.
+ * Fully tested with constant space optimizations.
+ *
+ * @author Shreepurnaa V
+ */
 public class OneDimensionalDP {
 
 
