@@ -199,3 +199,8 @@ javac PartitionAndIntervalDP.java && java PartitionAndIntervalDP
 
 ---
 *Milestone 9 Verified: 9 Complete Modules with 500+ Commits.*
+
+### 💡 Dynamic Programming Golden Rules
+- **0/1 vs Unbounded Knapsack**: Reverse inner loop (`capacity -> weight`) for 0/1; forward inner loop (`weight -> capacity`) for unbounded.
+- **Rolling Space Reduction**: If $dp[i][j]$ depends only on row $i-1$, reduce space from $O(M \times N)$ to $O(N)$ with a 1D array.
+- **LIS in $O(N \log N)$**: Use patience sorting with binary search on active subsequence tails instead of quadratic nested loops.
