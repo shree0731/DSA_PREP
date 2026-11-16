@@ -119,4 +119,25 @@ public class StringAndSequenceDP {
         }
         return dp[m][n];
     }
+
+    /**
+     * Distinct Subsequences (LeetCode 115).
+     * Counts number of distinct subsequences of s which equals t.
+     * Time: O(M * N), Space: O(N).
+     */
+    public static int numDistinct(String s, String t) {
+        int m = s.length(), n = t.length();
+        double[] dp = new double[n + 1];
+        dp[0] = 1;
+
+        for (int i = 1; i <= m; i++) {
+            char sc = s.charAt(i - 1);
+            for (int j = n; j >= 1; j--) {
+                if (sc == t.charAt(j - 1)) {
+                    dp[j] += dp[j - 1];
+                }
+            }
+        }
+        return (int) dp[n];
+    }
 }
