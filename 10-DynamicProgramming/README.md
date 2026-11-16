@@ -145,3 +145,6 @@ Key insight for **Burst Balloons**: Think of $k$ as the **last balloon to burst*
 - **At most once per element?** $\implies$ 0/1 Knapsack (reverse loop).
 - **Two strings with matching / transitions?** $\implies$ 2D matrix matching (`dp[i][j]`).
 - **Optimal merge of adjacent components?** $\implies$ Interval DP (`len` loop from 2 to $N$).
+
+---
+*Module 10 completed and fully verified with test harnesses.*
