@@ -170,7 +170,7 @@ javac PartitionAndIntervalDP.java && java PartitionAndIntervalDP
 - [x] **07-Trees & Binary Search Trees**
 - [x] **08-Heaps & Priority Queues**
 - [x] **09-Graphs**
-- [ ] **10-Dynamic Programming**
+- [x] **10-Dynamic Programming**
 
 ---
 
