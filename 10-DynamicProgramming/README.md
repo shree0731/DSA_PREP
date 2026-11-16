@@ -75,3 +75,17 @@ A problem is solvable via Dynamic Programming if it exhibits:
   }
   ```
   Iterating **forward** allows using the updated `dp[cap - weight]` from the **current row** (item can be reused).
+
+---
+
+## 🔤 String DP Recurrence Relations
+
+### 1. Longest Common Subsequence (LCS)
+$$dp[i][j] = \begin{cases} 1 + dp[i-1][j-1] & \text{if } s_1[i-1] == s_2[j-1] \\ \max(dp[i-1][j], dp[i][j-1]) & \text{otherwise} \end{cases}$$
+
+### 2. Edit Distance (Levenshtein)
+$$dp[i][j] = \begin{cases} dp[i-1][j-1] & \text{if } s_1[i-1] == s_2[j-1] \\ 1 + \min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]) & \text{otherwise} \end{cases}$$
+Where operations correspond to:
+- `dp[i-1][j-1]`: **Replace** character
+- `dp[i-1][j]`: **Delete** from $s_1$
+- `dp[i][j-1]`: **Insert** into $s_1$
