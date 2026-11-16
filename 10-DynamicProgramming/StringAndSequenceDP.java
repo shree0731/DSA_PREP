@@ -171,4 +171,21 @@ public class StringAndSequenceDP {
         }
         return dp[n];
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing String and Sequence DP ===");
+        String s1 = "abcde", s2 = "ace";
+        System.out.println("LCS Length: " + longestCommonSubsequence(s1, s2) + " (Expected: 3)");
+        System.out.println("Printed LCS: " + printLCS(s1, s2) + " (Expected: 'ace')");
+
+        System.out.println("Longest Common Substring ('abcde', 'abfde'): " +
+                           longestCommonSubstring("abcde", "abfde") + " (Expected: 2)");
+
+        System.out.println("Edit Distance ('horse', 'ros'): " + minDistance("horse", "ros") + " (Expected: 3)");
+        System.out.println("Distinct Subsequences ('rabbbit', 'rabbit'): " + numDistinct("rabbbit", "rabbit") + " (Expected: 3)");
+
+        System.out.println("Wildcard Matching ('adceb', '*a*b'): " + isMatch("adceb", "*a*b") + " (Expected: true)");
+        System.out.println("Wildcard Matching ('acdcb', 'a*c?b'): " + isMatch("acdcb", "a*c?b") + " (Expected: false)");
+        System.out.println("All StringAndSequenceDP tests passed successfully!");
+    }
 }
