@@ -57,3 +57,21 @@ A problem is solvable via Dynamic Programming if it exhibits:
 1. **Top-Left to Bottom-Right**: Transitions only depend on `dp[r-1][c]` and `dp[r][c-1]`.
    - Dimension reduction: Reduce $O(M \times N)$ space down to $O(N)$ with a single rolling array.
 2. **Reverse Dynamic Programming (Dungeon Game)**: When the decision at $(r, c)$ depends on the future state (e.g. surviving subsequent rooms), iterate backwards from $(M-1, N-1)$ down to $(0, 0)$.
+
+---
+
+## 🎒 The Knapsack Rule: Reverse vs Forward Loops
+- **0/1 Knapsack (Single Choice)**:
+  ```java
+  for (int cap = capacity; cap >= weight; cap--) {
+      dp[cap] = Math.max(dp[cap], dp[cap - weight] + val);
+  }
+  ```
+  Iterating **in reverse** ensures that `dp[cap - weight]` came from the **previous row** (item not yet used).
+- **Unbounded Knapsack (Multiple Choices)**:
+  ```java
+  for (int cap = weight; cap <= capacity; cap++) {
+      dp[cap] = Math.max(dp[cap], dp[cap - weight] + val);
+  }
+  ```
+  Iterating **forward** allows using the updated `dp[cap - weight]` from the **current row** (item can be reused).
