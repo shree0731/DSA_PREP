@@ -89,3 +89,19 @@ Where operations correspond to:
 - `dp[i-1][j-1]`: **Replace** character
 - `dp[i-1][j]`: **Delete** from $s_1$
 - `dp[i][j-1]`: **Insert** into $s_1$
+
+---
+
+## 🎈 Interval DP Paradigm
+In Interval DP, we compute solutions for sub-intervals $[i, j]$ starting from smallest length $len = 1$ to total length $N$:
+```java
+for (int len = 2; len <= n; len++) {
+    for (int i = 0; i <= n - len; i++) {
+        int j = i + len - 1;
+        for (int k = i; k < j; k++) {
+            dp[i][j] = Math.min(dp[i][j], dp[i][k] + dp[k + 1][j] + cost(i, k, j));
+        }
+    }
+}
+```
+Key insight for **Burst Balloons**: Think of $k$ as the **last balloon to burst** in $(i, j)$ rather than the first.
