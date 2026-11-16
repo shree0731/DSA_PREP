@@ -33,4 +33,39 @@ public class PartitionAndIntervalDP {
         }
         return dp[1][n];
     }
+
+    /**
+     * Palindrome Partitioning II (LeetCode 132).
+     * Minimum cuts needed for a palindrome partitioning of string s.
+     * Precomputes isPalindrome table, then runs 1D DP.
+     * Time: O(N^2), Space: O(N^2).
+     */
+    public static int minCut(String s) {
+        int n = s.length();
+        boolean[][] isPalin = new boolean[n][n];
+
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i; j < n; j++) {
+                if (s.charAt(i) == s.charAt(j) && (j - i <= 2 || isPalin[i + 1][j - 1])) {
+                    isPalin[i][j] = true;
+                }
+            }
+        }
+
+        int[] cuts = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (isPalin[0][i]) {
+                cuts[i] = 0;
+            } else {
+                int min = i;
+                for (int j = 0; j < i; j++) {
+                    if (isPalin[j + 1][i]) {
+                        min = Math.min(min, cuts[j] + 1);
+                    }
+                }
+                cuts[i] = min;
+            }
+        }
+        return cuts[n - 1];
+    }
 }
