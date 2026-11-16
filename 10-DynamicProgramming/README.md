@@ -136,3 +136,12 @@ Key insight for **Burst Balloons**: Think of $k$ as the **last balloon to burst*
 | **Palindrome Partitioning II** | [#132](https://leetcode.com/problems/palindrome-partitioning-ii/) | Precomputed Palindrome + 1D DP | $O(N^2)$ | $O(N^2)$ |
 | **Burst Balloons** | [#312](https://leetcode.com/problems/burst-balloons/) | Reverse Last Balloon Interval DP | $O(N^3)$ | $O(N^2)$ |
 | **Stone Game** | [#877](https://leetcode.com/problems/stone-game/) | 2-Player Minimax DP | $O(N^2)$ | $O(N)$ |
+
+---
+
+## 🌲 DP Decision Tree Cheat Sheet
+- **Does the problem ask for count/min/max of choices?** $\implies$ Dynamic Programming candidate.
+- **Can you choose elements multiple times?** $\implies$ Unbounded Knapsack (forward loop).
+- **At most once per element?** $\implies$ 0/1 Knapsack (reverse loop).
+- **Two strings with matching / transitions?** $\implies$ 2D matrix matching (`dp[i][j]`).
+- **Optimal merge of adjacent components?** $\implies$ Interval DP (`len` loop from 2 to $N$).
