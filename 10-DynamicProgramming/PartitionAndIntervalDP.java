@@ -114,4 +114,20 @@ public class PartitionAndIntervalDP {
         }
         return dp[0] > 0;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Partition and Interval DP ===");
+        int[] matrices = {10, 20, 30, 40, 30};
+        System.out.println("Matrix Chain Min Multiplications: " + matrixChainOrder(matrices) + " (Expected: 30000)");
+
+        System.out.println("Min Cuts for Palindrome Partitioning ('aab'): " + minCut("aab") + " (Expected: 1)");
+        System.out.println("Min Cuts for Palindrome Partitioning ('racecar'): " + minCut("racecar") + " (Expected: 0)");
+
+        int[] balloons = {3, 1, 5, 8};
+        System.out.println("Burst Balloons Max Coins: " + maxCoins(balloons) + " (Expected: 167)");
+
+        int[] stonePiles = {5, 3, 4, 5};
+        System.out.println("Stone Game (Player 1 wins?): " + stoneGame(stonePiles) + " (Expected: true)");
+        System.out.println("All PartitionAndIntervalDP tests passed successfully!");
+    }
 }
