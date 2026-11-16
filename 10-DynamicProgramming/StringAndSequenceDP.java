@@ -140,4 +140,35 @@ public class StringAndSequenceDP {
         }
         return (int) dp[n];
     }
+
+    /**
+     * Wildcard Matching (LeetCode 44).
+     * '?' Matches any single character.
+     * '*' Matches any sequence of characters (including the empty sequence).
+     * Time: O(M * N), Space: O(N).
+     */
+    public static boolean isMatch(String s, String p) {
+        int m = s.length(), n = p.length();
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+
+        for (int j = 1; j <= n; j++) {
+            if (p.charAt(j - 1) == '*') dp[j] = dp[j - 1];
+        }
+
+        for (int i = 1; i <= m; i++) {
+            boolean[] next = new boolean[n + 1];
+            char sc = s.charAt(i - 1);
+            for (int j = 1; j <= n; j++) {
+                char pc = p.charAt(j - 1);
+                if (pc == sc || pc == '?') {
+                    next[j] = dp[j - 1];
+                } else if (pc == '*') {
+                    next[j] = next[j - 1] || dp[j];
+                }
+            }
+            dp = next;
+        }
+        return dp[n];
+    }
 }
