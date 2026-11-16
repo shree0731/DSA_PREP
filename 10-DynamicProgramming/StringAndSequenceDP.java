@@ -67,4 +67,28 @@ public class StringAndSequenceDP {
         }
         return sb.reverse().toString();
     }
+
+    /**
+     * Longest Common Substring.
+     * Substring requires characters to be contiguous.
+     * When characters do not match, dp[i][j] resets to 0.
+     * Time: O(M * N), Space: O(M * N).
+     */
+    public static int longestCommonSubstring(String s1, String s2) {
+        int m = s1.length(), n = s2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        int maxLen = 0;
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                    maxLen = Math.max(maxLen, dp[i][j]);
+                } else {
+                    dp[i][j] = 0; // Reset continuity
+                }
+            }
+        }
+        return maxLen;
+    }
 }
