@@ -96,4 +96,22 @@ public class PartitionAndIntervalDP {
         }
         return dp[1][n];
     }
+
+    /**
+     * Stone Game / Predict the Winner (LeetCode 877, 486).
+     * Minimax 2-player optimal game: returns score difference player1 - player2.
+     * Time: O(N^2), Space: O(N).
+     */
+    public static boolean stoneGame(int[] piles) {
+        int n = piles.length;
+        int[] dp = Arrays.copyOf(piles, n);
+
+        for (int len = 2; len <= n; len++) {
+            for (int i = 0; i <= n - len; i++) {
+                int j = i + len - 1;
+                dp[i] = Math.max(piles[i] - dp[i + 1], piles[j] - dp[i]);
+            }
+        }
+        return dp[0] > 0;
+    }
 }
