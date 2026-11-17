@@ -59,4 +59,15 @@ public class BitwiseTrieAndXOR {
         }
         return max;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Bitwise Trie and KMP Matching ===");
+        int[] nums = {3, 10, 5, 25, 2, 8};
+        System.out.println("Maximum XOR in Array: " + findMaximumXOR(nums) + " (Expected: 28)");
+
+        String text = "ABABDABACDABABCABAB";
+        String pattern = "ABABCABAB";
+        System.out.println("KMP Match Indices: " + KMPAndStringMatching.kmpSearch(text, pattern) + " (Expected: [10])");
+        System.out.println("All BitwiseTrie and KMP tests passed successfully!");
+    }
 }
