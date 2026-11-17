@@ -94,4 +94,28 @@ public class WordSearchAndDictionary {
         }
         board[r][c] = ch; // Backtrack
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing WordDictionary (Wildcard Search) ===");
+        WordDictionary dict = new WordDictionary();
+        dict.addWord("bad");
+        dict.addWord("dad");
+        dict.addWord("mad");
+
+        System.out.println("Search 'pad': " + dict.search("pad") + " (Expected: false)");
+        System.out.println("Search 'bad': " + dict.search("bad") + " (Expected: true)");
+        System.out.println("Search '.ad': " + dict.search(".ad") + " (Expected: true)");
+        System.out.println("Search 'b..': " + dict.search("b..") + " (Expected: true)");
+
+        System.out.println("\n=== Testing Word Search II ===");
+        char[][] board = {
+                {'o', 'a', 'a', 'n'},
+                {'e', 't', 'a', 'e'},
+                {'i', 'h', 'k', 'r'},
+                {'i', 'f', 'l', 'v'}
+        };
+        String[] words = {"oath", "pea", "eat", "rain"};
+        System.out.println("Found Words: " + findWords(board, words) + " (Expected: [oath, eat])");
+        System.out.println("All WordSearchAndDictionary tests passed successfully!");
+    }
 }
