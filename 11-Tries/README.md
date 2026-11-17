@@ -27,3 +27,14 @@ Each `TrieNode` typically contains:
 3. Child indexing formula: `int index = ch - 'a';` ($0 \le \text{index} < 26$).
 - **Time Complexity**: $O(L)$ for insert, search, and prefix query, where $L$ is the string length.
 - **Space Complexity**: $O(\Sigma \cdot L \cdot N)$ where $\Sigma$ is alphabet size, $L$ average word length, $N$ word count.
+
+---
+
+## ⚡ Trie vs Hash Table Comparison
+
+| Metric | Trie | Hash Table (`HashMap<String, V>`) |
+|:---|:---|:---|
+| **Lookup Time** | $O(L)$ deterministic | $O(L)$ average, $O(L \cdot N)$ worst case hash collisions |
+| **Prefix Queries** | $O(L)$ optimal | $O(N \cdot L)$ requires scanning all keys |
+| **Space Overhead** | High due to 26 pointers per node | Lower memory per entry |
+| **Common Use-Cases** | Autocomplete, Spell Check, IP Routing | Exact key-value lookups |
