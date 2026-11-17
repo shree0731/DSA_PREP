@@ -89,6 +89,13 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[PartitionAndIntervalDP.java](10-DynamicProgramming/PartitionAndIntervalDP.java)**: Matrix Chain Multiplication, Palindrome Partitioning II, Burst Balloons, Minimax Stone Game.
 - **[README.md](10-DynamicProgramming/README.md)**: Recurrence formulas, space optimization patterns, Knapsack loops, Interval DP template, and 24-problem Big-O matrix.
 
+### [11-Tries](11-Tries/)
+- **[TriePrefixTree.java](11-Tries/TriePrefixTree.java)**: Standard Trie with insert, search, startsWith, and auto-complete prefix search.
+- **[WordSearchAndDictionary.java](11-Tries/WordSearchAndDictionary.java)**: Word Search II (2D Board Trie with pruning) and WordDictionary with wildcard matching.
+- **[BitwiseTrieAndXOR.java](11-Tries/BitwiseTrieAndXOR.java)**: Maximum XOR of Two Numbers in Array via 32-bit binary trie.
+- **[KMPAndStringMatching.java](11-Tries/KMPAndStringMatching.java)**: Knuth-Morris-Pratt (KMP) linear-time substring search with LPS preprocessing.
+- **[README.md](11-Tries/README.md)**: Prefix tree mechanics, character array indexing, Trie vs HashMap trade-offs.
+
 ---
 
 ## 🚀 How to Run
@@ -171,6 +178,7 @@ javac PartitionAndIntervalDP.java && java PartitionAndIntervalDP
 - [x] **08-Heaps & Priority Queues**
 - [x] **09-Graphs**
 - [x] **10-Dynamic Programming**
+- [x] **11-Tries & String Structures**
 
 ---
 
