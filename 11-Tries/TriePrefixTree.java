@@ -83,4 +83,23 @@ public class TriePrefixTree {
             }
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing TriePrefixTree ===");
+        TriePrefixTree trie = new TriePrefixTree();
+        trie.insert("apple");
+        trie.insert("app");
+        trie.insert("application");
+        trie.insert("banana");
+
+        System.out.println("Search 'apple': " + trie.search("apple") + " (Expected: true)");
+        System.out.println("Search 'app': " + trie.search("app") + " (Expected: true)");
+        System.out.println("Search 'appl': " + trie.search("appl") + " (Expected: false)");
+        System.out.println("StartsWith 'app': " + trie.startsWith("app") + " (Expected: true)");
+        System.out.println("StartsWith 'ban': " + trie.startsWith("ban") + " (Expected: true)");
+        System.out.println("StartsWith 'cat': " + trie.startsWith("cat") + " (Expected: false)");
+
+        System.out.println("Auto-complete for 'app': " + trie.autoComplete("app") + " (Expected: [app, apple, application])");
+        System.out.println("All TriePrefixTree tests passed successfully!");
+    }
 }
