@@ -45,4 +45,53 @@ public class WordSearchAndDictionary {
             }
         }
     }
+
+    /**
+     * Word Search II (LeetCode 212).
+     * Searches for dictionary words on 2D board using DFS with Trie prefix pruning.
+     */
+    public static List<String> findWords(char[][] board, String[] words) {
+        TriePrefixTree.TrieNode root = new TriePrefixTree.TrieNode();
+        for (String w : words) {
+            TriePrefixTree.TrieNode curr = root;
+            for (char c : w.toCharArray()) {
+                int idx = c - 'a';
+                if (curr.children[idx] == null) curr.children[idx] = new TriePrefixTree.TrieNode();
+                curr = curr.children[idx];
+            }
+            curr.isEndOfWord = true;
+            curr.word = w;
+        }
+
+        List<String> result = new ArrayList<>();
+        int m = board.length, n = board[0].length;
+        for (int r = 0; r < m; r++) {
+            for (int c = 0; c < n; c++) {
+                dfsBoard(board, r, c, root, result);
+            }
+        }
+        return result;
+    }
+
+    private static void dfsBoard(char[][] board, int r, int c, TriePrefixTree.TrieNode node, List<String> result) {
+        char ch = board[r][c];
+        if (ch == '#' || node.children[ch - 'a'] == null) return;
+
+        node = node.children[ch - 'a'];
+        if (node.isEndOfWord && node.word != null) {
+            result.add(node.word);
+            node.word = null; // Avoid duplicate collection
+        }
+
+        board[r][c] = '#'; // Mark visited
+        int[] dr = {-1, 1, 0, 0};
+        int[] dc = {0, 0, -1, 1};
+        for (int i = 0; i < 4; i++) {
+            int nr = r + dr[i], nc = c + dc[i];
+            if (nr >= 0 && nr < board.length && nc >= 0 && nc < board[0].length) {
+                dfsBoard(board, nr, nc, node, result);
+            }
+        }
+        board[r][c] = ch; // Backtrack
+    }
 }
