@@ -59,4 +59,28 @@ public class TriePrefixTree {
         }
         return curr;
     }
+
+    /**
+     * Auto-Complete: returns all words in the Trie that begin with given prefix.
+     * Time: O(Prefix + Subtree Size), Space: O(Results).
+     */
+    public List<String> autoComplete(String prefix) {
+        List<String> results = new ArrayList<>();
+        TrieNode prefixNode = findPrefixNode(prefix);
+        if (prefixNode != null) {
+            dfsCollect(prefixNode, results);
+        }
+        return results;
+    }
+
+    private void dfsCollect(TrieNode node, List<String> results) {
+        if (node.isEndOfWord && node.word != null) {
+            results.add(node.word);
+        }
+        for (TrieNode child : node.children) {
+            if (child != null) {
+                dfsCollect(child, results);
+            }
+        }
+    }
 }
