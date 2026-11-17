@@ -17,3 +17,13 @@ Unlike a binary search tree, no node in the tree stores the key associated with 
 ├── KMPAndStringMatching.java     # Knuth-Morris-Pratt (KMP) O(N + M) Pattern Matching & LPS
 └── README.md                     # Node structures, memory optimization, KMP vs Rabin-Karp
 ```
+
+---
+
+## 🏗️ Trie Node Structure & Indexing
+Each `TrieNode` typically contains:
+1. `TrieNode[] children = new TrieNode[26];` (for lowercase English letters `a-z`).
+2. `boolean isEndOfWord;`
+3. Child indexing formula: `int index = ch - 'a';` ($0 \le \text{index} < 26$).
+- **Time Complexity**: $O(L)$ for insert, search, and prefix query, where $L$ is the string length.
+- **Space Complexity**: $O(\Sigma \cdot L \cdot N)$ where $\Sigma$ is alphabet size, $L$ average word length, $N$ word count.
