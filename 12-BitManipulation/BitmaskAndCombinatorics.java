@@ -28,4 +28,30 @@ public class BitmaskAndCombinatorics {
         }
         return subsets;
     }
+
+    /**
+     * Counting Bits (LeetCode 338).
+     * DP formula: dp[i] = dp[i >> 1] + (i & 1).
+     * Time: O(N), Space: O(N).
+     */
+    public static int[] countBits(int n) {
+        int[] dp = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            dp[i] = dp[i >> 1] + (i & 1);
+        }
+        return dp;
+    }
+
+    /**
+     * Reverse Bits of a 32-bit unsigned integer (LeetCode 190).
+     * Time: O(1), Space: O(1).
+     */
+    public static int reverseBits(int n) {
+        int rev = 0;
+        for (int i = 0; i < 32; i++) {
+            rev = (rev << 1) | (n & 1);
+            n >>>= 1;
+        }
+        return rev;
+    }
 }
