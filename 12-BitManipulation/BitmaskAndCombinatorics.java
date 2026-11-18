@@ -54,4 +54,24 @@ public class BitmaskAndCombinatorics {
         }
         return rev;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Bitmask and Combinatorics ===");
+        int[] nums = {1, 2, 3};
+        List<List<Integer>> subsets = generateSubsets(nums);
+        System.out.println("Generated " + subsets.size() + " subsets: " + subsets);
+
+        int[] bitCounts = countBits(5);
+        System.out.println("Counting Bits for 5: " + Arrays.toString(bitCounts) + " (Expected: [0, 1, 1, 2, 1, 2])");
+
+        int[] singleNums1 = {4, 1, 2, 1, 2};
+        System.out.println("Single Number I: " + SingleNumberVariants.singleNumberI(singleNums1) + " (Expected: 4)");
+
+        int[] singleNums2 = {2, 2, 3, 2};
+        System.out.println("Single Number II: " + SingleNumberVariants.singleNumberII(singleNums2) + " (Expected: 3)");
+
+        int[] singleNums3 = {1, 2, 1, 3, 2, 5};
+        System.out.println("Single Number III: " + Arrays.toString(SingleNumberVariants.singleNumberIII(singleNums3)) + " (Expected: [3, 5])");
+        System.out.println("All BitmaskAndCombinatorics tests passed successfully!");
+    }
 }
