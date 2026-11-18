@@ -15,3 +15,14 @@ Bit manipulation operates directly at the bit level of data types. It allows hig
 ├── BitmaskAndCombinatorics.java    # Subsets via Bitmask, Counting Bits DP, Reverse Bits, Bitwise AND Range
 └── README.md                       # Two's complement, bitwise identities, bitmask state compression
 ```
+
+---
+
+## 🧮 Essential Bitwise Identities
+- **Check $k$-th bit**: `(n & (1 << k)) != 0`
+- **Set $k$-th bit**: `n | (1 << k)`
+- **Clear $k$-th bit**: `n & ~(1 << k)`
+- **Toggle $k$-th bit**: `n ^ (1 << k)`
+- **Isolate lowest set bit**: `n & (-n)`
+- **Clear lowest set bit**: `n & (n - 1)` (Brian Kernighan's trick)
+- **Power of Two check**: `n > 0 && (n & (n - 1)) == 0`
