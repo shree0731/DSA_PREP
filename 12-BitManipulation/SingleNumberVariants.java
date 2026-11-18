@@ -39,4 +39,28 @@ public class SingleNumberVariants {
         }
         return result;
     }
+
+    /**
+     * Single Number III (LeetCode 260).
+     * XORs all numbers to get a ^ b. Then partitions numbers into two groups
+     * based on any set bit in a ^ b (e.g. lowest set bit diff = xor & (-xor)).
+     * Time: O(N), Space: O(1).
+     */
+    public static int[] singleNumberIII(int[] nums) {
+        int xor = 0;
+        for (int x : nums) xor ^= x;
+
+        // Isolate lowest differing bit between the two unique numbers
+        int diff = xor & (-xor);
+
+        int a = 0, b = 0;
+        for (int x : nums) {
+            if ((x & diff) != 0) {
+                a ^= x;
+            } else {
+                b ^= x;
+            }
+        }
+        return new int[]{a, b};
+    }
 }
