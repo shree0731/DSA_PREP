@@ -96,6 +96,12 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[KMPAndStringMatching.java](11-Tries/KMPAndStringMatching.java)**: Knuth-Morris-Pratt (KMP) linear-time substring search with LPS preprocessing.
 - **[README.md](11-Tries/README.md)**: Prefix tree mechanics, character array indexing, Trie vs HashMap trade-offs.
 
+### [12-BitManipulation](12-BitManipulation/)
+- **[BitwiseOperationsAndHacks.java](12-BitManipulation/BitwiseOperationsAndHacks.java)**: Core get/set/clear/update, Brian Kernighan bit counter, power of two, lowbit isolation.
+- **[SingleNumberVariants.java](12-BitManipulation/SingleNumberVariants.java)**: Single Number I (XOR), Single Number II (Modulo 3), Single Number III (Differing bit partitioning).
+- **[BitmaskAndCombinatorics.java](12-BitManipulation/BitmaskAndCombinatorics.java)**: Subsets via bitmask, Counting Bits O(N) DP, Reverse Bits.
+- **[README.md](12-BitManipulation/README.md)**: Bitwise identities, two's complement mechanics, bitmask DP state compression.
+
 ---
 
 ## 🚀 How to Run
@@ -179,6 +185,7 @@ javac PartitionAndIntervalDP.java && java PartitionAndIntervalDP
 - [x] **09-Graphs**
 - [x] **10-Dynamic Programming**
 - [x] **11-Tries & String Structures**
+- [x] **12-Bit Manipulation & Mathematics**
 
 ---
 
