@@ -168,6 +168,18 @@ javac GridAndTwoDimensionalDP.java && java GridAndTwoDimensionalDP
 javac KnapsackAndSubsetsDP.java && java KnapsackAndSubsetsDP
 javac StringAndSequenceDP.java && java StringAndSequenceDP
 javac PartitionAndIntervalDP.java && java PartitionAndIntervalDP
+
+# 11-Tries
+cd ../11-Tries
+javac TriePrefixTree.java && java TriePrefixTree
+javac WordSearchAndDictionary.java && java WordSearchAndDictionary
+javac BitwiseTrieAndXOR.java && java BitwiseTrieAndXOR
+
+# 12-BitManipulation
+cd ../12-BitManipulation
+javac BitwiseOperationsAndHacks.java && java BitwiseOperationsAndHacks
+javac SingleNumberVariants.java && java SingleNumberVariants
+javac BitmaskAndCombinatorics.java && java BitmaskAndCombinatorics
 ```
 
 ---
