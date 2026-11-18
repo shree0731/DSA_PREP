@@ -26,3 +26,18 @@ Bit manipulation operates directly at the bit level of data types. It allows hig
 - **Isolate lowest set bit**: `n & (-n)`
 - **Clear lowest set bit**: `n & (n - 1)` (Brian Kernighan's trick)
 - **Power of Two check**: `n > 0 && (n & (n - 1)) == 0`
+
+---
+
+## 💡 Bitmask State Compression
+When $N \le 20$, an integer variable of $N$ bits can model the status of $N$ items:
+- Subset $\{0, 2, 3\}$ represented as $2^0 + 2^2 + 2^3 = 1 + 4 + 8 = 13$ (`0b1101`).
+- Check if item $i$ in set: `(mask & (1 << i)) != 0`
+- Add item $i$: `mask | (1 << i)`
+- Remove item $i$: `mask & ~(1 << i)`
+- Iterate over all sub-masks of `mask`:
+  ```java
+  for (int sub = mask; sub > 0; sub = (sub - 1) & mask) {
+      // process sub-mask
+  }
+  ```
