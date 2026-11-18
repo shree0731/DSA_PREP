@@ -20,4 +20,23 @@ public class SingleNumberVariants {
         for (int x : nums) xor ^= x;
         return xor;
     }
+
+    /**
+     * Single Number II (LeetCode 137).
+     * Counts bits across all numbers at each position modulo 3.
+     * Time: O(32 * N) = O(N), Space: O(1).
+     */
+    public static int singleNumberII(int[] nums) {
+        int result = 0;
+        for (int i = 0; i < 32; i++) {
+            int sum = 0;
+            for (int x : nums) {
+                sum += (x >>> i) & 1;
+            }
+            if (sum % 3 != 0) {
+                result |= (1 << i);
+            }
+        }
+        return result;
+    }
 }
