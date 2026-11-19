@@ -108,4 +108,22 @@ public class IntervalScheduling {
         }
         return arrows;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Interval Scheduling ===");
+        int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+        int[][] merged = mergeIntervals(intervals);
+        System.out.println("Merged Intervals: " + Arrays.deepToString(merged) + " (Expected: [[1, 6], [8, 10], [15, 18]])");
+
+        int[][] insertInto = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
+        int[] toInsert = {4, 8};
+        System.out.println("Inserted: " + Arrays.deepToString(insertInterval(insertInto, toInsert)));
+
+        int[][] overlaps = {{1, 2}, {2, 3}, {3, 4}, {1, 3}};
+        System.out.println("Erase Overlaps: " + eraseOverlapIntervals(overlaps) + " (Expected: 1)");
+
+        int[][] balloons = {{10, 16}, {2, 8}, {1, 6}, {7, 12}};
+        System.out.println("Min Arrows to Burst: " + findMinArrowShots(balloons) + " (Expected: 2)");
+        System.out.println("All IntervalScheduling tests passed successfully!");
+    }
 }
