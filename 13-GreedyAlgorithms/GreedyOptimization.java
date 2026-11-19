@@ -30,4 +30,36 @@ public class GreedyOptimization {
         }
         return totalSurplus >= 0 ? startStation : -1;
     }
+
+    /**
+     * Jump Game (LeetCode 55).
+     * Tracks maximum reachable index greedily.
+     * Time: O(N), Space: O(1).
+     */
+    public static boolean canJump(int[] nums) {
+        int maxReach = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > maxReach) return false;
+            maxReach = Math.max(maxReach, i + nums[i]);
+        }
+        return true;
+    }
+
+    /**
+     * Jump Game II (LeetCode 45).
+     * Finds minimum jumps to reach last index using BFS-like greedy window.
+     * Time: O(N), Space: O(1).
+     */
+    public static int jump(int[] nums) {
+        int jumps = 0, currentEnd = 0, farthest = 0;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            farthest = Math.max(farthest, i + nums[i]);
+            if (i == currentEnd) {
+                jumps++;
+                currentEnd = farthest;
+            }
+        }
+        return jumps;
+    }
 }
