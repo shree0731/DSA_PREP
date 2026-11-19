@@ -18,3 +18,10 @@ Greedy works when a problem exhibits:
 ├── GreedyHeuristics.java     # Fractional Knapsack, Assign Cookies, Lemonade Change
 └── README.md                 # Interval sorting patterns, greedy proofs, decision matrix
 ```
+
+---
+
+## ⏱️ Interval Scheduling Sorting Rules
+- **Merging / Grouping Intervals**: Sort by **Start Time** ascending `Comparator.comparingInt(a -> a[0])`.
+- **Selecting Maximum Non-Overlapping Intervals**: Sort by **End Time** ascending `Comparator.comparingInt(a -> a[1])` (earliest finish time greedily leaves most room for subsequent intervals).
+- **Meeting Rooms Count**: Track overlaps via Min-Heap of end times or two-pointer sweep-line.
