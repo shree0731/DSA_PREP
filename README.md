@@ -102,6 +102,12 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[BitmaskAndCombinatorics.java](12-BitManipulation/BitmaskAndCombinatorics.java)**: Subsets via bitmask, Counting Bits O(N) DP, Reverse Bits.
 - **[README.md](12-BitManipulation/README.md)**: Bitwise identities, two's complement mechanics, bitmask DP state compression.
 
+### [13-GreedyAlgorithms](13-GreedyAlgorithms/)
+- **[IntervalScheduling.java](13-GreedyAlgorithms/IntervalScheduling.java)**: Merge Intervals, Insert Interval, Non-overlapping Intervals, Burst Balloons with arrows.
+- **[GreedyOptimization.java](13-GreedyAlgorithms/GreedyOptimization.java)**: Gas Station circular tour, Jump Game I & II, Candy two-pass distribution.
+- **[GreedyHeuristics.java](13-GreedyAlgorithms/GreedyHeuristics.java)**: Fractional Knapsack (Value/Weight ratio sorting).
+- **[README.md](13-GreedyAlgorithms/README.md)**: Greedy choice property, interval scheduling decision table, proof templates.
+
 ---
 
 ## 🚀 How to Run
@@ -198,6 +204,7 @@ javac BitmaskAndCombinatorics.java && java BitmaskAndCombinatorics
 - [x] **10-Dynamic Programming**
 - [x] **11-Tries & String Structures**
 - [x] **12-Bit Manipulation & Mathematics**
+- [x] **13-Greedy Algorithms & Intervals**
 
 ---
 
