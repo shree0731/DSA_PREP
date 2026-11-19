@@ -90,4 +90,19 @@ public class GreedyOptimization {
         for (int c : candies) total += c;
         return total;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Greedy Optimization ===");
+        int[] gas = {1, 2, 3, 4, 5};
+        int[] cost = {3, 4, 5, 1, 2};
+        System.out.println("Gas Station Start Index: " + canCompleteCircuit(gas, cost) + " (Expected: 3)");
+
+        int[] jumpNums1 = {2, 3, 1, 1, 4};
+        System.out.println("Can Jump [2,3,1,1,4]: " + canJump(jumpNums1) + " (Expected: true)");
+        System.out.println("Min Jumps: " + jump(jumpNums1) + " (Expected: 2)");
+
+        int[] ratings = {1, 0, 2};
+        System.out.println("Candy Distribution: " + candy(ratings) + " (Expected: 5)");
+        System.out.println("All GreedyOptimization tests passed successfully!");
+    }
 }
