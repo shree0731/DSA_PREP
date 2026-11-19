@@ -64,4 +64,27 @@ public class IntervalScheduling {
         }
         return result.toArray(new int[result.size()][]);
     }
+
+    /**
+     * Non-overlapping Intervals (LeetCode 435).
+     * Minimum number of intervals to remove to make the rest non-overlapping.
+     * Greedily keeps interval with earliest end time.
+     * Time: O(N log N), Space: O(1).
+     */
+    public static int eraseOverlapIntervals(int[][] intervals) {
+        if (intervals.length <= 1) return 0;
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
+
+        int removals = 0;
+        int prevEnd = intervals[0][1];
+
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i][0] < prevEnd) {
+                removals++; // Overlap detected; remove interval with later end time
+            } else {
+                prevEnd = intervals[i][1];
+            }
+        }
+        return removals;
+    }
 }
