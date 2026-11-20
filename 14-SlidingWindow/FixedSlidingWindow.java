@@ -22,4 +22,33 @@ public class FixedSlidingWindow {
         }
         return maxSum;
     }
+
+    /**
+     * Sliding Window Maximum (LeetCode 239).
+     * Maintains a Monotonic Deque storing indices in decreasing order of their elements.
+     * Time: O(N), Space: O(K).
+     */
+    public static int[] maxSlidingWindow(int[] nums, int k) {
+        if (nums == null || k <= 0) return new int[0];
+        int n = nums.length;
+        int[] result = new int[n - k + 1];
+        Deque<Integer> deque = new ArrayDeque<>(); // Stores indices
+
+        for (int i = 0; i < n; i++) {
+            // Remove indices outside the current window
+            while (!deque.isEmpty() && deque.peekFirst() < i - k + 1) {
+                deque.pollFirst();
+            }
+            // Maintain monotonic decreasing order
+            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+                deque.pollLast();
+            }
+            deque.offerLast(i);
+
+            if (i >= k - 1) {
+                result[i - k + 1] = nums[deque.peekFirst()];
+            }
+        }
+        return result;
+    }
 }
