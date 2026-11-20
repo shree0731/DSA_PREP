@@ -67,4 +67,24 @@ public class VariableSlidingWindow {
         }
         return minLen == Integer.MAX_VALUE ? "" : s.substring(startIdx, startIdx + minLen);
     }
+
+    /**
+     * Longest Repeating Character Replacement (LeetCode 424).
+     * Allows replacing at most k characters.
+     * Time: O(N), Space: O(1).
+     */
+    public static int characterReplacement(String s, int k) {
+        int[] count = new int[26];
+        int maxFreq = 0, maxLen = 0, left = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            maxFreq = Math.max(maxFreq, ++count[s.charAt(right) - 'a']);
+            while ((right - left + 1) - maxFreq > k) {
+                count[s.charAt(left) - 'a']--;
+                left++;
+            }
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+        return maxLen;
+    }
 }
