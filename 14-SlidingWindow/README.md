@@ -43,3 +43,8 @@ for (int right = 0; right < n; right++) {
     // 3. Update optimal answer
 }
 ```
+
+---
+## 📋 Sliding Window Summary
+- Fixed: Monotonic Deque / Array diff
+- Variable: Two pointers contract/expand
