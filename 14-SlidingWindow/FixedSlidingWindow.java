@@ -51,4 +51,29 @@ public class FixedSlidingWindow {
         }
         return result;
     }
+
+    /**
+     * Find All Anagrams in a String (LeetCode 438).
+     * Time: O(N), Space: O(1) bounded by 26 letters.
+     */
+    public static List<Integer> findAnagrams(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        if (s.length() < p.length()) return result;
+
+        int[] pCount = new int[26];
+        int[] sCount = new int[26];
+        for (char c : p.toCharArray()) pCount[c - 'a']++;
+
+        int k = p.length();
+        for (int i = 0; i < s.length(); i++) {
+            sCount[s.charAt(i) - 'a']++;
+            if (i >= k) {
+                sCount[s.charAt(i - k) - 'a']--;
+            }
+            if (i >= k - 1 && Arrays.equals(pCount, sCount)) {
+                result.add(i - k + 1);
+            }
+        }
+        return result;
+    }
 }
