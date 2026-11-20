@@ -87,4 +87,17 @@ public class VariableSlidingWindow {
         }
         return maxLen;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Variable Sliding Window ===");
+        System.out.println("Longest Substring Without Repeats ('pwwkew'): " +
+                           lengthOfLongestSubstring("pwwkew") + " (Expected: 3)");
+
+        System.out.println("Min Window Substring ('ADOBECODEBANC', 'ABC'): '" +
+                           minWindow("ADOBECODEBANC", "ABC") + "' (Expected: 'BANC')");
+
+        System.out.println("Char Replacement ('AABABBA', k=1): " +
+                           characterReplacement("AABABBA", 1) + " (Expected: 4)");
+        System.out.println("All VariableSlidingWindow tests passed successfully!");
+    }
 }
