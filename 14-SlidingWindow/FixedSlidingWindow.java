@@ -76,4 +76,17 @@ public class FixedSlidingWindow {
         }
         return result;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Fixed Sliding Window ===");
+        int[] nums = {2, 1, 5, 1, 3, 2};
+        System.out.println("Max Sum Subarray (k=3): " + maxSumSubarray(nums, 3) + " (Expected: 9)");
+
+        int[] windowNums = {1, 3, -1, -3, 5, 3, 6, 7};
+        System.out.println("Sliding Window Maximum (k=3): " + Arrays.toString(maxSlidingWindow(windowNums, 3)) +
+                           " (Expected: [3, 3, 5, 5, 6, 7])");
+
+        System.out.println("Anagram Start Indices: " + findAnagrams("cbaebabacd", "abc") + " (Expected: [0, 6])");
+        System.out.println("All FixedSlidingWindow tests passed successfully!");
+    }
 }
