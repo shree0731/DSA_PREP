@@ -108,6 +108,12 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[GreedyHeuristics.java](13-GreedyAlgorithms/GreedyHeuristics.java)**: Fractional Knapsack (Value/Weight ratio sorting).
 - **[README.md](13-GreedyAlgorithms/README.md)**: Greedy choice property, interval scheduling decision table, proof templates.
 
+### [14-SlidingWindow](14-SlidingWindow/)
+- **[FixedSlidingWindow.java](14-SlidingWindow/FixedSlidingWindow.java)**: Max Sum Subarray of size K, Sliding Window Maximum via Monotonic Deque, Anagram matching.
+- **[VariableSlidingWindow.java](14-SlidingWindow/VariableSlidingWindow.java)**: Longest Substring Without Repeats, Minimum Window Substring, Longest Repeating Char Replacement.
+- **[TwoPointerTechniques.java](14-SlidingWindow/TwoPointerTechniques.java)**: Trapping Rain Water in O(1) space, Container With Most Water.
+- **[README.md](14-SlidingWindow/README.md)**: Fixed vs Variable templates, Monotonic Deque invariant, contraction triggers.
+
 ---
 
 ## 🚀 How to Run
@@ -205,6 +211,7 @@ javac BitmaskAndCombinatorics.java && java BitmaskAndCombinatorics
 - [x] **11-Tries & String Structures**
 - [x] **12-Bit Manipulation & Mathematics**
 - [x] **13-Greedy Algorithms & Intervals**
+- [x] **14-Sliding Window & Two Pointers**
 
 ---
 
