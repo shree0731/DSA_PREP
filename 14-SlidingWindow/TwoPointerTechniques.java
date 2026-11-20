@@ -6,6 +6,7 @@ import java.util.*;
  * @author Shreepurnaa V
  */
 public class TwoPointerTechniques {
+    // Optimal dual-pointer algorithm suite
 
     /**
      * Trapping Rain Water (LeetCode 42).
