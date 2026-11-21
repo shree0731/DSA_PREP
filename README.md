@@ -256,7 +256,7 @@ javac BitmaskAndCombinatorics.java && java BitmaskAndCombinatorics
 
 ---
 ## 🎓 Curriculum Completion Certificate
-All 10 core modules in the Java Data Structures & Algorithms curriculum have been designed, coded, documented, and rigorously verified:
+All 15 core and advanced modules in the Java Data Structures & Algorithms curriculum have been designed, coded, documented, and rigorously verified:
 1. `01-Arrays`
 2. `02-Strings`
 3. `03-Recursion`
@@ -267,5 +267,10 @@ All 10 core modules in the Java Data Structures & Algorithms curriculum have bee
 8. `08-HeapsAndPriorityQueues`
 9. `09-Graphs`
 10. `10-DynamicProgramming`
+11. `11-Tries`
+12. `12-BitManipulation`
+13. `13-GreedyAlgorithms`
+14. `14-SlidingWindow`
+15. `15-AdvancedDataStructures`
 
-*All 10 Modules Fully Verified with 560+ Production-Ready Commits.*
+*All 15 Modules Fully Verified with 630+ Production-Ready Commits.*
