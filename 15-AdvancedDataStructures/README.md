@@ -32,3 +32,15 @@ This module covers industrial and competitive programming data structures:
 | **Operations Supported** | Arbitrary associative operations (Sum, Min, Max, GCD) | Invertible prefix functions (Sum, XOR) |
 | **Point Update** | $O(\log N)$ | $O(\log N)$ |
 | **Range Query** | $O(\log N)$ | $O(\log N)$ |
+
+---
+
+## 📋 Complete Advanced Data Structures Cheat Sheet
+
+| Data Structure | Primary Operation | Query Time | Update Time | Space Complexity |
+|:---|:---|:---:|:---:|:---:|
+| **LRU Cache** | Key-Value Eviction | $O(1)$ | $O(1)$ | $O(\text{Capacity})$ |
+| **LFU Cache** | Frequency Eviction | $O(1)$ | $O(1)$ | $O(\text{Capacity})$ |
+| **Segment Tree** | Dynamic Range Query (Sum/Min/Max) | $O(\log N)$ | $O(\log N)$ | $O(4N)$ |
+| **Fenwick Tree** | Dynamic Prefix Query | $O(\log N)$ | $O(\log N)$ | $O(N)$ |
+| **Monotonic Stack**| Next Greater / Smaller Element | $O(1)$ amortized | $O(1)$ amortized | $O(N)$ |
