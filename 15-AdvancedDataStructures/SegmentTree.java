@@ -7,6 +7,7 @@ import java.util.*;
  * @author Shreepurnaa V
  */
 public class SegmentTree {
+    // Production-ready Segment Tree with O(log N) operations
 
     private final int[] tree;
     private final int n;
