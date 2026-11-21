@@ -1,7 +1,7 @@
 # DSA Preparation (Java)
 
 [![Language](https://img.shields.io/badge/Language-Java_8+-orange.svg)](https://www.oracle.com/java/)
-[![Progress](https://img.shields.io/badge/Milestone-10_Full_Curriculum_Completed-success.svg)](01-Arrays/)
+[![Progress](https://img.shields.io/badge/Milestone-15_Mastery_Completed-success.svg)](01-Arrays/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A curated, interview-focused repository for Data Structures and Algorithms preparation in Java. Every problem is implemented with multiple approaches (Brute Force, Better, and Optimal) along with Big-O complexity analysis and test cases.
@@ -114,6 +114,13 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[TwoPointerTechniques.java](14-SlidingWindow/TwoPointerTechniques.java)**: Trapping Rain Water in O(1) space, Container With Most Water.
 - **[README.md](14-SlidingWindow/README.md)**: Fixed vs Variable templates, Monotonic Deque invariant, contraction triggers.
 
+### [15-AdvancedDataStructures](15-AdvancedDataStructures/)
+- **[LRUAndLFUCache.java](15-AdvancedDataStructures/LRUAndLFUCache.java)**: LRU and LFU cache designs with O(1) eviction using DLL and HashMap.
+- **[SegmentTree.java](15-AdvancedDataStructures/SegmentTree.java)**: Array-based Segment Tree with range sum queries and point updates in O(log N).
+- **[FenwickTree.java](15-AdvancedDataStructures/FenwickTree.java)**: Binary Indexed Tree (BIT) with prefix sum queries and point updates.
+- **[MonotonicStackAndQueue.java](15-AdvancedDataStructures/MonotonicStackAndQueue.java)**: Largest Rectangle in Histogram and range bounds in O(N).
+- **[README.md](15-AdvancedDataStructures/README.md)**: Segment Tree vs Fenwick Tree, cache eviction mechanics, Big-O reference matrix.
+
 ---
 
 ## 🚀 How to Run
@@ -212,6 +219,7 @@ javac BitmaskAndCombinatorics.java && java BitmaskAndCombinatorics
 - [x] **12-Bit Manipulation & Mathematics**
 - [x] **13-Greedy Algorithms & Intervals**
 - [x] **14-Sliding Window & Two Pointers**
+- [x] **15-Advanced Data Structures (LRU/LFU, Segment Tree, Fenwick)**
 
 ---
 
