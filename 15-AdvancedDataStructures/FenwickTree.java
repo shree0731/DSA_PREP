@@ -8,6 +8,7 @@ import java.util.*;
  * @author Shreepurnaa V
  */
 public class FenwickTree {
+    // Binary Indexed Tree using 1-based lowbit arithmetic
 
     private final int[] tree;
     private final int n;
