@@ -40,4 +40,33 @@ public class CombinatoricsAndMatrixExp {
         }
         return res[0][0];
     }
+
+    /**
+     * Computes nCr % MOD in O(1) time after O(N) factorial precomputation.
+     */
+    public static class Combinatorics {
+        private final long[] fact;
+        private final long[] invFact;
+
+        public Combinatorics(int maxN) {
+            fact = new long[maxN + 1];
+            invFact = new long[maxN + 1];
+            fact[0] = 1;
+            invFact[0] = 1;
+
+            for (int i = 1; i <= maxN; i++) {
+                fact[i] = (fact[i - 1] * i) % MOD;
+            }
+
+            invFact[maxN] = EuclideanGCDAndModular.modPow(fact[maxN], MOD - 2, MOD);
+            for (int i = maxN - 1; i >= 1; i--) {
+                invFact[i] = (invFact[i + 1] * (i + 1)) % MOD;
+            }
+        }
+
+        public long nCr(int n, int r) {
+            if (r < 0 || r > n) return 0;
+            return fact[n] * invFact[r] % MOD * invFact[n - r] % MOD;
+        }
+    }
 }
