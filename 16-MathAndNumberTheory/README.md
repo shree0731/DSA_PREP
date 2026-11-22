@@ -16,3 +16,11 @@ This module covers prime generation, modular arithmetic, fast exponentiation, an
 ├── CombinatoricsAndMatrixExp.java  # Matrix Exponentiation (O(log N) Fibonacci), nCr modulo P
 └── README.md                       # Number theory formulas, modular inverse proofs, complexity table
 ```
+
+---
+
+## 🔢 Core Number Theory Theorems
+1. **Fermat's Little Theorem**: If $p$ is prime and $\gcd(a, p) = 1$, then:
+   $$a^{p - 1} \equiv 1 \pmod p \implies a^{p - 2} \equiv a^{-1} \pmod p$$
+2. **Euclid's Algorithm**: $\gcd(a, b) = \gcd(b, a \pmod b)$ runs in $O(\log(\min(a, b)))$.
+3. **Sieve of Eratosthenes**: Finds all primes up to $N$ in $O(N \log \log N)$ time.
