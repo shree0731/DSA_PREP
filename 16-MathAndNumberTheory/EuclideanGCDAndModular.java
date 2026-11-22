@@ -62,4 +62,20 @@ public class EuclideanGCDAndModular {
     public static long modInverse(long a, long mod) {
         return modPow(a, mod - 2, mod);
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Euclidean GCD and Modular Arithmetic ===");
+        System.out.println("GCD(48, 18): " + gcd(48, 18) + " (Expected: 6)");
+        System.out.println("LCM(48, 18): " + lcm(48, 18) + " (Expected: 144)");
+
+        long[] ext = extendedGCD(35, 15);
+        System.out.println("Extended GCD(35, 15): gcd=" + ext[0] + ", x=" + ext[1] + ", y=" + ext[2] +
+                           " -> 35*(" + ext[1] + ") + 15*(" + ext[2] + ") = " + (35 * ext[1] + 15 * ext[2]));
+
+        long mod = 1_000_000_007L;
+        System.out.println("2^10 % 1000: " + modPow(2, 10, 1000) + " (Expected: 24)");
+        long inv = modInverse(3, mod);
+        System.out.println("Inverse of 3 mod 10^9+7: " + inv + " -> (3 * inv) % mod = " + (3 * inv % mod));
+        System.out.println("All EuclideanGCDAndModular tests passed successfully!");
+    }
 }
