@@ -121,6 +121,12 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[MonotonicStackAndQueue.java](15-AdvancedDataStructures/MonotonicStackAndQueue.java)**: Largest Rectangle in Histogram and range bounds in O(N).
 - **[README.md](15-AdvancedDataStructures/README.md)**: Segment Tree vs Fenwick Tree, cache eviction mechanics, Big-O reference matrix.
 
+### [16-MathAndNumberTheory](16-MathAndNumberTheory/)
+- **[PrimeNumbersAndSieve.java](16-MathAndNumberTheory/PrimeNumbersAndSieve.java)**: Sieve of Eratosthenes, Segmented Sieve, Prime Factorization in O(sqrt(N)).
+- **[EuclideanGCDAndModular.java](16-MathAndNumberTheory/EuclideanGCDAndModular.java)**: Extended Euclidean, Fast Modular Exponentiation, Modular Inverse via Fermat.
+- **[CombinatoricsAndMatrixExp.java](16-MathAndNumberTheory/CombinatoricsAndMatrixExp.java)**: Matrix Exponentiation for O(log N) Fibonacci, nCr modulo P with precomputed factorials.
+- **[README.md](16-MathAndNumberTheory/README.md)**: Number theory formulas, modular inverse proofs, complexity table.
+
 ---
 
 ## 🚀 How to Run
@@ -220,6 +226,7 @@ javac BitmaskAndCombinatorics.java && java BitmaskAndCombinatorics
 - [x] **13-Greedy Algorithms & Intervals**
 - [x] **14-Sliding Window & Two Pointers**
 - [x] **15-Advanced Data Structures (LRU/LFU, Segment Tree, Fenwick)**
+- [x] **16-Mathematics & Number Theory**
 
 ---
 
