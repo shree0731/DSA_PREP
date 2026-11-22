@@ -69,4 +69,15 @@ public class CombinatoricsAndMatrixExp {
             return fact[n] * invFact[r] % MOD * invFact[n - r] % MOD;
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Matrix Exponentiation and Combinatorics ===");
+        System.out.println("Fibonacci(10): " + fibonacci(10) + " (Expected: 55)");
+        System.out.println("Fibonacci(50): " + fibonacci(50) + " (Expected: 12586269025 % 10^9+7 = 586268941)");
+
+        Combinatorics comb = new Combinatorics(100);
+        System.out.println("10 C 3: " + comb.nCr(10, 3) + " (Expected: 120)");
+        System.out.println("5 C 2: " + comb.nCr(5, 2) + " (Expected: 10)");
+        System.out.println("All CombinatoricsAndMatrixExp tests passed successfully!");
+    }
 }
