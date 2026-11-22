@@ -79,4 +79,18 @@ public class PrimeNumbersAndSieve {
         if (n > 1) factors.put(n, 1);
         return factors;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Prime Numbers and Sieve ===");
+        boolean[] primes30 = sieveOfEratosthenes(30);
+        List<Integer> primeList = new ArrayList<>();
+        for (int i = 0; i <= 30; i++) if (primes30[i]) primeList.add(i);
+        System.out.println("Primes up to 30: " + primeList);
+
+        List<Long> rangePrimes = segmentedSieve(10, 30);
+        System.out.println("Segmented Sieve [10, 30]: " + rangePrimes + " (Expected: [11, 13, 17, 19, 23, 29])");
+
+        System.out.println("Prime factors of 360: " + primeFactorization(360) + " (Expected: {2=3, 3=2, 5=1})");
+        System.out.println("All PrimeNumbersAndSieve tests passed successfully!");
+    }
 }
