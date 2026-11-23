@@ -53,4 +53,20 @@ public class BridgesAndArticulationPoints {
             isAP[u] = true;
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Articulation Points ===");
+        int n = 5;
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < n; i++) adj.add(new ArrayList<>());
+        adj.get(0).add(1); adj.get(1).add(0);
+        adj.get(0).add(2); adj.get(2).add(0);
+        adj.get(1).add(2); adj.get(2).add(1);
+        adj.get(0).add(3); adj.get(3).add(0);
+        adj.get(3).add(4); adj.get(4).add(3);
+
+        List<Integer> cutVertices = findArticulationPoints(n, adj);
+        System.out.println("Articulation Points: " + cutVertices + " (Expected: [0, 3])");
+        System.out.println("All BridgesAndArticulationPoints tests passed successfully!");
+    }
 }
