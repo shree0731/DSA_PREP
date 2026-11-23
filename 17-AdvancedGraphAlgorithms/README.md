@@ -19,3 +19,9 @@ This module explores graph theory concepts:
 ├── BridgesAndArticulationPoints.java # Tarjan's Articulation Points & Bridges
 └── README.md                        # Eulerian criteria, Max Flow Min Cut theorem, Flow complexity
 ```
+
+---
+
+## 🌊 Max-Flow Min-Cut Theorem
+In any network flow graph, the **Maximum Flow** passing from source $S$ to sink $T$ equals the **Minimum Capacity** of a cut $(S, T)$ whose removal disconnects $S$ from $T$.
+- **Edmonds-Karp**: Implements Ford-Fulkerson using **BFS** to find shortest augmenting paths in $O(V \cdot E^2)$ time.
