@@ -127,6 +127,12 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[CombinatoricsAndMatrixExp.java](16-MathAndNumberTheory/CombinatoricsAndMatrixExp.java)**: Matrix Exponentiation for O(log N) Fibonacci, nCr modulo P with precomputed factorials.
 - **[README.md](16-MathAndNumberTheory/README.md)**: Number theory formulas, modular inverse proofs, complexity table.
 
+### [17-AdvancedGraphAlgorithms](17-AdvancedGraphAlgorithms/)
+- **[EulerianPathAndCircuit.java](17-AdvancedGraphAlgorithms/EulerianPathAndCircuit.java)**: Hierholzer algorithm, Reconstruct Itinerary (LeetCode 332), Valid Arrangement of Pairs.
+- **[NetworkFlowAndMatching.java](17-AdvancedGraphAlgorithms/NetworkFlowAndMatching.java)**: Edmonds-Karp Maximum Flow algorithm and Bipartite Matching via residual graph.
+- **[BridgesAndArticulationPoints.java](17-AdvancedGraphAlgorithms/BridgesAndArticulationPoints.java)**: Tarjan's Articulation Points and Cut Vertices.
+- **[README.md](17-AdvancedGraphAlgorithms/README.md)**: Eulerian conditions, Max-Flow Min-Cut theorem, Articulation point proofs.
+
 ---
 
 ## 🚀 How to Run
@@ -227,6 +233,7 @@ javac BitmaskAndCombinatorics.java && java BitmaskAndCombinatorics
 - [x] **14-Sliding Window & Two Pointers**
 - [x] **15-Advanced Data Structures (LRU/LFU, Segment Tree, Fenwick)**
 - [x] **16-Mathematics & Number Theory**
+- [x] **17-Advanced Graph Algorithms & Network Flow**
 
 ---
 
