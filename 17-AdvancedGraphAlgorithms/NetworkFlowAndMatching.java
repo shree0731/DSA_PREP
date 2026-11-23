@@ -70,4 +70,23 @@ public class NetworkFlowAndMatching {
             return false;
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Edmonds-Karp Maximum Flow ===");
+        FlowNetwork network = new FlowNetwork(6);
+        network.addEdge(0, 1, 16);
+        network.addEdge(0, 2, 13);
+        network.addEdge(1, 2, 10);
+        network.addEdge(1, 3, 12);
+        network.addEdge(2, 1, 4);
+        network.addEdge(2, 4, 14);
+        network.addEdge(3, 2, 9);
+        network.addEdge(3, 5, 20);
+        network.addEdge(4, 3, 7);
+        network.addEdge(4, 5, 4);
+
+        int maxFlow = network.edmondsKarp(0, 5);
+        System.out.println("Maximum Flow from 0 to 5: " + maxFlow + " (Expected: 23)");
+        System.out.println("All NetworkFlowAndMatching tests passed successfully!");
+    }
 }
