@@ -6,6 +6,7 @@ import java.util.*;
  * @author Shreepurnaa V
  */
 public class EulerianPathAndCircuit {
+    // Linear-time Eulerian trail and circuit reconstruction
 
     /**
      * Reconstruct Itinerary (LeetCode 332).
