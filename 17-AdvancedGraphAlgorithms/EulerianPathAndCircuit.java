@@ -76,4 +76,20 @@ public class EulerianPathAndCircuit {
         }
         path.add(curr);
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Eulerian Path & Hierholzer ===");
+        List<List<String>> tickets = Arrays.asList(
+                Arrays.asList("MUC", "LHR"),
+                Arrays.asList("JFK", "MUC"),
+                Arrays.asList("SFO", "SJC"),
+                Arrays.asList("LHR", "SFO")
+        );
+        System.out.println("Flight Itinerary from JFK: " + findItinerary(tickets) + " (Expected: [JFK, MUC, LHR, SFO, SJC])");
+
+        int[][] pairs = {{5, 1}, {4, 5}, {11, 9}, {9, 4}};
+        int[][] arrangement = validArrangement(pairs);
+        System.out.println("Valid Pairs Arrangement: " + Arrays.deepToString(arrangement));
+        System.out.println("All EulerianPathAndCircuit tests passed successfully!");
+    }
 }
