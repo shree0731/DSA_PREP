@@ -31,4 +31,49 @@ public class EulerianPathAndCircuit {
         }
         itinerary.addFirst(airport); // Postorder insertion constructs Eulerian path
     }
+
+    /**
+     * Valid Arrangement of Pairs (LeetCode 2097).
+     * Reconstructs directed Eulerian path from given directed edges.
+     */
+    public static int[][] validArrangement(int[][] pairs) {
+        Map<Integer, Deque<Integer>> adj = new HashMap<>();
+        Map<Integer, Integer> inDegree = new HashMap<>();
+        Map<Integer, Integer> outDegree = new HashMap<>();
+
+        for (int[] p : pairs) {
+            int u = p[0], v = p[1];
+            adj.computeIfAbsent(u, k -> new ArrayDeque<>()).push(v);
+            outDegree.put(u, outDegree.getOrDefault(u, 0) + 1);
+            inDegree.put(v, inDegree.getOrDefault(v, 0) + 1);
+        }
+
+        int startNode = pairs[0][0];
+        for (int node : outDegree.keySet()) {
+            if (outDegree.get(node) - inDegree.getOrDefault(node, 0) == 1) {
+                startNode = node;
+                break;
+            }
+        }
+
+        List<Integer> path = new ArrayList<>();
+        eulerDfs(startNode, adj, path);
+        Collections.reverse(path);
+
+        int[][] result = new int[pairs.length][2];
+        for (int i = 0; i < path.size() - 1; i++) {
+            result[i][0] = path.get(i);
+            result[i][1] = path.get(i + 1);
+        }
+        return result;
+    }
+
+    private static void eulerDfs(int curr, Map<Integer, Deque<Integer>> adj, List<Integer> path) {
+        Deque<Integer> neighbors = adj.get(curr);
+        while (neighbors != null && !neighbors.isEmpty()) {
+            int next = neighbors.pop();
+            eulerDfs(next, adj, path);
+        }
+        path.add(curr);
+    }
 }
