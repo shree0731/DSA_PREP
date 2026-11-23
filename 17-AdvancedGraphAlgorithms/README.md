@@ -31,3 +31,7 @@ In any network flow graph, the **Maximum Flow** passing from source $S$ to sink 
 ## ⚡ Articulation Condition vs Bridge Condition
 - **Bridge $(u, v)$**: `low[v] > tin[u]` (Strictly greater: no back-edge reaches $u$ or its ancestors).
 - **Articulation Point $u$**: `low[v] >= tin[u]` (Subtree cannot reach any strict ancestor of $u$).
+
+---
+## 📊 Bipartite Matching via Max Flow
+Source S connects to all Left with cap=1; Right connects to Sink T with cap=1.
