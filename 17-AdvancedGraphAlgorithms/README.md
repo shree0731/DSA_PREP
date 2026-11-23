@@ -25,3 +25,9 @@ This module explores graph theory concepts:
 ## 🌊 Max-Flow Min-Cut Theorem
 In any network flow graph, the **Maximum Flow** passing from source $S$ to sink $T$ equals the **Minimum Capacity** of a cut $(S, T)$ whose removal disconnects $S$ from $T$.
 - **Edmonds-Karp**: Implements Ford-Fulkerson using **BFS** to find shortest augmenting paths in $O(V \cdot E^2)$ time.
+
+---
+
+## ⚡ Articulation Condition vs Bridge Condition
+- **Bridge $(u, v)$**: `low[v] > tin[u]` (Strictly greater: no back-edge reaches $u$ or its ancestors).
+- **Articulation Point $u$**: `low[v] >= tin[u]` (Subtree cannot reach any strict ancestor of $u$).
