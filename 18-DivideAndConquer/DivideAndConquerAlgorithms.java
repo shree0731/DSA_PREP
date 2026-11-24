@@ -46,4 +46,20 @@ public class DivideAndConquerAlgorithms {
         for (i = left; i <= right; i++) arr[i] = temp[i];
         return invCount;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Divide and Conquer Algorithms ===");
+        int[] invNums = {8, 4, 2, 1};
+        System.out.println("Inversion Count for [8, 4, 2, 1]: " + countInversions(invNums) + " (Expected: 6)");
+
+        int[] rotNums = {4, 5, 6, 7, 0, 1, 2};
+        System.out.println("Search 0 in Rotated Array: " + RotatedSortedSearchAndMedian.searchRotated(rotNums, 0) + " (Expected: 4)");
+
+        int[] a = {1, 3}, b = {2};
+        System.out.println("Median of [1, 3] and [2]: " + RotatedSortedSearchAndMedian.findMedianSortedArrays(a, b) + " (Expected: 2.0)");
+
+        int[] a2 = {1, 2}, b2 = {3, 4};
+        System.out.println("Median of [1, 2] and [3, 4]: " + RotatedSortedSearchAndMedian.findMedianSortedArrays(a2, b2) + " (Expected: 2.5)");
+        System.out.println("All DivideAndConquerAlgorithms tests passed successfully!");
+    }
 }
