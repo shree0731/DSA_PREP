@@ -16,3 +16,16 @@ Binary Search on Answer applies this principle to monotonic solution search spac
 ├── DivideAndConquerAlgorithms.java   # Count Inversions via Merge Sort, Maximum Subarray D&C
 └── README.md                         # Predicate functions, Master Theorem, binary search invariants
 ```
+
+---
+
+## 🎯 Binary Search on Answer Pattern
+When problem asks for:
+- "Minimum capacity to complete within $K$ days"
+- "Maximum speed to finish eating within $H$ hours"
+
+Define a monotonic boolean feasibility function `canAchieve(mid)`:
+```
+Search Space: [F, F, F, ..., T, T, T]  -> Find First True (Lower Bound)
+```
+Time Complexity: $O(\text{Verification Time} \cdot \log(\text{Range}))$.
