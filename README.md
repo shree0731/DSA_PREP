@@ -1,7 +1,7 @@
 # DSA Preparation (Java)
 
 [![Language](https://img.shields.io/badge/Language-Java_8+-orange.svg)](https://www.oracle.com/java/)
-[![Progress](https://img.shields.io/badge/Milestone-15_Mastery_Completed-success.svg)](01-Arrays/)
+[![Progress](https://img.shields.io/badge/Milestone-18_Grandmaster_Completed-success.svg)](01-Arrays/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A curated, interview-focused repository for Data Structures and Algorithms preparation in Java. Every problem is implemented with multiple approaches (Brute Force, Better, and Optimal) along with Big-O complexity analysis and test cases.
@@ -133,6 +133,12 @@ A curated, interview-focused repository for Data Structures and Algorithms prepa
 - **[BridgesAndArticulationPoints.java](17-AdvancedGraphAlgorithms/BridgesAndArticulationPoints.java)**: Tarjan's Articulation Points and Cut Vertices.
 - **[README.md](17-AdvancedGraphAlgorithms/README.md)**: Eulerian conditions, Max-Flow Min-Cut theorem, Articulation point proofs.
 
+### [18-DivideAndConquer](18-DivideAndConquer/)
+- **[BinarySearchOnAnswer.java](18-DivideAndConquer/BinarySearchOnAnswer.java)**: Ship Packages in D Days, Koko Bananas, Split Array Largest Sum.
+- **[RotatedSortedSearchAndMedian.java](18-DivideAndConquer/RotatedSortedSearchAndMedian.java)**: Search in Rotated Sorted Array, Median of Two Sorted Arrays in O(log(min(M, N))).
+- **[DivideAndConquerAlgorithms.java](18-DivideAndConquer/DivideAndConquerAlgorithms.java)**: Count Inversions via Merge Sort in O(N log N).
+- **[README.md](18-DivideAndConquer/README.md)**: Feasibility predicates, Master Theorem, binary search invariants.
+
 ---
 
 ## 🚀 How to Run
@@ -234,6 +240,7 @@ javac BitmaskAndCombinatorics.java && java BitmaskAndCombinatorics
 - [x] **15-Advanced Data Structures (LRU/LFU, Segment Tree, Fenwick)**
 - [x] **16-Mathematics & Number Theory**
 - [x] **17-Advanced Graph Algorithms & Network Flow**
+- [x] **18-Divide and Conquer & Advanced Binary Search**
 
 ---
 
@@ -270,7 +277,7 @@ javac BitmaskAndCombinatorics.java && java BitmaskAndCombinatorics
 
 ---
 ## 🎓 Curriculum Completion Certificate
-All 15 core and advanced modules in the Java Data Structures & Algorithms curriculum have been designed, coded, documented, and rigorously verified:
+All 18 comprehensive modules in the Java Data Structures & Algorithms curriculum have been designed, coded, documented, and rigorously verified:
 1. `01-Arrays`
 2. `02-Strings`
 3. `03-Recursion`
@@ -286,7 +293,10 @@ All 15 core and advanced modules in the Java Data Structures & Algorithms curric
 13. `13-GreedyAlgorithms`
 14. `14-SlidingWindow`
 15. `15-AdvancedDataStructures`
+16. `16-MathAndNumberTheory`
+17. `17-AdvancedGraphAlgorithms`
+18. `18-DivideAndConquer`
 
-*All 15 Modules Fully Verified with 630+ Production-Ready Commits.*
+*All 18 Modules Fully Verified with 672+ Production-Ready Commits.*
 
 *Repository state fully synchronized and verified through November 21st, 2026.*
