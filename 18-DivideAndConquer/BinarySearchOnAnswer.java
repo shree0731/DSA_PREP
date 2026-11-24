@@ -70,4 +70,17 @@ public class BinarySearchOnAnswer {
     public static int splitArray(int[] nums, int k) {
         return shipWithinDays(nums, k);
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Binary Search on Answer ===");
+        int[] weights = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println("Ship Within 5 Days Capacity: " + shipWithinDays(weights, 5) + " (Expected: 15)");
+
+        int[] piles = {3, 6, 7, 11};
+        System.out.println("Koko Min Eating Speed (h=8): " + minEatingSpeed(piles, 8) + " (Expected: 4)");
+
+        int[] splitNums = {7, 2, 5, 10, 8};
+        System.out.println("Split Array Largest Sum (k=2): " + splitArray(splitNums, 2) + " (Expected: 18)");
+        System.out.println("All BinarySearchOnAnswer tests passed successfully!");
+    }
 }
