@@ -6,6 +6,7 @@ import java.util.*;
  * @author Shreepurnaa V
  */
 public class RotatedSortedSearchAndMedian {
+    // Dual binary search partition techniques
 
     /**
      * Search in Rotated Sorted Array (LeetCode 33).
