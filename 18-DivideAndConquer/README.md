@@ -29,3 +29,11 @@ Define a monotonic boolean feasibility function `canAchieve(mid)`:
 Search Space: [F, F, F, ..., T, T, T]  -> Find First True (Lower Bound)
 ```
 Time Complexity: $O(\text{Verification Time} \cdot \log(\text{Range}))$.
+
+---
+
+## ⚡ Master Theorem Cheat Sheet
+For recurrence $T(N) = a \cdot T(N / b) + O(N^d)$:
+1. If $d < \log_b a \implies T(N) = O(N^{\log_b a})$.
+2. If $d = \log_b a \implies T(N) = O(N^d \log N)$ (e.g. Merge Sort: $a=2, b=2, d=1$).
+3. If $d > \log_b a \implies T(N) = O(N^d)$.
