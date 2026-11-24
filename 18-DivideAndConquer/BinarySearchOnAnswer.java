@@ -6,6 +6,7 @@ import java.util.*;
  * @author Shreepurnaa V
  */
 public class BinarySearchOnAnswer {
+    // Feasibility predicate binary search algorithms
 
     /**
      * Capacity To Ship Packages Within D Days (LeetCode 1011).
